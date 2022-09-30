@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hifive">
+    package="com.onix.hifive.mobile">
    <application
         android:label="hifive"
         android:name="${applicationName}"
