@@ -1,10 +1,10 @@
 # hifive
 
 # assets 
-    - images, logos, translations
+    images, logos, translations
 
 # functions
-    - cloud functions(firebase, firestore)
+    cloud functions(firebase, firestore)
 
 # lib
 ## config
@@ -15,8 +15,8 @@
     main.dart
 
 # packages
-    - local user package
-    - user -> authentication
+    local user package
+    user -> authentication
         firestore users
 
 # test
