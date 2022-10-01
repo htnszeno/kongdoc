@@ -12,8 +12,7 @@
 ## pages
 ## providers
     app.dart
-main.dart
-    - app
+    main.dart
 
 # packages
     - local user package
