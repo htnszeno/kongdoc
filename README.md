@@ -12,10 +12,16 @@ app specific configuration
     
     - palette.dart  colors used within app
 ## domain
+logic behind the main function of app
+
 ## pages
+screens
+
 ## providers
-    app.dart
-    main.dart
+state 
+
+### app.dart
+### main.dart
 
 # packages
     local user package
