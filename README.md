@@ -9,6 +9,7 @@
 # lib
 ## config
     app specific configuration
+    - palette.dart  colors used within app
 ## domain
 ## pages
 ## providers
