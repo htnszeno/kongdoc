@@ -1,16 +1,23 @@
 # hifive
 
-A new Flutter project.
+# assets 
+    - images, logos, translations
 
-## Getting Started
+# functions
+    - cloud functions(firebase, firestore)
 
-This project is a starting point for a Flutter application.
+# lib
+## config
+## domain
+## pages
+## providers
+app.dart
+main.dart
+    - app
 
-A few resources to get you started if this is your first Flutter project:
+# packages
+    - local user package
+    - user -> authentication
+        firestore users
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# test
