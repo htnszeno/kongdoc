@@ -8,6 +8,7 @@
 
 # lib
 ## config
+app specific configuration
 ## domain
 ## pages
 ## providers
