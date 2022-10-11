@@ -8,7 +8,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hifive/counter/counter.dart';
+import 'package:hifive/pages/counter/counter.dart';
 
 void main() {
   group('CounterCubit', () {

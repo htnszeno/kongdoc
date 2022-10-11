@@ -7,7 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hifive/app/app.dart';
-import 'package:hifive/counter/counter.dart';
+import 'package:hifive/pages/counter/counter.dart';
 
 void main() {
   group('App', () {

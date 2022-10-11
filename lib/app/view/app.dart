@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hifive/counter/counter.dart';
+import 'package:hifive/pages/counter/counter.dart';
 import 'package:hifive/l10n/l10n.dart';
 
 class App extends StatelessWidget {
