@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hifive/counter/counter.dart';
+import 'package:hifive/pages/counter/counter.dart';
 import 'package:hifive/l10n/l10n.dart';
 
 class CounterPage extends StatelessWidget {
