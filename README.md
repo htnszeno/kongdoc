@@ -26,6 +26,10 @@ bloc 패턴을 중심으로 각 폴더의 역할을 설명한다.
 │   ├── pages
 │   ├── utils
 │   ├── widgets
+│   ├── bootstrap.dart
+│   ├── main_development.dart
+│   ├── main_production.dart
+│   ├── main_staging.dart
 ├── packages
 ├── test
 
