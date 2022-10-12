@@ -13,4 +13,3 @@ dependencies:
 dev_dependencies:
   test: ^1.17.11
   very_good_analysis: ^3.0.2
-  flutter_lints: ^2.0.0

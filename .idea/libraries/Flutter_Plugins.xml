@@ -6,6 +6,10 @@
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-4.6.1" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.24.0" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.3" />
+      <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.10.2" />
+      <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/google_sign_in_ios-5.5.0" />
+      <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/google_sign_in-5.4.2" />
+      <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/google_sign_in_android-6.1.1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
