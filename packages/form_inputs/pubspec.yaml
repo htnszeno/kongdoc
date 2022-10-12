@@ -1,0 +1,15 @@
+name: form_inputs
+description: A new Flutter package project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  formz: ^0.4.1
+
+dev_dependencies:
+  very_good_analysis: ^3.0.2
+  flutter_lints: ^2.0.0

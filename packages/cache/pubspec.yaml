@@ -1,0 +1,16 @@
+name: cache
+description: A new Flutter package project.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  test: ^1.17.11
+  very_good_analysis: ^3.0.2
+  flutter_lints: ^2.0.0

@@ -31,7 +31,7 @@ bloc 패턴을 중심으로 각 폴더의 역할을 설명한다.
 │   ├── main_production.dart
 │   ├── main_staging.dart
 ├── packages
-├── test
+└── test
 
 ```
 ---

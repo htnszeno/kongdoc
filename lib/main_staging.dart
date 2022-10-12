@@ -5,9 +5,11 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:flutter/material.dart';
 import 'package:hifive/app/app.dart';
 import 'package:hifive/bootstrap.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   bootstrap(() => const App());
 }
