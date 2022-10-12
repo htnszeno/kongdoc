@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "432023260881-gjvg05kpaafe19hb1v3om6nbmoeoc8jm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onix.hifive",
+            "certificate_hash": "7192ee584ad63905d31afa26fdae818df789f17a"
+          }
+        },
+        {
           "client_id": "432023260881-vl700smu8dk5mt73cai8q71gdu521519.apps.googleusercontent.com",
           "client_type": 3
         }

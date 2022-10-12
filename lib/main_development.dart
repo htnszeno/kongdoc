@@ -12,10 +12,9 @@ import 'package:hifive/bootstrap.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 
 Future<void> main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final authenticationRepository = AuthenticationRepository();
 
-  bootstrap(() => const App());
+  bootstrap(() => App(authenticationRepository: authenticationRepository));
 }

@@ -39,6 +39,7 @@ INJECTED from /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/androi
 MERGED from /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/android/app/src/main/AndroidManifest.xml:1:1-33:12
 MERGED from [:firebase_auth] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
+MERGED from [:path_provider_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:google_sign_in_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/542a859793ec57d6a4d40865c7efc6d9/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
@@ -96,6 +97,8 @@ MERGED from [:firebase_auth] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mo
 MERGED from [:firebase_auth] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41

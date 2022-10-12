@@ -5,9 +5,16 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:hifive/app/app.dart';
 import 'package:hifive/bootstrap.dart';
+import 'package:authentication_repository/authentication_repository.dart';
 
-void main() {
-  bootstrap(() => const App());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  final authenticationRepository = AuthenticationRepository();
+
+  bootstrap(() => App(authenticationRepository: authenticationRepository));
 }
