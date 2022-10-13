@@ -1,29 +1,33 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
-
-import '../widgets/widgets.dart';
+import 'package:hifive/pages/home/widgets/avatar.dart';
+import 'package:hifive/pages/note/add_note/add_note_page.dart';
+import 'package:hifive/pages/note/home/note_home_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
+
   static Page<void> page() => const MaterialPage<void>(child: HomePage());
+
+  static Route<void> route() {
+    return MaterialPageRoute(
+        fullscreenDialog: true, builder: (context) => HomePage());
+  }
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-
+    final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home.'),
+        title: const Text('Home'),
         actions: <Widget>[
           IconButton(
-              key: const Key('homePage_logout_iconButton'),
-              icon: const Icon(Icons.exit_to_app),
-              onPressed: () {
-                context.read<AppBloc>().add(AppLogoutRequested());
-              })
+            key: const Key('homePage_logout_iconButton'),
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () => context.read<AppBloc>().add(AppLogoutRequested()),
+          )
         ],
       ),
       body: Align(
@@ -31,13 +35,16 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Avatar(
-                photo:
-                    'https://www.princeton.edu/sites/default/files/styles/full_2x/public/images/2022/02/KOA_Nassau_2697x1517.jpg?itok=Hy5eTACi'),
+            Avatar(photo: user.photo),
             const SizedBox(height: 4),
-            Text('email', style: textTheme.headline6),
+            Text(user.email ?? '', style: textTheme.headline6),
             const SizedBox(height: 4),
-            Text('user.name', style: textTheme.headline5),
+            Text(user.name ?? '', style: textTheme.headline5),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(NoteHomePage.route());
+                },
+                child: Text("Note Page"))
           ],
         ),
       ),

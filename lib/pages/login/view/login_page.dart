@@ -8,6 +8,11 @@ class LoginPage extends StatelessWidget {
 
   static Page<void> page() => const MaterialPage<void>(child: LoginPage());
 
+  static Route<void> route() {
+    return MaterialPageRoute(
+        fullscreenDialog: true, builder: (context) => LoginPage());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -5,6 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+// ignore_for_file: sort_constructors_first
+
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
@@ -13,25 +15,36 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/app/routes/routes.dart';
 import 'package:hifive/l10n/l10n.dart';
+import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/theme.dart';
 
 class App extends StatelessWidget {
   final AuthenticationRepository _authenticationRepository;
+  final NoteRepository _noteRepository;
 
   const App({
     super.key,
     required AuthenticationRepository authenticationRepository,
-  }) : _authenticationRepository = authenticationRepository;
+    required NoteRepository noteRepository,
+  })  : _authenticationRepository = authenticationRepository,
+        _noteRepository = noteRepository;
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider.value(
-      value: _authenticationRepository,
-      child: BlocProvider(
-        create: (_) => AppBloc(
-          authenticationRepository: _authenticationRepository,
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider.value(
+          value: _noteRepository,
         ),
-        child: const AppView(),
+      ],
+      child: RepositoryProvider.value(
+        value: _authenticationRepository,
+        child: BlocProvider(
+          create: (_) => AppBloc(
+            authenticationRepository: _authenticationRepository,
+          ),
+          child: const AppView(),
+        ),
       ),
     );
   }

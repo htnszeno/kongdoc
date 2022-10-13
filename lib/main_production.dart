@@ -10,11 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:hifive/app/app.dart';
 import 'package:hifive/bootstrap.dart';
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:hifive/repositories/note/note_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final authenticationRepository = AuthenticationRepository();
+  final noteRepository = NoteRepository();
 
-  bootstrap(() => App(authenticationRepository: authenticationRepository));
+  bootstrap(
+    () => App(
+      authenticationRepository: authenticationRepository,
+      noteRepository: noteRepository,
+    ),
+  );
 }
