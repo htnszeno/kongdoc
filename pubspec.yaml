@@ -30,11 +30,13 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.7.0
   pretty_dio_logger: ^1.1.1
+  reactive_color_picker: ^0.4.0
   reactive_forms: ^14.1.0
 
 dev_dependencies:
   bloc_test: ^9.1.0
   build_runner: ^2.2.0
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1

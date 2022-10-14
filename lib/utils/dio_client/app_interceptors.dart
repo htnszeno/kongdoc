@@ -1,13 +1,13 @@
 part of "dio_client.dart";
 
 class AppInterceptors extends QueuedInterceptor {
-  static AppInterceptors? _singleton;
-
-  AppInterceptors._internal();
-
   factory AppInterceptors() {
     return _singleton ??= AppInterceptors._internal();
   }
+
+  AppInterceptors._internal();
+  static AppInterceptors? _singleton;
+
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {

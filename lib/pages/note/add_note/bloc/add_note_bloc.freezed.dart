@@ -16,37 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddNoteEvent {
+  NoteItem? get note => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(NoteItem? note) setSelectedNote,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(NoteItem? note)? setSelectedNote,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(NoteItem? note)? setSelectedNote,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(SetSelectedNote value) setSelectedNote,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(SetSelectedNote value)? setSelectedNote,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(SetSelectedNote value)? setSelectedNote,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AddNoteEventCopyWith<AddNoteEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +60,9 @@ abstract class $AddNoteEventCopyWith<$Res> {
   factory $AddNoteEventCopyWith(
           AddNoteEvent value, $Res Function(AddNoteEvent) then) =
       _$AddNoteEventCopyWithImpl<$Res>;
+  $Res call({NoteItem? note});
+
+  $NoteItemCopyWith<$Res>? get note;
 }
 
 /// @nodoc
@@ -64,68 +72,122 @@ class _$AddNoteEventCopyWithImpl<$Res> implements $AddNoteEventCopyWith<$Res> {
   final AddNoteEvent _value;
   // ignore: unused_field
   final $Res Function(AddNoteEvent) _then;
-}
-
-/// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_StartedCopyWithImpl<$Res> extends _$AddNoteEventCopyWithImpl<$Res>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
 
   @override
-  _$_Started get _value => super._value as _$_Started;
+  $Res call({
+    Object? note = freezed,
+  }) {
+    return _then(_value.copyWith(
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as NoteItem?,
+    ));
+  }
+
+  @override
+  $NoteItemCopyWith<$Res>? get note {
+    if (_value.note == null) {
+      return null;
+    }
+
+    return $NoteItemCopyWith<$Res>(_value.note!, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$SetSelectedNoteCopyWith<$Res>
+    implements $AddNoteEventCopyWith<$Res> {
+  factory _$$SetSelectedNoteCopyWith(
+          _$SetSelectedNote value, $Res Function(_$SetSelectedNote) then) =
+      __$$SetSelectedNoteCopyWithImpl<$Res>;
+  @override
+  $Res call({NoteItem? note});
+
+  @override
+  $NoteItemCopyWith<$Res>? get note;
+}
+
+/// @nodoc
+class __$$SetSelectedNoteCopyWithImpl<$Res>
+    extends _$AddNoteEventCopyWithImpl<$Res>
+    implements _$$SetSelectedNoteCopyWith<$Res> {
+  __$$SetSelectedNoteCopyWithImpl(
+      _$SetSelectedNote _value, $Res Function(_$SetSelectedNote) _then)
+      : super(_value, (v) => _then(v as _$SetSelectedNote));
+
+  @override
+  _$SetSelectedNote get _value => super._value as _$SetSelectedNote;
+
+  @override
+  $Res call({
+    Object? note = freezed,
+  }) {
+    return _then(_$SetSelectedNote(
+      note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as NoteItem?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$SetSelectedNote implements SetSelectedNote {
+  const _$SetSelectedNote(this.note);
+
+  @override
+  final NoteItem? note;
 
   @override
   String toString() {
-    return 'AddNoteEvent.started()';
+    return 'AddNoteEvent.setSelectedNote(note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$SetSelectedNote &&
+            const DeepCollectionEquality().equals(other.note, note));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(note));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SetSelectedNoteCopyWith<_$SetSelectedNote> get copyWith =>
+      __$$SetSelectedNoteCopyWithImpl<_$SetSelectedNote>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(NoteItem? note) setSelectedNote,
   }) {
-    return started();
+    return setSelectedNote(note);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(NoteItem? note)? setSelectedNote,
   }) {
-    return started?.call();
+    return setSelectedNote?.call(note);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(NoteItem? note)? setSelectedNote,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (setSelectedNote != null) {
+      return setSelectedNote(note);
     }
     return orElse();
   }
@@ -133,69 +195,51 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(SetSelectedNote value) setSelectedNote,
   }) {
-    return started(this);
+    return setSelectedNote(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(SetSelectedNote value)? setSelectedNote,
   }) {
-    return started?.call(this);
+    return setSelectedNote?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(SetSelectedNote value)? setSelectedNote,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (setSelectedNote != null) {
+      return setSelectedNote(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements AddNoteEvent {
-  const factory _Started() = _$_Started;
+abstract class SetSelectedNote implements AddNoteEvent {
+  const factory SetSelectedNote(final NoteItem? note) = _$SetSelectedNote;
+
+  @override
+  NoteItem? get note;
+  @override
+  @JsonKey(ignore: true)
+  _$$SetSelectedNoteCopyWith<_$SetSelectedNote> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$AddNoteState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  DataStatus get status => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+  NoteItem? get note => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AddNoteStateCopyWith<AddNoteState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -204,6 +248,9 @@ abstract class $AddNoteStateCopyWith<$Res> {
   factory $AddNoteStateCopyWith(
           AddNoteState value, $Res Function(AddNoteState) then) =
       _$AddNoteStateCopyWithImpl<$Res>;
+  $Res call({DataStatus status, String message, NoteItem? note});
+
+  $NoteItemCopyWith<$Res>? get note;
 }
 
 /// @nodoc
@@ -213,101 +260,144 @@ class _$AddNoteStateCopyWithImpl<$Res> implements $AddNoteStateCopyWith<$Res> {
   final AddNoteState _value;
   // ignore: unused_field
   final $Res Function(AddNoteState) _then;
-}
-
-/// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$AddNoteStateCopyWithImpl<$Res>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _$_Initial get _value => super._value as _$_Initial;
+  $Res call({
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? note = freezed,
+  }) {
+    return _then(_value.copyWith(
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as DataStatus,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as NoteItem?,
+    ));
+  }
+
+  @override
+  $NoteItemCopyWith<$Res>? get note {
+    if (_value.note == null) {
+      return null;
+    }
+
+    return $NoteItemCopyWith<$Res>(_value.note!, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_AddNoteStateCopyWith<$Res>
+    implements $AddNoteStateCopyWith<$Res> {
+  factory _$$_AddNoteStateCopyWith(
+          _$_AddNoteState value, $Res Function(_$_AddNoteState) then) =
+      __$$_AddNoteStateCopyWithImpl<$Res>;
+  @override
+  $Res call({DataStatus status, String message, NoteItem? note});
+
+  @override
+  $NoteItemCopyWith<$Res>? get note;
+}
+
+/// @nodoc
+class __$$_AddNoteStateCopyWithImpl<$Res>
+    extends _$AddNoteStateCopyWithImpl<$Res>
+    implements _$$_AddNoteStateCopyWith<$Res> {
+  __$$_AddNoteStateCopyWithImpl(
+      _$_AddNoteState _value, $Res Function(_$_AddNoteState) _then)
+      : super(_value, (v) => _then(v as _$_AddNoteState));
+
+  @override
+  _$_AddNoteState get _value => super._value as _$_AddNoteState;
+
+  @override
+  $Res call({
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? note = freezed,
+  }) {
+    return _then(_$_AddNoteState(
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as DataStatus,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as NoteItem?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_AddNoteState extends _AddNoteState {
+  _$_AddNoteState({required this.status, required this.message, this.note})
+      : super._();
+
+  @override
+  final DataStatus status;
+  @override
+  final String message;
+  @override
+  final NoteItem? note;
 
   @override
   String toString() {
-    return 'AddNoteState.initial()';
+    return 'AddNoteState(status: $status, message: $message, note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNoteState &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.message, message) &&
+            const DeepCollectionEquality().equals(other.note, note));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(message),
+      const DeepCollectionEquality().hash(note));
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$$_AddNoteStateCopyWith<_$_AddNoteState> get copyWith =>
+      __$$_AddNoteStateCopyWithImpl<_$_AddNoteState>(this, _$identity);
 }
 
-abstract class _Initial implements AddNoteState {
-  const factory _Initial() = _$_Initial;
+abstract class _AddNoteState extends AddNoteState {
+  factory _AddNoteState(
+      {required final DataStatus status,
+      required final String message,
+      final NoteItem? note}) = _$_AddNoteState;
+  _AddNoteState._() : super._();
+
+  @override
+  DataStatus get status;
+  @override
+  String get message;
+  @override
+  NoteItem? get note;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddNoteStateCopyWith<_$_AddNoteState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

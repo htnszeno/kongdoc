@@ -18,6 +18,9 @@ import 'package:hifive/l10n/l10n.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/theme.dart';
 
+import '../../pages/note/add_note/bloc/add_note_bloc.dart';
+import '../../pages/note/home/bloc/note_home_bloc.dart';
+
 class App extends StatelessWidget {
   final AuthenticationRepository _authenticationRepository;
   final NoteRepository _noteRepository;
@@ -48,6 +51,40 @@ class App extends StatelessWidget {
       ),
     );
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MultiRepositoryProvider(
+  //     providers: [
+  //       RepositoryProvider.value(
+  //         value: _noteRepository,
+  //       ),
+  //     ],
+  //     child: RepositoryProvider.value(
+  //       value: _authenticationRepository,
+  //       child: MultiBlocProvider(
+  //         providers: [
+  //           BlocProvider<AppBloc>(
+  //             create: (context) => AppBloc(
+  //               authenticationRepository: _authenticationRepository,
+  //             ),
+  //           ),
+  //           BlocProvider<NoteHomeBloc>(
+  //             create: (context) => NoteHomeBloc(
+  //               noteRepository: context.read<NoteRepository>(),
+  //             )..add(const Started()),
+  //           ),
+  //           BlocProvider<AddNoteBloc>(
+  //             create: (context) => AddNoteBloc(
+  //               noteRepository: context.read<NoteRepository>(),
+  //               noteBloc: context.read<NoteHomeBloc>(),
+  //             ),
+  //           ),
+  //         ],
+  //         child: const AppView(),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
 
 class AppView extends StatelessWidget {

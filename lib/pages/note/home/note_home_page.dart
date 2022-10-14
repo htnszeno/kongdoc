@@ -9,16 +9,22 @@ import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/widgets/app_icon_button.dart';
 import 'package:hifive/widgets/widgets.dart';
 
+import '../add_note/bloc/add_note_bloc.dart';
+
 class NoteHomePage extends StatefulWidget {
   const NoteHomePage({super.key});
+
   static Page<void> page() => MaterialPage<void>(
-        child: BlocProvider(
-          create: (context) => NoteHomeBloc(
-            noteRepository: context.read<NoteRepository>(),
-          )..add(const Started()),
-          child: const NoteHomePage(),
-        ),
-      );
+          child: MultiBlocProvider(
+        providers: [
+          BlocProvider<NoteHomeBloc>(
+            create: (context) => NoteHomeBloc(
+              noteRepository: context.read<NoteRepository>(),
+            )..add(const Started()),
+          ),
+        ],
+        child: const NoteHomePage(),
+      ));
 
   static Route<void> route() {
     return MaterialPageRoute(
@@ -54,15 +60,16 @@ class _NoteHomePageState extends State<NoteHomePage> {
     // context.read<AddNoteBloc>().add(SetSelectedNote(note));
     // Navigator.of(context).pushNamed(AddNoteScreen.routeName);
   }
-
+  late NoteHomeBloc _noteHomeBloc;
   @override
   Widget build(BuildContext context) {
+    _noteHomeBloc = context.read<NoteHomeBloc>();
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        notchMargin: 6.0,
+        notchMargin: 6,
         child: SizedBox(
-          height: 50.0,
+          height: 50,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -78,7 +85,7 @@ class _NoteHomePageState extends State<NoteHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(AddNotePage.route());
+          Navigator.of(context).push(AddNotePage.route(_noteHomeBloc));
         },
         child: const Icon(
           Icons.add,

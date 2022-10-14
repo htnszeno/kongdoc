@@ -1,9 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/pages/note/add_note/bloc/add_note_bloc.dart';
 import 'package:hifive/pages/note/home/bloc/note_home_bloc.dart';
 import 'package:hifive/repositories/repositories.dart';
 import 'package:hifive/widgets/app_text_field.dart';
+import 'package:reactive_color_picker/reactive_color_picker.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class AddNotePage extends StatefulWidget {
@@ -11,18 +14,24 @@ class AddNotePage extends StatefulWidget {
 
   static Page<void> page() => const MaterialPage<void>(child: AddNotePage());
 
-  static Route<void> route() {
+  static Route<void> route(NoteHomeBloc bloc) {
     return MaterialPageRoute(
       fullscreenDialog: true,
       builder: (BuildContext context) => BlocProvider(
         create: (context) => AddNoteBloc(
           noteRepository: context.read<NoteRepository>(),
-          noteBloc: context.read<NoteHomeBloc>(),
+          noteBloc: bloc,
         ),
         child: const AddNotePage(),
       ),
     );
   }
+  // static Route<void> route() {
+  //   return MaterialPageRoute(
+  //     fullscreenDialog: true,
+  //     builder: (BuildContext context) => const AddNotePage(),
+  //   );
+  // }
 
   @override
   State<AddNotePage> createState() => _AddNotePageState();
@@ -32,7 +41,7 @@ class _AddNotePageState extends State<AddNotePage> {
   late AddNoteBloc _addNoteBloc;
   @override
   void dispose() {
-    // _addNoteBloc.add(const SetSelectedNote(null));
+    _addNoteBloc.add(const SetSelectedNote(null));
     super.dispose();
   }
 
@@ -44,13 +53,61 @@ class _AddNotePageState extends State<AddNotePage> {
     final formGroup = _addNoteBloc.formgroup;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Add New Note')),
+      appBar: AppBar(title: const Text('Add New Note')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
         child: ReactiveForm(
-            child: Column(
-          children: [AppTextField(controlName: 'title', label: 'Title')],
-        )),
+          formGroup: formGroup,
+          child: Column(
+            children: [
+              const AppTextField(controlName: 'title', label: 'Title'),
+              const SizedBox(
+                height: 20.0,
+              ),
+              const AppTextField(
+                controlName: 'content',
+                label: "Content",
+                maxLines: 5,
+                isRequired: true,
+                hintText: "Write your content here...",
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              ReactiveBlockColorPicker<Color>(
+                decoration: InputDecoration(
+                  labelText: "Color",
+                  hintText: "Select a color",
+                  border: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(4.0),
+                  ),
+                ),
+                formControlName: 'color',
+              )
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: BlocConsumer<AddNoteBloc, AddNoteState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return FloatingActionButton(
+            onPressed: () {
+              if (state.isProcessing) return;
+              if (formGroup.invalid) {
+                // This will validate all [isRequired] AppTextField
+                formGroup.markAllAsTouched();
+                return;
+              }
+            },
+            child: Icon(Icons.check),
+          );
+        },
       ),
     );
   }
