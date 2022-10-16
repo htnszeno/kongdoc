@@ -16,6 +16,7 @@ import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/app/routes/routes.dart';
 import 'package:hifive/l10n/l10n.dart';
 import 'package:hifive/pages/home/home.dart';
+import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/note/add_note_page.dart';
 import 'package:hifive/pages/note/bloc/note_bloc.dart';
 import 'package:hifive/pages/note/note_home_page.dart';
@@ -52,40 +53,6 @@ class App extends StatelessWidget {
       ),
     );
   }
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MultiRepositoryProvider(
-  //     providers: [
-  //       RepositoryProvider.value(
-  //         value: _noteRepository,
-  //       ),
-  //     ],
-  //     child: RepositoryProvider.value(
-  //       value: _authenticationRepository,
-  //       child: MultiBlocProvider(
-  //         providers: [
-  //           BlocProvider<AppBloc>(
-  //             create: (context) => AppBloc(
-  //               authenticationRepository: _authenticationRepository,
-  //             ),
-  //           ),
-  //           BlocProvider<NoteBloc>(
-  //             create: (context) => NoteBloc(
-  //               noteRepository: context.read<NoteRepository>(),
-  //             )..add(const Started()),
-  //           ),
-  //           // BlocProvider<AddNoteBloc>(
-  //           //   create: (context) => AddNoteBloc(
-  //           //     noteRepository: context.read<NoteRepository>(),
-  //           //     noteBloc: context.read<NoteHomeBloc>(),
-  //           //   ),
-  //           // ),
-  //         ],
-  //         child: const AppView(),
-  //       ),
-  //     ),
-  //   );
-  // }
 }
 
 class AppView extends StatefulWidget {
@@ -94,15 +61,17 @@ class AppView extends StatefulWidget {
 }
 
 class _AppViewState extends State<AppView> {
-  // const AppView({Key? key}) : super(key: key);
   final noteRepository = NoteRepository();
   late NoteBloc _bloc;
+  final _navigatorKey = GlobalKey<NavigatorState>();
+
+  NavigatorState get _navigator => _navigatorKey.currentState!;
 
   @override
   void initState() {
     _bloc = NoteBloc(
       noteRepository: noteRepository,
-    ); //..add(const Started());
+    );
     super.initState();
   }
 
@@ -115,50 +84,75 @@ class _AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // routes: {
-      //   '/note_home': (context) => Builder(builder: (context) {
-      //         return BlocProvider.value(
-      //           value: _bloc..add(Started()),
-      //           child: const NoteHomePage(),
-      //         );
-      //       }),
-      //   '/add_note': (context) => BlocProvider.value(
-      //         value: _bloc,
-      //         child: const AddNotePage(),
-      //       )
-      // },
-      theme: theme,
-      // home: HomePage(),
-      // onGenerateRoute: ((settings) {
-      //   switch (settings.name) {
-      //     case '/':
-      //       return MaterialPageRoute(
-      //         builder: (_) => BlocProvider.value(
-      //           value: _bloc..add(Started()),
-      //           child: HomePage(),
-      //         ),
-      //       );
-      //     case '/note_home':
-      //       return MaterialPageRoute(
-      //         builder: (_) => BlocProvider.value(
-      //           value: _bloc..add(Started()),
-      //           child: NoteHomePage(),
-      //         ),
-      //       );
-      //     case '/add_note':
-      //       return MaterialPageRoute(
-      //         builder: (_) => BlocProvider.value(
-      //           value: _bloc,
-      //           child: AddNotePage(),
-      //         ),
-      //       );
-      //   }
-      // }),
-      home: FlowBuilder<AppStatus>(
-        state: context.select((AppBloc bloc) => bloc.state.status),
-        onGeneratePages: (status, page) =>
-            onGenerateAppViewPages(status, page, _bloc),
-      ),
+        theme: theme,
+        navigatorKey: _navigatorKey,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case '/':
+              return MaterialPageRoute(
+                builder: (_) => BlocProvider.value(
+                  value: _bloc..add(const Started()),
+                  child: const HomePage(),
+                ),
+              );
+            case '/note_home':
+              return MaterialPageRoute(
+                builder: (_) => BlocProvider.value(
+                  value: _bloc..add(const Started()),
+                  child: const NoteHomePage(),
+                ),
+              );
+            case '/add_note':
+              return MaterialPageRoute(
+                builder: (_) => BlocProvider.value(
+                  value: _bloc,
+                  child: const AddNotePage(),
+                ),
+              );
+          }
+        },
+        builder: (context, child) {
+          return BlocListener<AppBloc, AppState>(
+            listener: (context, state) {
+              switch (state.status) {
+                case AppStatus.authenticated:
+                  _navigator.pushAndRemoveUntil<void>(
+                    HomePage.route(),
+                    (route) => false,
+                  );
+                  break;
+                case AppStatus.unauthenticated:
+                  _navigator.pushAndRemoveUntil<void>(
+                    LoginPage.route(),
+                    (route) => false,
+                  );
+                  break;
+                case AppStatus.unknown:
+                  _navigator.pushAndRemoveUntil<void>(
+                    SplashPage.route(),
+                    (route) => false,
+                  );
+                  break;
+              }
+            },
+            child: child,
+          );
+        },
+        home: const SplashPage());
+  }
+}
+
+class SplashPage extends StatelessWidget {
+  const SplashPage({super.key});
+
+  static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (_) => const SplashPage());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(child: CircularProgressIndicator()),
     );
   }
 }

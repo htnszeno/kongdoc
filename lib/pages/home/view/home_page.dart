@@ -48,11 +48,6 @@ class HomePage extends StatelessWidget {
                   //     .update((state) => AppStatus.noteHomePage);
                 },
                 child: Text("note_home")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/add_note');
-                },
-                child: Text("add_note"))
           ],
         ),
       ),

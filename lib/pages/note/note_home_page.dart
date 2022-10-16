@@ -83,11 +83,9 @@ class _NoteHomePageState extends State<NoteHomePage> {
 
   void _onNotePressed(NoteItem note) {
     context.read<NoteBloc>().add(SetSelectedNote(note));
-    //print("click.... ${note}");
+    // Navigator.of(context).push(AddNotePage.route());
 
-    // Navigator.of(context).push(AddNotePage.route(noteHomeBloc, note));
-
-    Navigator.of(context).pushReplacementNamed('/add_note');
+    Navigator.of(context).pushNamed('/add_note');
   }
 
   late NoteBloc _noteHomeBloc;
@@ -181,39 +179,9 @@ class _NoteHomePageState extends State<NoteHomePage> {
 
                     return state.viewType.isGrid
                         ? NoteGrid(
-                            notes: state.notes,
-                            onNotePressed: (note) {
-                              Navigator.of(context)
-                                  .pushReplacementNamed('/add_note');
-                              // Navigator.of(context).push(
-                              //   MaterialPageRoute(
-                              //     builder: (_) {
-                              //       return BlocProvider.value(
-                              //         value: _noteHomeBloc,
-                              //         child: AddNotePage(),
-                              //       );
-                              //     },
-                              //   ),
-                              // );
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (_) {
-                              //       return BlocProvider.value(
-                              //         value: BlocProvider.of<NoteBloc>(context),
-                              //         child: AddNotePage(),
-                              //       );
-                              //     },
-                              //   ),
-                              // );
-                            }
-                            // _onNotePressed(note, _noteHomeBloc)
-                            )
+                            notes: state.notes, onNotePressed: _onNotePressed)
                         : NoteList(
-                            notes: state.notes,
-                            // onNotePressed: (note) =>
-                            //     Navigator.of(context).pushNamed('/add_note'),
-                            onNotePressed: _onNotePressed);
+                            notes: state.notes, onNotePressed: _onNotePressed);
                   },
                 ),
               )

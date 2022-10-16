@@ -26,12 +26,12 @@ class AddNotePage extends StatefulWidget {
   //     ),
   //   );
   // }
-  // static Route<void> route(NoteBloc bloc, NoteItem? note) {
-  //   return MaterialPageRoute(
-  //     fullscreenDialog: true,
-  //     builder: (BuildContext context) => const AddNotePage(),
-  //   );
-  // }
+  static Route<void> route() {
+    return MaterialPageRoute(
+      fullscreenDialog: true,
+      builder: (BuildContext context) => const AddNotePage(),
+    );
+  }
 
   @override
   State<AddNotePage> createState() => _AddNotePageState();
@@ -104,8 +104,9 @@ class _AddNotePageState extends State<AddNotePage> {
               context,
               state.message,
             );
+            Navigator.pop(context);
             // Navigator.of(context).pop();
-            Navigator.of(context).popAndPushNamed('/note_home');
+            // Navigator.of(context).popAndPushNamed('/note_home');
           } else if (state.status.isError) {
             showMessageSnackbar(
               context,

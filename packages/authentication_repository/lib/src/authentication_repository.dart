@@ -31,7 +31,6 @@ class AuthenticationRepository {
 
   Future<void> signUp({required String email, required String password}) async {
     try {
-      print('dddd');
       await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -51,7 +50,6 @@ class AuthenticationRepository {
 
   Stream<User> get user {
     return _firebaseAuth.authStateChanges().map((firebaseUser) {
-      print('change.... user ==== ${firebaseUser}');
       final user = firebaseUser == null ? User.empty : firebaseUser.toUser;
       _cache.write(key: userCacheKey, value: user);
       return user;

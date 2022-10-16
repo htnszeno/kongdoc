@@ -1,6 +1,10 @@
 part of 'app_bloc.dart';
 
-enum AppStatus { authenticated, unauthenticated, noteHomePage, addNotePage }
+enum AppStatus {
+  authenticated,
+  unauthenticated,
+  unknown,
+}
 
 class AppState extends Equatable {
   final AppStatus status;
@@ -12,6 +16,7 @@ class AppState extends Equatable {
 
   const AppState.unauthenticated() : this._(status: AppStatus.unauthenticated);
 
+  const AppState.unknown() : this._(status: AppStatus.unknown);
   @override
   List<Object> get props => [status, user];
 }

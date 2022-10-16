@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
+import 'package:hifive/app/view/app.dart';
 import 'package:hifive/pages/home/home.dart';
 import 'package:hifive/pages/login/login.dart';
 import 'package:hifive/pages/note/add_note_page.dart';
@@ -15,7 +16,10 @@ List<Page<dynamic>> onGenerateAppViewPages(
       return [
         HomePage.page(),
       ];
-    case AppStatus.noteHomePage:
+
+    case AppStatus.unauthenticated:
+      return [LoginPage.page()];
+    case AppStatus.unknown:
       return [
         MaterialPage<void>(
             child: BlocProvider.value(
@@ -23,15 +27,5 @@ List<Page<dynamic>> onGenerateAppViewPages(
           child: NoteHomePage(),
         )),
       ];
-    case AppStatus.addNotePage:
-      return [
-        MaterialPage<void>(
-            child: BlocProvider.value(
-          value: bloc,
-          child: AddNotePage(),
-        )),
-      ];
-    case AppStatus.unauthenticated:
-      return [LoginPage.page()];
   }
 }
