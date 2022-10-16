@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:hifive/models/app_response.dart';
 import 'package:hifive/models/note_model.dart';
+import 'package:hifive/models/request/create_note_request.dart';
+import 'package:hifive/models/request/update_note_request.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/repositories/note/base_note_repository.dart';
 import 'package:hifive/utils/dio_client/dio_client.dart';
@@ -19,20 +21,21 @@ class NoteRepository extends BaseNoteRepository {
 
   final Dio _dioClient;
 
-  // @override
-  // Future<AppResponse<NoteItem?>> create(CreateNoteRequest request) async {
-  //   final response = await _dioClient.post(
-  //     Endpoints.noteCreate,
-  //     data: request.toJson(),
-  //   );
+  @override
+  Future<AppResponse<NoteItem?>> create(CreateNoteRequest request) async {
+    print("Endpoints.noteCreate ::  ${Endpoints.noteCreate}");
+    final response = await _dioClient.post(
+      Endpoints.noteCreate,
+      data: request.toJson(),
+    );
 
-  //   return AppResponse<NoteItem?>.fromJson(
-  //     response.data,
-  //     (dynamic json) => response.data['success'] && json != null
-  //         ? NoteItem.fromJson(json)
-  //         : null,
-  //   );
-  // }
+    return AppResponse<NoteItem?>.fromJson(
+      response.data,
+      (dynamic json) => response.data['success'] && json != null
+          ? NoteItem.fromJson(json)
+          : null,
+    );
+  }
 
   // @override
   // Future<AppResponse<int?>> deleteSingle(int id) async {
@@ -80,21 +83,21 @@ class NoteRepository extends BaseNoteRepository {
   //   );
   // }
 
-  // @override
-  // Future<AppResponse<NoteItem?>> update(
-  //   UpdateNoteRequest request,
-  //   int id,
-  // ) async {
-  //   final response = await _dioClient.put(
-  //     "${Endpoints.noteUpdate}$id",
-  //     data: request.toJson(),
-  //   );
+  @override
+  Future<AppResponse<NoteItem?>> update(
+    UpdateNoteRequest request,
+    int id,
+  ) async {
+    final response = await _dioClient.put(
+      "${Endpoints.noteUpdate}$id",
+      data: request.toJson(),
+    );
 
-  //   return AppResponse<NoteItem?>.fromJson(
-  //     response.data,
-  //     (dynamic json) => response.data['success'] && json != null
-  //         ? NoteItem.fromJson(json)
-  //         : null,
-  //   );
-  // }
+    return AppResponse<NoteItem?>.fromJson(
+      response.data,
+      (dynamic json) => response.data['success'] && json != null
+          ? NoteItem.fromJson(json)
+          : null,
+    );
+  }
 }

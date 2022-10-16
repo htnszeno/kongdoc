@@ -15,11 +15,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/app/routes/routes.dart';
 import 'package:hifive/l10n/l10n.dart';
+import 'package:hifive/pages/home/home.dart';
+import 'package:hifive/pages/note/add_note_page.dart';
+import 'package:hifive/pages/note/bloc/note_bloc.dart';
+import 'package:hifive/pages/note/note_home_page.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/theme.dart';
-
-import '../../pages/note/add_note/bloc/add_note_bloc.dart';
-import '../../pages/note/home/bloc/note_home_bloc.dart';
 
 class App extends StatelessWidget {
   final AuthenticationRepository _authenticationRepository;
@@ -46,7 +47,7 @@ class App extends StatelessWidget {
           create: (_) => AppBloc(
             authenticationRepository: _authenticationRepository,
           ),
-          child: const AppView(),
+          child: AppView(),
         ),
       ),
     );
@@ -68,17 +69,17 @@ class App extends StatelessWidget {
   //               authenticationRepository: _authenticationRepository,
   //             ),
   //           ),
-  //           BlocProvider<NoteHomeBloc>(
-  //             create: (context) => NoteHomeBloc(
+  //           BlocProvider<NoteBloc>(
+  //             create: (context) => NoteBloc(
   //               noteRepository: context.read<NoteRepository>(),
   //             )..add(const Started()),
   //           ),
-  //           BlocProvider<AddNoteBloc>(
-  //             create: (context) => AddNoteBloc(
-  //               noteRepository: context.read<NoteRepository>(),
-  //               noteBloc: context.read<NoteHomeBloc>(),
-  //             ),
-  //           ),
+  //           // BlocProvider<AddNoteBloc>(
+  //           //   create: (context) => AddNoteBloc(
+  //           //     noteRepository: context.read<NoteRepository>(),
+  //           //     noteBloc: context.read<NoteHomeBloc>(),
+  //           //   ),
+  //           // ),
   //         ],
   //         child: const AppView(),
   //       ),
@@ -87,17 +88,76 @@ class App extends StatelessWidget {
   // }
 }
 
-class AppView extends StatelessWidget {
-  const AppView({Key? key}) : super(key: key);
+class AppView extends StatefulWidget {
+  @override
+  State<AppView> createState() => _AppViewState();
+}
+
+class _AppViewState extends State<AppView> {
+  // const AppView({Key? key}) : super(key: key);
+  final noteRepository = NoteRepository();
+  late NoteBloc _bloc;
+
+  @override
+  void initState() {
+    _bloc = NoteBloc(
+      noteRepository: noteRepository,
+    ); //..add(const Started());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // routes: {
+      //   '/note_home': (context) => Builder(builder: (context) {
+      //         return BlocProvider.value(
+      //           value: _bloc..add(Started()),
+      //           child: const NoteHomePage(),
+      //         );
+      //       }),
+      //   '/add_note': (context) => BlocProvider.value(
+      //         value: _bloc,
+      //         child: const AddNotePage(),
+      //       )
+      // },
       theme: theme,
-      // home: LoginPage(),
+      // home: HomePage(),
+      // onGenerateRoute: ((settings) {
+      //   switch (settings.name) {
+      //     case '/':
+      //       return MaterialPageRoute(
+      //         builder: (_) => BlocProvider.value(
+      //           value: _bloc..add(Started()),
+      //           child: HomePage(),
+      //         ),
+      //       );
+      //     case '/note_home':
+      //       return MaterialPageRoute(
+      //         builder: (_) => BlocProvider.value(
+      //           value: _bloc..add(Started()),
+      //           child: NoteHomePage(),
+      //         ),
+      //       );
+      //     case '/add_note':
+      //       return MaterialPageRoute(
+      //         builder: (_) => BlocProvider.value(
+      //           value: _bloc,
+      //           child: AddNotePage(),
+      //         ),
+      //       );
+      //   }
+      // }),
       home: FlowBuilder<AppStatus>(
         state: context.select((AppBloc bloc) => bloc.state.status),
-        onGeneratePages: onGenerateAppViewPages,
+        onGeneratePages: (status, page) =>
+            onGenerateAppViewPages(status, page, _bloc),
       ),
     );
   }

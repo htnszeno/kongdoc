@@ -1,9 +1,9 @@
+import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/pages/home/widgets/avatar.dart';
-import 'package:hifive/pages/note/add_note/add_note_page.dart';
-import 'package:hifive/pages/note/home/note_home_page.dart';
+import 'package:hifive/pages/note/note_home_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -42,9 +42,17 @@ class HomePage extends StatelessWidget {
             Text(user.name ?? '', style: textTheme.headline5),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(NoteHomePage.route());
+                  Navigator.of(context).pushNamed('/note_home');
+                  // context
+                  //     .flow<AppStatus>()
+                  //     .update((state) => AppStatus.noteHomePage);
                 },
-                child: Text("Note Page"))
+                child: Text("note_home")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/add_note');
+                },
+                child: Text("add_note"))
           ],
         ),
       ),

@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/material.dart';
 import 'package:hifive/utils/utils.dart';
 
-part '../create_note_request.freezed.dart';
-part '../create_note_request.g.dart';
+part 'create_note_request.freezed.dart';
+part 'create_note_request.g.dart';
 
 @freezed
 class CreateNoteRequest with _$CreateNoteRequest {

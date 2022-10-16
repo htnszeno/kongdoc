@@ -1,6 +1,6 @@
 part of 'app_bloc.dart';
 
-enum AppStatus { authenticated, unauthenticated }
+enum AppStatus { authenticated, unauthenticated, noteHomePage, addNotePage }
 
 class AppState extends Equatable {
   final AppStatus status;

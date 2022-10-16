@@ -317,6 +317,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_colorpicker">
+          <value>
+            <list>
+              <option value="$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_colorpicker-1.0.3/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_lints">
           <value>
             <list>
@@ -691,6 +698,13 @@
             </list>
           </value>
         </entry>
+        <entry key="reactive_color_picker">
+          <value>
+            <list>
+              <option value="$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/reactive_color_picker-0.4.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="reactive_forms">
           <value>
             <list>
@@ -963,6 +977,7 @@
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.1/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flow_builder-0.0.9/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-8.1.1/lib" />
+      <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_colorpicker-1.0.3/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/font_awesome-5.10.1/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-10.2.1/lib" />
@@ -1015,6 +1030,7 @@
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.1.1/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.2.1/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/quiver-3.1.0/lib" />
+      <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/reactive_color_picker-0.4.0/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/reactive_forms-14.1.0/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/shelf-1.3.1/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/shelf-1.4.0/lib" />
