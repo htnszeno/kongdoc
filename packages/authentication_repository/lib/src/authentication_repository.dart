@@ -9,6 +9,12 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
 
+enum AuthenticationStatus {
+  authenticated,
+  unauthenticated,
+  unknown,
+}
+
 class LogOutFailure implements Exception {}
 
 class AuthenticationRepository {
@@ -25,7 +31,7 @@ class AuthenticationRepository {
   final GoogleSignIn _googleSignIn;
   final CacheClient _cache;
   static const userCacheKey = '__user_cache_key__';
-
+  final _controller = StreamController<User>();
   @visibleForTesting
   bool isWeb = kIsWeb;
 
@@ -45,8 +51,18 @@ class AuthenticationRepository {
   /// Returns the current cached user.
   /// Defaults to [User.empty] if there is no cached user.
   User get currentUser {
+    print("current use r======${_cache.read<User>(key: userCacheKey)}");
     return _cache.read<User>(key: userCacheKey) ?? User.empty;
   }
+
+  // Stream<User> get user async* {
+  //   await Future<void>.delayed(const Duration(seconds: 1));
+
+  //   //  final user =  User.empty : firebaseUser.toUser;
+  //   _cache.write(key: userCacheKey, value: this.currentUser);
+  //   yield this.currentUser;
+  //   yield* _controller.stream;
+  // }
 
   Stream<User> get user {
     return _firebaseAuth.authStateChanges().map((firebaseUser) {
@@ -65,6 +81,13 @@ class AuthenticationRepository {
         email: email,
         password: password,
       );
+      // _controller.add(currentUser);
+      // User user = User(id: '111', name: '홍길동', email: 'benneylwa@neat.et');
+
+      // _cache.write(key: userCacheKey, value: user);
+      // print("currentUser : ======================= ${currentUser}");
+
+      // _controller.add(user);
     } on FirebaseAuthException catch (e) {
       throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {

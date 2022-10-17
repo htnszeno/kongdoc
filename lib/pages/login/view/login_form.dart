@@ -102,7 +102,7 @@ class _LoginButton extends StatelessWidget {
             // backgroundColor: const Color(0xFFFFD600),
           ),
           onPressed: state.status.isValidated
-              ? () => context.read<LoginCubit>().logInWithCredentials()
+              ? () => context.read<LoginCubit>().logIn()
               : null,
           child: const Text('LOGIN'),
         );

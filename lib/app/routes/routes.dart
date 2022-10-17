@@ -1,3 +1,4 @@
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
@@ -10,16 +11,16 @@ import 'package:hifive/pages/note/note_home_page.dart';
 import 'package:hifive/repositories/repositories.dart';
 
 List<Page<dynamic>> onGenerateAppViewPages(
-    AppStatus status, List<Page<dynamic>> page, NoteBloc bloc) {
+    AuthenticationStatus status, List<Page<dynamic>> page, NoteBloc bloc) {
   switch (status) {
-    case AppStatus.authenticated:
+    case AuthenticationStatus.authenticated:
       return [
         HomePage.page(),
       ];
 
-    case AppStatus.unauthenticated:
+    case AuthenticationStatus.unauthenticated:
       return [LoginPage.page()];
-    case AppStatus.unknown:
+    case AuthenticationStatus.unknown:
       return [
         MaterialPage<void>(
             child: BlocProvider.value(
