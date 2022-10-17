@@ -12,9 +12,11 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   late final StreamSubscription<User> _userSubscription;
   AppBloc({required AuthenticationRepository authenticationRepository})
       : _authenticationRepository = authenticationRepository,
-        super(authenticationRepository.currentUser.isNotEmpty
-            ? AppState.authenticated(authenticationRepository.currentUser)
-            : const AppState.unauthenticated()) {
+        super(
+            // authenticationRepository.currentUser.isNotEmpty
+            //   ? AppState.authenticated(authenticationRepository.currentUser)
+            //   :
+            const AppState.unauthenticated()) {
     //
     on((event, emit) => {});
     on<AppUserChanged>(_onUserChanged);
