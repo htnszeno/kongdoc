@@ -27,6 +27,7 @@ mixin _$NoteEvent {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$NoteEvent {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$NoteEvent {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +70,7 @@ mixin _$NoteEvent {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +84,7 @@ mixin _$NoteEvent {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +98,7 @@ mixin _$NoteEvent {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -160,6 +166,7 @@ class _$Started implements Started {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return started();
   }
@@ -176,6 +183,7 @@ class _$Started implements Started {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return started?.call();
   }
@@ -192,6 +200,7 @@ class _$Started implements Started {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -212,6 +221,7 @@ class _$Started implements Started {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return started(this);
   }
@@ -228,6 +238,7 @@ class _$Started implements Started {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return started?.call(this);
   }
@@ -244,6 +255,7 @@ class _$Started implements Started {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -340,6 +352,7 @@ class _$FilterNote implements FilterNote {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return filterNotes(type, data);
   }
@@ -356,6 +369,7 @@ class _$FilterNote implements FilterNote {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return filterNotes?.call(type, data);
   }
@@ -372,6 +386,7 @@ class _$FilterNote implements FilterNote {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -392,6 +407,7 @@ class _$FilterNote implements FilterNote {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return filterNotes(this);
   }
@@ -408,6 +424,7 @@ class _$FilterNote implements FilterNote {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return filterNotes?.call(this);
   }
@@ -424,6 +441,7 @@ class _$FilterNote implements FilterNote {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -493,6 +511,7 @@ class _$ToggleViewType implements ToggleViewType {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return toggleViewType();
   }
@@ -509,6 +528,7 @@ class _$ToggleViewType implements ToggleViewType {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return toggleViewType?.call();
   }
@@ -525,6 +545,7 @@ class _$ToggleViewType implements ToggleViewType {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (toggleViewType != null) {
@@ -545,6 +566,7 @@ class _$ToggleViewType implements ToggleViewType {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return toggleViewType(this);
   }
@@ -561,6 +583,7 @@ class _$ToggleViewType implements ToggleViewType {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return toggleViewType?.call(this);
   }
@@ -577,6 +600,7 @@ class _$ToggleViewType implements ToggleViewType {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (toggleViewType != null) {
@@ -637,6 +661,7 @@ class _$Refresh implements Refresh {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return refresh();
   }
@@ -653,6 +678,7 @@ class _$Refresh implements Refresh {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return refresh?.call();
   }
@@ -669,6 +695,7 @@ class _$Refresh implements Refresh {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -689,6 +716,7 @@ class _$Refresh implements Refresh {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return refresh(this);
   }
@@ -705,6 +733,7 @@ class _$Refresh implements Refresh {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return refresh?.call(this);
   }
@@ -721,6 +750,7 @@ class _$Refresh implements Refresh {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -782,6 +812,7 @@ class _$LoadMore implements LoadMore {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return loadMore();
   }
@@ -798,6 +829,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return loadMore?.call();
   }
@@ -814,6 +846,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -834,6 +867,7 @@ class _$LoadMore implements LoadMore {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return loadMore(this);
   }
@@ -850,6 +884,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return loadMore?.call(this);
   }
@@ -866,6 +901,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -950,6 +986,7 @@ class _$Delete implements Delete {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return delete(id);
   }
@@ -966,6 +1003,7 @@ class _$Delete implements Delete {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return delete?.call(id);
   }
@@ -982,6 +1020,7 @@ class _$Delete implements Delete {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1002,6 +1041,7 @@ class _$Delete implements Delete {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return delete(this);
   }
@@ -1018,6 +1058,7 @@ class _$Delete implements Delete {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return delete?.call(this);
   }
@@ -1034,6 +1075,7 @@ class _$Delete implements Delete {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1132,6 +1174,7 @@ class _$Create implements Create {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return create(request);
   }
@@ -1148,6 +1191,7 @@ class _$Create implements Create {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return create?.call(request);
   }
@@ -1164,6 +1208,7 @@ class _$Create implements Create {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1184,6 +1229,7 @@ class _$Create implements Create {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return create(this);
   }
@@ -1200,6 +1246,7 @@ class _$Create implements Create {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return create?.call(this);
   }
@@ -1216,6 +1263,7 @@ class _$Create implements Create {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1324,6 +1372,7 @@ class _$Update implements Update {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return update(request, id);
   }
@@ -1340,6 +1389,7 @@ class _$Update implements Update {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return update?.call(request, id);
   }
@@ -1356,6 +1406,7 @@ class _$Update implements Update {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1376,6 +1427,7 @@ class _$Update implements Update {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return update(this);
   }
@@ -1392,6 +1444,7 @@ class _$Update implements Update {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return update?.call(this);
   }
@@ -1408,6 +1461,7 @@ class _$Update implements Update {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1515,6 +1569,7 @@ class _$SetSelectedNote implements SetSelectedNote {
     required TResult Function(CreateNoteRequest request) create,
     required TResult Function(UpdateNoteRequest request, int id) update,
     required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
   }) {
     return setSelectedNote(note);
   }
@@ -1531,6 +1586,7 @@ class _$SetSelectedNote implements SetSelectedNote {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
   }) {
     return setSelectedNote?.call(note);
   }
@@ -1547,6 +1603,7 @@ class _$SetSelectedNote implements SetSelectedNote {
     TResult Function(CreateNoteRequest request)? create,
     TResult Function(UpdateNoteRequest request, int id)? update,
     TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
     required TResult orElse(),
   }) {
     if (setSelectedNote != null) {
@@ -1567,6 +1624,7 @@ class _$SetSelectedNote implements SetSelectedNote {
     required TResult Function(Create value) create,
     required TResult Function(Update value) update,
     required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
   }) {
     return setSelectedNote(this);
   }
@@ -1583,6 +1641,7 @@ class _$SetSelectedNote implements SetSelectedNote {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
   }) {
     return setSelectedNote?.call(this);
   }
@@ -1599,6 +1658,7 @@ class _$SetSelectedNote implements SetSelectedNote {
     TResult Function(Create value)? create,
     TResult Function(Update value)? update,
     TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
     required TResult orElse(),
   }) {
     if (setSelectedNote != null) {
@@ -1618,6 +1678,193 @@ abstract class SetSelectedNote implements NoteEvent {
 }
 
 /// @nodoc
+abstract class _$$TokenCopyWith<$Res> {
+  factory _$$TokenCopyWith(_$Token value, $Res Function(_$Token) then) =
+      __$$TokenCopyWithImpl<$Res>;
+  $Res call({LoginTokenRequest request});
+
+  $LoginTokenRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class __$$TokenCopyWithImpl<$Res> extends _$NoteEventCopyWithImpl<$Res>
+    implements _$$TokenCopyWith<$Res> {
+  __$$TokenCopyWithImpl(_$Token _value, $Res Function(_$Token) _then)
+      : super(_value, (v) => _then(v as _$Token));
+
+  @override
+  _$Token get _value => super._value as _$Token;
+
+  @override
+  $Res call({
+    Object? request = freezed,
+  }) {
+    return _then(_$Token(
+      request == freezed
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as LoginTokenRequest,
+    ));
+  }
+
+  @override
+  $LoginTokenRequestCopyWith<$Res> get request {
+    return $LoginTokenRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$Token implements Token {
+  const _$Token(this.request);
+
+  @override
+  final LoginTokenRequest request;
+
+  @override
+  String toString() {
+    return 'NoteEvent.token(request: $request)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Token &&
+            const DeepCollectionEquality().equals(other.request, request));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(request));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$TokenCopyWith<_$Token> get copyWith =>
+      __$$TokenCopyWithImpl<_$Token>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function() toggleViewType,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+    required TResult Function(int id) delete,
+    required TResult Function(CreateNoteRequest request) create,
+    required TResult Function(UpdateNoteRequest request, int id) update,
+    required TResult Function(NoteItem? note) setSelectedNote,
+    required TResult Function(LoginTokenRequest request) token,
+  }) {
+    return token(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function()? toggleViewType,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    TResult Function(int id)? delete,
+    TResult Function(CreateNoteRequest request)? create,
+    TResult Function(UpdateNoteRequest request, int id)? update,
+    TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
+  }) {
+    return token?.call(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function()? toggleViewType,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    TResult Function(int id)? delete,
+    TResult Function(CreateNoteRequest request)? create,
+    TResult Function(UpdateNoteRequest request, int id)? update,
+    TResult Function(NoteItem? note)? setSelectedNote,
+    TResult Function(LoginTokenRequest request)? token,
+    required TResult orElse(),
+  }) {
+    if (token != null) {
+      return token(request);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(FilterNote value) filterNotes,
+    required TResult Function(ToggleViewType value) toggleViewType,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Create value) create,
+    required TResult Function(Update value) update,
+    required TResult Function(SetSelectedNote value) setSelectedNote,
+    required TResult Function(Token value) token,
+  }) {
+    return token(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FilterNote value)? filterNotes,
+    TResult Function(ToggleViewType value)? toggleViewType,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Delete value)? delete,
+    TResult Function(Create value)? create,
+    TResult Function(Update value)? update,
+    TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
+  }) {
+    return token?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FilterNote value)? filterNotes,
+    TResult Function(ToggleViewType value)? toggleViewType,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Delete value)? delete,
+    TResult Function(Create value)? create,
+    TResult Function(Update value)? update,
+    TResult Function(SetSelectedNote value)? setSelectedNote,
+    TResult Function(Token value)? token,
+    required TResult orElse(),
+  }) {
+    if (token != null) {
+      return token(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Token implements NoteEvent {
+  const factory Token(final LoginTokenRequest request) = _$Token;
+
+  LoginTokenRequest get request;
+  @JsonKey(ignore: true)
+  _$$TokenCopyWith<_$Token> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$NoteState {
   NoteViewType get viewType => throw _privateConstructorUsedError;
   List<NoteItem> get notes => throw _privateConstructorUsedError;
@@ -1626,6 +1873,7 @@ mixin _$NoteState {
   DataStatus get status => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   NoteItem? get note => throw _privateConstructorUsedError;
+  String get token => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NoteStateCopyWith<NoteState> get copyWith =>
@@ -1643,7 +1891,8 @@ abstract class $NoteStateCopyWith<$Res> {
       bool isLastPage,
       DataStatus status,
       String message,
-      NoteItem? note});
+      NoteItem? note,
+      String token});
 
   $NoteItemCopyWith<$Res>? get note;
 }
@@ -1665,6 +1914,7 @@ class _$NoteStateCopyWithImpl<$Res> implements $NoteStateCopyWith<$Res> {
     Object? status = freezed,
     Object? message = freezed,
     Object? note = freezed,
+    Object? token = freezed,
   }) {
     return _then(_value.copyWith(
       viewType: viewType == freezed
@@ -1695,6 +1945,10 @@ class _$NoteStateCopyWithImpl<$Res> implements $NoteStateCopyWith<$Res> {
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as NoteItem?,
+      token: token == freezed
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -1723,7 +1977,8 @@ abstract class _$$_NoteStateCopyWith<$Res> implements $NoteStateCopyWith<$Res> {
       bool isLastPage,
       DataStatus status,
       String message,
-      NoteItem? note});
+      NoteItem? note,
+      String token});
 
   @override
   $NoteItemCopyWith<$Res>? get note;
@@ -1748,6 +2003,7 @@ class __$$_NoteStateCopyWithImpl<$Res> extends _$NoteStateCopyWithImpl<$Res>
     Object? status = freezed,
     Object? message = freezed,
     Object? note = freezed,
+    Object? token = freezed,
   }) {
     return _then(_$_NoteState(
       viewType: viewType == freezed
@@ -1778,6 +2034,10 @@ class __$$_NoteStateCopyWithImpl<$Res> extends _$NoteStateCopyWithImpl<$Res>
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as NoteItem?,
+      token: token == freezed
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1792,7 +2052,8 @@ class _$_NoteState extends _NoteState {
       required this.isLastPage,
       required this.status,
       required this.message,
-      this.note})
+      this.note,
+      required this.token})
       : _notes = notes,
         super._();
 
@@ -1815,10 +2076,12 @@ class _$_NoteState extends _NoteState {
   final String message;
   @override
   final NoteItem? note;
+  @override
+  final String token;
 
   @override
   String toString() {
-    return 'NoteState(viewType: $viewType, notes: $notes, page: $page, isLastPage: $isLastPage, status: $status, message: $message, note: $note)';
+    return 'NoteState(viewType: $viewType, notes: $notes, page: $page, isLastPage: $isLastPage, status: $status, message: $message, note: $note, token: $token)';
   }
 
   @override
@@ -1833,7 +2096,8 @@ class _$_NoteState extends _NoteState {
                 .equals(other.isLastPage, isLastPage) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.note, note));
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.token, token));
   }
 
   @override
@@ -1845,7 +2109,8 @@ class _$_NoteState extends _NoteState {
       const DeepCollectionEquality().hash(isLastPage),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(note));
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(token));
 
   @JsonKey(ignore: true)
   @override
@@ -1861,7 +2126,8 @@ abstract class _NoteState extends NoteState {
       required final bool isLastPage,
       required final DataStatus status,
       required final String message,
-      final NoteItem? note}) = _$_NoteState;
+      final NoteItem? note,
+      required final String token}) = _$_NoteState;
   const _NoteState._() : super._();
 
   @override
@@ -1878,6 +2144,8 @@ abstract class _NoteState extends NoteState {
   String get message;
   @override
   NoteItem? get note;
+  @override
+  String get token;
   @override
   @JsonKey(ignore: true)
   _$$_NoteStateCopyWith<_$_NoteState> get copyWith =>

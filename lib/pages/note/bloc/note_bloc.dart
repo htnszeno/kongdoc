@@ -5,6 +5,7 @@ import 'package:hifive/enums/data_status.dart';
 import 'package:hifive/enums/filter_data_type.dart';
 import 'package:hifive/enums/note_view_type.dart';
 import 'package:hifive/models/note_model.dart';
+import 'package:hifive/models/request/create_login_token.dart';
 import 'package:hifive/models/request/create_note_request.dart';
 import 'package:hifive/models/request/update_note_request.dart';
 import 'package:hifive/repositories/repositories.dart';
@@ -26,6 +27,14 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
       emit(state.copyWith(status: DataStatus.loading));
 
       await _getFirstPage(emit);
+    });
+
+    on<Token>((event, emit) async {
+      final result = await _noteRepository.tokenHttp(event.request);
+      print("token :::: ${result}");
+      final csrf = result['signaldata']['X_CSRF_TOKEN'];
+      final login = await _noteRepository.loginHtns(csrf, 'user04', 'user04', result['COOKIE']);
+      print('${login}');
     });
 
     on<SetSelectedNote>((event, emit) {
@@ -104,6 +113,8 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
       emit(state.copyWith(notes: notes));
     });
   }
+
+
 
   Future<void> _getFirstPage(Emitter<NoteState> emit) async {
     final result = await _noteRepository.getMany(currentPage: 1);

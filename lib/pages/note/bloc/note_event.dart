@@ -31,4 +31,6 @@ class NoteEvent with _$NoteEvent {
 
   // 한건 선택
   const factory NoteEvent.setSelectedNote(NoteItem? note) = SetSelectedNote;
+
+  const factory NoteEvent.token(LoginTokenRequest request) = Token;
 }

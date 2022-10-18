@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/enums/note_view_type.dart';
 import 'package:hifive/models/note_model.dart';
+import 'package:hifive/models/request/create_login_token.dart';
 import 'package:hifive/pages/note/add_note_page.dart';
 import 'package:hifive/pages/note/bloc/note_bloc.dart';
 import 'package:hifive/pages/note/widgets/note_app_bar.dart';
@@ -123,7 +124,11 @@ class _NoteHomePageState extends State<NoteHomePage> {
                 },
               ),
               AppIconButton(
-                onPressed: () {},
+                onPressed: () {
+                  final request = LoginTokenRequest.fromFromGroup(
+                      {"USER_ID": 'tokenfix', "PW": 'tokenfix'});
+                  _noteHomeBloc.add(Token(request));
+                },
                 icon: Icons.brightness_4,
               ),
             ],

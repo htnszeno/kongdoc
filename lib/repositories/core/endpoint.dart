@@ -10,4 +10,6 @@ class Endpoints {
   static const noteCreate = _baseNote;
   static const noteUpdate = "$_baseNote/";
   static const noteDeleteSingle = "$_baseNote/";
+
+  static const token = "/logisvalley_sec";
 }

@@ -12,6 +12,7 @@ class NoteState with _$NoteState {
     required DataStatus status,
     required String message,
     NoteItem? note,
+    required String token,
   }) = _NoteState;
 
   factory NoteState.initial() {
@@ -22,7 +23,8 @@ class NoteState with _$NoteState {
         isLastPage: false,
         status: DataStatus.initial,
         message: '',
-        note: null);
+        note: null,
+        token: '');
   }
 
   bool get hasNotes => notes.isNotEmpty;
