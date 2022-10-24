@@ -19,6 +19,8 @@ import 'package:hifive/utils/dio_client/dio_client.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:webview_flutter/webview_flutter.dart';
+
 class NoteRepository extends BaseNoteRepository {
   NoteRepository({
     Dio? dioClient,
@@ -26,23 +28,31 @@ class NoteRepository extends BaseNoteRepository {
 
   final Dio _dioClient;
 
-  Future<Map<String, dynamic>> tokenHttp(LoginTokenRequest request) async {
-    String localcookie = '';
-    String url = 'https://atlasdv.logisvalley.com/logisvalley_sec';
+  Future<Map<String, dynamic>> tokenHttp(
+      LoginTokenRequest request, String token) async {
+    String url = "192.168.0.104:8080";
+    // String url = "atlasdv.logisvalley.com";
+    String path = "/logisvalley_sec";
+    if (token == '') {
+      token = 'Global No1 HTNS';
+    }
+    // final _cookieManager = CookieManager();
+    // await _cookieManager.clearCookies();
     var response = await http.post(
-      Uri.https('atlasdv.logisvalley.com', '/logisvalley_sec'),
-      headers:  <String, String>{
+      Uri.http(url, path),
+      headers: <String, String>{
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         'X-CSRF-TOKEN': 'Global No1 HTNS',
         'AJAX': 'true',
-      //  'Cookie': localcookie,
+        'Cookie': '1111',
         'User-Agent': 'okhttp/3.4.1',
         'credentials': 'omit'
       },
-      body: <String, String>{'USER_ID': 'tokenfix', 'PW': 'tokenfix'},
+      // body: jsonEncode({'USER_ID': 'tokenfix', 'PW': 'tokenfix'}),
+      body: 'USER_ID=tokenfix&PW=tokenfix',
     );
-    var data = jsonDecode(await response.body);
+    var data = jsonDecode(response.body);
     data['COOKIE'] = response.headers['set-cookie'];
     return data;
   }
@@ -58,7 +68,7 @@ class NoteRepository extends BaseNoteRepository {
 
     var response = await http.post(
       Uri.http('atlasdv.logisvalley.com', '/logisvalley_sec'),
-      headers:  <String, String>{
+      headers: <String, String>{
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         'X-CSRF-TOKEN': csrf,
@@ -68,7 +78,7 @@ class NoteRepository extends BaseNoteRepository {
         'credentials': 'omit'
       },
       // body: sBody,
-      body: <String, String> {
+      body: <String, String>{
         '_csrf': csrf,
         'USER_ID': id,
         'PW': pwd,

@@ -22,7 +22,6 @@ class DioClient {
   }
 
   static Dio createDioClient() {
-    print("=========" + Constants.baseApiUrl);
     final dio = Dio(
       BaseOptions(
         baseUrl: Constants.baseApiUrl,
@@ -30,7 +29,13 @@ class DioClient {
         connectTimeout: 15000,
         sendTimeout: 15000,
         headers: {
-          HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+          // HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+          'X-CSRF-TOKEN': 'Global No1 HTNS',
+          'AJAX': 'true',
+          'User-Agent': 'okhttp/3.4.1',
+          'credentials': 'omit',
         },
       ),
     );

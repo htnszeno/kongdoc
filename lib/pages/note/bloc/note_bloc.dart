@@ -30,11 +30,11 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
     });
 
     on<Token>((event, emit) async {
-      final result = await _noteRepository.tokenHttp(event.request);
-      print("token :::: ${result}");
+      final result = await _noteRepository.tokenHttp(event.request, '');
+      // print("token :::: ${result}");
       final csrf = result['signaldata']['X_CSRF_TOKEN'];
-      final login = await _noteRepository.loginHtns(csrf, 'user04', 'user04', result['COOKIE']);
-      print('${login}');
+      // final login = await _noteRepository.loginHtns(csrf, 'user04', 'user04', result['COOKIE']);
+      // print('${login}');
     });
 
     on<SetSelectedNote>((event, emit) {
@@ -113,8 +113,6 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
       emit(state.copyWith(notes: notes));
     });
   }
-
-
 
   Future<void> _getFirstPage(Emitter<NoteState> emit) async {
     final result = await _noteRepository.getMany(currentPage: 1);

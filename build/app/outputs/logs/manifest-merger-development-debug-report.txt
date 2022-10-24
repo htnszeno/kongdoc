@@ -41,11 +41,13 @@ MERGED from [:firebase_auth] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mo
 MERGED from [:firebase_core] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [:path_provider_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:google_sign_in_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:webview_flutter_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/542a859793ec57d6a4d40865c7efc6d9/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.firebase:firebase-auth:21.0.8] /Users/benny/.gradle/caches/transforms-3/c3ab1ab857f2eedf147850d11689a491/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:17:1-73:12
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/benny/.gradle/caches/transforms-3/89ba8e05a34cf734bca3914f66f9a9fb/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-common:20.1.2] /Users/benny/.gradle/caches/transforms-3/51d5a07600719f8767e44db6f2a9636e/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:15:1-40:12
+MERGED from [androidx.webkit:webkit:1.5.0] /Users/benny/.gradle/caches/transforms-3/ff8db601b29b5aae2fa6b463c350cfbd/transformed/webkit-1.5.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] /Users/benny/.gradle/caches/transforms-3/66e089c069618d46ecbcfc30035e5ab3/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:17:1-40:12
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] /Users/benny/.gradle/caches/transforms-3/6fc382fce3370b231ba05fbc8b124f61/transformed/jetified-play-services-safetynet-17.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] /Users/benny/.gradle/caches/transforms-3/661f963381eb53c6cea0a92b5aed8fdd/transformed/jetified-play-services-auth-api-phone-18.0.1/AndroidManifest.xml:2:1-7:12
@@ -155,6 +157,8 @@ MERGED from [:path_provider_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-H
 MERGED from [:path_provider_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] /Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/benny/.gradle/caches/transforms-3/542a859793ec57d6a4d40865c7efc6d9/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
@@ -165,6 +169,8 @@ MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/benny/.gra
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/benny/.gradle/caches/transforms-3/89ba8e05a34cf734bca3914f66f9a9fb/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common:20.1.2] /Users/benny/.gradle/caches/transforms-3/51d5a07600719f8767e44db6f2a9636e/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-common:20.1.2] /Users/benny/.gradle/caches/transforms-3/51d5a07600719f8767e44db6f2a9636e/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.5.0] /Users/benny/.gradle/caches/transforms-3/ff8db601b29b5aae2fa6b463c350cfbd/transformed/webkit-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.5.0] /Users/benny/.gradle/caches/transforms-3/ff8db601b29b5aae2fa6b463c350cfbd/transformed/webkit-1.5.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] /Users/benny/.gradle/caches/transforms-3/66e089c069618d46ecbcfc30035e5ab3/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] /Users/benny/.gradle/caches/transforms-3/66e089c069618d46ecbcfc30035e5ab3/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] /Users/benny/.gradle/caches/transforms-3/6fc382fce3370b231ba05fbc8b124f61/transformed/jetified-play-services-safetynet-17.0.0/AndroidManifest.xml:20:5-44
