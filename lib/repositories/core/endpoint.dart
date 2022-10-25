@@ -12,4 +12,5 @@ class Endpoints {
   static const noteDeleteSingle = "$_baseNote/";
 
   static const token = "/logisvalley_sec";
+  static const getInit = "/api/ATLAS1000000SVC/getInitMobile";
 }

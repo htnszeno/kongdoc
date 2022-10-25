@@ -23,18 +23,21 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
   })  : _noteRepository = noteRepository,
         super(NoteState.initial()) {
     on<Started>((event, emit) async {
-      if (state.status.isLoading) return;
-      emit(state.copyWith(status: DataStatus.loading));
-
-      await _getFirstPage(emit);
+      // if (state.status.isLoading) return;
+      // emit(state.copyWith(status: DataStatus.loading));
+    print("Started.....");
+      // await _getFirstPage(emit);
+    final result = await _noteRepository.getInit();
+    print(result);
     });
 
     on<Token>((event, emit) async {
-      final result = await _noteRepository.tokenHttp(event.request, '');
-      // print("token :::: ${result}");
+      // print('@@@@');
+      final result = await _noteRepository.getCsrfToken();
       final csrf = result['signaldata']['X_CSRF_TOKEN'];
-      // final login = await _noteRepository.loginHtns(csrf, 'user04', 'user04', result['COOKIE']);
-      // print('${login}');
+      print("csrf :::=========: ${csrf}");
+      final login = await _noteRepository.loginHtns(csrf, 'user04', 'user04');
+      print('login ======== ${login}');
     });
 
     on<SetSelectedNote>((event, emit) {

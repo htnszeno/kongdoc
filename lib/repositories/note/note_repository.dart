@@ -18,8 +18,9 @@ import 'package:hifive/utils/dio_client/dio_client.dart';
 // import 'package:note_app/utils/dio_client/dio_client.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:cookie_jar/cookie_jar.dart';
+import 'package:path_provider/path_provider.dart';
 
 class NoteRepository extends BaseNoteRepository {
   NoteRepository({
@@ -28,64 +29,40 @@ class NoteRepository extends BaseNoteRepository {
 
   final Dio _dioClient;
 
-  Future<Map<String, dynamic>> tokenHttp(
-      LoginTokenRequest request, String token) async {
-    String url = "192.168.0.104:8080";
-    // String url = "atlasdv.logisvalley.com";
-    String path = "/logisvalley_sec";
-    if (token == '') {
-      token = 'Global No1 HTNS';
+  Future<dynamic> getCsrfToken() async {
+    try {
+      var response = await _dioClient.post(
+        Endpoints.token,
+        data: {'USER_ID': 'tokenfix', 'PW': 'tokenfix'},
+      );
+      return response.data;
+      // return AppResponse<Map<String, dynamic>>.fromJson(
+      //     response.data , (dynamic json) {
+      //   print(json);
+      //
+      //   return json;
+      // });
+    } catch (e) {
+      print(e);
+      rethrow;
     }
-    // final _cookieManager = CookieManager();
-    // await _cookieManager.clearCookies();
-    var response = await http.post(
-      Uri.http(url, path),
-      headers: <String, String>{
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-        'X-CSRF-TOKEN': 'Global No1 HTNS',
-        'AJAX': 'true',
-        'Cookie': '1111',
-        'User-Agent': 'okhttp/3.4.1',
-        'credentials': 'omit'
-      },
-      // body: jsonEncode({'USER_ID': 'tokenfix', 'PW': 'tokenfix'}),
-      body: 'USER_ID=tokenfix&PW=tokenfix',
-    );
-    var data = jsonDecode(response.body);
-    data['COOKIE'] = response.headers['set-cookie'];
-    return data;
   }
 
   Future<Map<String, dynamic>> loginHtns(
-      String csrf, String id, String pwd, String cookie) async {
-    var sBody = {
-      '_csrf': csrf,
-      'USER_ID': id,
-      'PW': pwd,
-      '_spring_security_remember_me': 'false'
-    };
-
-    var response = await http.post(
-      Uri.http('atlasdv.logisvalley.com', '/logisvalley_sec'),
-      headers: <String, String>{
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-        'X-CSRF-TOKEN': csrf,
-        'AJAX': 'true',
-        //'Cookie': '',//cookie,
-        'User-Agent': 'okhttp/3.4.1',
-        'credentials': 'omit'
-      },
-      // body: sBody,
-      body: <String, String>{
-        '_csrf': csrf,
-        'USER_ID': id,
-        'PW': pwd,
-        '_spring_security_remember_me': 'true'
-      },
+      String csrf, String id, String pwd) async {
+    final Response<dynamic> response = await _dioClient.post(
+      Endpoints.token,
+      data: {'USER_ID': 'user04', 'PW': 'user04', '_csrf': csrf, '_spring_security_remember_me': true},
     );
-    return jsonDecode(await response.body);
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> getInit() async {
+    final Response<dynamic> response = await _dioClient.post(
+      Endpoints.getInit,
+      data: {},
+    );
+    return response.data;
   }
 
   @override
@@ -140,7 +117,7 @@ class NoteRepository extends BaseNoteRepository {
       rethrow;
     }
 
-    return Future.delayed(Duration(seconds: 1));
+    // return Future.delayed(Duration(seconds: 1));
   }
 
   // @override

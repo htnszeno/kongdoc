@@ -22,6 +22,7 @@ import 'package:hifive/pages/note/bloc/note_bloc.dart';
 import 'package:hifive/pages/note/note_home_page.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/theme.dart';
+import 'package:path_provider/path_provider.dart';
 
 class App extends StatelessWidget {
   final AuthenticationRepository _authenticationRepository;
@@ -33,6 +34,7 @@ class App extends StatelessWidget {
     required NoteRepository noteRepository,
   })  : _authenticationRepository = authenticationRepository,
         _noteRepository = noteRepository;
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,23 +63,17 @@ class AppView extends StatefulWidget {
 }
 
 class _AppViewState extends State<AppView> {
-  final noteRepository = NoteRepository();
-  late NoteBloc _bloc;
   final _navigatorKey = GlobalKey<NavigatorState>();
 
   NavigatorState get _navigator => _navigatorKey.currentState!;
 
   @override
   void initState() {
-    _bloc = NoteBloc(
-      noteRepository: noteRepository,
-    );
     super.initState();
   }
 
   @override
   void dispose() {
-    _bloc.close();
     super.dispose();
   }
 
@@ -86,31 +82,33 @@ class _AppViewState extends State<AppView> {
     return MaterialApp(
         theme: theme,
         navigatorKey: _navigatorKey,
-        onGenerateRoute: (settings) {
-          switch (settings.name) {
-            case '/':
-              return MaterialPageRoute(
-                builder: (_) => BlocProvider.value(
-                  value: _bloc..add(const Started()),
-                  child: const HomePage(),
-                ),
-              );
-            case '/note_home':
-              return MaterialPageRoute(
-                builder: (_) => BlocProvider.value(
-                  value: _bloc..add(const Started()),
-                  child: const NoteHomePage(),
-                ),
-              );
-            case '/add_note':
-              return MaterialPageRoute(
-                builder: (_) => BlocProvider.value(
-                  value: _bloc,
-                  child: const AddNotePage(),
-                ),
-              );
-          }
-        },
+        // onGenerateRoute: (settings) {
+        //   switch (settings.name) {
+        //     case '/':
+        //       return MaterialPageRoute(
+        //         builder: (_) => BlocProvider.value(
+        //           value: _bloc..add(const Started()),
+        //           child: const HomePage(),
+        //         ),
+        //       );
+        //     case '/note_home':
+        //       return NoteHomePage.route();
+        //     // case '/note_home':
+        //     //   return MaterialPageRoute(
+        //     //     builder: (_) => BlocProvider.value(
+        //     //       value: _bloc..add(const Started()),
+        //     //       child: const NoteHomePage(),
+        //     //     ),
+        //     //   );
+        //     case '/add_note':
+        //       return MaterialPageRoute(
+        //         builder: (_) => BlocProvider.value(
+        //           value: _bloc,
+        //           child: const AddNotePage(),
+        //         ),
+        //       );
+        //   }
+        // },
         builder: (context, child) {
           return BlocListener<AppBloc, AppState>(
             listener: (context, state) {

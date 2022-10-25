@@ -4,6 +4,7 @@ import 'package:hifive/models/note_model.dart';
 import 'package:hifive/models/request/create_note_request.dart';
 import 'package:hifive/models/request/update_note_request.dart';
 import 'package:hifive/pages/note/bloc/note_bloc.dart';
+import 'package:hifive/pages/note/note_home_page.dart';
 import 'package:hifive/repositories/repositories.dart';
 import 'package:hifive/utils/utils.dart';
 import 'package:hifive/widgets/app_text_field.dart';
@@ -15,23 +16,21 @@ class AddNotePage extends StatefulWidget {
 
   static Page<void> page() => const MaterialPage<void>(child: AddNotePage());
 
-  // static Route<void> route(NoteBloc bloc, NoteItem? note) {
-  //   return MaterialPageRoute(
-  //     fullscreenDialog: true,
-  //     builder: (BuildContext context) => BlocProvider(
-  //       create: (context) => NoteBloc(
-  //         noteRepository: context.read<NoteRepository>(),
-  //       ), //..add(SetSelectedNote(note)),
-  //       child: const AddNotePage(),
-  //     ),
-  //   );
-  // }
-  static Route<void> route() {
+  static Route<void> route(NoteBloc bloc) {
     return MaterialPageRoute(
       fullscreenDialog: true,
-      builder: (BuildContext context) => const AddNotePage(),
+      builder: (_) => BlocProvider.value(
+        value: bloc,
+        child: const AddNotePage(),
+      ),
     );
   }
+  // static Route<void> route() {
+  //   return MaterialPageRoute(
+  //     fullscreenDialog: true,
+  //     builder: (BuildContext context) => const AddNotePage(),
+  //   );
+  // }
 
   @override
   State<AddNotePage> createState() => _AddNotePageState();
@@ -104,8 +103,8 @@ class _AddNotePageState extends State<AddNotePage> {
               context,
               state.message,
             );
-            Navigator.pop(context);
-            // Navigator.of(context).pop();
+            // Navigator.pop(context);
+            Navigator.of(context).pop();
             // Navigator.of(context).popAndPushNamed('/note_home');
           } else if (state.status.isError) {
             showMessageSnackbar(

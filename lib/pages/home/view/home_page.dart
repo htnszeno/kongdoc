@@ -42,7 +42,8 @@ class HomePage extends StatelessWidget {
             Text(user.name ?? '', style: textTheme.headline5),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/note_home');
+                  Navigator.of(context).push(NoteHomePage.route());
+                  // Navigator.of(context).pushNamed('/note_home');
                   // context
                   //     .flow<AppStatus>()
                   //     .update((state) => AppStatus.noteHomePage);

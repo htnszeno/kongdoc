@@ -7,20 +7,32 @@ class AppInterceptors extends QueuedInterceptor {
 
   AppInterceptors._internal();
   static AppInterceptors? _singleton;
-
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
+   // print('options === ${options.headers}');
+    if(options.data['_csrf'] != null){
+      print("csrf ===== ${options.data['_csrf']}");
+      options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
+    }
+    final prefs = await SharedPreferences.getInstance();
+    if(prefs.getString('CSRF_TOKEN') != null){
+      options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
+    }
     return handler.next(options);
   }
 
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) async {
     /// Maps custom response
     final responseData = mapResponseData(
-      requestOptions: response.requestOptions,
-      response: response,
-    );
+        requestOptions: response.requestOptions, response: response);
+    // 로그인 성공 후
+    if(response.data['TYPE'] == 200110){
+      String token = response.data['signaldata']['X-CSRF-TOKEN'];
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString('CSRF_TOKEN', token!);
+    }
 
     return handler.resolve(responseData);
   }
@@ -99,9 +111,20 @@ Response<dynamic> mapResponseData({
   String customMessage = "",
   bool isErrorResponse = false,
 }) {
-  final bool hasResponseData = response?.data != null;
+  // print("requestOptions:::=== ${response}");
 
-  Map<String, dynamic>? responseData = response?.data;
+  final bool hasResponseData = response?.data != null;
+  Map<String, dynamic>? responseData = null;
+
+  if (response?.data is String) {
+    // json형태로 출력되어야하나 문자열로 출력되고 맨앞에 \r\n이 포함되는 문제 발생
+    String? _data = response?.data.toString().replaceAll("\r\n", "");
+    responseData = jsonDecode(_data!);
+    response?.data = responseData;
+  } else {
+    // 문제없는 경우
+    responseData = response?.data;
+  }
 
   if (hasResponseData) {
     responseData!.addAll({

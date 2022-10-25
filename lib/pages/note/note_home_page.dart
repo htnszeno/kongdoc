@@ -34,21 +34,21 @@ class NoteHomePage extends StatefulWidget {
   //       child: const NoteHomePage(),
   //     ));
 
-  // static Route<void> route() {
-  //   return MaterialPageRoute(
-  //     fullscreenDialog: true,
-  //     builder: (BuildContext context) => MultiBlocProvider(
-  //       providers: [
-  //         BlocProvider<NoteBloc>(
-  //           create: (context) => NoteBloc(
-  //             noteRepository: context.read<NoteRepository>(),
-  //           )..add(const Started()),
-  //         ),
-  //       ],
-  //       child: const NoteHomePage(),
-  //     ),
-  //   );
-  // }
+  static Route<void> route() {
+    return MaterialPageRoute(
+      fullscreenDialog: true,
+      builder: (BuildContext context) => MultiBlocProvider(
+        providers: [
+          BlocProvider<NoteBloc>(
+              create: (context) => NoteBloc(
+                    noteRepository: context.read<NoteRepository>(),
+                  ) //..add(const Started()),
+              ),
+        ],
+        child: const NoteHomePage(),
+      ),
+    );
+  }
 
   // static Route<void> route() {
   //   return MaterialPageRoute(
@@ -86,7 +86,8 @@ class _NoteHomePageState extends State<NoteHomePage> {
     context.read<NoteBloc>().add(SetSelectedNote(note));
     // Navigator.of(context).push(AddNotePage.route());
 
-    Navigator.of(context).pushNamed('/add_note');
+    Navigator.of(context).push(AddNotePage.route(context.read<NoteBloc>()));
+    // Navigator.of(context).pushNamed('/add_note');
   }
 
   late NoteBloc _noteHomeBloc;
@@ -104,30 +105,38 @@ class _NoteHomePageState extends State<NoteHomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              BlocSelector<NoteBloc, NoteState, NoteViewType>(
-                selector: (state) {
-                  return state.viewType;
-                },
-                builder: (context, state) {
-                  final noteBloc = context.read<NoteBloc>();
-                  return state.isGrid
-                      ? AppIconButton(
-                          onPressed: () => noteBloc.add(const ToggleViewType()),
-                          icon: Icons.table_chart_outlined,
-                          tooltip: "Show as Grid",
-                        )
-                      : AppIconButton(
-                          onPressed: () => noteBloc.add(const ToggleViewType()),
-                          tooltip: "Show as List",
-                          icon: Icons.list,
-                        );
-                },
-              ),
+              // BlocSelector<NoteBloc, NoteState, NoteViewType>(
+              //   selector: (state) {
+              //     return state.viewType;
+              //   },
+              //   builder: (context, state) {
+              //     final noteBloc = context.read<NoteBloc>();
+              //     return state.isGrid
+              //         ? AppIconButton(
+              //             onPressed: () => noteBloc.add(const ToggleViewType()),
+              //             icon: Icons.table_chart_outlined,
+              //             tooltip: "Show as Grid",
+              //           )
+              //         : AppIconButton(
+              //             onPressed: () => noteBloc.add(const ToggleViewType()),
+              //             tooltip: "Show as List",
+              //             icon: Icons.list,
+              //           );
+              //   },
+              // ),
               AppIconButton(
                 onPressed: () {
                   final request = LoginTokenRequest.fromFromGroup(
                       {"USER_ID": 'tokenfix', "PW": 'tokenfix'});
                   _noteHomeBloc.add(Token(request));
+                },
+                icon: Icons.brightness_4,
+              ),
+              AppIconButton(
+                onPressed: () {
+                  final request = LoginTokenRequest.fromFromGroup(
+                      {"USER_ID": 'tokenfix', "PW": 'tokenfix'});
+                  _noteHomeBloc.add(Started());
                 },
                 icon: Icons.brightness_4,
               ),
