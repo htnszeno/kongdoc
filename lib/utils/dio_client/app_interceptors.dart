@@ -11,12 +11,13 @@ class AppInterceptors extends QueuedInterceptor {
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     final prefs = await SharedPreferences.getInstance();
-    if(options.data['_csrf'] != null){
+    if (options.data['_csrf'] != null) {
       options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
       prefs.remove('CSRF_TOKEN');
     }
 
-    if(prefs.getString('CSRF_TOKEN') != null && options.data['USER_ID'] != 'tokenfix'){
+    if (prefs.getString('CSRF_TOKEN') != null &&
+        options.data['USER_ID'] != 'tokenfix') {
       options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
     }
     return handler.next(options);
@@ -24,14 +25,16 @@ class AppInterceptors extends QueuedInterceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
-    /// Maps custom response
+    final prefs = await SharedPreferences.getInstance();
+
     final responseData = mapResponseData(
         requestOptions: response.requestOptions, response: response);
     // 로그인 성공 후
-    if(response.data['TYPE'] == 200110){
+    if (response.data['TYPE'] == 200110) {
       String token = response.data['signaldata']['X-CSRF-TOKEN'];
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString('CSRF_TOKEN', token!);
+      prefs.setString('CSRF_TOKEN', token);
+    } else if (response.data['TYPE'] == 200111) {
+      prefs.remove('CSRF_TOKEN');
     }
 
     return handler.resolve(responseData);

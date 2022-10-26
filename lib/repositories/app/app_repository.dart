@@ -5,9 +5,12 @@ import 'package:cache/cache.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/utils/dio_client/dio_client.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
+
+class LogOutFailure implements Exception {}
 
 /**
  * AppRepository 
@@ -42,9 +45,132 @@ class AppRepository {
 
   Stream<User> get user async* {
     // 이부분에서 서버 통신으로 세션정보 받아옴..
-    User user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
+    // User user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
+    print("stream...... ");
+    User user = User.empty;
+    final initData = await getInit();
+    if (initData['TYPE'] == 1) {
+      user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
+    }
     _cache.write(key: userCacheKey, value: user);
     yield user; // 유저가 없다면 user.empty
     yield* _controller.stream;
+  }
+
+  Future<dynamic> getCsrfToken() async {
+    try {
+      var response = await _dioClient.post(
+        Endpoints.token,
+        data: {'USER_ID': 'tokenfix', 'PW': 'tokenfix'},
+      );
+      return response.data['signaldata']['X_CSRF_TOKEN'];
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+  }
+
+  Future<Map<String, dynamic>> logInWithUserIdAndPassword({
+    required String userId,
+    required String password,
+  }) async {
+    final csrf = await getCsrfToken();
+    final Response<dynamic> response = await _dioClient.post(
+      Endpoints.token,
+      data: {
+        'USER_ID': userId,
+        'PW': password,
+        '_csrf': csrf,
+        '_spring_security_remember_me': true
+      },
+    );
+    if (response.data['TYPE'] == 200111) {
+      throw LoginFailureException.fromCode(response.data['TYPE']);
+    } else if (response.data['TYPE'] == 200110) {
+      final result = await getInit();
+      if (result['TYPE'] == 1) {
+        final session = result['data']['session'];
+        _controller.add(User(
+            id: '111', name: session['USER_NAME_LOC'], email: 'xxxx@neat.et'));
+      }
+    }
+    return response.data;
+  }
+
+  Future<void> logInWithGoogle() async {
+    try {
+      late final firebase_auth.AuthCredential credential;
+      if (isWeb) {
+        final googleProvider = firebase_auth.GoogleAuthProvider();
+        final userCredential = await _firebaseAuth.signInWithPopup(
+          googleProvider,
+        );
+        credential = userCredential.credential!;
+      } else {
+        final googleUser = await _googleSignIn.signIn();
+        final googleAuth = await googleUser!.authentication;
+        credential = firebase_auth.GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+      }
+      await _firebaseAuth.signInWithCredential(credential);
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      throw LogInWithGoogleFailure.fromCode(e.code);
+    } catch (_) {
+      throw const LogInWithGoogleFailure();
+    }
+  }
+
+  // Future<void> logOut() async {
+  //   try {
+  //     // await Future.wait([
+  //     //   _firebaseAuth.signOut(),
+  //     //   _googleSignIn.signOut(),
+  //     // ]);
+  //   } catch (_) {
+  //     throw LogOutFailure();
+  //   }
+  // }
+  Future<Map<String, dynamic>> logOut() async {
+    print("logout...");
+    final Response<dynamic> response = await _dioClient.post(
+      Endpoints.logout,
+      data: {},
+    );
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> getInit() async {
+    final Response<dynamic> response = await _dioClient.post(
+      Endpoints.getInit,
+      data: {},
+    );
+    return response.data;
+  }
+}
+
+extension on firebase_auth.User {
+  User get toUser {
+    return User(id: uid, email: email, name: displayName, photo: photoURL);
+  }
+}
+
+class LoginFailureException implements Exception {
+  final String message;
+
+  const LoginFailureException([
+    this.message = '요청에 문제가 발생하였습니다. 계속 될 수 관리자에게 문의하세요.',
+  ]);
+
+  factory LoginFailureException.fromCode(int code) {
+    switch (code) {
+      case 200111:
+        return const LoginFailureException(
+          '아이디와 비밀번호를 확인하세요.',
+        );
+      default:
+        return const LoginFailureException();
+    }
   }
 }

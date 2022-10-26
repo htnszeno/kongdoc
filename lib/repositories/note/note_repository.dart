@@ -63,6 +63,14 @@ class NoteRepository extends BaseNoteRepository {
     return response.data;
   }
 
+  Future<Map<String, dynamic>> logout() async {
+    final Response<dynamic> response = await _dioClient.post(
+      Endpoints.logout,
+      data: {},
+    );
+    return response.data;
+  }
+
   @override
   Future<AppResponse<NoteItem?>> create(CreateNoteRequest request) async {
     print("Endpoints.noteCreate ::  ${Endpoints.noteCreate}");

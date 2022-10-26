@@ -71,7 +71,7 @@ class AuthenticationRepository {
     });
   }
 
-  Future<void> logInWithEmailAndPassword({
+  Future<void> logInWithEmailAndPassword2({
     required String email,
     required String password,
   }) async {
@@ -85,9 +85,9 @@ class AuthenticationRepository {
       // User user = User(id: '111', name: '홍길동', email: 'benneylwa@neat.et');
       // _controller.add(user);
     } on FirebaseAuthException catch (e) {
-      throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
+      throw LogInWithEmailAndPasswordFailure2.fromCode(e.code);
     } catch (_) {
-      throw const LogInWithEmailAndPasswordFailure();
+      throw const LogInWithEmailAndPasswordFailure2();
     }
   }
 
@@ -225,33 +225,33 @@ class LogInWithGoogleFailure implements Exception {
   final String message;
 }
 
-class LogInWithEmailAndPasswordFailure implements Exception {
+class LogInWithEmailAndPasswordFailure2 implements Exception {
   final String message;
 
-  const LogInWithEmailAndPasswordFailure([
+  const LogInWithEmailAndPasswordFailure2([
     this.message = 'An unknown exception occurred.',
   ]);
 
-  factory LogInWithEmailAndPasswordFailure.fromCode(String code) {
+  factory LogInWithEmailAndPasswordFailure2.fromCode(String code) {
     switch (code) {
       case 'invalid-email':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'Email is not valid or badly formatted.',
         );
       case 'user-disabled':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'This user has been disabled. Please contact support for help.',
         );
       case 'user-not-found':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'Email is not found, please create an account.',
         );
       case 'wrong-password':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'Incorrect password, please try again.',
         );
       default:
-        return const LogInWithEmailAndPasswordFailure();
+        return const LogInWithEmailAndPasswordFailure2();
     }
   }
 }

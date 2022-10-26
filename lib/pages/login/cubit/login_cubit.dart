@@ -1,16 +1,20 @@
+import 'dart:convert';
+
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:form_inputs/form_inputs.dart';
+import 'package:hifive/repositories/app/app_repository.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final AuthenticationRepository _authenticationRepository;
+  // final AuthenticationRepository _authenticationRepository;
+  final AppRepository _appRepository;
 
-  LoginCubit(this._authenticationRepository) : super(const LoginState());
+  LoginCubit(this._appRepository) : super(const LoginState());
 
 /**
  * 로그인 처리 
@@ -20,12 +24,13 @@ class LoginCubit extends Cubit<LoginState> {
     emit(state.copyWith(status: FormzStatus.submissionInProgress));
 
     try {
-      await _authenticationRepository.logInWithEmailAndPassword(
-        email: state.email.value,
+      final result = await _appRepository.logInWithUserIdAndPassword(
+        userId: state.userId.value,
         password: state.password.value,
       );
+
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
-    } on LogInWithEmailAndPasswordFailure catch (e) {
+    } on LoginFailureException catch (e) {
       emit(state.copyWith(
           errorMessage: e.message, status: FormzStatus.submissionFailure));
     } catch (_) {
@@ -36,7 +41,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> logInWithGoogle() async {
     emit(state.copyWith(status: FormzStatus.submissionInProgress));
     try {
-      await _authenticationRepository.logInWithGoogle();
+      await _appRepository.logInWithGoogle();
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
     } on LogInWithGoogleFailure catch (e) {
       emit(
@@ -48,6 +53,16 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (_) {
       emit(state.copyWith(status: FormzStatus.submissionFailure));
     }
+  }
+
+  void userIdChanged(String value) {
+    final userId = UserId.dirty(value);
+    emit(
+      state.copyWith(
+        userId: userId,
+        status: Formz.validate([userId, state.password]),
+      ),
+    );
   }
 
   void emailChanged(String value) {
@@ -65,7 +80,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(
       state.copyWith(
         password: password,
-        status: Formz.validate([state.email, password]),
+        status: Formz.validate([state.userId, password]),
       ),
     );
   }
