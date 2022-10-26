@@ -10,13 +10,13 @@ class AppInterceptors extends QueuedInterceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-   // print('options === ${options.headers}');
-    if(options.data['_csrf'] != null){
-      print("csrf ===== ${options.data['_csrf']}");
-      options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
-    }
     final prefs = await SharedPreferences.getInstance();
-    if(prefs.getString('CSRF_TOKEN') != null){
+    if(options.data['_csrf'] != null){
+      options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
+      prefs.remove('CSRF_TOKEN');
+    }
+
+    if(prefs.getString('CSRF_TOKEN') != null && options.data['USER_ID'] != 'tokenfix'){
       options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
     }
     return handler.next(options);
