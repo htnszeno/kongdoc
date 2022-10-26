@@ -26,7 +26,6 @@ class DioClient {
     return _singleton ??= DioClient._internal();
   }
   static Dio createDioClient() {
-
     final dio = Dio(
       BaseOptions(
         baseUrl: Constants.baseApiUrl,
@@ -49,8 +48,9 @@ class DioClient {
     //   dio.interceptors.add(CookieManager(cookieJar));
     // });
 
-    var cookieJar =
-    PersistCookieJar(storage: FileStorage("/data/user/0/com.onix.hifive/files" + "/.cookies/"));
+    var cookieJar = PersistCookieJar(
+        storage:
+            FileStorage("/data/user/0/com.onix.hifive/files" + "/.cookies/"));
     dio.interceptors.add(CookieManager(cookieJar));
 
     dio.interceptors.addAll([

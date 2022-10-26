@@ -52,7 +52,12 @@ class NoteRepository extends BaseNoteRepository {
       String csrf, String id, String pwd) async {
     final Response<dynamic> response = await _dioClient.post(
       Endpoints.token,
-      data: {'USER_ID': 'user04', 'PW': 'user04', '_csrf': csrf, '_spring_security_remember_me': true},
+      data: {
+        'USER_ID': 'benneykwag',
+        'PW': 'benneykwag',
+        '_csrf': csrf,
+        '_spring_security_remember_me': true
+      },
     );
     return response.data;
   }
