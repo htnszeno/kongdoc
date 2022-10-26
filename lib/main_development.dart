@@ -19,8 +19,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final authenticationRepository = AuthenticationRepository();
-  // final Directory directory = await getApplicationSupportDirectory();
-  // print(" pagteh :: ${directory.path}");
   final noteRepository = NoteRepository();
 
   bootstrap(

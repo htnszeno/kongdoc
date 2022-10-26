@@ -8,6 +8,8 @@ environment:
   flutter: 3.3.3
 
 dependencies:
+  cache:
+    path: packages/cache
   authentication_repository:
     path: packages/authentication_repository
   bloc: ^8.1.0
