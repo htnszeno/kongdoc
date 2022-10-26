@@ -55,39 +55,35 @@ class AuthenticationRepository {
     return _cache.read<User>(key: userCacheKey) ?? User.empty;
   }
 
-  Stream<User> get user async* {
-    // 이부분에서 서버 통신으로 세션정보 받아옴..
-    User user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
-    _cache.write(key: userCacheKey, value: user);
-    yield user; // 유저가 없다면 user.empty
-    yield* _controller.stream;
-  }
-
-  // Stream<User> get user {
-
-  // return _firebaseAuth.authStateChanges().map((firebaseUser) {
-  //   final user = firebaseUser == null ? User.empty : firebaseUser.toUser;
+  // Stream<User> get user async* {
+  //   // 이부분에서 서버 통신으로 세션정보 받아옴..
+  //   User user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
   //   _cache.write(key: userCacheKey, value: user);
-  //   return user;
-  // });
+  //   yield user; // 유저가 없다면 user.empty
+  //   yield* _controller.stream;
   // }
+
+  Stream<User> get user {
+    return _firebaseAuth.authStateChanges().map((firebaseUser) {
+      final user = firebaseUser == null ? User.empty : firebaseUser.toUser;
+      _cache.write(key: userCacheKey, value: user);
+      return user;
+    });
+  }
 
   Future<void> logInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
     try {
-      // await _firebaseAuth.signInWithEmailAndPassword(
-      //   email: email,
-      //   password: password,
-      // );
-      // _controller.add(currentUser);
-      User user = User(id: '111', name: '홍길동', email: 'benneylwa@neat.et');
+      await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      _controller.add(currentUser);
 
-      // _cache.write(key: userCacheKey, value: user);
-      // print("currentUser : ======================= ${currentUser}");
-
-      _controller.add(user);
+      // User user = User(id: '111', name: '홍길동', email: 'benneylwa@neat.et');
+      // _controller.add(user);
     } on FirebaseAuthException catch (e) {
       throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {
