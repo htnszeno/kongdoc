@@ -4,10 +4,10 @@ import 'package:hifive/models/note_model.dart';
 import 'package:hifive/models/request/create_note_request.dart';
 import 'package:hifive/models/request/update_note_request.dart';
 import 'package:hifive/pages/note/bloc/note_bloc.dart';
-import 'package:hifive/pages/note/note_home_page.dart';
+import 'package:hifive/pages/note/view/note_home_page.dart';
 import 'package:hifive/repositories/repositories.dart';
-import 'package:hifive/utils/utils.dart';
-import 'package:hifive/widgets/app_text_field.dart';
+import 'package:hifive/util/util.dart';
+import 'package:hifive/widget/app_text_field.dart';
 import 'package:reactive_color_picker/reactive_color_picker.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 

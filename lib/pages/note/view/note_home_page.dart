@@ -3,14 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/enums/note_view_type.dart';
 import 'package:hifive/models/note_model.dart';
 import 'package:hifive/models/request/create_login_token.dart';
-import 'package:hifive/pages/note/add_note_page.dart';
+import 'package:hifive/pages/note/view/add_note_page.dart';
 import 'package:hifive/pages/note/bloc/note_bloc.dart';
-import 'package:hifive/pages/note/widgets/note_app_bar.dart';
-import 'package:hifive/pages/note/widgets/note_grid.dart';
-import 'package:hifive/pages/note/widgets/note_list.dart';
+import 'package:hifive/pages/note/widget/note_app_bar.dart';
+import 'package:hifive/pages/note/widget/note_grid.dart';
+import 'package:hifive/pages/note/widget/note_list.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
-import 'package:hifive/widgets/app_icon_button.dart';
-import 'package:hifive/widgets/widgets.dart';
+import 'package:hifive/widget/app_icon_button.dart';
+import 'package:hifive/widget/widgets.dart';
 
 class NoteHomePage extends StatefulWidget {
   const NoteHomePage({super.key});

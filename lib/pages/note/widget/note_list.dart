@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/models/note_model.dart';
-import 'package:hifive/utils/utils.dart';
+import 'package:hifive/util/util.dart';
 
 // import 'package:note_app/models/models.dart';
 // import 'package:note_app/screens/home/bloc/note_bloc.dart';
