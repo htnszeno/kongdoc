@@ -13,4 +13,6 @@ class Endpoints {
 
   static const token = "/slp_sec";
   static const getInit = "/api/SLP000000SVC/getInit";
+
+  static const logout = '/j_spring_security_logout';
 }

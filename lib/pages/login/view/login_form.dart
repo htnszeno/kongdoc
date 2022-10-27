@@ -18,7 +18,7 @@ class LoginForm extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
-                content: Text(state.errorMessage ?? 'Authentication Failure'),
+                content: Text(state.errorMessage ?? '로그인 처리 시 문제 '),
               ),
             );
         }
@@ -34,7 +34,7 @@ class LoginForm extends StatelessWidget {
                 height: 120,
               ),
               const SizedBox(height: 16),
-              _EmailInput(),
+              _UserIdInput(),
               const SizedBox(height: 8),
               _PasswordInput(),
               const SizedBox(height: 8),
@@ -147,6 +147,28 @@ class _EmailInput extends StatelessWidget {
             labelText: 'email',
             helperText: '',
             errorText: state.email.invalid ? 'invalid email' : null,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _UserIdInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LoginCubit, LoginState>(
+      buildWhen: (previous, current) => previous.userId != current.userId,
+      builder: (context, state) {
+        return TextField(
+          key: const Key('loginForm_idInput_textField'),
+          onChanged: (userId) =>
+              context.read<LoginCubit>().userIdChanged(userId),
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            labelText: '아이디',
+            helperText: '',
+            errorText: state.userId.invalid ? '형식에 맞게 입력해주세요.' : null,
           ),
         );
       },

@@ -5,9 +5,9 @@ import 'package:equatable/equatable.dart';
 ///
 /// [User.empty] represents an unauthenticated user.
 /// {@endtemplate}
-class User extends Equatable {
+class UserModel extends Equatable {
   /// {@macro user}
-  const User({
+  const UserModel({
     required this.id,
     this.email,
     this.name,
@@ -27,15 +27,15 @@ class User extends Equatable {
   final String? photo;
 
   /// Empty user which represents an unauthenticated user.
-  static const empty = User(id: '');
+  static const empty = UserModel(id: '');
 
   // static const installApp = User(id: 'installApp');
 
   /// Convenience getter to determine whether the current user is empty.
-  bool get isEmpty => this == User.empty;
+  bool get isEmpty => this == UserModel.empty;
 
   /// Convenience getter to determine whether the current user is not empty.
-  bool get isNotEmpty => this != User.empty;
+  bool get isNotEmpty => this != UserModel.empty;
 
   // bool get isInstallApp => this != User.installApp;
 

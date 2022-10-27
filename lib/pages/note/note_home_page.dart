@@ -130,7 +130,7 @@ class _NoteHomePageState extends State<NoteHomePage> {
                       {"USER_ID": 'tokenfix', "PW": 'tokenfix'});
                   _noteHomeBloc.add(Token(request));
                 },
-                icon: Icons.brightness_4,
+                icon: Icons.login,
               ),
               AppIconButton(
                 onPressed: () {
@@ -138,36 +138,44 @@ class _NoteHomePageState extends State<NoteHomePage> {
                       {"USER_ID": 'tokenfix', "PW": 'tokenfix'});
                   _noteHomeBloc.add(Started());
                 },
-                icon: Icons.brightness_4,
+                icon: Icons.ice_skating,
+              ),
+              AppIconButton(
+                onPressed: () {
+                  final request = LoginTokenRequest.fromFromGroup(
+                      {"USER_ID": 'tokenfix', "PW": 'tokenfix'});
+                  _noteHomeBloc.add(Logout());
+                },
+                icon: Icons.logout,
               ),
             ],
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: BlocConsumer<NoteBloc, NoteState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          final isLoading =
-              state.status.isRefreshing || state.status.isLoadingMore;
-          return FloatingActionButton(
-            onPressed: () => isLoading
-                ? null
-                : Navigator.of(context).pushReplacementNamed('/add_note'),
-            backgroundColor: isLoading
-                ? Theme.of(context).primaryColorLight
-                : Theme.of(context).primaryColor,
-            child: isLoading
-                ? const CircularProgressIndicator(
-                    color: Colors.white,
-                  )
-                : const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-          );
-        },
-      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: BlocConsumer<NoteBloc, NoteState>(
+      //   listener: (context, state) {},
+      //   builder: (context, state) {
+      //     final isLoading =
+      //         state.status.isRefreshing || state.status.isLoadingMore;
+      //     return FloatingActionButton(
+      //       onPressed: () => isLoading
+      //           ? null
+      //           : Navigator.of(context).pushReplacementNamed('/add_note'),
+      //       backgroundColor: isLoading
+      //           ? Theme.of(context).primaryColorLight
+      //           : Theme.of(context).primaryColor,
+      //       child: isLoading
+      //           ? const CircularProgressIndicator(
+      //               color: Colors.white,
+      //             )
+      //           : const Icon(
+      //               Icons.add,
+      //               color: Colors.white,
+      //             ),
+      //     );
+      //   },
+      // ),
       body: RefreshIndicator(
         onRefresh: () async {
           context.read<NoteBloc>().add(const Refresh());

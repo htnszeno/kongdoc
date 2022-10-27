@@ -35,11 +35,11 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Avatar(photo: user.photo),
+            // Avatar(photo: user.photo),
             const SizedBox(height: 4),
             Text(user.email ?? '', style: textTheme.headline6),
             const SizedBox(height: 4),
-            Text(user.name ?? '', style: textTheme.headline5),
+            Text(user.userName ?? '', style: textTheme.headline5),
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(NoteHomePage.route());

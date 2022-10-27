@@ -2,11 +2,13 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:hifive/app/view/app.dart';
 import 'package:hifive/config.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/app_response.dart';
+import 'package:hifive/repositories/app/app_repository.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';

@@ -31,7 +31,7 @@ class AuthenticationRepository {
   final GoogleSignIn _googleSignIn;
   final CacheClient _cache;
   static const userCacheKey = '__user_cache_key__';
-  final _controller = StreamController<User>();
+  final _controller = StreamController<UserModel>();
   @visibleForTesting
   bool isWeb = kIsWeb;
 
@@ -50,9 +50,9 @@ class AuthenticationRepository {
 
   /// Returns the current cached user.
   /// Defaults to [User.empty] if there is no cached user.
-  User get currentUser {
-    print("current use r======${_cache.read<User>(key: userCacheKey)}");
-    return _cache.read<User>(key: userCacheKey) ?? User.empty;
+  UserModel get currentUser {
+    print("current use r======${_cache.read<UserModel>(key: userCacheKey)}");
+    return _cache.read<UserModel>(key: userCacheKey) ?? UserModel.empty;
   }
 
   // Stream<User> get user async* {
@@ -63,15 +63,15 @@ class AuthenticationRepository {
   //   yield* _controller.stream;
   // }
 
-  Stream<User> get user {
+  Stream<UserModel> get user {
     return _firebaseAuth.authStateChanges().map((firebaseUser) {
-      final user = firebaseUser == null ? User.empty : firebaseUser.toUser;
+      final user = firebaseUser == null ? UserModel.empty : firebaseUser.toUser;
       _cache.write(key: userCacheKey, value: user);
       return user;
     });
   }
 
-  Future<void> logInWithEmailAndPassword({
+  Future<void> logInWithEmailAndPassword2({
     required String email,
     required String password,
   }) async {
@@ -85,9 +85,9 @@ class AuthenticationRepository {
       // User user = User(id: '111', name: '홍길동', email: 'benneylwa@neat.et');
       // _controller.add(user);
     } on FirebaseAuthException catch (e) {
-      throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
+      throw LogInWithEmailAndPasswordFailure2.fromCode(e.code);
     } catch (_) {
-      throw const LogInWithEmailAndPasswordFailure();
+      throw const LogInWithEmailAndPasswordFailure2();
     }
   }
 
@@ -129,8 +129,8 @@ class AuthenticationRepository {
 }
 
 extension on firebase_auth.User {
-  User get toUser {
-    return User(id: uid, email: email, name: displayName, photo: photoURL);
+  UserModel get toUser {
+    return UserModel(id: uid, email: email, name: displayName, photo: photoURL);
   }
 }
 
@@ -225,33 +225,33 @@ class LogInWithGoogleFailure implements Exception {
   final String message;
 }
 
-class LogInWithEmailAndPasswordFailure implements Exception {
+class LogInWithEmailAndPasswordFailure2 implements Exception {
   final String message;
 
-  const LogInWithEmailAndPasswordFailure([
+  const LogInWithEmailAndPasswordFailure2([
     this.message = 'An unknown exception occurred.',
   ]);
 
-  factory LogInWithEmailAndPasswordFailure.fromCode(String code) {
+  factory LogInWithEmailAndPasswordFailure2.fromCode(String code) {
     switch (code) {
       case 'invalid-email':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'Email is not valid or badly formatted.',
         );
       case 'user-disabled':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'This user has been disabled. Please contact support for help.',
         );
       case 'user-not-found':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'Email is not found, please create an account.',
         );
       case 'wrong-password':
-        return const LogInWithEmailAndPasswordFailure(
+        return const LogInWithEmailAndPasswordFailure2(
           'Incorrect password, please try again.',
         );
       default:
-        return const LogInWithEmailAndPasswordFailure();
+        return const LogInWithEmailAndPasswordFailure2();
     }
   }
 }

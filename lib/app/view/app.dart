@@ -14,27 +14,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/app/routes/routes.dart';
+import 'package:hifive/enums/app_status.dart';
 import 'package:hifive/l10n/l10n.dart';
 import 'package:hifive/pages/home/home.dart';
 import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/note/add_note_page.dart';
 import 'package:hifive/pages/note/bloc/note_bloc.dart';
 import 'package:hifive/pages/note/note_home_page.dart';
+import 'package:hifive/repositories/app/app_repository.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/theme.dart';
 import 'package:path_provider/path_provider.dart';
 
 class App extends StatelessWidget {
-  final AuthenticationRepository _authenticationRepository;
+  final AppRepository _appRepository;
   final NoteRepository _noteRepository;
 
   const App({
     super.key,
-    required AuthenticationRepository authenticationRepository,
+    required AppRepository appRepository,
     required NoteRepository noteRepository,
-  })  : _authenticationRepository = authenticationRepository,
+  })  : _appRepository = appRepository,
         _noteRepository = noteRepository;
-
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +46,9 @@ class App extends StatelessWidget {
         ),
       ],
       child: RepositoryProvider.value(
-        value: _authenticationRepository,
+        value: _appRepository,
         child: BlocProvider(
-          create: (_) => AppBloc(
-            authenticationRepository: _authenticationRepository,
-          ),
+          create: (_) => AppBloc(appRepository: _appRepository),
           child: AppView(),
         ),
       ),
@@ -113,19 +112,19 @@ class _AppViewState extends State<AppView> {
           return BlocListener<AppBloc, AppState>(
             listener: (context, state) {
               switch (state.status) {
-                case AuthenticationStatus.authenticated:
+                case AppStatus.authenticated:
                   _navigator.pushAndRemoveUntil<void>(
                     HomePage.route(),
                     (route) => false,
                   );
                   break;
-                case AuthenticationStatus.unauthenticated:
+                case AppStatus.unauthenticated:
                   _navigator.pushAndRemoveUntil<void>(
                     LoginPage.route(),
                     (route) => false,
                   );
                   break;
-                case AuthenticationStatus.unknown:
+                case AppStatus.unknown:
                   _navigator.pushAndRemoveUntil<void>(
                     SplashPage.route(),
                     (route) => false,

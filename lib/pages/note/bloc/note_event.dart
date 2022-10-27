@@ -33,4 +33,6 @@ class NoteEvent with _$NoteEvent {
   const factory NoteEvent.setSelectedNote(NoteItem? note) = SetSelectedNote;
 
   const factory NoteEvent.token(LoginTokenRequest request) = Token;
+
+  const factory NoteEvent.logout() = Logout;
 }

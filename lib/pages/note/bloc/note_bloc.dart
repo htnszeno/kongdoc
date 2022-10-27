@@ -22,13 +22,17 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
     required NoteRepository noteRepository,
   })  : _noteRepository = noteRepository,
         super(NoteState.initial()) {
+    on<Logout>((event, emit) async {
+      final result = await _noteRepository.logout();
+      print("로그아웃 : ${result}");
+    });
     on<Started>((event, emit) async {
       // if (state.status.isLoading) return;
       // emit(state.copyWith(status: DataStatus.loading));
-    print("Started.....");
+      print("Started.....");
       // await _getFirstPage(emit);
-    final result = await _noteRepository.getInit();
-    print(result);
+      final result = await _noteRepository.getInit();
+      print(result);
     });
 
     on<Token>((event, emit) async {
