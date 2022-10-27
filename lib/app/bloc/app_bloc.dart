@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/enums/app_status.dart';
+import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/app/app_repository.dart';
 part 'app_event.dart';
 part 'app_state.dart';

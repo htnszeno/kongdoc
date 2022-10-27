@@ -1,4 +1,4 @@
-#Wed Oct 26 16:38:52 KST 2022
+#Thu Oct 27 12:05:21 KST 2022
 base.0=/Users/benny/Desktop/ClaySoft/00.DEV/2022-HiFive-Mobile-App/build/app/intermediates/dex/developmentDebug/mergeDexDevelopmentDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

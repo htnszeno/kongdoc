@@ -5,6 +5,8 @@ import 'package:cache/cache.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:hifive/models/app_response.dart';
+import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/utils/dio_client/dio_client.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
@@ -46,11 +48,15 @@ class AppRepository {
   Stream<User> get user async* {
     // 이부분에서 서버 통신으로 세션정보 받아옴..
     // User user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
-    print("stream...... ");
     User user = User.empty;
     final initData = await getInit();
     if (initData['TYPE'] == 1) {
-      user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
+      var session = initData['data']['session'];
+
+      user = User(
+          userId: session['USER_ID'],
+          userName: session['USER_NAME_ENG'],
+          email: session['EMAIL']);
     }
     _cache.write(key: userCacheKey, value: user);
     yield user; // 유저가 없다면 user.empty
@@ -91,7 +97,10 @@ class AppRepository {
       if (result['TYPE'] == 1) {
         final session = result['data']['session'];
         _controller.add(User(
-            id: '111', name: session['USER_NAME_LOC'], email: 'xxxx@neat.et'));
+          userId: session['USER_ID'],
+          userName: session['USER_NAME_LOC'],
+          email: session['EMAIL'],
+        ));
       }
     }
     return response.data;
@@ -141,6 +150,20 @@ class AppRepository {
     return response.data;
   }
 
+  // Future<AppResponse<User?>> getInit() async {
+  //   final Response<dynamic> response = await _dioClient.post(
+  //     Endpoints.getInit,
+  //     data: {},
+  //   );
+  //   // return response.data;
+
+  //   return AppResponse<User?>.fromJson(
+  //     response.data,
+  //     (dynamic json) =>
+  //         response.data['success'] && json != null ? User.fromJson(json) : null,
+  //   );
+  // }
+
   Future<Map<String, dynamic>> getInit() async {
     final Response<dynamic> response = await _dioClient.post(
       Endpoints.getInit,
@@ -150,11 +173,11 @@ class AppRepository {
   }
 }
 
-extension on firebase_auth.User {
-  User get toUser {
-    return User(id: uid, email: email, name: displayName, photo: photoURL);
-  }
-}
+// extension on firebase_auth.User {
+//   User get toUser {
+//     return User(id: uid, email: email, name: displayName, photo: photoURL);
+//   }
+// }
 
 class LoginFailureException implements Exception {
   final String message;

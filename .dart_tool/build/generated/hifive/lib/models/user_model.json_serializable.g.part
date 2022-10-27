@@ -1,0 +1,17 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+      userId: json['USER_ID'] as String,
+      userName: json['USER_NAME_KOR'] as String? ?? "",
+      telNo: json['TEL_NO'] as String? ?? "",
+      email: json['EMAIL'] as String? ?? "",
+    );
+
+Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+      'USER_ID': instance.userId,
+      'USER_NAME_KOR': instance.userName,
+      'TEL_NO': instance.telNo,
+      'EMAIL': instance.email,
+    };
