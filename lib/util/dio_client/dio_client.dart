@@ -1,18 +1,13 @@
 // Package imports:
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:dio/dio.dart';
-import 'package:hifive/app/view/app.dart';
 import 'package:hifive/config.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/app_response.dart';
-import 'package:hifive/repositories/app/app_repository.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'app_interceptors.dart';
@@ -44,6 +39,7 @@ class DioClient {
         },
       ),
     );
+    // @ 추후 추가할 것 . async 문제 해결 필요
     // getApplicationSupportDirectory().then((directory) {
     //   var cookieJar =
     //       PersistCookieJar(storage: FileStorage(directory.path + "/.cookies/"));

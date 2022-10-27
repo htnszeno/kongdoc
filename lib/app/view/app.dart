@@ -18,9 +18,10 @@ import 'package:hifive/enums/app_status.dart';
 import 'package:hifive/l10n/l10n.dart';
 import 'package:hifive/pages/home/home.dart';
 import 'package:hifive/pages/login/view/view.dart';
-import 'package:hifive/pages/note/add_note_page.dart';
+import 'package:hifive/pages/main_page.dart';
+import 'package:hifive/pages/note/view/add_note_page.dart';
 import 'package:hifive/pages/note/bloc/note_bloc.dart';
-import 'package:hifive/pages/note/note_home_page.dart';
+import 'package:hifive/pages/note/view/note_home_page.dart';
 import 'package:hifive/repositories/app/app_repository.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/theme.dart';
@@ -114,7 +115,7 @@ class _AppViewState extends State<AppView> {
               switch (state.status) {
                 case AppStatus.authenticated:
                   _navigator.pushAndRemoveUntil<void>(
-                    HomePage.route(),
+                    MainPage.route(),
                     (route) => false,
                   );
                   break;
