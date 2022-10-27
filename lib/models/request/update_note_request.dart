@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/material.dart';
-import 'package:hifive/utils/utils.dart';
+import 'package:hifive/util/util.dart';
 
 part 'update_note_request.freezed.dart';
 part 'update_note_request.g.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:async';
 
 import 'package:authentication_repository/authentication_repository.dart';
@@ -5,10 +7,9 @@ import 'package:cache/cache.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:hifive/models/app_response.dart';
 import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
-import 'package:hifive/utils/dio_client/dio_client.dart';
+import 'package:hifive/util/dio_client/dio_client.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
 

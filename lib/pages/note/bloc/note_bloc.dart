@@ -9,7 +9,7 @@ import 'package:hifive/models/request/create_login_token.dart';
 import 'package:hifive/models/request/create_note_request.dart';
 import 'package:hifive/models/request/update_note_request.dart';
 import 'package:hifive/repositories/repositories.dart';
-import 'package:hifive/utils/utils.dart';
+import 'package:hifive/util/util.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 part 'note_event.dart';

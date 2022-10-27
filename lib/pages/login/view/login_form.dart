@@ -26,24 +26,27 @@ class LoginForm extends StatelessWidget {
       child: Align(
         alignment: const Alignment(0, -1 / 3),
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                'assets/bloc_logo_small.png',
-                height: 120,
-              ),
-              const SizedBox(height: 16),
-              _UserIdInput(),
-              const SizedBox(height: 8),
-              _PasswordInput(),
-              const SizedBox(height: 8),
-              _LoginButton(),
-              const SizedBox(height: 8),
-              _GoogleLoginButton(),
-              const SizedBox(height: 4),
-              _SignUpButton(),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/bloc_logo_small.png',
+                  height: 120,
+                ),
+                const SizedBox(height: 16),
+                _UserIdInput(),
+                const SizedBox(height: 8),
+                _PasswordInput(),
+                const SizedBox(height: 8),
+                _LoginButton(),
+                const SizedBox(height: 8),
+                // _GoogleLoginButton(),
+                const SizedBox(height: 4),
+                // _SignUpButton(),
+              ],
+            ),
           ),
         ),
       ),
@@ -96,11 +99,11 @@ class _LoginButton extends StatelessWidget {
         return ElevatedButton(
           key: const Key('loginForm_continue_raisedButton'),
           style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            // backgroundColor: const Color(0xFFFFD600),
-          ),
+              // shape: RoundedRectangleBorder(
+              //   borderRadius: BorderRadius.circular(30),
+              // ),
+              // backgroundColor: const Color(0xFFFFD600),
+              ),
           onPressed: state.status.isValidated
               ? () => context.read<LoginCubit>().logIn()
               : null,
