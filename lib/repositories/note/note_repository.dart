@@ -8,7 +8,7 @@ import 'package:hifive/models/request/create_note_request.dart';
 import 'package:hifive/models/request/update_note_request.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/repositories/note/base_note_repository.dart';
-import 'package:hifive/utils/dio_client/dio_client.dart';
+import 'package:hifive/util/dio_client/dio_client.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';

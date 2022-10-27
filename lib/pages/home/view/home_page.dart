@@ -61,15 +61,18 @@ class _HomePageState extends State<HomePage> {
             Text(user.email ?? '', style: textTheme.headline6),
             const SizedBox(height: 4),
             Text(user.userName ?? '', style: textTheme.headline5),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(NoteHomePage.route());
-                  // Navigator.of(context).pushNamed('/note_home');
-                  // context
-                  //     .flow<AppStatus>()
-                  //     .update((state) => AppStatus.noteHomePage);
-                },
-                child: Text("note_home")),
+
+            ElevatedButton(onPressed: () {}, child: Text("note_home")),
+
+            // ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.of(context).push(NoteHomePage.route());
+            //       // Navigator.of(context).pushNamed('/note_home');
+            //       // context
+            //       //     .flow<AppStatus>()
+            //       //     .update((state) => AppStatus.noteHomePage);
+            //     },
+            //     child: Text("note_home")),
           ],
         ),
       ),
