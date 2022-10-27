@@ -1,4 +1,0 @@
-#Wed Oct 12 13:50:23 KST 2022
-base.0=/Users/benny/Desktop/ClaySoft/00.DEV/hifive/build/app/intermediates/dex/productionDebug/mergeDexProductionDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
