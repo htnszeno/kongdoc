@@ -12,12 +12,14 @@ class AppInterceptors extends QueuedInterceptor {
       RequestOptions options, RequestInterceptorHandler handler) async {
     final prefs = await SharedPreferences.getInstance();
     if (options.data['_csrf'] != null) {
+      // 로그인 시도로 이전 얻어온 토큰 설정
       options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
       prefs.remove('CSRF_TOKEN');
     }
 
     if (prefs.getString('CSRF_TOKEN') != null &&
         options.data['USER_ID'] != 'tokenfix') {
+      // 로그인 이후 일반 통신 처리
       options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
     }
     return handler.next(options);
@@ -33,6 +35,8 @@ class AppInterceptors extends QueuedInterceptor {
     if (response.data['TYPE'] == 200110) {
       String token = response.data['signaldata']['X-CSRF-TOKEN'];
       prefs.setString('CSRF_TOKEN', token);
+      prefs.setString('USER_ID', response.requestOptions.data['USER_ID']);
+      prefs.setString('PW', response.requestOptions.data['PW']);
     } else if (response.data['TYPE'] == 200111) {
       prefs.remove('CSRF_TOKEN');
     }

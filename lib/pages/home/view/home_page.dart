@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 4),
             Text(user.userName ?? '', style: textTheme.headline5),
 
-            ElevatedButton(onPressed: () {}, child: Text("note_home")),
+            _UserIdInput(),
 
             // ElevatedButton(
             //     onPressed: () {
@@ -76,6 +76,32 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _UserIdInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController _controller = TextEditingController(text: '초기값.');
+    return BlocBuilder<AppBloc, AppState>(
+      buildWhen: (previous, current) =>
+          previous.user.userId != current.user.userId,
+      builder: (context, state) {
+        _controller.text = state.user.userId!;
+
+        return TextFormField(
+          controller: _controller,
+          key: const Key('loginForm_idInput_textField'),
+          keyboardType: TextInputType.text,
+          onChanged: (userId) => context.read<AppBloc>().add(UserIdChange()),
+          decoration: InputDecoration(
+            labelText: '아이디',
+            helperText: '',
+            // errorText: state.user.userId ?? '형식에 맞게 입력해주세요.',
+          ),
+        );
+      },
     );
   }
 }

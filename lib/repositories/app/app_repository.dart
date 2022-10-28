@@ -12,6 +12,7 @@ import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LogOutFailure implements Exception {}
 
@@ -53,11 +54,21 @@ class AppRepository {
     final initData = await getInit();
     if (initData['TYPE'] == 1) {
       var session = initData['data']['session'];
-
       user = User(
           userId: session['USER_ID'],
           userName: session['USER_NAME_ENG'],
           email: session['EMAIL']);
+    }else if(initData['TYPE'] == 200130){
+      // 이하 로직 세션 유지 안되는 문제 강제 해결
+      // SharedPreferences 정보를 가진다면 재로그인 하도록 강제
+      final prefs = await SharedPreferences.getInstance();
+      if(prefs.getString('USER_ID')?.isNotEmpty == true &&
+          prefs.getString('PW')?.isNotEmpty == true){
+        await logInWithUserIdAndPassword(
+          userId: prefs.getString('USER_ID').toString(),
+          password:  prefs.getString('PW').toString(),
+        );
+      }
     }
     _cache.write(key: userCacheKey, value: user);
     yield user; // 유저가 없다면 user.empty
@@ -143,7 +154,6 @@ class AppRepository {
   //   }
   // }
   Future<Map<String, dynamic>> logOut() async {
-    print("logout...");
     final Response<dynamic> response = await _dioClient.post(
       Endpoints.logout,
       data: {},

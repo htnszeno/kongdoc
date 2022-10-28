@@ -9,6 +9,10 @@ abstract class AppEvent extends Equatable {
 
 class AppLogoutRequested extends AppEvent {}
 
+class AppActiveLoginRequested extends AppEvent {}
+
+class UserIdChange extends AppEvent {}
+
 class AppUserChanged extends AppEvent {
   @visibleForTesting
   const AppUserChanged(this.user);
