@@ -5,13 +5,11 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'dart:io';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hifive/app/app.dart';
 import 'package:hifive/bootstrap.dart';
-import 'package:hifive/repositories/app/app_repository.dart';
+import 'package:hifive/repositories/app_repository.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
 
 Future<void> main() async {

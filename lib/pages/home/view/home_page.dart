@@ -2,6 +2,7 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
+import 'package:hifive/pages/exam/view/exam_bloc_page.dart';
 import 'package:hifive/pages/home/widget/avatar.dart';
 import 'package:hifive/pages/note/view/note_home_page.dart';
 
@@ -57,22 +58,23 @@ class _HomePageState extends State<HomePage> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             // Avatar(photo: user.photo),
-            const SizedBox(height: 4),
-            Text(user.email ?? '', style: textTheme.headline6),
-            const SizedBox(height: 4),
-            Text(user.userName ?? '', style: textTheme.headline5),
+            // const SizedBox(height: 4),
+            // Text(user.email ?? '', style: textTheme.headline6),
+            // const SizedBox(height: 4),
+            // Text(user.userName ?? '', style: textTheme.headline5),
 
-            _UserIdInput(),
+            // _UserIdInput(),
 
             // ElevatedButton(
-            //     onPressed: () {
-            //       Navigator.of(context).push(NoteHomePage.route());
-            //       // Navigator.of(context).pushNamed('/note_home');
-            //       // context
-            //       //     .flow<AppStatus>()
-            //       //     .update((state) => AppStatus.noteHomePage);
-            //     },
-            //     child: Text("note_home")),
+            //   onPressed: () {
+            //     Navigator.of(context).push(ExamBlocPage.route());
+            //     // Navigator.of(context).pushNamed('/note_home');
+            //     // context
+            //     //     .flow<AppStatus>()
+            //     //     .update((state) => AppStatus.noteHomePage);
+            //   },
+            //   child: const Text("샘플페이지 이동 "),
+            // ),
           ],
         ),
       ),
