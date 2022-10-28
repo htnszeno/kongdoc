@@ -9,6 +9,7 @@
 
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flow_builder/flow_builder.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -17,6 +18,7 @@ import 'package:hifive/app/routes/routes.dart';
 import 'package:hifive/enums/app_status.dart';
 import 'package:hifive/l10n/l10n.dart';
 import 'package:hifive/pages/home/home.dart';
+import 'package:hifive/pages/login/cubit/login_cubit.dart';
 import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/main_page.dart';
 import 'package:hifive/pages/note/view/add_note_page.dart';
@@ -64,12 +66,29 @@ class AppView extends StatefulWidget {
 
 class _AppViewState extends State<AppView> {
   final _navigatorKey = GlobalKey<NavigatorState>();
-
+  bool isAppInactive = false;
   NavigatorState get _navigator => _navigatorKey.currentState!;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(
+      LifecycleEventHandler(
+        resumeCallBack: () async => setState(() {
+          // context.read<AppBloc>().add(AppActiveLoginRequested());
+          // setState(() {
+          //   print("======== App 액티브 false");
+          //   isAppInactive = false;
+          // });
+        }),
+        suspendingCallBack: () async {
+          // print("======== App 액티브 true");
+          // setState(() {
+          //   isAppInactive = true;
+          // });
+        },
+      ),
+    );
   }
 
   @override
@@ -81,34 +100,8 @@ class _AppViewState extends State<AppView> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: theme,
+        debugShowCheckedModeBanner: false,
         navigatorKey: _navigatorKey,
-        // onGenerateRoute: (settings) {
-        //   switch (settings.name) {
-        //     case '/':
-        //       return MaterialPageRoute(
-        //         builder: (_) => BlocProvider.value(
-        //           value: _bloc..add(const Started()),
-        //           child: const HomePage(),
-        //         ),
-        //       );
-        //     case '/note_home':
-        //       return NoteHomePage.route();
-        //     // case '/note_home':
-        //     //   return MaterialPageRoute(
-        //     //     builder: (_) => BlocProvider.value(
-        //     //       value: _bloc..add(const Started()),
-        //     //       child: const NoteHomePage(),
-        //     //     ),
-        //     //   );
-        //     case '/add_note':
-        //       return MaterialPageRoute(
-        //         builder: (_) => BlocProvider.value(
-        //           value: _bloc,
-        //           child: const AddNotePage(),
-        //         ),
-        //       );
-        //   }
-        // },
         builder: (context, child) {
           return BlocListener<AppBloc, AppState>(
             listener: (context, state) {
@@ -152,5 +145,34 @@ class SplashPage extends StatelessWidget {
     return const Scaffold(
       body: Center(child: CircularProgressIndicator()),
     );
+  }
+}
+
+class LifecycleEventHandler extends WidgetsBindingObserver {
+  final AsyncCallback resumeCallBack;
+  final AsyncCallback suspendingCallBack;
+
+  LifecycleEventHandler({
+    required this.resumeCallBack,
+    required this.suspendingCallBack,
+  });
+
+  @override
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    print('state >>>>>>>>>>>>>>>>>>>>>> : ${state}');
+    switch (state) {
+      case AppLifecycleState.resumed:
+        if (resumeCallBack != null) {
+          await resumeCallBack();
+        }
+        break;
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.paused:
+      case AppLifecycleState.detached:
+        if (suspendingCallBack != null) {
+          await suspendingCallBack();
+        }
+        break;
+    }
   }
 }
