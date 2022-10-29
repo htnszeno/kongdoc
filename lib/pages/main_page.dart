@@ -1,9 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
+import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
+import 'package:hifive/pages/exam/view/exam_bloc_page.dart';
 import 'package:hifive/pages/profile/profile.dart';
+import 'package:hifive/repositories/exam_repository.dart';
 
 import 'pages.dart';
 
@@ -27,13 +28,16 @@ class _MainPageState extends State<MainPage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   final List<Widget> _widgetOptions = <Widget>[
+    RepositoryProvider(
+      create: (_) => ExamRepository(),
+      child: BlocProvider<ExamBloc>(
+        create: (context) => ExamBloc(
+          examRepository: context.read<ExamRepository>(),
+        )..add(Started()),
+        child: const ExamBlocPage(),
+      ),
+    ),
     const HomePage(),
-    // BlocProvider<NoteBloc>(
-    //   create: (context) => NoteBloc(
-    //     noteRepository: context.read<NoteRepository>(),
-    //   ),
-    //   child: const NoteHomePage(),
-    // ),
     const SocialPage(),
     const ShortsPage(),
     const OpenChatPage(),
@@ -68,6 +72,10 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.stream_sharp),
+            label: '샘플',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: '홈',
           ),
@@ -89,7 +97,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.blueGrey,
         // fixedColor: Colors.white,
         onTap: _onItemTapped,

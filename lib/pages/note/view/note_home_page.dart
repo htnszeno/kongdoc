@@ -15,7 +15,7 @@ import 'package:hifive/widget/widgets.dart';
 class NoteHomePage extends StatefulWidget {
   const NoteHomePage({super.key});
 
-  static Page<void> page() => const MaterialPage<void>(child: NoteHomePage());
+  // static Page<void> page() => const MaterialPage<void>(child: NoteHomePage());
   // static Page<void> page() => MaterialPage<void>(
   //         child: MultiBlocProvider(
   //       providers: [
@@ -40,10 +40,10 @@ class NoteHomePage extends StatefulWidget {
       builder: (BuildContext context) => MultiBlocProvider(
         providers: [
           BlocProvider<NoteBloc>(
-              create: (context) => NoteBloc(
-                    noteRepository: context.read<NoteRepository>(),
-                  ) //..add(const Started()),
-              ),
+            create: (context) => NoteBloc(
+              noteRepository: context.read<NoteRepository>(),
+            )..add(const Started()),
+          ),
         ],
         child: const NoteHomePage(),
       ),
