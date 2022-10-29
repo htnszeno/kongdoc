@@ -6,6 +6,7 @@ class ExamState with _$ExamState {
 
   const factory ExamState(
       {required List<ExamItem> items,
+      required ExamItem? exam,
       required int page,
       required DataStatus status,
       required bool isLastPage,
@@ -18,6 +19,7 @@ class ExamState with _$ExamState {
       status: DataStatus.initial,
       isLastPage: false,
       message: '',
+      exam: null,
     );
   }
 

@@ -140,7 +140,7 @@ class _$_ExamItem implements _ExamItem {
       required this.userId,
       required this.title,
       required this.body,
-      this.color = '#fff44336'});
+      this.color = '#ff03a9f4'});
 
   factory _$_ExamItem.fromJson(Map<String, dynamic> json) =>
       _$$_ExamItemFromJson(json);

@@ -21,6 +21,7 @@ mixin _$ExamEvent {
     required TResult Function() started,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function(ExamItem? exam) setSelectedExam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ExamEvent {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ExamEvent {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$ExamEvent {
     required TResult Function(Started value) started,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedExam value) setSelectedExam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$ExamEvent {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$ExamEvent {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +124,7 @@ class _$Started implements Started {
     required TResult Function() started,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function(ExamItem? exam) setSelectedExam,
   }) {
     return started();
   }
@@ -128,6 +135,7 @@ class _$Started implements Started {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
   }) {
     return started?.call();
   }
@@ -138,6 +146,7 @@ class _$Started implements Started {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -152,6 +161,7 @@ class _$Started implements Started {
     required TResult Function(Started value) started,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedExam value) setSelectedExam,
   }) {
     return started(this);
   }
@@ -162,6 +172,7 @@ class _$Started implements Started {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
   }) {
     return started?.call(this);
   }
@@ -172,6 +183,7 @@ class _$Started implements Started {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -227,6 +239,7 @@ class _$LoadMore implements LoadMore {
     required TResult Function() started,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function(ExamItem? exam) setSelectedExam,
   }) {
     return loadMore();
   }
@@ -237,6 +250,7 @@ class _$LoadMore implements LoadMore {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
   }) {
     return loadMore?.call();
   }
@@ -247,6 +261,7 @@ class _$LoadMore implements LoadMore {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -261,6 +276,7 @@ class _$LoadMore implements LoadMore {
     required TResult Function(Started value) started,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedExam value) setSelectedExam,
   }) {
     return loadMore(this);
   }
@@ -271,6 +287,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
   }) {
     return loadMore?.call(this);
   }
@@ -281,6 +298,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -335,6 +353,7 @@ class _$Refresh implements Refresh {
     required TResult Function() started,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function(ExamItem? exam) setSelectedExam,
   }) {
     return refresh();
   }
@@ -345,6 +364,7 @@ class _$Refresh implements Refresh {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
   }) {
     return refresh?.call();
   }
@@ -355,6 +375,7 @@ class _$Refresh implements Refresh {
     TResult Function()? started,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -369,6 +390,7 @@ class _$Refresh implements Refresh {
     required TResult Function(Started value) started,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedExam value) setSelectedExam,
   }) {
     return refresh(this);
   }
@@ -379,6 +401,7 @@ class _$Refresh implements Refresh {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
   }) {
     return refresh?.call(this);
   }
@@ -389,6 +412,7 @@ class _$Refresh implements Refresh {
     TResult Function(Started value)? started,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -403,8 +427,168 @@ abstract class Refresh implements ExamEvent {
 }
 
 /// @nodoc
+abstract class _$$SetSelectedExamCopyWith<$Res> {
+  factory _$$SetSelectedExamCopyWith(
+          _$SetSelectedExam value, $Res Function(_$SetSelectedExam) then) =
+      __$$SetSelectedExamCopyWithImpl<$Res>;
+  $Res call({ExamItem? exam});
+
+  $ExamItemCopyWith<$Res>? get exam;
+}
+
+/// @nodoc
+class __$$SetSelectedExamCopyWithImpl<$Res>
+    extends _$ExamEventCopyWithImpl<$Res>
+    implements _$$SetSelectedExamCopyWith<$Res> {
+  __$$SetSelectedExamCopyWithImpl(
+      _$SetSelectedExam _value, $Res Function(_$SetSelectedExam) _then)
+      : super(_value, (v) => _then(v as _$SetSelectedExam));
+
+  @override
+  _$SetSelectedExam get _value => super._value as _$SetSelectedExam;
+
+  @override
+  $Res call({
+    Object? exam = freezed,
+  }) {
+    return _then(_$SetSelectedExam(
+      exam == freezed
+          ? _value.exam
+          : exam // ignore: cast_nullable_to_non_nullable
+              as ExamItem?,
+    ));
+  }
+
+  @override
+  $ExamItemCopyWith<$Res>? get exam {
+    if (_value.exam == null) {
+      return null;
+    }
+
+    return $ExamItemCopyWith<$Res>(_value.exam!, (value) {
+      return _then(_value.copyWith(exam: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SetSelectedExam implements SetSelectedExam {
+  const _$SetSelectedExam(this.exam);
+
+  @override
+  final ExamItem? exam;
+
+  @override
+  String toString() {
+    return 'ExamEvent.setSelectedExam(exam: $exam)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetSelectedExam &&
+            const DeepCollectionEquality().equals(other.exam, exam));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(exam));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SetSelectedExamCopyWith<_$SetSelectedExam> get copyWith =>
+      __$$SetSelectedExamCopyWithImpl<_$SetSelectedExam>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(ExamItem? exam) setSelectedExam,
+  }) {
+    return setSelectedExam(exam);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
+  }) {
+    return setSelectedExam?.call(exam);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
+    required TResult orElse(),
+  }) {
+    if (setSelectedExam != null) {
+      return setSelectedExam(exam);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedExam value) setSelectedExam,
+  }) {
+    return setSelectedExam(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
+  }) {
+    return setSelectedExam?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
+    required TResult orElse(),
+  }) {
+    if (setSelectedExam != null) {
+      return setSelectedExam(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetSelectedExam implements ExamEvent {
+  const factory SetSelectedExam(final ExamItem? exam) = _$SetSelectedExam;
+
+  ExamItem? get exam;
+  @JsonKey(ignore: true)
+  _$$SetSelectedExamCopyWith<_$SetSelectedExam> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ExamState {
   List<ExamItem> get items => throw _privateConstructorUsedError;
+  ExamItem? get exam => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   DataStatus get status => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
@@ -421,10 +605,13 @@ abstract class $ExamStateCopyWith<$Res> {
       _$ExamStateCopyWithImpl<$Res>;
   $Res call(
       {List<ExamItem> items,
+      ExamItem? exam,
       int page,
       DataStatus status,
       bool isLastPage,
       String message});
+
+  $ExamItemCopyWith<$Res>? get exam;
 }
 
 /// @nodoc
@@ -438,6 +625,7 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
   @override
   $Res call({
     Object? items = freezed,
+    Object? exam = freezed,
     Object? page = freezed,
     Object? status = freezed,
     Object? isLastPage = freezed,
@@ -448,6 +636,10 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ExamItem>,
+      exam: exam == freezed
+          ? _value.exam
+          : exam // ignore: cast_nullable_to_non_nullable
+              as ExamItem?,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -466,6 +658,17 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
               as String,
     ));
   }
+
+  @override
+  $ExamItemCopyWith<$Res>? get exam {
+    if (_value.exam == null) {
+      return null;
+    }
+
+    return $ExamItemCopyWith<$Res>(_value.exam!, (value) {
+      return _then(_value.copyWith(exam: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -476,10 +679,14 @@ abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
   @override
   $Res call(
       {List<ExamItem> items,
+      ExamItem? exam,
       int page,
       DataStatus status,
       bool isLastPage,
       String message});
+
+  @override
+  $ExamItemCopyWith<$Res>? get exam;
 }
 
 /// @nodoc
@@ -495,6 +702,7 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = freezed,
+    Object? exam = freezed,
     Object? page = freezed,
     Object? status = freezed,
     Object? isLastPage = freezed,
@@ -505,6 +713,10 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ExamItem>,
+      exam: exam == freezed
+          ? _value.exam
+          : exam // ignore: cast_nullable_to_non_nullable
+              as ExamItem?,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -530,6 +742,7 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
 class _$_ExamState extends _ExamState {
   const _$_ExamState(
       {required final List<ExamItem> items,
+      required this.exam,
       required this.page,
       required this.status,
       required this.isLastPage,
@@ -545,6 +758,8 @@ class _$_ExamState extends _ExamState {
   }
 
   @override
+  final ExamItem? exam;
+  @override
   final int page;
   @override
   final DataStatus status;
@@ -555,7 +770,7 @@ class _$_ExamState extends _ExamState {
 
   @override
   String toString() {
-    return 'ExamState(items: $items, page: $page, status: $status, isLastPage: $isLastPage, message: $message)';
+    return 'ExamState(items: $items, exam: $exam, page: $page, status: $status, isLastPage: $isLastPage, message: $message)';
   }
 
   @override
@@ -564,6 +779,7 @@ class _$_ExamState extends _ExamState {
         (other.runtimeType == runtimeType &&
             other is _$_ExamState &&
             const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality().equals(other.exam, exam) &&
             const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality()
@@ -575,6 +791,7 @@ class _$_ExamState extends _ExamState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(exam),
       const DeepCollectionEquality().hash(page),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(isLastPage),
@@ -589,6 +806,7 @@ class _$_ExamState extends _ExamState {
 abstract class _ExamState extends ExamState {
   const factory _ExamState(
       {required final List<ExamItem> items,
+      required final ExamItem? exam,
       required final int page,
       required final DataStatus status,
       required final bool isLastPage,
@@ -597,6 +815,8 @@ abstract class _ExamState extends ExamState {
 
   @override
   List<ExamItem> get items;
+  @override
+  ExamItem? get exam;
   @override
   int get page;
   @override

@@ -8,4 +8,6 @@ class ExamEvent with _$ExamEvent {
 
   // 재조회
   const factory ExamEvent.refresh() = Refresh;
+
+  const factory ExamEvent.setSelectedExam(ExamItem? exam) = SetSelectedExam;
 }

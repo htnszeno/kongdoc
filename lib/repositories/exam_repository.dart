@@ -31,11 +31,22 @@ class ExamRepository {
     });
   }
 
-  Future<Map<String, dynamic>> getInit() async {
-    final Response<dynamic> response = await _dioClient.post(
-      Endpoints.getInit,
-      data: {},
+  Future<AppResponse<ExamItem?>> getSingle({required int id}) async {
+    final response = await _dioClient.get("/posts/$id");
+
+    return AppResponse<ExamItem?>.fromJson(
+      response.data,
+      (dynamic json) => response.data['success'] && json != null
+          ? ExamItem.fromJson(json)
+          : null,
     );
-    return response.data;
   }
+
+  // Future<Map<String, dynamic>> getInit() async {
+  //   final Response<dynamic> response = await _dioClient.post(
+  //     Endpoints.getInit,
+  //     data: {},
+  //   );
+  //   return response.data;
+  // }
 }

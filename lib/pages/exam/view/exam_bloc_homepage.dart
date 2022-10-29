@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/models/exam_model.dart';
 import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
+import 'package:hifive/pages/exam/view/exam_bloc_item_page.dart';
 import 'package:hifive/pages/exam/widget/exam_app_bar.dart';
 import 'package:hifive/pages/exam/widget/exam_list.dart';
 import 'package:hifive/repositories/exam_repository.dart';
@@ -53,10 +54,11 @@ class _ExamBlocPageState extends State<ExamBlocPage> {
     return false;
   }
 
-  void _onNotePressed(ExamItem note) {
-    // context.read<AddNoteBloc>().add(SetSelectedNote(note));
+  void _onNotePressed(ExamItem exam) {
+    context.read<ExamBloc>().add(SetSelectedExam(exam));
     // Navigator.of(context).pushNamed(AddNoteScreen.routeName);
-    // Navigator.of(context).push(AddNoteScreen.route(bloc, note));
+    Navigator.of(context)
+        .push(ExamBlocItemPage.route(context.read<ExamBloc>()));
   }
 
   @override

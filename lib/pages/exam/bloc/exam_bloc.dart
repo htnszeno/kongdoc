@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hifive/enums/data_status.dart';
 import 'package:hifive/models/exam_model.dart';
-import 'package:hifive/models/note_model.dart';
 import 'package:hifive/repositories/exam_repository.dart';
 part 'exam_event.dart';
 part 'exam_state.dart';
@@ -21,6 +19,13 @@ class ExamBloc extends Bloc<ExamEvent, ExamState> {
       // if (kDebugMode) {
       //   print(event);
       // }
+    });
+
+    on<SetSelectedExam>((event, emit) async {
+      int? id = event.exam?.id;
+      final result = await _examRepository.getSingle(id: id!);
+      print("result ::;=== ${result.data}");
+      emit(state.copyWith(exam: result.data));
     });
 
     on<Started>((event, emit) async {
