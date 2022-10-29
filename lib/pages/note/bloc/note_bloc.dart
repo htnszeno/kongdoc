@@ -27,8 +27,8 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
       print("로그아웃 : ${result}");
     });
     on<Started>((event, emit) async {
-      // if (state.status.isLoading) return;
-      // emit(state.copyWith(status: DataStatus.loading));
+      if (state.status.isLoading) return;
+      emit(state.copyWith(status: DataStatus.loading));
       print("Started.....");
       // await _getFirstPage(emit);
       final result = await _noteRepository.getInit();

@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
       child: BlocProvider<ExamBloc>(
         create: (context) => ExamBloc(
           examRepository: context.read<ExamRepository>(),
-        ),
+        )..add(Started()),
         child: const ExamBlocPage(),
       ),
     ),

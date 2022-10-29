@@ -62,9 +62,7 @@ class _HomePageState extends State<HomePage> {
             // Text(user.email ?? '', style: textTheme.headline6),
             // const SizedBox(height: 4),
             // Text(user.userName ?? '', style: textTheme.headline5),
-
             // _UserIdInput(),
-
             // ElevatedButton(
             //   onPressed: () {
             //     Navigator.of(context).push(ExamBlocPage.route());

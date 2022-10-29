@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hifive/models/exam_model.dart';
 import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
 import 'package:hifive/pages/exam/widget/exam_app_bar.dart';
+import 'package:hifive/pages/exam/widget/exam_list.dart';
 import 'package:hifive/repositories/exam_repository.dart';
 import 'package:hifive/widget/blank_content.dart';
 
@@ -28,7 +30,7 @@ class ExamBlocPage extends StatefulWidget {
 }
 
 class _ExamBlocPageState extends State<ExamBlocPage> {
-  late ExamBloc bloc;
+  late ExamBloc _examBloc;
   ScrollController? _scrollController;
 
   @override
@@ -51,9 +53,15 @@ class _ExamBlocPageState extends State<ExamBlocPage> {
     return false;
   }
 
+  void _onNotePressed(ExamItem note) {
+    // context.read<AddNoteBloc>().add(SetSelectedNote(note));
+    // Navigator.of(context).pushNamed(AddNoteScreen.routeName);
+    // Navigator.of(context).push(AddNoteScreen.route(bloc, note));
+  }
+
   @override
   Widget build(BuildContext context) {
-    bloc = context.read<ExamBloc>();
+    _examBloc = context.read<ExamBloc>();
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
@@ -82,7 +90,10 @@ class _ExamBlocPageState extends State<ExamBlocPage> {
                         child: BlankContent(),
                       );
                     }
-                    return Container(child: Text('data'));
+                    return ExamList(
+                      items: state.items,
+                      onNotePressed: _onNotePressed,
+                    );
                   },
                 ),
               )

@@ -404,9 +404,11 @@ abstract class Refresh implements ExamEvent {
 
 /// @nodoc
 mixin _$ExamState {
-  List<NoteItem> get exams => throw _privateConstructorUsedError;
+  List<ExamItem> get items => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   DataStatus get status => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ExamStateCopyWith<ExamState> get copyWith =>
@@ -417,7 +419,12 @@ mixin _$ExamState {
 abstract class $ExamStateCopyWith<$Res> {
   factory $ExamStateCopyWith(ExamState value, $Res Function(ExamState) then) =
       _$ExamStateCopyWithImpl<$Res>;
-  $Res call({List<NoteItem> exams, int page, DataStatus status});
+  $Res call(
+      {List<ExamItem> items,
+      int page,
+      DataStatus status,
+      bool isLastPage,
+      String message});
 }
 
 /// @nodoc
@@ -430,15 +437,17 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? exams = freezed,
+    Object? items = freezed,
     Object? page = freezed,
     Object? status = freezed,
+    Object? isLastPage = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      exams: exams == freezed
-          ? _value.exams
-          : exams // ignore: cast_nullable_to_non_nullable
-              as List<NoteItem>,
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ExamItem>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -447,6 +456,14 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -457,7 +474,12 @@ abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
           _$_ExamState value, $Res Function(_$_ExamState) then) =
       __$$_ExamStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<NoteItem> exams, int page, DataStatus status});
+  $Res call(
+      {List<ExamItem> items,
+      int page,
+      DataStatus status,
+      bool isLastPage,
+      String message});
 }
 
 /// @nodoc
@@ -472,15 +494,17 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? exams = freezed,
+    Object? items = freezed,
     Object? page = freezed,
     Object? status = freezed,
+    Object? isLastPage = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$_ExamState(
-      exams: exams == freezed
-          ? _value._exams
-          : exams // ignore: cast_nullable_to_non_nullable
-              as List<NoteItem>,
+      items: items == freezed
+          ? _value._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ExamItem>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -489,6 +513,14 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -497,27 +529,33 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
 
 class _$_ExamState extends _ExamState {
   const _$_ExamState(
-      {required final List<NoteItem> exams,
+      {required final List<ExamItem> items,
       required this.page,
-      required this.status})
-      : _exams = exams,
+      required this.status,
+      required this.isLastPage,
+      required this.message})
+      : _items = items,
         super._();
 
-  final List<NoteItem> _exams;
+  final List<ExamItem> _items;
   @override
-  List<NoteItem> get exams {
+  List<ExamItem> get items {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_exams);
+    return EqualUnmodifiableListView(_items);
   }
 
   @override
   final int page;
   @override
   final DataStatus status;
+  @override
+  final bool isLastPage;
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'ExamState(exams: $exams, page: $page, status: $status)';
+    return 'ExamState(items: $items, page: $page, status: $status, isLastPage: $isLastPage, message: $message)';
   }
 
   @override
@@ -525,17 +563,22 @@ class _$_ExamState extends _ExamState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ExamState &&
-            const DeepCollectionEquality().equals(other._exams, _exams) &&
+            const DeepCollectionEquality().equals(other._items, _items) &&
             const DeepCollectionEquality().equals(other.page, page) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.isLastPage, isLastPage) &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_exams),
+      const DeepCollectionEquality().hash(_items),
       const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(status));
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(isLastPage),
+      const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -545,17 +588,23 @@ class _$_ExamState extends _ExamState {
 
 abstract class _ExamState extends ExamState {
   const factory _ExamState(
-      {required final List<NoteItem> exams,
+      {required final List<ExamItem> items,
       required final int page,
-      required final DataStatus status}) = _$_ExamState;
+      required final DataStatus status,
+      required final bool isLastPage,
+      required final String message}) = _$_ExamState;
   const _ExamState._() : super._();
 
   @override
-  List<NoteItem> get exams;
+  List<ExamItem> get items;
   @override
   int get page;
   @override
   DataStatus get status;
+  @override
+  bool get isLastPage;
+  @override
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_ExamStateCopyWith<_$_ExamState> get copyWith =>
