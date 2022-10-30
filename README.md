@@ -47,6 +47,9 @@ This project contains 3 flavors:
 To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
 
 ```sh
+# 시작 쉘스크립트
+$ sh ./flutter_run.sh
+
 # Development
 $ flutter run --flavor development --target lib/main_development.dart
 
