@@ -144,7 +144,7 @@ class NoteRepository extends BaseNoteRepository {
     int id,
   ) async {
     final response = await _dioClient.put(
-      "${Endpoints.noteUpdate}$id",
+      "${Endpoints.noteUpdate}",
       data: request.toJson(),
     );
 

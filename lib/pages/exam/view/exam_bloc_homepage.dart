@@ -65,6 +65,28 @@ class _ExamBlocPageState extends State<ExamBlocPage> {
   Widget build(BuildContext context) {
     _examBloc = context.read<ExamBloc>();
     return Scaffold(
+      floatingActionButton: BlocConsumer<ExamBloc, ExamState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          final isLoading =
+              state.status.isRefreshing || state.status.isLoadingMore;
+          return FloatingActionButton(
+            backgroundColor: Theme.of(context).primaryColor,
+            onPressed: () => isLoading
+                ? null
+                : Navigator.of(context)
+                    .push(ExamBlocItemPage.route(context.read<ExamBloc>())),
+            child: isLoading
+                ? const CircularProgressIndicator(
+                    color: Colors.white,
+                  )
+                : Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+          );
+        },
+      ),
       body: RefreshIndicator(
         onRefresh: () async {
           context.read<ExamBloc>().add(const Refresh());

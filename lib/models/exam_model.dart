@@ -10,6 +10,7 @@ class ExamItem with _$ExamItem {
   // List<String> _colors = ['#fff44336', '##ffffeb3b', '#ff03a9f4'];
   factory ExamItem(
       {required int id,
+        @Default(1)
       required int userId,
       required String title,
       required String body,

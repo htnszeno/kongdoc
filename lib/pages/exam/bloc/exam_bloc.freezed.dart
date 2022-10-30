@@ -22,6 +22,8 @@ mixin _$ExamEvent {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(ExamItem? exam) setSelectedExam,
+    required TResult Function(UpdateExamRequest request, int id) update,
+    required TResult Function(CreateExamRequest request) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$ExamEvent {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$ExamEvent {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,8 @@ mixin _$ExamEvent {
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedExam value) setSelectedExam,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,8 @@ mixin _$ExamEvent {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +73,8 @@ mixin _$ExamEvent {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,6 +137,8 @@ class _$Started implements Started {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(ExamItem? exam) setSelectedExam,
+    required TResult Function(UpdateExamRequest request, int id) update,
+    required TResult Function(CreateExamRequest request) create,
   }) {
     return started();
   }
@@ -136,6 +150,8 @@ class _$Started implements Started {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
   }) {
     return started?.call();
   }
@@ -147,6 +163,8 @@ class _$Started implements Started {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -162,6 +180,8 @@ class _$Started implements Started {
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedExam value) setSelectedExam,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
   }) {
     return started(this);
   }
@@ -173,6 +193,8 @@ class _$Started implements Started {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
   }) {
     return started?.call(this);
   }
@@ -184,6 +206,8 @@ class _$Started implements Started {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -240,6 +264,8 @@ class _$LoadMore implements LoadMore {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(ExamItem? exam) setSelectedExam,
+    required TResult Function(UpdateExamRequest request, int id) update,
+    required TResult Function(CreateExamRequest request) create,
   }) {
     return loadMore();
   }
@@ -251,6 +277,8 @@ class _$LoadMore implements LoadMore {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
   }) {
     return loadMore?.call();
   }
@@ -262,6 +290,8 @@ class _$LoadMore implements LoadMore {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -277,6 +307,8 @@ class _$LoadMore implements LoadMore {
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedExam value) setSelectedExam,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
   }) {
     return loadMore(this);
   }
@@ -288,6 +320,8 @@ class _$LoadMore implements LoadMore {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
   }) {
     return loadMore?.call(this);
   }
@@ -299,6 +333,8 @@ class _$LoadMore implements LoadMore {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -354,6 +390,8 @@ class _$Refresh implements Refresh {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(ExamItem? exam) setSelectedExam,
+    required TResult Function(UpdateExamRequest request, int id) update,
+    required TResult Function(CreateExamRequest request) create,
   }) {
     return refresh();
   }
@@ -365,6 +403,8 @@ class _$Refresh implements Refresh {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
   }) {
     return refresh?.call();
   }
@@ -376,6 +416,8 @@ class _$Refresh implements Refresh {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -391,6 +433,8 @@ class _$Refresh implements Refresh {
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedExam value) setSelectedExam,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
   }) {
     return refresh(this);
   }
@@ -402,6 +446,8 @@ class _$Refresh implements Refresh {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
   }) {
     return refresh?.call(this);
   }
@@ -413,6 +459,8 @@ class _$Refresh implements Refresh {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -508,6 +556,8 @@ class _$SetSelectedExam implements SetSelectedExam {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(ExamItem? exam) setSelectedExam,
+    required TResult Function(UpdateExamRequest request, int id) update,
+    required TResult Function(CreateExamRequest request) create,
   }) {
     return setSelectedExam(exam);
   }
@@ -519,6 +569,8 @@ class _$SetSelectedExam implements SetSelectedExam {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
   }) {
     return setSelectedExam?.call(exam);
   }
@@ -530,6 +582,8 @@ class _$SetSelectedExam implements SetSelectedExam {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
     required TResult orElse(),
   }) {
     if (setSelectedExam != null) {
@@ -545,6 +599,8 @@ class _$SetSelectedExam implements SetSelectedExam {
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedExam value) setSelectedExam,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
   }) {
     return setSelectedExam(this);
   }
@@ -556,6 +612,8 @@ class _$SetSelectedExam implements SetSelectedExam {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
   }) {
     return setSelectedExam?.call(this);
   }
@@ -567,6 +625,8 @@ class _$SetSelectedExam implements SetSelectedExam {
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
     required TResult orElse(),
   }) {
     if (setSelectedExam != null) {
@@ -582,6 +642,346 @@ abstract class SetSelectedExam implements ExamEvent {
   ExamItem? get exam;
   @JsonKey(ignore: true)
   _$$SetSelectedExamCopyWith<_$SetSelectedExam> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateCopyWith<$Res> {
+  factory _$$UpdateCopyWith(_$Update value, $Res Function(_$Update) then) =
+      __$$UpdateCopyWithImpl<$Res>;
+  $Res call({UpdateExamRequest request, int id});
+
+  $UpdateExamRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class __$$UpdateCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
+    implements _$$UpdateCopyWith<$Res> {
+  __$$UpdateCopyWithImpl(_$Update _value, $Res Function(_$Update) _then)
+      : super(_value, (v) => _then(v as _$Update));
+
+  @override
+  _$Update get _value => super._value as _$Update;
+
+  @override
+  $Res call({
+    Object? request = freezed,
+    Object? id = freezed,
+  }) {
+    return _then(_$Update(
+      request == freezed
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as UpdateExamRequest,
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+
+  @override
+  $UpdateExamRequestCopyWith<$Res> get request {
+    return $UpdateExamRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$Update implements Update {
+  const _$Update(this.request, this.id);
+
+  @override
+  final UpdateExamRequest request;
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'ExamEvent.update(request: $request, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Update &&
+            const DeepCollectionEquality().equals(other.request, request) &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(request),
+      const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$UpdateCopyWith<_$Update> get copyWith =>
+      __$$UpdateCopyWithImpl<_$Update>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(ExamItem? exam) setSelectedExam,
+    required TResult Function(UpdateExamRequest request, int id) update,
+    required TResult Function(CreateExamRequest request) create,
+  }) {
+    return update(request, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
+  }) {
+    return update?.call(request, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(request, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedExam value) setSelectedExam,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+  }) {
+    return update(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+  }) {
+    return update?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Update implements ExamEvent {
+  const factory Update(final UpdateExamRequest request, final int id) =
+      _$Update;
+
+  UpdateExamRequest get request;
+  int get id;
+  @JsonKey(ignore: true)
+  _$$UpdateCopyWith<_$Update> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateCopyWith<$Res> {
+  factory _$$CreateCopyWith(_$Create value, $Res Function(_$Create) then) =
+      __$$CreateCopyWithImpl<$Res>;
+  $Res call({CreateExamRequest request});
+
+  $CreateExamRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class __$$CreateCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
+    implements _$$CreateCopyWith<$Res> {
+  __$$CreateCopyWithImpl(_$Create _value, $Res Function(_$Create) _then)
+      : super(_value, (v) => _then(v as _$Create));
+
+  @override
+  _$Create get _value => super._value as _$Create;
+
+  @override
+  $Res call({
+    Object? request = freezed,
+  }) {
+    return _then(_$Create(
+      request == freezed
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as CreateExamRequest,
+    ));
+  }
+
+  @override
+  $CreateExamRequestCopyWith<$Res> get request {
+    return $CreateExamRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$Create implements Create {
+  const _$Create(this.request);
+
+  @override
+  final CreateExamRequest request;
+
+  @override
+  String toString() {
+    return 'ExamEvent.create(request: $request)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Create &&
+            const DeepCollectionEquality().equals(other.request, request));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(request));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$CreateCopyWith<_$Create> get copyWith =>
+      __$$CreateCopyWithImpl<_$Create>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(ExamItem? exam) setSelectedExam,
+    required TResult Function(UpdateExamRequest request, int id) update,
+    required TResult Function(CreateExamRequest request) create,
+  }) {
+    return create(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
+  }) {
+    return create?.call(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(ExamItem? exam)? setSelectedExam,
+    TResult Function(UpdateExamRequest request, int id)? update,
+    TResult Function(CreateExamRequest request)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(request);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedExam value) setSelectedExam,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+  }) {
+    return create(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+  }) {
+    return create?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedExam value)? setSelectedExam,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Create implements ExamEvent {
+  const factory Create(final CreateExamRequest request) = _$Create;
+
+  CreateExamRequest get request;
+  @JsonKey(ignore: true)
+  _$$CreateCopyWith<_$Create> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -24,4 +24,9 @@ class ExamState with _$ExamState {
   }
 
   bool get hasExams => items.isNotEmpty;
+
+  bool get hasExam => exam != null;
+
+  bool get isProcessing =>
+      status.isDeleting || status.isUpdating || status.isSubmitting;
 }

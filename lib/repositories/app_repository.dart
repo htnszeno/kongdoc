@@ -58,15 +58,15 @@ class AppRepository {
           userId: session['USER_ID'],
           userName: session['USER_NAME_ENG'],
           email: session['EMAIL']);
-    }else if(initData['TYPE'] == 200130){
+    } else if (initData['TYPE'] == 200130) {
       // 이하 로직 세션 유지 안되는 문제 강제 해결
       // SharedPreferences 정보를 가진다면 재로그인 하도록 강제
       final prefs = await SharedPreferences.getInstance();
-      if(prefs.getString('USER_ID')?.isNotEmpty == true &&
-          prefs.getString('PW')?.isNotEmpty == true){
+      if (prefs.getString('USER_ID')?.isNotEmpty == true &&
+          prefs.getString('PW')?.isNotEmpty == true) {
         await logInWithUserIdAndPassword(
           userId: prefs.getString('USER_ID').toString(),
-          password:  prefs.getString('PW').toString(),
+          password: prefs.getString('PW').toString(),
         );
       }
     }

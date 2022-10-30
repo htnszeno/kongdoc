@@ -10,4 +10,15 @@ class ExamEvent with _$ExamEvent {
   const factory ExamEvent.refresh() = Refresh;
 
   const factory ExamEvent.setSelectedExam(ExamItem? exam) = SetSelectedExam;
+
+  // 수정
+  const factory ExamEvent.update(
+    UpdateExamRequest request,
+    int id,
+  ) = Update;
+
+  // 입력
+  const factory ExamEvent.create(
+    CreateExamRequest request,
+  ) = Create;
 }

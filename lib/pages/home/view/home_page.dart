@@ -44,6 +44,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
         actions: <Widget>[
+          // IconButton(
+          //   key: const Key('homePage_lo11gout_iconButton'),
+          //   icon: const Icon(Icons.replay_outlined),
+          //   onPressed: () {
+          //     // context.read<AppBloc>().add(Started());
+          //   },
+          // ),
+          // const Text("Home"),
           IconButton(
             key: const Key('homePage_logout_iconButton'),
             icon: const Icon(Icons.exit_to_app),
