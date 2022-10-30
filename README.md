@@ -191,3 +191,216 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
 [very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
 [very_good_cli_link]: https://github.com/VeryGoodOpenSource/very_good_cli
+
+```
+2022-HiFive-Mobile-App
+├─ l10n.yaml
+├─ lib
+│  ├─ app
+│  │  ├─ app.dart
+│  │  ├─ bloc
+│  │  │  ├─ app_bloc.dart
+│  │  │  ├─ app_event.dart
+│  │  │  └─ app_state.dart
+│  │  ├─ routes
+│  │  │  └─ routes.dart
+│  │  └─ view
+│  │     └─ app.dart
+│  ├─ bootstrap.dart
+│  ├─ config.dart
+│  ├─ constants.dart
+│  ├─ enums
+│  │  ├─ app_status.dart
+│  │  ├─ data_status.dart
+│  │  ├─ filter_data_type.dart
+│  │  └─ note_view_type.dart
+│  ├─ l10n
+│  │  ├─ arb
+│  │  │  ├─ app_en.arb
+│  │  │  └─ app_es.arb
+│  │  └─ l10n.dart
+│  ├─ main_development.dart
+│  ├─ main_production.dart
+│  ├─ main_staging.dart
+│  ├─ models
+│  │  ├─ app_response.dart
+│  │  ├─ app_response.g.dart
+│  │  ├─ exam_model.dart
+│  │  ├─ exam_model.freezed.dart
+│  │  ├─ exam_model.g.dart
+│  │  ├─ note_model.dart
+│  │  ├─ note_model.freezed.dart
+│  │  ├─ note_model.g.dart
+│  │  ├─ request
+│  │  │  ├─ create_login_token.dart
+│  │  │  ├─ create_login_token.freezed.dart
+│  │  │  ├─ create_login_token.g.dart
+│  │  │  ├─ create_note_request.dart
+│  │  │  ├─ create_note_request.freezed.dart
+│  │  │  ├─ create_note_request.g.dart
+│  │  │  ├─ update_note_request.dart
+│  │  │  ├─ update_note_request.freezed.dart
+│  │  │  └─ update_note_request.g.dart
+│  │  └─ user_model.dart
+│  ├─ pages
+│  │  ├─ chat
+│  │  │  ├─ chat.dart
+│  │  │  ├─ view
+│  │  │  │  └─ open_chat_page.dart
+│  │  │  └─ widget
+│  │  ├─ exam
+│  │  │  ├─ bloc
+│  │  │  │  ├─ exam_bloc.dart
+│  │  │  │  ├─ exam_bloc.freezed.dart
+│  │  │  │  ├─ exam_event.dart
+│  │  │  │  └─ exam_state.dart
+│  │  │  ├─ cubit
+│  │  │  │  ├─ exam_cubit.dart
+│  │  │  │  ├─ exam_cubit.freezed.dart
+│  │  │  │  └─ exam_state.dart
+│  │  │  ├─ dio
+│  │  │  │  ├─ app_interceptors.dart
+│  │  │  │  ├─ constants.dart
+│  │  │  │  └─ dio_client.dart
+│  │  │  ├─ exam.dart
+│  │  │  ├─ request
+│  │  │  │  ├─ create_exam_request.dart
+│  │  │  │  ├─ create_exam_request.freezed.dart
+│  │  │  │  ├─ create_exam_request.g.dart
+│  │  │  │  ├─ update_exam_request.dart
+│  │  │  │  ├─ update_exam_request.freezed.dart
+│  │  │  │  └─ update_exam_request.g.dart
+│  │  │  ├─ view
+│  │  │  │  ├─ exam_bloc_homepage.dart
+│  │  │  │  └─ exam_bloc_item_page.dart
+│  │  │  └─ widget
+│  │  │     ├─ exam_app_bar.dart
+│  │  │     └─ exam_list.dart
+│  │  ├─ home
+│  │  │  ├─ home.dart
+│  │  │  ├─ view
+│  │  │  │  └─ home_page.dart
+│  │  │  └─ widget
+│  │  │     ├─ avatar.dart
+│  │  │     └─ widgets.dart
+│  │  ├─ login
+│  │  │  ├─ cubit
+│  │  │  │  ├─ login_cubit.dart
+│  │  │  │  └─ login_state.dart
+│  │  │  ├─ login.dart
+│  │  │  └─ view
+│  │  │     ├─ login_form.dart
+│  │  │     ├─ login_page.dart
+│  │  │     └─ view.dart
+│  │  ├─ main_page.dart
+│  │  ├─ note
+│  │  │  ├─ bloc
+│  │  │  │  ├─ note_bloc.dart
+│  │  │  │  ├─ note_bloc.freezed.dart
+│  │  │  │  ├─ note_event.dart
+│  │  │  │  └─ note_state.dart
+│  │  │  ├─ note.dart
+│  │  │  ├─ view
+│  │  │  │  ├─ add_note_page.dart
+│  │  │  │  └─ note_home_page.dart
+│  │  │  └─ widget
+│  │  │     ├─ note_app_bar.dart
+│  │  │     ├─ note_grid.dart
+│  │  │     ├─ note_list.dart
+│  │  │     └─ widgets.dart
+│  │  ├─ pages.dart
+│  │  ├─ profile
+│  │  │  ├─ profile.dart
+│  │  │  ├─ view
+│  │  │  │  └─ profile_page.dart
+│  │  │  └─ widget
+│  │  ├─ shorts
+│  │  │  ├─ shorts.dart
+│  │  │  ├─ view
+│  │  │  │  └─ shorts_page.dart
+│  │  │  └─ widget
+│  │  ├─ sign_up
+│  │  │  ├─ cubit
+│  │  │  │  ├─ sign_up_cubit.dart
+│  │  │  │  └─ sign_up_state.dart
+│  │  │  ├─ sign_up.dart
+│  │  │  └─ view
+│  │  │     ├─ sign_up_form.dart
+│  │  │     ├─ sign_up_page.dart
+│  │  │     └─ view.dart
+│  │  └─ social
+│  │     ├─ social.dart
+│  │     ├─ view
+│  │     │  └─ social_page.dart
+│  │     └─ widget
+│  ├─ repositories
+│  │  ├─ app_repository.dart
+│  │  ├─ core
+│  │  │  └─ endpoint.dart
+│  │  ├─ exam_repository.dart
+│  │  ├─ note
+│  │  │  ├─ base_note_repository.dart
+│  │  │  └─ note_repository.dart
+│  │  └─ repositories.dart
+│  ├─ theme.dart
+│  ├─ util
+│  │  ├─ colors.dart
+│  │  ├─ dialogs.dart
+│  │  ├─ dio_client
+│  │  │  ├─ app_interceptors.dart
+│  │  │  └─ dio_client.dart
+│  │  ├─ formatting.dart
+│  │  └─ util.dart
+│  └─ widget
+│     ├─ app_icon_button.dart
+│     ├─ app_text_field.dart
+│     ├─ blank_content.dart
+│     └─ widgets.dart
+├─ packages
+│  ├─ cache
+│  │  ├─ .gitignore
+│  │  ├─ .idea
+│  │  │  ├─ libraries
+│  │  │  │  └─ Dart_SDK.xml
+│  │  │  ├─ modules.xml
+│  │  │  └─ workspace.xml
+│  │  ├─ .metadata
+│  │  ├─ CHANGELOG.md
+│  │  ├─ LICENSE
+│  │  ├─ README.md
+│  │  ├─ analysis_options.yaml
+│  │  ├─ cache.iml
+│  │  ├─ lib
+│  │  │  └─ cache.dart
+│  │  ├─ pubspec.lock
+│  │  ├─ pubspec.yaml
+│  │  └─ test
+│  │     └─ cache_test.dart
+│  └─ form_inputs
+│     ├─ .gitignore
+│     ├─ .idea
+│     │  ├─ libraries
+│     │  │  └─ Dart_SDK.xml
+│     │  ├─ modules.xml
+│     │  └─ workspace.xml
+│     ├─ .metadata
+│     ├─ CHANGELOG.md
+│     ├─ LICENSE
+│     ├─ README.md
+│     ├─ analysis_options.yaml
+│     ├─ form_inputs.iml
+│     ├─ lib
+│     │  ├─ form_inputs.dart
+│     │  └─ src
+│     │     ├─ confirmed_password.dart
+│     │     ├─ email.dart
+│     │     ├─ password.dart
+│     │     └─ user_id.dart
+│     ├─ pubspec.lock
+│     ├─ pubspec.yaml
+│     └─ test
+│        └─ form_inputs_test.dart
+├─ pubspec.lock
+├─ pubspec.yaml
+
+```
