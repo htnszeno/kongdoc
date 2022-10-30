@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:hifive/models/app_response.dart';
 import 'package:hifive/models/exam_model.dart';
+import 'package:hifive/pages/exam/request/create_exam_request.dart';
+import 'package:hifive/pages/exam/request/update_exam_request.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 
 import '../pages/exam/dio/dio_client.dart';
@@ -31,11 +33,47 @@ class ExamRepository {
     });
   }
 
-  Future<Map<String, dynamic>> getInit() async {
-    final Response<dynamic> response = await _dioClient.post(
-      Endpoints.getInit,
-      data: {},
+  Future<AppResponse<ExamItem?>> getSingle({required int id}) async {
+    final response = await _dioClient.get("/posts/$id");
+
+    return AppResponse<ExamItem?>.fromJson(
+      response.data,
+      (dynamic json) => response.data['success'] && json != null
+          ? ExamItem.fromJson(json)
+          : null,
     );
-    return response.data;
+  }
+
+  Future<AppResponse<ExamItem?>> update(
+    UpdateExamRequest request,
+    int id,
+  ) async {
+    final response = await _dioClient.put(
+      "/posts/$id",
+      data: request.toJson(),
+    );
+
+    return AppResponse<ExamItem?>.fromJson(
+      response.data,
+      (dynamic json) => response.data['success'] && json != null
+          ? ExamItem.fromJson(json)
+          : null,
+    );
+  }
+
+  Future<AppResponse<ExamItem?>> create(
+    CreateExamRequest request
+  ) async {
+    final response = await _dioClient.post(
+      "/posts",
+      data: request.toJson(),
+    );
+
+    return AppResponse<ExamItem?>.fromJson(
+      response.data,
+      (dynamic json) => response.data['success'] && json != null
+          ? ExamItem.fromJson(json)
+          : null,
+    );
   }
 }

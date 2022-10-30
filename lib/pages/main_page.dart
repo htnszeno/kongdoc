@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
-import 'package:hifive/pages/exam/view/exam_bloc_page.dart';
+import 'package:hifive/pages/exam/view/exam_bloc_homepage.dart';
 import 'package:hifive/pages/profile/profile.dart';
 import 'package:hifive/repositories/exam_repository.dart';
 

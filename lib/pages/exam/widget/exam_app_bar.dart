@@ -14,16 +14,13 @@ class AppSliverAppBar extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            key: const Key('homePage_lo11gout_iconButton'),
-            icon: const Icon(Icons.replay_outlined),
-            onPressed: () {
-              context.read<ExamBloc>().add(Started());
-            },
-          ),
-          const SizedBox(
-            width: 10.0,
-          ),
+          // IconButton(
+          //   key: const Key('homePage_lo11gout_iconButton'),
+          //   icon: const Icon(Icons.replay_outlined),
+          //   onPressed: () {
+          //     context.read<ExamBloc>().add(Started());
+          //   },
+          // ),
           const Text("샘플페이지"),
           IconButton(
             key: const Key('homePage_logout_iconButton'),

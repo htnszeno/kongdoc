@@ -2,7 +2,6 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
-import 'package:hifive/pages/exam/view/exam_bloc_page.dart';
 import 'package:hifive/pages/home/widget/avatar.dart';
 import 'package:hifive/pages/note/view/note_home_page.dart';
 
@@ -45,6 +44,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
         actions: <Widget>[
+          // IconButton(
+          //   key: const Key('homePage_lo11gout_iconButton'),
+          //   icon: const Icon(Icons.replay_outlined),
+          //   onPressed: () {
+          //     // context.read<AppBloc>().add(Started());
+          //   },
+          // ),
+          // const Text("Home"),
           IconButton(
             key: const Key('homePage_logout_iconButton'),
             icon: const Icon(Icons.exit_to_app),

@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hifive/enums/data_status.dart';
 import 'package:hifive/models/exam_model.dart';
-import 'package:hifive/models/note_model.dart';
+import 'package:hifive/pages/exam/request/create_exam_request.dart';
+import 'package:hifive/pages/exam/request/update_exam_request.dart';
 import 'package:hifive/repositories/exam_repository.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 part 'exam_event.dart';
 part 'exam_state.dart';
 part 'exam_bloc.freezed.dart';
@@ -23,6 +24,57 @@ class ExamBloc extends Bloc<ExamEvent, ExamState> {
       // }
     });
 
+    on<SetSelectedExam>((event, emit) async {
+      if (event.exam == null) return;
+
+      int? id = event.exam?.id;
+      emit(state.copyWith(status: DataStatus.loading));
+      // await Future.delayed(const Duration(seconds: 1));
+      final result = await _examRepository.getSingle(id: id!);
+      emit(state.copyWith(exam: result.data, status: DataStatus.loaded));
+    });
+
+    on<Update>((event, emit) async {
+      if (state.status.isUpdating) return;
+      emit(state.copyWith(status: DataStatus.updating));
+
+      final result = await _examRepository.update(event.request, event.id);
+      print(result);
+
+      if (result.success) {
+        emit(state.copyWith(
+          message: result.message,
+          status: DataStatus.success,
+          exam: null,
+        ));
+      } else {
+        emit(state.copyWith(
+          message: result.message,
+          status: DataStatus.error,
+        ));
+      }
+    });
+
+    on<Create>((event, emit) async {
+      if (state.status.isUpdating) return;
+      emit(state.copyWith(status: DataStatus.updating));
+
+      final result = await _examRepository.create(event.request);
+
+      if (result.success) {
+        emit(state.copyWith(
+          message: result.message,
+          status: DataStatus.success,
+          exam: null,
+        ));
+      } else {
+        emit(state.copyWith(
+          message: result.message,
+          status: DataStatus.error,
+        ));
+      }
+    });
+
     on<Started>((event, emit) async {
       await _getFirstPage(emit);
     });
@@ -31,7 +83,7 @@ class ExamBloc extends Bloc<ExamEvent, ExamState> {
       if (state.status.isRefreshing) return;
 
       emit(state.copyWith(status: DataStatus.refreshing));
-
+      await Future.delayed(const Duration(seconds: 1));
       await _getFirstPage(emit);
     });
 
@@ -88,5 +140,22 @@ class ExamBloc extends Bloc<ExamEvent, ExamState> {
         page: 1,
       ));
     }
+  }
+
+  FormGroup get formgroup {
+    return fb.group(
+      {
+        'id': [state.exam?.id],
+        'userId': [state.exam?.userId],
+        'title': [
+          state.hasExam ? state.exam!.title : "",
+          Validators.required,
+        ],
+        'body': [
+          state.hasExam ? state.exam!.body : "",
+          Validators.required,
+        ],
+      },
+    );
   }
 }

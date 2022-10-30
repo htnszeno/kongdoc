@@ -1,24 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'exam_model.dart';
+part of 'create_exam_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ExamItem _$$_ExamItemFromJson(Map<String, dynamic> json) => _$_ExamItem(
-      id: json['id'] as int,
+_$_CreateExamRequest _$$_CreateExamRequestFromJson(Map<String, dynamic> json) =>
+    _$_CreateExamRequest(
       userId: json['userId'] as int,
-      title: json['title'] as String,
-      body: json['body'] as String,
-      color: json['color'] as String? ?? '#ff03a9f4',
+      title: json['title'] as String?,
+      body: json['body'] as String?,
     );
 
-Map<String, dynamic> _$$_ExamItemToJson(_$_ExamItem instance) =>
+Map<String, dynamic> _$$_CreateExamRequestToJson(
+        _$_CreateExamRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'userId': instance.userId,
       'title': instance.title,
       'body': instance.body,
-      'color': instance.color,
     };

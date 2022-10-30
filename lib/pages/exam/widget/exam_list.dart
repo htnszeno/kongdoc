@@ -44,17 +44,11 @@ class ExamListItem extends StatelessWidget {
   final ExamItem exam;
   final void Function(ExamItem) onPressed;
 
-  Color fromHex() {
-    print(((math.Random().nextDouble() * 0xFFFFFF).toInt()).toString());
-    return Color((math.Random().nextDouble() * 0xFFFFFF).toInt());
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => onPressed(exam),
       child: Card(
-        // color: HexColor.fromHex(exam.color!),
         elevation: 3.0,
         child: Dismissible(
           key: ValueKey("dismissable-${exam.id}"),
