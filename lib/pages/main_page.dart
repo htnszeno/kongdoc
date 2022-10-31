@@ -28,6 +28,7 @@ class _MainPageState extends State<MainPage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   final List<Widget> _widgetOptions = <Widget>[
+    const HomePage(),
     RepositoryProvider(
       create: (_) => ExamRepository(),
       child: BlocProvider<ExamBloc>(
@@ -37,7 +38,6 @@ class _MainPageState extends State<MainPage> {
         child: const ExamBlocPage(),
       ),
     ),
-    const HomePage(),
     const SocialPage(),
     const ShortsPage(),
     const OpenChatPage(),
@@ -72,12 +72,12 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.stream_sharp),
-            label: '샘플',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: '홈',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.stream_sharp),
+            label: '샘플',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_pin_outlined),

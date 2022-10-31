@@ -98,7 +98,7 @@ class ExamListItem extends StatelessWidget {
                       '${exam.id} ${exam.title}',
                       style: const TextStyle(
                           overflow: TextOverflow.ellipsis,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                           fontSize: 18.0),
                     ),
                     Text(
