@@ -4,7 +4,7 @@ class Constants {
 }
 
 const kReleaseMode = true;
-const kLiveBaseApiUrl = "http://info.myslp.kr";
+const kLiveBaseApiUrl = "https://info.myslp.kr";
 // const kTestBaseApiUrl = "https://noteapp-api-test.herokuapp.com";
 const kTestBaseApiUrl = "http://192.168.0.104:8080";
 
