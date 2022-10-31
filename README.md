@@ -60,7 +60,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 
 # Freezed Build
-$ flutter pub run build_runner build
+$ flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
 _\*Hifive works on iOS, Android, Web, and Windows._

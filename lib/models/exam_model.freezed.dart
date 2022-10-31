@@ -20,7 +20,7 @@ ExamItem _$ExamItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ExamItem {
-  int get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError; // @Default(1)
   int get userId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
@@ -147,6 +147,7 @@ class _$_ExamItem implements _ExamItem {
 
   @override
   final int id;
+// @Default(1)
   @override
   final int userId;
   @override
@@ -209,7 +210,7 @@ abstract class _ExamItem implements ExamItem {
 
   @override
   int get id;
-  @override
+  @override // @Default(1)
   int get userId;
   @override
   String get title;
