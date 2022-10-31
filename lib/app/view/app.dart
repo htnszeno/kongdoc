@@ -40,7 +40,7 @@ class App extends StatelessWidget {
         value: _appRepository,
         child: BlocProvider(
           create: (_) => AppBloc(appRepository: _appRepository),
-          child: AppView(),
+          child: const AppView(),
         ),
       ),
     );
