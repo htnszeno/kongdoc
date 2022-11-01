@@ -68,34 +68,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Text(
-                '사람과 반려동물의 삶을 기록하세요.',
-                style: TextStyle(
-                    fontFamily: 'Jalnan',
-                    fontSize: 20,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                '사람과 반려동물의 삶을 기록하세요.',
-                style: TextStyle(
-                  fontFamily: 'GmarketSansTTF',
-                  fontSize: 20,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                '사람과 반려동물의 삶을 기록하세요.',
-                style: TextStyle(
-                  fontFamily: 'GmarketSansTTF',
-                  fontSize: 20,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w100,
-                ),
-              ),
-            ]),
+            children: const <Widget>[]),
       ),
     );
   }

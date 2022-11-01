@@ -11,6 +11,7 @@ final theme = ThemeData(
   // textTheme: GoogleFonts.openSansTextTheme(),
   // text Theme
   fontFamily: 'GmarketSansTTF',
+
   textTheme: const TextTheme(
 
       // bodyText1: TextStyle(color: Colors.teal, fontSize: 30),
@@ -25,7 +26,7 @@ final theme = ThemeData(
   primaryColor: const Color(0xFF00BCD4),
 
   colorScheme: const ColorScheme.light(secondary: Color(0xFF009688)),
-  scaffoldBackgroundColor: const Color(0xFFE0F2F1),
+  scaffoldBackgroundColor: Color.fromARGB(255, 247, 249, 249),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
