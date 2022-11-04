@@ -39,6 +39,13 @@
             </list>
           </value>
         </entry>
+        <entry key="badges">
+          <value>
+            <list>
+              <option value="$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/badges-2.0.3/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="bloc">
           <value>
             <list>
@@ -1032,6 +1039,7 @@
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/analyzer-5.1.0/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/args-2.3.1/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/async-2.9.0/lib" />
+      <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/badges-2.0.3/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/bloc-8.1.0/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/bloc_test-9.1.0/lib" />
       <root url="file://$USER_HOME$/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib" />
