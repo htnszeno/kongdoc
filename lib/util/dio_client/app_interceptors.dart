@@ -32,12 +32,12 @@ class AppInterceptors extends QueuedInterceptor {
     final responseData = mapResponseData(
         requestOptions: response.requestOptions, response: response);
     // 로그인 성공 후
-    if (response.data['TYPE'] == 200110) {
+    if (response.data['type'] == 200110) {
       String token = response.data['signaldata']['X-CSRF-TOKEN'];
       prefs.setString('CSRF_TOKEN', token);
       prefs.setString('USER_ID', response.requestOptions.data['USER_ID']);
       prefs.setString('PW', response.requestOptions.data['PW']);
-    } else if (response.data['TYPE'] == 200111) {
+    } else if (response.data['type'] == 200111) {
       prefs.remove('CSRF_TOKEN');
     }
 

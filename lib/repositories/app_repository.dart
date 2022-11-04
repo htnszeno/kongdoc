@@ -92,6 +92,7 @@ class AppRepository {
     required String userId,
     required String password,
   }) async {
+//1667456096259
     final csrf = await getCsrfToken();
     final Response<dynamic> response = await _dioClient.post(
       Endpoints.token,
@@ -102,11 +103,11 @@ class AppRepository {
         '_spring_security_remember_me': true
       },
     );
-    if (response.data['TYPE'] == 200111) {
-      throw LoginFailureException.fromCode(response.data['TYPE']);
-    } else if (response.data['TYPE'] == 200110) {
+    if (response.data['type'] == 200111) {
+      throw LoginFailureException.fromCode(response.data['type']);
+    } else if (response.data['type'] == 200110) {
       final result = await getInit();
-      if (result['TYPE'] == 1) {
+      if (result['type'] == 1) {
         final session = result['data']['session'];
         _controller.add(User(
           userId: session['USER_ID'],
@@ -177,8 +178,11 @@ class AppRepository {
 
   Future<Map<String, dynamic>> getInit() async {
     final Response<dynamic> response = await _dioClient.post(
+      // '/api/PETUS001SVC/get',
       Endpoints.getInit,
-      data: {},
+      data: {
+        // "user_id":"cdyoo42"
+      },
     );
     return response.data;
   }

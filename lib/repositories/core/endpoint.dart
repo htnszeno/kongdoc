@@ -11,8 +11,8 @@ class Endpoints {
   static const noteUpdate = "$_baseNote/";
   static const noteDeleteSingle = "$_baseNote/";
 
-  static const token = "/slp_sec";
-  static const getInit = "/api/SLP000000SVC/getInit";
+  static const token = "/pet_sec";
+  static const getInit = "/api/P1000000SVC/getInit";
 
   static const logout = '/j_spring_security_logout';
 }
