@@ -1,9 +1,6 @@
 .flutter-plugins-dependencies
 /build
 .flutter-plugins-dependencies
-<<<<<<< HEAD
 /.dart_tool
-=======
-.dart_tool/
 *flutter*.log
->>>>>>> beb564829d01211e2e7b6e0312cd6ddaf0076170
+.idea
