@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:hifive/config.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/app_response.dart';
+import 'package:hifive/util/global.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
@@ -39,16 +40,8 @@ class DioClient {
         },
       ),
     );
-    // @ 추후 추가할 것 . async 문제 해결 필요
-    // getApplicationSupportDirectory().then((directory) {
-    //   var cookieJar =
-    //       PersistCookieJar(storage: FileStorage(directory.path + "/.cookies/"));
-    //   dio.interceptors.add(CookieManager(cookieJar));
-    // });
-
     var cookieJar = PersistCookieJar(
-        storage:
-            FileStorage("/data/user/0/com.onix.hifive/files" + "/.cookies/"));
+        storage: FileStorage("${Globals().appPath}/.cookies/"));
     dio.interceptors.add(CookieManager(cookieJar));
 
     dio.interceptors.addAll([

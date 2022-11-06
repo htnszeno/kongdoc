@@ -2,5 +2,5 @@
 /build
 .flutter-plugins-dependencies
 /.dart_tool
-*flutter*.log
 .idea
+/flutter*.log
