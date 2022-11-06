@@ -110,9 +110,9 @@ class AppRepository {
       if (result['type'] == 1) {
         final session = result['data']['session'];
         _controller.add(User(
-          userId: session['USER_ID'],
-          userName: session['USER_NAME_LOC'],
-          email: session['EMAIL'],
+          userId: session['user_id'],
+          userName: session['user_name_loc'],
+          email: session['email'],
         ));
       }
     }

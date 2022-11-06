@@ -11,9 +11,14 @@ import 'package:hifive/app/app.dart';
 import 'package:hifive/bootstrap.dart';
 import 'package:hifive/repositories/app_repository.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
+import 'package:hifive/util/global.dart';
+import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final directory = await getApplicationSupportDirectory();
+  Globals().setAppDirectoryPath = directory.path;
+
   await Firebase.initializeApp();
   final appRepository = AppRepository();
   final noteRepository = NoteRepository();
