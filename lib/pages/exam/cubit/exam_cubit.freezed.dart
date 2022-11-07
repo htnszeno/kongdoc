@@ -16,37 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ExamState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  List<ExamItem> get items => throw _privateConstructorUsedError;
+  ExamItem? get exam => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  DataStatus get status => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ExamStateCopyWith<ExamState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -54,6 +32,15 @@ mixin _$ExamState {
 abstract class $ExamStateCopyWith<$Res> {
   factory $ExamStateCopyWith(ExamState value, $Res Function(ExamState) then) =
       _$ExamStateCopyWithImpl<$Res>;
+  $Res call(
+      {List<ExamItem> items,
+      ExamItem? exam,
+      int page,
+      DataStatus status,
+      bool isLastPage,
+      String message});
+
+  $ExamItemCopyWith<$Res>? get exam;
 }
 
 /// @nodoc
@@ -63,101 +50,212 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
   final ExamState _value;
   // ignore: unused_field
   final $Res Function(ExamState) _then;
-}
-
-/// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _$_Initial get _value => super._value as _$_Initial;
+  $Res call({
+    Object? items = freezed,
+    Object? exam = freezed,
+    Object? page = freezed,
+    Object? status = freezed,
+    Object? isLastPage = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_value.copyWith(
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ExamItem>,
+      exam: exam == freezed
+          ? _value.exam
+          : exam // ignore: cast_nullable_to_non_nullable
+              as ExamItem?,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as DataStatus,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  @override
+  $ExamItemCopyWith<$Res>? get exam {
+    if (_value.exam == null) {
+      return null;
+    }
+
+    return $ExamItemCopyWith<$Res>(_value.exam!, (value) {
+      return _then(_value.copyWith(exam: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
+  factory _$$_ExamStateCopyWith(
+          _$_ExamState value, $Res Function(_$_ExamState) then) =
+      __$$_ExamStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {List<ExamItem> items,
+      ExamItem? exam,
+      int page,
+      DataStatus status,
+      bool isLastPage,
+      String message});
+
+  @override
+  $ExamItemCopyWith<$Res>? get exam;
+}
+
+/// @nodoc
+class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
+    implements _$$_ExamStateCopyWith<$Res> {
+  __$$_ExamStateCopyWithImpl(
+      _$_ExamState _value, $Res Function(_$_ExamState) _then)
+      : super(_value, (v) => _then(v as _$_ExamState));
+
+  @override
+  _$_ExamState get _value => super._value as _$_ExamState;
+
+  @override
+  $Res call({
+    Object? items = freezed,
+    Object? exam = freezed,
+    Object? page = freezed,
+    Object? status = freezed,
+    Object? isLastPage = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_$_ExamState(
+      items: items == freezed
+          ? _value._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ExamItem>,
+      exam: exam == freezed
+          ? _value.exam
+          : exam // ignore: cast_nullable_to_non_nullable
+              as ExamItem?,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as DataStatus,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_ExamState extends _ExamState {
+  const _$_ExamState(
+      {required final List<ExamItem> items,
+      required this.exam,
+      required this.page,
+      required this.status,
+      required this.isLastPage,
+      required this.message})
+      : _items = items,
+        super._();
+
+  final List<ExamItem> _items;
+  @override
+  List<ExamItem> get items {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_items);
+  }
+
+  @override
+  final ExamItem? exam;
+  @override
+  final int page;
+  @override
+  final DataStatus status;
+  @override
+  final bool isLastPage;
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'ExamState.initial()';
+    return 'ExamState(items: $items, exam: $exam, page: $page, status: $status, isLastPage: $isLastPage, message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType &&
+            other is _$_ExamState &&
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality().equals(other.exam, exam) &&
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.isLastPage, isLastPage) &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(exam),
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(isLastPage),
+      const DeepCollectionEquality().hash(message));
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$$_ExamStateCopyWith<_$_ExamState> get copyWith =>
+      __$$_ExamStateCopyWithImpl<_$_ExamState>(this, _$identity);
 }
 
-abstract class _Initial implements ExamState {
-  const factory _Initial() = _$_Initial;
+abstract class _ExamState extends ExamState {
+  const factory _ExamState(
+      {required final List<ExamItem> items,
+      required final ExamItem? exam,
+      required final int page,
+      required final DataStatus status,
+      required final bool isLastPage,
+      required final String message}) = _$_ExamState;
+  const _ExamState._() : super._();
+
+  @override
+  List<ExamItem> get items;
+  @override
+  ExamItem? get exam;
+  @override
+  int get page;
+  @override
+  DataStatus get status;
+  @override
+  bool get isLastPage;
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ExamStateCopyWith<_$_ExamState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

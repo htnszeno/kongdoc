@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/models/exam_model.dart';
-import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
+import 'package:hifive/pages/exam/cubit/exam_cubit.dart';
 import 'package:hifive/pages/exam/view/exam_bloc_item_page.dart';
+import 'package:hifive/pages/exam/view/exam_cubit_item_page.dart';
 import 'package:hifive/pages/exam/widget/exam_app_bar.dart';
 import 'package:hifive/pages/exam/widget/exam_list.dart';
 import 'package:hifive/repositories/exam_repository.dart';
@@ -16,10 +18,8 @@ class ExamCubitPage extends StatefulWidget {
       fullscreenDialog: true,
       builder: (BuildContext context) => RepositoryProvider(
         create: (_) => ExamRepository(),
-        child: BlocProvider<ExamBloc>(
-          create: (context) => ExamBloc(
-            examRepository: context.read<ExamRepository>(),
-          )..add(const Started()),
+        child: BlocProvider<ExamCubit>(
+          create: (_) => ExamCubit(context.read<ExamRepository>()),
           child: const ExamCubitPage(),
         ),
       ),
@@ -31,7 +31,7 @@ class ExamCubitPage extends StatefulWidget {
 }
 
 class _ExamCubitPageState extends State<ExamCubitPage> {
-  late ExamBloc _examBloc;
+  // late ExamBloc _examBloc;
   ScrollController? _scrollController;
 
   @override
@@ -49,23 +49,21 @@ class _ExamCubitPageState extends State<ExamCubitPage> {
   bool _onScrollNotification(ScrollNotification notification) {
     if (notification is ScrollEndNotification &&
         _scrollController!.position.extentAfter == 0) {
-      context.read<ExamBloc>().add(const LoadMore());
+      context.read<ExamCubit>().loadMore();
     }
     return false;
   }
 
   void _onNotePressed(ExamItem exam) {
-    context.read<ExamBloc>().add(SetSelectedExam(exam));
-    // Navigator.of(context).pushNamed(AddNoteScreen.routeName);
+    context.read<ExamCubit>().setSelectedExam(exam);
     Navigator.of(context)
-        .push(ExamBlocItemPage.route(context.read<ExamBloc>()));
+        .push(ExamCubitItemPage.route(context.read<ExamCubit>()));
   }
 
   @override
   Widget build(BuildContext context) {
-    _examBloc = context.read<ExamBloc>();
     return Scaffold(
-      floatingActionButton: BlocConsumer<ExamBloc, ExamState>(
+      floatingActionButton: BlocConsumer<ExamCubit, ExamState>(
         listener: (context, state) {},
         builder: (context, state) {
           final isLoading =
@@ -75,12 +73,12 @@ class _ExamCubitPageState extends State<ExamCubitPage> {
             onPressed: () => isLoading
                 ? null
                 : Navigator.of(context)
-                    .push(ExamBlocItemPage.route(context.read<ExamBloc>())),
+                    .push(ExamCubitItemPage.route(context.read<ExamCubit>())),
             child: isLoading
                 ? const CircularProgressIndicator(
                     color: Colors.white,
                   )
-                : Icon(
+                : const Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
@@ -89,7 +87,7 @@ class _ExamCubitPageState extends State<ExamCubitPage> {
       ),
       body: RefreshIndicator(
         onRefresh: () async {
-          context.read<ExamBloc>().add(const Refresh());
+          context.read<ExamCubit>().refresh();
         },
         child: NotificationListener<ScrollNotification>(
           onNotification: (notification) => _onScrollNotification(notification),
@@ -99,7 +97,7 @@ class _ExamCubitPageState extends State<ExamCubitPage> {
               const AppSliverAppBar(),
               SliverPadding(
                 padding: const EdgeInsets.all(10.0),
-                sliver: BlocConsumer<ExamBloc, ExamState>(
+                sliver: BlocConsumer<ExamCubit, ExamState>(
                   listener: (_, __) {},
                   builder: (context, state) {
                     if (state.status.isLoading) {

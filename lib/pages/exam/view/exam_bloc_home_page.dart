@@ -31,7 +31,6 @@ class ExamBlocPage extends StatefulWidget {
 }
 
 class _ExamBlocPageState extends State<ExamBlocPage> {
-  late ExamBloc _examBloc;
   ScrollController? _scrollController;
 
   @override
@@ -56,14 +55,12 @@ class _ExamBlocPageState extends State<ExamBlocPage> {
 
   void _onNotePressed(ExamItem exam) {
     context.read<ExamBloc>().add(SetSelectedExam(exam));
-    // Navigator.of(context).pushNamed(AddNoteScreen.routeName);
     Navigator.of(context)
         .push(ExamBlocItemPage.route(context.read<ExamBloc>()));
   }
 
   @override
   Widget build(BuildContext context) {
-    _examBloc = context.read<ExamBloc>();
     return Scaffold(
       floatingActionButton: BlocConsumer<ExamBloc, ExamState>(
         listener: (context, state) {},
@@ -80,7 +77,7 @@ class _ExamBlocPageState extends State<ExamBlocPage> {
                 ? const CircularProgressIndicator(
                     color: Colors.white,
                   )
-                : Icon(
+                : const Icon(
                     Icons.add,
                     color: Colors.white,
                   ),

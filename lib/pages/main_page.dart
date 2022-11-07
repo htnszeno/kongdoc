@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
+import 'package:hifive/pages/exam/cubit/exam_cubit.dart';
 import 'package:hifive/pages/exam/view/exam_bloc_home_page.dart';
+import 'package:hifive/pages/exam/view/exam_cubit_home_page.dart';
 
 import 'package:hifive/pages/profile/profile.dart';
 import 'package:hifive/repositories/exam_repository.dart';
@@ -39,10 +41,18 @@ class _MainPageState extends State<MainPage> {
         child: const ExamBlocPage(),
       ),
     ),
+    RepositoryProvider(
+      create: (_) => ExamRepository(),
+      child: BlocProvider<ExamCubit>(
+        create: (context) =>
+            ExamCubit(context.read<ExamRepository>())..started(),
+        child: const ExamCubitPage(),
+      ),
+    ),
     const SocialPage(),
     const ShortsPage(),
     const OpenChatPage(),
-    const ProfilePage()
+    // const ProfilePage()
   ];
 
   void _onItemTapped(int index) {
@@ -59,16 +69,6 @@ class _MainPageState extends State<MainPage> {
       body: SafeArea(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      // appBar: AppBar(
-      //   title: const Text('Home'),
-      //   actions: <Widget>[
-      //     IconButton(
-      //       key: const Key('MainPage_logout_iconButton'),
-      //       icon: const Icon(Icons.exit_to_app),
-      //       onPressed: () => context.read<AppBloc>().add(AppLogoutRequested()),
-      //     )
-      //   ],
-      // ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
@@ -78,7 +78,11 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.stream_sharp),
-            label: '샘플',
+            label: '샘플Bloc',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.stream_sharp),
+            label: '샘플Cubit',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_pin_outlined),
@@ -92,10 +96,10 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.people),
             label: '오픈채팅',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: '마이페이지',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.person),
+          //   label: '마이페이지',
+          // ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
