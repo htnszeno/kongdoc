@@ -52,13 +52,13 @@ class AppRepository {
     // User user = User(id: '', name: '홍길동', email: 'benneylwa@neat.et');
     User user = User.empty;
     final initData = await getInit();
-    if (initData['TYPE'] == 1) {
+    if (initData['type'] == 1) {
       var session = initData['data']['session'];
       user = User(
-          userId: session['USER_ID'],
-          userName: session['USER_NAME_ENG'],
-          email: session['EMAIL']);
-    } else if (initData['TYPE'] == 200130) {
+          userId: session['user_id'],
+          userName: session['user_name_eng'],
+          email: session['email']);
+    } else if (initData['type'] == 200130) {
       // 이하 로직 세션 유지 안되는 문제 강제 해결
       // SharedPreferences 정보를 가진다면 재로그인 하도록 강제
       final prefs = await SharedPreferences.getInstance();
