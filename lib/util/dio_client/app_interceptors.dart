@@ -21,6 +21,7 @@ class AppInterceptors extends QueuedInterceptor {
         options.data['USER_ID'] != 'tokenfix') {
       // 로그인 이후 일반 통신 처리
       options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
+      options.headers['Content-Type'] = 'application/json;charset=utf-8';
     }
     return handler.next(options);
   }
