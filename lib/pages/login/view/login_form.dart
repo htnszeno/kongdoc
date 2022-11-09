@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:formz/formz.dart';
 import 'package:hifive/pages/sign_up/sign_up.dart';
+import 'package:hifive/util/colors.dart';
 
 import '../login.dart';
 
@@ -99,14 +100,18 @@ class _LoginButton extends StatelessWidget {
         return ElevatedButton(
           key: const Key('loginForm_continue_raisedButton'),
           style: ElevatedButton.styleFrom(
-              // shape: RoundedRectangleBorder(
-              //   borderRadius: BorderRadius.circular(30),
-              // ),
-              // backgroundColor: const Color(0xFFFFD600),
-              ),
-          onPressed: state.status.isValidated
-              ? () => context.read<LoginCubit>().logIn()
-              : null,
+            backgroundColor: HexColor.fromHex('#04376A'),
+            minimumSize: const Size.fromHeight(50), // NEW
+          ),
+          onPressed: (state.status.isSubmissionInProgress ||
+                  state.status.isSubmissionSuccess)
+              ? null
+              : (state.status.isValidated
+                  ? () {
+                      FocusScope.of(context).requestFocus(FocusNode());
+                      context.read<LoginCubit>().logIn();
+                    }
+                  : null),
           child: const Text('LOGIN'),
         );
       },
