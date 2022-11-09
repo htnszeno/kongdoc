@@ -5,6 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/pages/home/widget/avatar.dart';
+import 'package:hifive/pages/home/widget/bill_board.dart';
+import 'package:hifive/pages/home/widget/character_board.dart';
+import 'package:hifive/pages/home/widget/function_board.dart';
+import 'package:hifive/pages/home/widget/score_board.dart';
+import 'package:hifive/pages/home/widget/weather_board.dart';
 import 'package:hifive/pages/note/view/note_home_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           const Padding(
             padding: EdgeInsets.only(left: 5.0, top: 7),
             child: Text(
-              '사람과 반려동물의 삶을 기록하세요.',
+              '반려동물의 함께하는 삶',
               style: TextStyle(
                   fontFamily: 'Jalnan',
                   fontSize: 12,
@@ -65,11 +70,55 @@ class _HomePageState extends State<HomePage> {
         ]),
         actions: <Widget>[],
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[]),
+          children: [
+            const Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(child: ScoreBoard()),
+                  SliverPadding(padding: EdgeInsets.all(5)),
+                  SliverToBoxAdapter(child: CharacterBoard()),
+                  SliverPadding(padding: EdgeInsets.all(5)),
+                  SliverToBoxAdapter(child: WeatherBoard()),
+                  SliverPadding(padding: EdgeInsets.all(5)),
+                  FunctionBoard(),
+                  SliverPadding(padding: EdgeInsets.all(5)),
+                  // SliverToBoxAdapter(child: BillBoard()),
+                  // SliverFillRemaining(
+                  //   // hasScrollBody: false,
+                  //   child: Align(
+                  //       alignment: Alignment.bottomCenter, child: BillBoard()),
+                  // )
+                ],
+              ),
+            ),
+            BillBoard()
+          ],
+        ),
       ),
+      // body: const Padding(
+      //   padding: EdgeInsets.all(20.0),
+      //   child: CustomScrollView(
+      //     slivers: [
+      //       SliverToBoxAdapter(child: ScoreBoard()),
+      //       SliverPadding(padding: EdgeInsets.all(5)),
+      //       SliverToBoxAdapter(child: CharacterBoard()),
+      //       SliverPadding(padding: EdgeInsets.all(5)),
+      //       SliverToBoxAdapter(child: WeatherBoard()),
+      //       SliverPadding(padding: EdgeInsets.all(5)),
+      //       FunctionBoard(),
+      //       SliverPadding(padding: EdgeInsets.all(5)),
+      //       // SliverToBoxAdapter(child: BillBoard()),
+      //       SliverFillRemaining(
+      //         // hasScrollBody: false,
+      //         child:
+      //             Align(alignment: Alignment.bottomCenter, child: BillBoard()),
+      //       )
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

@@ -136,7 +136,9 @@ class AppRepository {
           idToken: googleAuth.idToken,
         );
       }
-      await _firebaseAuth.signInWithCredential(credential);
+      print("cred::: === ${credential}");
+
+      // await _firebaseAuth.signInWithCredential(credential);
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw LogInWithGoogleFailure.fromCode(e.code);
     } catch (_) {
