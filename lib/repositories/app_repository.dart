@@ -2,7 +2,6 @@
 
 import 'dart:async';
 
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:cache/cache.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -10,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
-import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+// import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LogOutFailure implements Exception {}
@@ -25,17 +24,17 @@ class AppRepository {
   AppRepository({
     Dio? dioClient,
     CacheClient? cache,
-    firebase_auth.FirebaseAuth? firebaseAuth,
-    GoogleSignIn? googleSignIn,
+    // firebase_auth.FirebaseAuth? firebaseAuth,
+    // GoogleSignIn? googleSignIn,
   })  : _dioClient = dioClient ?? DioClient().dio,
-        _cache = cache ?? CacheClient(),
-        _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
-        _googleSignIn = googleSignIn ?? GoogleSignIn.standard();
+        _cache = cache ?? CacheClient();
+  // _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
+  // _googleSignIn = googleSignIn ?? GoogleSignIn.standard();
 
   final Dio _dioClient;
 
-  final firebase_auth.FirebaseAuth _firebaseAuth;
-  final GoogleSignIn _googleSignIn;
+  // final firebase_auth.FirebaseAuth _firebaseAuth;
+  // final GoogleSignIn _googleSignIn;
   final CacheClient _cache;
   static const userCacheKey = '__user_cache_key__';
   final _controller = StreamController<User>();
@@ -120,30 +119,30 @@ class AppRepository {
   }
 
   Future<void> logInWithGoogle() async {
-    try {
-      late final firebase_auth.AuthCredential credential;
-      if (isWeb) {
-        final googleProvider = firebase_auth.GoogleAuthProvider();
-        final userCredential = await _firebaseAuth.signInWithPopup(
-          googleProvider,
-        );
-        credential = userCredential.credential!;
-      } else {
-        final googleUser = await _googleSignIn.signIn();
-        final googleAuth = await googleUser!.authentication;
-        credential = firebase_auth.GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
-      }
-      print("cred::: === ${credential}");
+    // try {
+    //   late final firebase_auth.AuthCredential credential;
+    //   if (isWeb) {
+    //     final googleProvider = firebase_auth.GoogleAuthProvider();
+    //     final userCredential = await _firebaseAuth.signInWithPopup(
+    //       googleProvider,
+    //     );
+    //     credential = userCredential.credential!;
+    //   } else {
+    //     final googleUser = await _googleSignIn.signIn();
+    //     final googleAuth = await googleUser!.authentication;
+    //     credential = firebase_auth.GoogleAuthProvider.credential(
+    //       accessToken: googleAuth.accessToken,
+    //       idToken: googleAuth.idToken,
+    //     );
+    //   }
+    //   print("cred::: === ${credential}");
 
-      // await _firebaseAuth.signInWithCredential(credential);
-    } on firebase_auth.FirebaseAuthException catch (e) {
-      throw LogInWithGoogleFailure.fromCode(e.code);
-    } catch (_) {
-      throw const LogInWithGoogleFailure();
-    }
+    //   // await _firebaseAuth.signInWithCredential(credential);
+    // } on firebase_auth.FirebaseAuthException catch (e) {
+    //   throw LogInWithGoogleFailure.fromCode(e.code);
+    // } catch (_) {
+    //   throw const LogInWithGoogleFailure();
+    // }
   }
 
   // Future<void> logOut() async {

@@ -34,6 +34,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Row(children: [
+          Icon(Icons.menu),
+          SizedBox(
+            width: 10,
+          ),
           const Text(
             'HiFive',
             style: TextStyle(
@@ -44,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           const Padding(
             padding: EdgeInsets.only(left: 5.0, top: 7),
             child: Text(
-              '반려동물의 함께하는 삶',
+              '반려동물의 함께하는 인생',
               style: TextStyle(
                   fontFamily: 'Jalnan',
                   fontSize: 12,
@@ -54,6 +58,14 @@ class _HomePageState extends State<HomePage> {
           ),
           const Spacer(
             flex: 1,
+          ),
+          // Icon(Icons.dark_mode_outlined),
+          // SizedBox(
+          //   width: 10,
+          // ),
+          Icon(Icons.history_sharp),
+          SizedBox(
+            width: 10,
           ),
           Badge(
               padding: const EdgeInsets.all(6),
@@ -77,6 +89,10 @@ class _HomePageState extends State<HomePage> {
             const Expanded(
               child: CustomScrollView(
                 slivers: [
+                  // SliverAppBar(
+                  //   title: Text("Title"),
+                  //   pinned: true,
+                  // ),
                   SliverToBoxAdapter(child: ScoreBoard()),
                   SliverPadding(padding: EdgeInsets.all(5)),
                   SliverToBoxAdapter(child: CharacterBoard()),

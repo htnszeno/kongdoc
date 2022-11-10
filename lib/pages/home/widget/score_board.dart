@@ -31,9 +31,11 @@ class _ScoreBoardState extends State<ScoreBoard> {
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.grey, width: 0.5),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: [const Text("Score Board")]),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Center(
+          child: Text("Score Board"),
+        ),
       ),
     );
   }

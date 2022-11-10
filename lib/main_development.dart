@@ -5,7 +5,7 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hifive/app/app.dart';
 import 'package:hifive/bootstrap.dart';
@@ -19,7 +19,7 @@ Future<void> main() async {
   final directory = await getApplicationSupportDirectory();
   Globals().setAppDirectoryPath = directory.path;
 
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   final appRepository = AppRepository();
   final noteRepository = NoteRepository();
 

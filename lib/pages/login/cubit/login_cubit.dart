@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -39,20 +38,20 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> logInWithGoogle() async {
-    emit(state.copyWith(status: FormzStatus.submissionInProgress));
-    try {
-      await _appRepository.logInWithGoogle();
-      emit(state.copyWith(status: FormzStatus.submissionSuccess));
-    } on LogInWithGoogleFailure catch (e) {
-      emit(
-        state.copyWith(
-          errorMessage: e.message,
-          status: FormzStatus.submissionFailure,
-        ),
-      );
-    } catch (_) {
-      emit(state.copyWith(status: FormzStatus.submissionFailure));
-    }
+    // emit(state.copyWith(status: FormzStatus.submissionInProgress));
+    // try {
+    //   await _appRepository.logInWithGoogle();
+    //   emit(state.copyWith(status: FormzStatus.submissionSuccess));
+    // } on LogInWithGoogleFailure catch (e) {
+    //   emit(
+    //     state.copyWith(
+    //       errorMessage: e.message,
+    //       status: FormzStatus.submissionFailure,
+    //     ),
+    //   );
+    // } catch (_) {
+    //   emit(state.copyWith(status: FormzStatus.submissionFailure));
+    // }
   }
 
   void userIdChanged(String value) {
