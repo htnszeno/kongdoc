@@ -4,8 +4,8 @@ class Constants {
 }
 
 const kReleaseMode = true;
-const kLiveBaseApiUrl = "http://192.168.0.104:18080";
+const kLiveBaseApiUrl = "http://192.168.10.112:18080";
 // const kTestBaseApiUrl = "https://noteapp-api-test.herokuapp.com";
-const kTestBaseApiUrl = "http://192.168.0.104:18080";
+const kTestBaseApiUrl = "http://192.168.10.112:18080";
 
 const kIconButtonSplashRadius = 25.0;

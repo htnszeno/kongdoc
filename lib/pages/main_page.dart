@@ -32,27 +32,27 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
-    RepositoryProvider(
-      create: (_) => ExamRepository(),
-      child: BlocProvider<ExamBloc>(
-        create: (context) => ExamBloc(
-          examRepository: context.read<ExamRepository>(),
-        )..add(Started()),
-        child: const ExamBlocPage(),
-      ),
-    ),
-    RepositoryProvider(
-      create: (_) => ExamRepository(),
-      child: BlocProvider<ExamCubit>(
-        create: (context) =>
-            ExamCubit(context.read<ExamRepository>())..started(),
-        child: const ExamCubitPage(),
-      ),
-    ),
+    // RepositoryProvider(
+    //   create: (_) => ExamRepository(),
+    //   child: BlocProvider<ExamBloc>(
+    //     create: (context) => ExamBloc(
+    //       examRepository: context.read<ExamRepository>(),
+    //     )..add(Started()),
+    //     child: const ExamBlocPage(),
+    //   ),
+    // ),
+    // RepositoryProvider(
+    //   create: (_) => ExamRepository(),
+    //   child: BlocProvider<ExamCubit>(
+    //     create: (context) =>
+    //         ExamCubit(context.read<ExamRepository>())..started(),
+    //     child: const ExamCubitPage(),
+    //   ),
+    // ),
     const SocialPage(),
     const ShortsPage(),
     const OpenChatPage(),
-    // const ProfilePage()
+    const ProfilePage()
   ];
 
   void _onItemTapped(int index) {
@@ -76,14 +76,14 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.home),
             label: '홈',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.stream_sharp),
-            label: '샘플Bloc',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.stream_sharp),
-            label: '샘플Cubit',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.stream_sharp),
+          //   label: '샘플Bloc',
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.stream_sharp),
+          //   label: '샘플Cubit',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_pin_outlined),
             label: '소셜',
@@ -96,10 +96,10 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.people),
             label: '오픈채팅',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.person),
-          //   label: '마이페이지',
-          // ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: '마이페이지',
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,

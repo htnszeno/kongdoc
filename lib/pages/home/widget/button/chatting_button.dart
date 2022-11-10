@@ -14,9 +14,11 @@ class ChattingButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.grey, width: 0.5),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: [const Text("ChattingButton")]),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Center(
+          child: Text("Chatting"),
+        ),
       ),
     );
   }

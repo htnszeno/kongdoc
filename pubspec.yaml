@@ -8,8 +8,6 @@ environment:
   flutter: 3.3.3
 
 dependencies:
-  authentication_repository:
-    path: packages/authentication_repository
   badges: ^2.0.3
   bloc: ^8.1.0
   cache:
@@ -19,7 +17,6 @@ dependencies:
   dio: ^4.0.6
   dio_cookie_manager: ^2.0.0
   equatable: ^2.0.5
-  firebase_core: ^1.24.0
   flow_builder: ^0.0.9
   flutter:
     sdk: flutter
