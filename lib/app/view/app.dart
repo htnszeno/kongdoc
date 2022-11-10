@@ -16,24 +16,25 @@ import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/main_page.dart';
 import 'package:hifive/repositories/app_repository.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
+import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/theme.dart';
 
 class App extends StatelessWidget {
   final AppRepository _appRepository;
-  final NoteRepository _noteRepository;
+  final SocialRepository _socialRepository;
   const App({
     super.key,
     required AppRepository appRepository,
-    required NoteRepository noteRepository,
+    required SocialRepository socialRepository,
   })  : _appRepository = appRepository,
-        _noteRepository = noteRepository;
+        _socialRepository = socialRepository;
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider.value(
-          value: _noteRepository,
+          value: _socialRepository,
         ),
       ],
       child: RepositoryProvider.value(
