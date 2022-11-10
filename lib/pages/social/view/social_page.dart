@@ -11,15 +11,25 @@ import 'package:hifive/pages/home/widget/function_board.dart';
 import 'package:hifive/pages/home/widget/score_board.dart';
 import 'package:hifive/pages/home/widget/weather_board.dart';
 import 'package:hifive/pages/note/view/note_home_page.dart';
+import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/repositories/social_repository.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({super.key});
 
-  static Page<void> page() => const MaterialPage<void>(child: SocialPage());
-
   static Route<void> route() {
     return MaterialPageRoute(
-        fullscreenDialog: true, builder: (context) => SocialPage());
+      fullscreenDialog: true,
+      builder: (BuildContext context) => RepositoryProvider(
+        create: (_) => SocialRepository(),
+        child: BlocProvider<SocialBloc>(
+          create: (context) => SocialBloc(
+            socialRepository: context.read<SocialRepository>(),
+          )..add(const Started()),
+          child: const SocialPage(),
+        ),
+      ),
+    );
   }
 
   @override
@@ -82,33 +92,22 @@ class _SocialPageState extends State<SocialPage> {
         ]),
         actions: <Widget>[],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [],
-        ),
+      body: BlocBuilder<SocialBloc, SocialState>(
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      context.read<SocialBloc>().add(const Started());
+                    },
+                    child: Text("Cliek"))
+              ],
+            ),
+          );
+        },
       ),
-      // body: const Padding(
-      //   padding: EdgeInsets.all(20.0),
-      //   child: CustomScrollView(
-      //     slivers: [
-      //       SliverToBoxAdapter(child: ScoreBoard()),
-      //       SliverPadding(padding: EdgeInsets.all(5)),
-      //       SliverToBoxAdapter(child: CharacterBoard()),
-      //       SliverPadding(padding: EdgeInsets.all(5)),
-      //       SliverToBoxAdapter(child: WeatherBoard()),
-      //       SliverPadding(padding: EdgeInsets.all(5)),
-      //       FunctionBoard(),
-      //       SliverPadding(padding: EdgeInsets.all(5)),
-      //       // SliverToBoxAdapter(child: BillBoard()),
-      //       SliverFillRemaining(
-      //         // hasScrollBody: false,
-      //         child:
-      //             Align(alignment: Alignment.bottomCenter, child: BillBoard()),
-      //       )
-      //     ],
-      //   ),
-      // ),
     );
   }
 }

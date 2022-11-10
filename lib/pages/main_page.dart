@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
-import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
-import 'package:hifive/pages/exam/cubit/exam_cubit.dart';
-import 'package:hifive/pages/exam/view/exam_bloc_home_page.dart';
-import 'package:hifive/pages/exam/view/exam_cubit_home_page.dart';
 
 import 'package:hifive/pages/profile/profile.dart';
-import 'package:hifive/repositories/exam_repository.dart';
+import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/repositories/social_repository.dart';
 
 import 'pages.dart';
 
@@ -31,6 +28,15 @@ class _MainPageState extends State<MainPage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   final List<Widget> _widgetOptions = <Widget>[
+    RepositoryProvider(
+      create: (_) => SocialRepository(),
+      child: BlocProvider<SocialBloc>(
+        create: (context) => SocialBloc(
+          socialRepository: context.read<SocialRepository>(),
+        )..add(const Started()),
+        child: const SocialPage(),
+      ),
+    ),
     const HomePage(),
     // RepositoryProvider(
     //   create: (_) => ExamRepository(),
@@ -49,7 +55,7 @@ class _MainPageState extends State<MainPage> {
     //     child: const ExamCubitPage(),
     //   ),
     // ),
-    const SocialPage(),
+
     const ShortsPage(),
     const OpenChatPage(),
     const ProfilePage()
@@ -73,6 +79,10 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.person_pin_outlined),
+            label: '소셜',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: '홈',
           ),
@@ -84,10 +94,7 @@ class _MainPageState extends State<MainPage> {
           //   icon: Icon(Icons.stream_sharp),
           //   label: '샘플Cubit',
           // ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_pin_outlined),
-            label: '소셜',
-          ),
+
           BottomNavigationBarItem(
             icon: Icon(Icons.movie_creation_outlined),
             label: '쇼츠',

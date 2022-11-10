@@ -85,6 +85,9 @@ $ genhtml coverage/lcov.info -o coverage/
 $ open coverage/index.html
 ```
 
+# Tomcat terminate
+sudo lsof -i :18080
+sudo kill -9 92685
 ---
 
 ## Working with Translations 🌐

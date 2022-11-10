@@ -11,6 +11,7 @@ import 'package:hifive/app/app.dart';
 import 'package:hifive/bootstrap.dart';
 import 'package:hifive/repositories/app_repository.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
+import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/util/global.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -21,12 +22,13 @@ Future<void> main() async {
 
   // await Firebase.initializeApp();
   final appRepository = AppRepository();
-  final noteRepository = NoteRepository();
+  // final noteRepository = NoteRepository();
+  final socialRepository = SocialRepository();
 
   bootstrap(
     () => App(
       appRepository: appRepository,
-      noteRepository: noteRepository,
+      socialRepository: socialRepository,
     ),
   );
 }
