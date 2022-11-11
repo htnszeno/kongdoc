@@ -18,4 +18,5 @@ class Endpoints {
 
   ////////////////// 쇼셜 SNS ///////////////////
   static const socialGetMany = '/api/SO001SVC/get';
+  static const socialCreate = '/api/SO001SVC/create';
 }

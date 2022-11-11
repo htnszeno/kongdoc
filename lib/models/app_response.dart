@@ -9,7 +9,7 @@ class AppResponse<T> extends Equatable {
   final bool success;
 
   /// The message of AppResponse description
-  final String message;
+  final String msg;
 
   /// The AppResponse data
   final T? data;
@@ -22,7 +22,7 @@ class AppResponse<T> extends Equatable {
 
   const AppResponse._({
     required this.success,
-    required this.message,
+    required this.msg,
     required this.statusCode,
     required this.statusMessage,
     this.data,
@@ -30,14 +30,14 @@ class AppResponse<T> extends Equatable {
 
   factory AppResponse({
     required bool success,
-    required String message,
+    required String msg,
     int? statusCode,
     String? statusMessage,
     T? data,
   }) {
     return AppResponse._(
       success: success,
-      message: message,
+      msg: msg,
       statusCode: statusCode ?? 200,
       statusMessage: statusMessage ?? "The request has succeeded.",
       data: data,
@@ -48,7 +48,7 @@ class AppResponse<T> extends Equatable {
   List<Object> get props {
     return [
       success,
-      message,
+      msg,
       data ?? "",
     ];
   }

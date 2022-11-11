@@ -57,7 +57,7 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
       print(result);
       if (result.success) {
         emit(state.copyWith(
-          message: result.message,
+          msg: result.msg,
           status: DataStatus.success,
           note: null,
         ));
@@ -66,7 +66,7 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
         );
       } else {
         emit(state.copyWith(
-          message: result.message,
+          msg: result.msg,
           status: DataStatus.error,
         ));
       }
@@ -80,7 +80,7 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
 
       if (result.success) {
         emit(state.copyWith(
-          message: result.message,
+          msg: result.msg,
           status: DataStatus.success,
           note: null,
         ));
@@ -90,7 +90,7 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
         );
       } else {
         emit(state.copyWith(
-          message: result.message,
+          msg: result.msg,
           status: DataStatus.error,
         ));
       }
@@ -135,7 +135,7 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
     } else {
       emit(
         state.copyWith(
-          message: result.message,
+          msg: result.msg,
           status: DataStatus.error,
           isLastPage: false,
           page: 1,

@@ -132,6 +132,8 @@ Response<dynamic> mapResponseData({
   } else {
     // 문제없는 경우
     responseData = response?.data;
+
+    // responseData = response?.data.data['items'];
   }
 
   if (hasResponseData) {
@@ -146,7 +148,7 @@ Response<dynamic> mapResponseData({
     data: hasResponseData
         ? responseData
         : AppResponse(
-            message: customMessage,
+            msg: customMessage,
             success: isErrorResponse ? false : true,
             statusCode: response?.statusCode,
             statusMessage: response?.statusMessage,

@@ -8,12 +8,12 @@ part of 'social_model.dart';
 
 _$_SocialItem _$$_SocialItemFromJson(Map<String, dynamic> json) =>
     _$_SocialItem(
-      userId: json['userId'] as String,
-      userName: json['userName'] as String,
+      userId: json['user_id'] as String,
+      userName: json['user_name_loc'] as String,
     );
 
 Map<String, dynamic> _$$_SocialItemToJson(_$_SocialItem instance) =>
     <String, dynamic>{
-      'userId': instance.userId,
-      'userName': instance.userName,
+      'user_id': instance.userId,
+      'user_name_loc': instance.userName,
     };

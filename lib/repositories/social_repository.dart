@@ -10,6 +10,7 @@ import 'package:hifive/models/app_response.dart';
 import 'package:hifive/models/exam_model.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/models/user_model.dart';
+import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,7 +23,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SocialRepository {
   SocialRepository({
     Dio? dioClient,
-    CacheClient? cache,
+    // CacheClient? cache,
     // firebase_auth.FirebaseAuth? firebaseAuth,
     // GoogleSignIn? googleSignIn,
   }) : _dioClient = dioClient ?? DioClient().dio;
@@ -43,36 +44,46 @@ class SocialRepository {
     return response.data;
   }
 
+  Future<AppResponse<ExamItem?>> create(
+      CreateSocialRequest request
+      ) async {
+    final response = await _dioClient.post(
+      Endpoints.socialCreate,
+      data: request.toJson(),
+    );
+
+    return AppResponse<ExamItem?>.fromJson(
+      response.data,
+          (dynamic json) => response.data['success'] && json != null
+          ? ExamItem.fromJson(json)
+          : null,
+    );
+  }
+
   Future<AppResponse<List<SocialItem>?>> getMany({
     required int currentPage,
     int limit = 10,
   }) async {
     int start = currentPage == 1 ? 0 : ((currentPage * limit) - limit);
     final response = await _dioClient.post(Endpoints.socialGetMany, data: {
-      'my_user_id': "benny",
+      'my_user_id': "cdyoo42",
       'start': start,
       'limit': limit,
       'page': currentPage
     });
+    print(response);
+    return AppResponse<List<SocialItem>?>.fromJson(response.data, (dynamic json) {
+      return (json as List<dynamic>)
+          .map((e) => SocialItem.fromJson(e))
+          .toList();
 
-    print(response.data['data']['items']);
-    // dynamic j = [
-    //   {'userId': 'benny', 'userName': '홍길동'}
-    // ];
-
-    return response.data['data']['items'];
-    // return AppResponse<List<SocialItem>?>.fromJson(j, (dynamic json) {
-    //   return (json as List<dynamic>)
-    //       .map((e) => SocialItem.fromJson(e))
-    //       .toList();
-
-    //   // print('json === . ${json}');
-    //   // if (json != null && response.data['type'] == 1) {
-    //   //   return (json as List<dynamic>)
-    //   //       .map((e) => SocialItem.fromJson(e))
-    //   //       .toList();
-    //   // }
-    //   return null;
-    // });
+      // print('json === . ${json}');
+      // if (json != null && response.data['type'] == 1) {
+      //   return (json as List<dynamic>)
+      //       .map((e) => SocialItem.fromJson(e))
+      //       .toList();
+      // }
+      return null;
+    });
   }
 }

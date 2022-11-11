@@ -47,7 +47,7 @@ class ExamCubit extends Cubit<ExamState> {
     } else {
       emit(
         state.copyWith(
-          message: result.message,
+          msg: result.msg,
           status: DataStatus.error,
         ),
       );
@@ -72,13 +72,13 @@ class ExamCubit extends Cubit<ExamState> {
 
     if (result.success) {
       emit(state.copyWith(
-        message: result.message,
+        msg: result.msg,
         status: DataStatus.success,
         exam: null,
       ));
     } else {
       emit(state.copyWith(
-        message: result.message,
+        msg: result.msg,
         status: DataStatus.error,
       ));
     }
@@ -95,13 +95,13 @@ class ExamCubit extends Cubit<ExamState> {
 
     if (result.success) {
       emit(state.copyWith(
-        message: result.message,
+        msg: result.msg,
         status: DataStatus.success,
         exam: null,
       ));
     } else {
       emit(state.copyWith(
-        message: result.message,
+        msg: result.msg,
         status: DataStatus.error,
       ));
     }
@@ -127,7 +127,7 @@ class ExamCubit extends Cubit<ExamState> {
       ));
     } else {
       emit(state.copyWith(
-        message: result.message,
+        msg: result.msg,
         status: DataStatus.error,
         isLastPage: false,
         page: 1,

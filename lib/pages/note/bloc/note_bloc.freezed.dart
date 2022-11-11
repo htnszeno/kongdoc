@@ -2093,7 +2093,7 @@ mixin _$NoteState {
   int get page => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
   DataStatus get status => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+  String get msg => throw _privateConstructorUsedError;
   NoteItem? get note => throw _privateConstructorUsedError;
   String get token => throw _privateConstructorUsedError;
 
@@ -2112,7 +2112,7 @@ abstract class $NoteStateCopyWith<$Res> {
       int page,
       bool isLastPage,
       DataStatus status,
-      String message,
+      String msg,
       NoteItem? note,
       String token});
 
@@ -2134,7 +2134,7 @@ class _$NoteStateCopyWithImpl<$Res> implements $NoteStateCopyWith<$Res> {
     Object? page = freezed,
     Object? isLastPage = freezed,
     Object? status = freezed,
-    Object? message = freezed,
+    Object? msg = freezed,
     Object? note = freezed,
     Object? token = freezed,
   }) {
@@ -2159,9 +2159,9 @@ class _$NoteStateCopyWithImpl<$Res> implements $NoteStateCopyWith<$Res> {
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
               as String,
       note: note == freezed
           ? _value.note
@@ -2198,7 +2198,7 @@ abstract class _$$_NoteStateCopyWith<$Res> implements $NoteStateCopyWith<$Res> {
       int page,
       bool isLastPage,
       DataStatus status,
-      String message,
+      String msg,
       NoteItem? note,
       String token});
 
@@ -2223,7 +2223,7 @@ class __$$_NoteStateCopyWithImpl<$Res> extends _$NoteStateCopyWithImpl<$Res>
     Object? page = freezed,
     Object? isLastPage = freezed,
     Object? status = freezed,
-    Object? message = freezed,
+    Object? msg = freezed,
     Object? note = freezed,
     Object? token = freezed,
   }) {
@@ -2248,9 +2248,9 @@ class __$$_NoteStateCopyWithImpl<$Res> extends _$NoteStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
               as String,
       note: note == freezed
           ? _value.note
@@ -2273,7 +2273,7 @@ class _$_NoteState extends _NoteState {
       required this.page,
       required this.isLastPage,
       required this.status,
-      required this.message,
+      required this.msg,
       this.note,
       required this.token})
       : _notes = notes,
@@ -2295,7 +2295,7 @@ class _$_NoteState extends _NoteState {
   @override
   final DataStatus status;
   @override
-  final String message;
+  final String msg;
   @override
   final NoteItem? note;
   @override
@@ -2303,7 +2303,7 @@ class _$_NoteState extends _NoteState {
 
   @override
   String toString() {
-    return 'NoteState(viewType: $viewType, notes: $notes, page: $page, isLastPage: $isLastPage, status: $status, message: $message, note: $note, token: $token)';
+    return 'NoteState(viewType: $viewType, notes: $notes, page: $page, isLastPage: $isLastPage, status: $status, msg: $msg, note: $note, token: $token)';
   }
 
   @override
@@ -2317,7 +2317,7 @@ class _$_NoteState extends _NoteState {
             const DeepCollectionEquality()
                 .equals(other.isLastPage, isLastPage) &&
             const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
+            const DeepCollectionEquality().equals(other.msg, msg) &&
             const DeepCollectionEquality().equals(other.note, note) &&
             const DeepCollectionEquality().equals(other.token, token));
   }
@@ -2330,7 +2330,7 @@ class _$_NoteState extends _NoteState {
       const DeepCollectionEquality().hash(page),
       const DeepCollectionEquality().hash(isLastPage),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message),
+      const DeepCollectionEquality().hash(msg),
       const DeepCollectionEquality().hash(note),
       const DeepCollectionEquality().hash(token));
 
@@ -2347,7 +2347,7 @@ abstract class _NoteState extends NoteState {
       required final int page,
       required final bool isLastPage,
       required final DataStatus status,
-      required final String message,
+      required final String msg,
       final NoteItem? note,
       required final String token}) = _$_NoteState;
   const _NoteState._() : super._();
@@ -2363,7 +2363,7 @@ abstract class _NoteState extends NoteState {
   @override
   DataStatus get status;
   @override
-  String get message;
+  String get msg;
   @override
   NoteItem? get note;
   @override

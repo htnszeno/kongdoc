@@ -992,7 +992,7 @@ mixin _$ExamState {
   int get page => throw _privateConstructorUsedError;
   DataStatus get status => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+  String get msg => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ExamStateCopyWith<ExamState> get copyWith =>
@@ -1009,7 +1009,7 @@ abstract class $ExamStateCopyWith<$Res> {
       int page,
       DataStatus status,
       bool isLastPage,
-      String message});
+      String msg});
 
   $ExamItemCopyWith<$Res>? get exam;
 }
@@ -1029,7 +1029,7 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
     Object? page = freezed,
     Object? status = freezed,
     Object? isLastPage = freezed,
-    Object? message = freezed,
+    Object? msg = freezed,
   }) {
     return _then(_value.copyWith(
       items: items == freezed
@@ -1052,9 +1052,9 @@ class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1083,7 +1083,7 @@ abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
       int page,
       DataStatus status,
       bool isLastPage,
-      String message});
+      String msg});
 
   @override
   $ExamItemCopyWith<$Res>? get exam;
@@ -1106,7 +1106,7 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
     Object? page = freezed,
     Object? status = freezed,
     Object? isLastPage = freezed,
-    Object? message = freezed,
+    Object? msg = freezed,
   }) {
     return _then(_$_ExamState(
       items: items == freezed
@@ -1129,9 +1129,9 @@ class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1146,7 +1146,7 @@ class _$_ExamState extends _ExamState {
       required this.page,
       required this.status,
       required this.isLastPage,
-      required this.message})
+      required this.msg})
       : _items = items,
         super._();
 
@@ -1166,11 +1166,11 @@ class _$_ExamState extends _ExamState {
   @override
   final bool isLastPage;
   @override
-  final String message;
+  final String msg;
 
   @override
   String toString() {
-    return 'ExamState(items: $items, exam: $exam, page: $page, status: $status, isLastPage: $isLastPage, message: $message)';
+    return 'ExamState(items: $items, exam: $exam, page: $page, status: $status, isLastPage: $isLastPage, msg: $msg)';
   }
 
   @override
@@ -1184,7 +1184,7 @@ class _$_ExamState extends _ExamState {
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality()
                 .equals(other.isLastPage, isLastPage) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            const DeepCollectionEquality().equals(other.msg, msg));
   }
 
   @override
@@ -1195,7 +1195,7 @@ class _$_ExamState extends _ExamState {
       const DeepCollectionEquality().hash(page),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(isLastPage),
-      const DeepCollectionEquality().hash(message));
+      const DeepCollectionEquality().hash(msg));
 
   @JsonKey(ignore: true)
   @override
@@ -1210,7 +1210,7 @@ abstract class _ExamState extends ExamState {
       required final int page,
       required final DataStatus status,
       required final bool isLastPage,
-      required final String message}) = _$_ExamState;
+      required final String msg}) = _$_ExamState;
   const _ExamState._() : super._();
 
   @override
@@ -1224,7 +1224,7 @@ abstract class _ExamState extends ExamState {
   @override
   bool get isLastPage;
   @override
-  String get message;
+  String get msg;
   @override
   @JsonKey(ignore: true)
   _$$_ExamStateCopyWith<_$_ExamState> get copyWith =>

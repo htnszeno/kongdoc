@@ -6,9 +6,9 @@ part 'social_model.g.dart';
 @freezed
 class SocialItem with _$SocialItem {
   factory SocialItem({
-    // @JsonKey(name: "user_id")
+    @JsonKey(name: "user_id")
     required String userId,
-    // @JsonKey(name: "user_name_loc")
+    @JsonKey(name: "user_name_loc")
     required String userName,
   }) = _SocialItem;
 

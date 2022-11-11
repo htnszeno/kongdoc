@@ -104,7 +104,7 @@ Response<dynamic> mapResponseData({
   Map<String, dynamic>? responseData = {
     'data' : response?.data,
     'success': true,
-    'message':'okay'
+    'msg':'okay'
   };
 
   if (hasResponseData) {
@@ -119,7 +119,7 @@ Response<dynamic> mapResponseData({
     data: hasResponseData
         ? responseData
         : AppResponse(
-            message: customMessage,
+            msg: customMessage,
             success: isErrorResponse ? false : true,
             statusCode: response?.statusCode,
             statusMessage: response?.statusMessage,

@@ -95,7 +95,7 @@ class _ExamCubitItemPageState extends State<ExamCubitItemPage> {
               } else if (state.status.isSuccess) {
                 showMessageSnackbar(
                   context,
-                  state.message,
+                  state.msg,
                 );
                 // Navigator.pop(context);
                 Navigator.of(context).pop();
@@ -103,7 +103,7 @@ class _ExamCubitItemPageState extends State<ExamCubitItemPage> {
               } else if (state.status.isError) {
                 showMessageSnackbar(
                   context,
-                  state.message,
+                  state.msg,
                   color: Colors.red,
                 );
               }
