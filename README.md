@@ -61,6 +61,8 @@ $ flutter run --flavor production --target lib/main_production.dart
 
 # Freezed Build
 $ flutter pub run build_runner build --delete-conflicting-outputs
+또는 sh ./freezed_build.sh 를 실행 
+
 ```
 
 _\*Hifive works on iOS, Android, Web, and Windows._

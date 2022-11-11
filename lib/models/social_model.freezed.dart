@@ -20,9 +20,9 @@ SocialItem _$SocialItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SocialItem {
-// @JsonKey(name: "user_id")
-  String get userId =>
-      throw _privateConstructorUsedError; // @JsonKey(name: "user_name_loc")
+  @JsonKey(name: "user_id")
+  String get userId => throw _privateConstructorUsedError;
+  @JsonKey(name: "user_name_loc")
   String get userName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,9 @@ abstract class $SocialItemCopyWith<$Res> {
   factory $SocialItemCopyWith(
           SocialItem value, $Res Function(SocialItem) then) =
       _$SocialItemCopyWithImpl<$Res>;
-  $Res call({String userId, String userName});
+  $Res call(
+      {@JsonKey(name: "user_id") String userId,
+      @JsonKey(name: "user_name_loc") String userName});
 }
 
 /// @nodoc
@@ -72,7 +74,9 @@ abstract class _$$_SocialItemCopyWith<$Res>
           _$_SocialItem value, $Res Function(_$_SocialItem) then) =
       __$$_SocialItemCopyWithImpl<$Res>;
   @override
-  $Res call({String userId, String userName});
+  $Res call(
+      {@JsonKey(name: "user_id") String userId,
+      @JsonKey(name: "user_name_loc") String userName});
 }
 
 /// @nodoc
@@ -106,16 +110,18 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SocialItem implements _SocialItem {
-  _$_SocialItem({required this.userId, required this.userName});
+  _$_SocialItem(
+      {@JsonKey(name: "user_id") required this.userId,
+      @JsonKey(name: "user_name_loc") required this.userName});
 
   factory _$_SocialItem.fromJson(Map<String, dynamic> json) =>
       _$$_SocialItemFromJson(json);
 
-// @JsonKey(name: "user_id")
   @override
+  @JsonKey(name: "user_id")
   final String userId;
-// @JsonKey(name: "user_name_loc")
   @override
+  @JsonKey(name: "user_name_loc")
   final String userName;
 
   @override
@@ -154,15 +160,18 @@ class _$_SocialItem implements _SocialItem {
 
 abstract class _SocialItem implements SocialItem {
   factory _SocialItem(
-      {required final String userId,
-      required final String userName}) = _$_SocialItem;
+          {@JsonKey(name: "user_id") required final String userId,
+          @JsonKey(name: "user_name_loc") required final String userName}) =
+      _$_SocialItem;
 
   factory _SocialItem.fromJson(Map<String, dynamic> json) =
       _$_SocialItem.fromJson;
 
-  @override // @JsonKey(name: "user_id")
+  @override
+  @JsonKey(name: "user_id")
   String get userId;
-  @override // @JsonKey(name: "user_name_loc")
+  @override
+  @JsonKey(name: "user_name_loc")
   String get userName;
   @override
   @JsonKey(ignore: true)

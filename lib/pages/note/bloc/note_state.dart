@@ -10,7 +10,7 @@ class NoteState with _$NoteState {
     required int page,
     required bool isLastPage,
     required DataStatus status,
-    required String message,
+    required String msg,
     NoteItem? note,
     required String token,
   }) = _NoteState;
@@ -22,7 +22,7 @@ class NoteState with _$NoteState {
         page: 1,
         isLastPage: false,
         status: DataStatus.initial,
-        message: '',
+        msg: '',
         note: null,
         token: '');
   }

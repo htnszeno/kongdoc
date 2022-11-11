@@ -12,6 +12,7 @@ import 'package:hifive/pages/home/widget/score_board.dart';
 import 'package:hifive/pages/home/widget/weather_board.dart';
 import 'package:hifive/pages/note/view/note_home_page.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/repositories/social_repository.dart';
 
 class SocialPage extends StatefulWidget {
@@ -99,10 +100,19 @@ class _SocialPageState extends State<SocialPage> {
             child: Column(
               children: [
                 ElevatedButton(
-                    onPressed: () {
-                      context.read<SocialBloc>().add(const Started());
-                    },
-                    child: Text("Cliek"))
+                  onPressed: () {
+                    context.read<SocialBloc>().add(const Started());
+                  },
+                  child: Text("조회"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    context.read<SocialBloc>().add(Create(CreateSocialRequest(
+                      userId: 1, title: 'sdd', body: 'dd'
+                    ) ));
+                  },
+                  child: Text("입력 "),
+                )
               ],
             ),
           );

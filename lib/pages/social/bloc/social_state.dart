@@ -5,18 +5,28 @@ class SocialState with _$SocialState {
   const SocialState._();
 
   const factory SocialState(
-      {required int page,
+      {required List<SocialItem> listItems,
+        required SocialItem? selectedItem,
+        required int page,
       required DataStatus status,
       required bool isLastPage,
-      required String message}) = _SocialState;
+      required String msg}) = _SocialState;
 
   factory SocialState.initial() {
     return const SocialState(
       page: 1,
-      // items: [],
+        listItems: [],
       status: DataStatus.initial,
       isLastPage: false,
-      message: '',
+        msg: '',
+        selectedItem: null
     );
   }
+
+  bool get hasListData => listItems.isNotEmpty;
+
+  bool get hasSelectedItem => selectedItem != null;
+
+  bool get isProcessing =>
+      status.isDeleting || status.isUpdating || status.isSubmitting;
 }

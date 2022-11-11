@@ -10,7 +10,7 @@ class ExamState with _$ExamState {
       required int page,
       required DataStatus status,
       required bool isLastPage,
-      required String message}) = _ExamState;
+      required String msg}) = _ExamState;
 
   factory ExamState.initial() {
     return const ExamState(
@@ -18,7 +18,7 @@ class ExamState with _$ExamState {
       items: [],
       status: DataStatus.initial,
       isLastPage: false,
-      message: '',
+      msg: '',
       exam: null,
     );
   }
