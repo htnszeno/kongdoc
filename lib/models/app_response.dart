@@ -29,14 +29,14 @@ class AppResponse<T> extends Equatable {
   });
 
   factory AppResponse({
-    required bool success,
+    required success,
     required String msg,
     int? statusCode,
     String? statusMessage,
     T? data,
   }) {
     return AppResponse._(
-      success: success,
+      success: success??false,
       msg: msg,
       statusCode: statusCode ?? 200,
       statusMessage: statusMessage ?? "The request has succeeded.",

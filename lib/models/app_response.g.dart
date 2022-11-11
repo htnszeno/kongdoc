@@ -11,7 +11,7 @@ AppResponse<T> _$AppResponseFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     AppResponse<T>(
-      success: json['success'] as bool,
+      success: json['success'],
       msg: json['msg'] as String,
       statusCode: json['statusCode'] as int?,
       statusMessage: json['statusMessage'] as String?,
