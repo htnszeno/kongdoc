@@ -9,6 +9,7 @@ class CreateSocialRequest with _$CreateSocialRequest {
     required int userId,
     String? title,
     String? body,
+    String? contents
   }) = _CreateSocialRequest;
 
   factory CreateSocialRequest.fromJson(Map<String, dynamic> json) =>
@@ -16,7 +17,7 @@ class CreateSocialRequest with _$CreateSocialRequest {
 
   factory CreateSocialRequest.fromFromGroup(Map<String, dynamic> json) {
     Map<String, dynamic> data = {...json};
-    data['userId'] = 1;
+
     return CreateSocialRequest.fromJson(data);
   }
 }
