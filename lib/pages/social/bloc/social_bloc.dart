@@ -17,15 +17,24 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
   })  : _socialRepository = socialRepository,
         super(SocialState.initial()) {
     on<SocialEvent>((event, emit) {});
+    on<Refresh>((event, emit) async {
+      if (state.status.isRefreshing) return;
+
+      emit(state.copyWith(status: DataStatus.refreshing));
+      await Future.delayed(const Duration(seconds: 1));
+      await _getFirstPage(emit);
+    });
     on<Started>((event, emit) async {
       await _getFirstPage(emit);
     });
 
     on<Create>((event, emit) async {
+      print('create....');
       if (state.status.isUpdating) return;
       emit(state.copyWith(status: DataStatus.updating));
 
       final result = await _socialRepository.create(event.request);
+      print(' ====== ${result}');
 
       if (result.success) {
         emit(state.copyWith(
@@ -38,6 +47,40 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
           msg: result.msg,
           status: DataStatus.error,
         ));
+      }
+    });
+    on<LoadMore>((event, emit) async {
+      if (state.status.isLoadingMore || state.isLastPage) return;
+
+      emit(state.copyWith(status: DataStatus.loadingMore));
+      final newPage = state.page + 1;
+      final result = await _socialRepository.getMany(currentPage: newPage);
+
+      if (result.success) {
+        final newItems = result.data ?? [];
+        if (newItems.isNotEmpty) {
+          emit(
+            state.copyWith(
+              listItems: [...state.listItems, ...newItems],
+              status: DataStatus.initial,
+              page: newPage,
+            ),
+          );
+        } else {
+          emit(
+            state.copyWith(
+              status: DataStatus.initial,
+              isLastPage: true,
+            ),
+          );
+        }
+      } else {
+        emit(
+          state.copyWith(
+            msg: result.msg,
+            status: DataStatus.error,
+          ),
+        );
       }
     });
   }

@@ -12,6 +12,7 @@ _$_CreateSocialRequest _$$_CreateSocialRequestFromJson(
       userId: json['userId'] as int,
       title: json['title'] as String?,
       body: json['body'] as String?,
+      contents: json['contents'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateSocialRequestToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$_CreateSocialRequestToJson(
       'userId': instance.userId,
       'title': instance.title,
       'body': instance.body,
+      'contents': instance.contents,
     };

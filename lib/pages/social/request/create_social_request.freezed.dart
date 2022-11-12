@@ -23,6 +23,7 @@ mixin _$CreateSocialRequest {
   int get userId => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get body => throw _privateConstructorUsedError;
+  String? get contents => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $CreateSocialRequestCopyWith<$Res> {
   factory $CreateSocialRequestCopyWith(
           CreateSocialRequest value, $Res Function(CreateSocialRequest) then) =
       _$CreateSocialRequestCopyWithImpl<$Res>;
-  $Res call({int userId, String? title, String? body});
+  $Res call({int userId, String? title, String? body, String? contents});
 }
 
 /// @nodoc
@@ -52,6 +53,7 @@ class _$CreateSocialRequestCopyWithImpl<$Res>
     Object? userId = freezed,
     Object? title = freezed,
     Object? body = freezed,
+    Object? contents = freezed,
   }) {
     return _then(_value.copyWith(
       userId: userId == freezed
@@ -66,6 +68,10 @@ class _$CreateSocialRequestCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      contents: contents == freezed
+          ? _value.contents
+          : contents // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -77,7 +83,7 @@ abstract class _$$_CreateSocialRequestCopyWith<$Res>
           $Res Function(_$_CreateSocialRequest) then) =
       __$$_CreateSocialRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int userId, String? title, String? body});
+  $Res call({int userId, String? title, String? body, String? contents});
 }
 
 /// @nodoc
@@ -96,6 +102,7 @@ class __$$_CreateSocialRequestCopyWithImpl<$Res>
     Object? userId = freezed,
     Object? title = freezed,
     Object? body = freezed,
+    Object? contents = freezed,
   }) {
     return _then(_$_CreateSocialRequest(
       userId: userId == freezed
@@ -110,6 +117,10 @@ class __$$_CreateSocialRequestCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      contents: contents == freezed
+          ? _value.contents
+          : contents // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -117,7 +128,8 @@ class __$$_CreateSocialRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateSocialRequest implements _CreateSocialRequest {
-  _$_CreateSocialRequest({required this.userId, this.title, this.body});
+  _$_CreateSocialRequest(
+      {required this.userId, this.title, this.body, this.contents});
 
   factory _$_CreateSocialRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateSocialRequestFromJson(json);
@@ -128,10 +140,12 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
   final String? title;
   @override
   final String? body;
+  @override
+  final String? contents;
 
   @override
   String toString() {
-    return 'CreateSocialRequest(userId: $userId, title: $title, body: $body)';
+    return 'CreateSocialRequest(userId: $userId, title: $title, body: $body, contents: $contents)';
   }
 
   @override
@@ -141,7 +155,8 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
             other is _$_CreateSocialRequest &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            const DeepCollectionEquality().equals(other.body, body) &&
+            const DeepCollectionEquality().equals(other.contents, contents));
   }
 
   @JsonKey(ignore: true)
@@ -150,7 +165,8 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
       runtimeType,
       const DeepCollectionEquality().hash(userId),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(body));
+      const DeepCollectionEquality().hash(body),
+      const DeepCollectionEquality().hash(contents));
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +186,8 @@ abstract class _CreateSocialRequest implements CreateSocialRequest {
   factory _CreateSocialRequest(
       {required final int userId,
       final String? title,
-      final String? body}) = _$_CreateSocialRequest;
+      final String? body,
+      final String? contents}) = _$_CreateSocialRequest;
 
   factory _CreateSocialRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateSocialRequest.fromJson;
@@ -181,6 +198,8 @@ abstract class _CreateSocialRequest implements CreateSocialRequest {
   String? get title;
   @override
   String? get body;
+  @override
+  String? get contents;
   @override
   @JsonKey(ignore: true)
   _$$_CreateSocialRequestCopyWith<_$_CreateSocialRequest> get copyWith =>

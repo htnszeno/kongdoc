@@ -44,25 +44,25 @@ class SocialRepository {
     return response.data;
   }
 
-  Future<AppResponse<ExamItem?>> create(
-      CreateSocialRequest request
-      ) async {
+  Future<AppResponse<SocialItem?>> create(CreateSocialRequest request) async {
     final response = await _dioClient.post(
       Endpoints.socialCreate,
       data: request.toJson(),
     );
 
-    return AppResponse<ExamItem?>.fromJson(
+    print("일벽 ㄹ===== ${response}");
+
+    return AppResponse<SocialItem?>.fromJson(
       response.data,
-          (dynamic json) => response.data['success'] && json != null
-          ? ExamItem.fromJson(json)
+      (dynamic json) => response.data['success'] && json != null
+          ? SocialItem.fromJson(json)
           : null,
     );
   }
 
   Future<AppResponse<List<SocialItem>?>> getMany({
     required int currentPage,
-    int limit = 10,
+    int limit = 20,
   }) async {
     int start = currentPage == 1 ? 0 : ((currentPage * limit) - limit);
     final response = await _dioClient.post(Endpoints.socialGetMany, data: {
@@ -72,7 +72,8 @@ class SocialRepository {
       'page': currentPage
     });
     print(response);
-    return AppResponse<List<SocialItem>?>.fromJson(response.data, (dynamic json) {
+    return AppResponse<List<SocialItem>?>.fromJson(response.data,
+        (dynamic json) {
       return (json as List<dynamic>)
           .map((e) => SocialItem.fromJson(e))
           .toList();

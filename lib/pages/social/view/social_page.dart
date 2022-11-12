@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
+import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/home/widget/avatar.dart';
 import 'package:hifive/pages/home/widget/bill_board.dart';
 import 'package:hifive/pages/home/widget/character_board.dart';
@@ -13,7 +14,9 @@ import 'package:hifive/pages/home/widget/weather_board.dart';
 import 'package:hifive/pages/note/view/note_home_page.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
+import 'package:hifive/pages/social/widget/social_list.dart';
 import 'package:hifive/repositories/social_repository.dart';
+import 'package:hifive/widget/blank_content.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({super.key});
@@ -38,6 +41,28 @@ class SocialPage extends StatefulWidget {
 }
 
 class _SocialPageState extends State<SocialPage> {
+  ScrollController? _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController?.dispose();
+    super.dispose();
+  }
+
+  bool _onScrollNotification(ScrollNotification notification) {
+    if (notification is ScrollEndNotification &&
+        _scrollController!.position.extentAfter == 0) {
+      context.read<SocialBloc>().add(const LoadMore());
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -93,30 +118,39 @@ class _SocialPageState extends State<SocialPage> {
         ]),
         actions: <Widget>[],
       ),
-      body: BlocBuilder<SocialBloc, SocialState>(
-        builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<SocialBloc>().add(const Started());
-                  },
-                  child: Text("조회"),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<SocialBloc>().add(Create(CreateSocialRequest(
-                      userId: 1, title: 'sdd', body: 'dd'
-                    ) ));
-                  },
-                  child: Text("입력 "),
-                )
-              ],
-            ),
-          );
+      body: RefreshIndicator(
+        onRefresh: () async {
+          context.read<SocialBloc>().add(const Refresh());
         },
+        child: NotificationListener<ScrollNotification>(
+          onNotification: (notification) => _onScrollNotification(notification),
+          child: CustomScrollView(
+            controller: _scrollController,
+            slivers: [
+              BlocConsumer<SocialBloc, SocialState>(
+                listener: (_, __) {},
+                builder: (context, state) {
+                  if (state.status.isLoading) {
+                    return const SliverFillRemaining(
+                      child: BlankContent(
+                        isLoading: true,
+                      ),
+                    );
+                  }
+                  if (!state.hasListData) {
+                    return const SliverFillRemaining(
+                      child: BlankContent(),
+                    );
+                  }
+                  return SocialList(
+                    items: state.listItems,
+                    onSocialPressed: (SocialItem item) {},
+                  );
+                },
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
