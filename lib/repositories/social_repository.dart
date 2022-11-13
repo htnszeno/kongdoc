@@ -11,6 +11,7 @@ import 'package:hifive/models/exam_model.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/models/user_model.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
+import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,24 +34,26 @@ class SocialRepository {
   @visibleForTesting
   bool isWeb = kIsWeb;
 
-  Future<Map<String, dynamic>> getInit() async {
-    final Response<dynamic> response = await _dioClient.post(
-      // '/api/PETUS001SVC/get',
-      Endpoints.getInit,
+
+  @override
+  Future<AppResponse<int?>> deleteSingle(String postId) async {
+    final response = await _dioClient.post(
+      "/api/PETSO001SVC/delete",
       data: {
-        // "user_id":"cdyoo42"
-      },
+        'postId': postId
+      }
     );
-    return response.data;
+    return AppResponse<int?>.fromJson(
+      response.data,
+          (json) => response.data['success'] && json != null ? json as int : null,
+    );
   }
 
-  Future<AppResponse<SocialItem?>> create(CreateSocialRequest request) async {
+  Future<AppResponse<SocialItem?>> update(UpdateSocialRequest request) async {
     final response = await _dioClient.post(
-      Endpoints.socialCreate,
+      "/api/SO001SVC/put",
       data: request.toJson(),
     );
-
-    print("일벽 ㄹ===== ${response}");
 
     return AppResponse<SocialItem?>.fromJson(
       response.data,
@@ -60,31 +63,45 @@ class SocialRepository {
     );
   }
 
-  Future<AppResponse<List<SocialItem>?>> getMany({
-    required int currentPage,
-    int limit = 20,
-  }) async {
-    int start = currentPage == 1 ? 0 : ((currentPage * limit) - limit);
-    final response = await _dioClient.post(Endpoints.socialGetMany, data: {
-      'my_user_id': "cdyoo42",
-      'start': start,
-      'limit': limit,
-      'page': currentPage
-    });
-    print(response);
+  Future<AppResponse<SocialItem?>> create(CreateSocialRequest request) async {
+    final response = await _dioClient.post(
+      Endpoints.socialCreate,
+      data: request.toJson(),
+    );
+    return AppResponse<SocialItem?>.fromJson(
+      response.data,
+      (dynamic json) => response.data['success'] && json != null
+          ? SocialItem.fromJson(json)
+          : null,
+    );
+  }
+
+  Future<AppResponse<List<SocialItem>?>> getSingle(
+      {required String postId}) async {
+    final response =
+        await _dioClient.post("/api/PETSO001SVC/get", data: {'postId': postId});
+
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
         (dynamic json) {
       return (json as List<dynamic>)
           .map((e) => SocialItem.fromJson(e))
           .toList();
+    });
+  }
 
-      // print('json === . ${json}');
-      // if (json != null && response.data['type'] == 1) {
-      //   return (json as List<dynamic>)
-      //       .map((e) => SocialItem.fromJson(e))
-      //       .toList();
-      // }
-      return null;
+  Future<AppResponse<List<SocialItem>?>> getMany({
+    required int currentPage,
+    int limit = 20,
+  }) async {
+    int start = currentPage == 1 ? 0 : ((currentPage * limit) - limit);
+    final response = await _dioClient.post(Endpoints.socialGetMany,
+        data: {'start': start, 'limit': limit, 'page': currentPage});
+
+    return AppResponse<List<SocialItem>?>.fromJson(response.data,
+        (dynamic json) {
+      return (json as List<dynamic>)
+          .map((e) => SocialItem.fromJson(e))
+          .toList();
     });
   }
 }

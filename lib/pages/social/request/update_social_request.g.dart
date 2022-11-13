@@ -9,17 +9,15 @@ part of 'update_social_request.dart';
 _$_UpdateSocialRequest _$$_UpdateSocialRequestFromJson(
         Map<String, dynamic> json) =>
     _$_UpdateSocialRequest(
-      id: json['id'] as int,
-      userId: json['userId'] as int,
+      postId: json['postId'] as String,
       title: json['title'] as String?,
-      body: json['body'] as String?,
+      contents: json['contents'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateSocialRequestToJson(
         _$_UpdateSocialRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'userId': instance.userId,
+      'postId': instance.postId,
       'title': instance.title,
-      'body': instance.body,
+      'contents': instance.contents,
     };

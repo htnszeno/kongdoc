@@ -6,11 +6,11 @@ class SocialList extends StatelessWidget {
   const SocialList({
     Key? key,
     required this.items,
-    required this.onSocialPressed,
+    required this.onSocialItemPressed,
   }) : super(key: key);
 
   final List<SocialItem> items;
-  final void Function(SocialItem) onSocialPressed;
+  final void Function(SocialItem) onSocialItemPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SocialList extends StatelessWidget {
           return SocialListItem(
             key: ValueKey("list-item-${item.postId}"),
             social: item,
-            onSocialPressed: onSocialPressed,
+            onSocialItemPressed: onSocialItemPressed,
           );
         },
         childCount: items.length,

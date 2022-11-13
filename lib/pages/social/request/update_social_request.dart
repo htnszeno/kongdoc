@@ -6,12 +6,11 @@ part 'update_social_request.freezed.dart';
 part 'update_social_request.g.dart';
 
 @freezed
-class UpdateSocialRequest with _$UpdateSocialRequest{
+class UpdateSocialRequest with _$UpdateSocialRequest {
   factory UpdateSocialRequest({
-    required int id,
-    required int userId,
+    required String postId,
     String? title,
-    String? body,
+    String? contents,
   }) = _UpdateSocialRequest;
 
   factory UpdateSocialRequest.fromJson(Map<String, dynamic> json) =>
@@ -19,7 +18,6 @@ class UpdateSocialRequest with _$UpdateSocialRequest{
 
   factory UpdateSocialRequest.fromFromGroup(Map<String, dynamic> json) {
     Map<String, dynamic> data = {...json};
-
     return UpdateSocialRequest.fromJson(data);
   }
 }

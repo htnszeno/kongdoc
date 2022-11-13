@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/models/social_model.dart';
+import 'package:hifive/pages/social/bloc/social_bloc.dart';
 import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/util/formatting.dart';
 
@@ -7,16 +9,16 @@ class SocialListItem extends StatelessWidget {
   const SocialListItem({
     Key? key,
     required this.social,
-    required this.onSocialPressed,
+    required this.onSocialItemPressed,
   }) : super(key: key);
 
   final SocialItem social;
-  final void Function(SocialItem) onSocialPressed;
+  final void Function(SocialItem) onSocialItemPressed;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onSocialPressed(social),
+      onTap: () => onSocialItemPressed(social),
       child: Card(
         elevation: 3.0,
         child: Dismissible(
@@ -48,7 +50,7 @@ class SocialListItem extends StatelessWidget {
             return result;
           },
           onDismissed: (_) {
-            // context.read<ExamBloc>().add(Delete(note.id));
+            context.read<SocialBloc>().add(Delete(social.postId));
           },
           child: Container(
             height: 320.0,
