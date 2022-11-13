@@ -96,8 +96,8 @@ class AppRepository {
     final Response<dynamic> response = await _dioClient.post(
       Endpoints.token,
       data: {
-        'USER_ID': userId,
-        'PW': password,
+        'userId': userId,
+        'pw': password,
         '_csrf': csrf,
         '_spring_security_remember_me': true
       },

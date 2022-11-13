@@ -1,17 +1,22 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hifive/enums/data_status.dart';
+import 'package:hifive/enums/filter_data_type.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/repositories/social_repository.dart';
+import 'package:reactive_forms/reactive_forms.dart';
+
+part 'social_bloc.freezed.dart';
 
 part 'social_event.dart';
+
 part 'social_state.dart';
-part 'social_bloc.freezed.dart';
 
 class SocialBloc extends Bloc<SocialEvent, SocialState> {
   final SocialRepository _socialRepository;
+
   SocialBloc({
     required SocialRepository socialRepository,
   })  : _socialRepository = socialRepository,
@@ -28,20 +33,95 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       await _getFirstPage(emit);
     });
 
+    on<Delete>((event, emit) {
+      _socialRepository.deleteSingle(event.postId);
+      emit(state.copyWith(
+        listItems: [...state.listItems]
+          ..removeWhere((element) => element.postId == event.postId),
+      ));
+    });
+
+    on<SetSelectedItem>((event, emit) async {
+      if (event.selectedItem == null) {
+        emit(state.copyWith(selectedItem: null));
+        return;
+      }
+
+      String? postId = event.selectedItem?.postId;
+      emit(state.copyWith(status: DataStatus.loading));
+      await Future.delayed(const Duration(seconds: 1));
+      final result = await _socialRepository.getSingle(postId: postId!);
+      emit(state.copyWith(
+          selectedItem: result.data?[0], status: DataStatus.loaded));
+    });
+
+    on<Filter>((event, emit) {
+      List<SocialItem> listItems = [...state.listItems];
+      switch (event.type) {
+        case FilterDataType.delete:
+          listItems.removeWhere(
+              (element) => element.postId == (event.data as SocialItem).postId);
+          break;
+        case FilterDataType.update:
+          final updateNoteIndex = listItems.indexWhere(
+              (element) => element.postId == (event.data as SocialItem).postId);
+          if (updateNoteIndex != -1) {
+            listItems[updateNoteIndex] = event.data;
+          }
+          break;
+        case FilterDataType.create:
+          listItems = [event.data, ...listItems];
+          break;
+      }
+
+      emit(state.copyWith(listItems: listItems));
+    });
+
+    on<Update>((event, emit) async {
+      if (state.status.isUpdating) return;
+      emit(state.copyWith(status: DataStatus.updating));
+
+      final result = await _socialRepository.update(event.request);
+
+      if (result.success) {
+        List<SocialItem> listItems = [...state.listItems];
+        final updateNoteIndex =
+            listItems.indexWhere((element) => element.postId == event.postId);
+        if (updateNoteIndex != -1) {
+          listItems[updateNoteIndex] = result.data!;
+        }
+        emit(state.copyWith(
+          msg: result.msg,
+          status: DataStatus.success,
+          selectedItem: null,
+          listItems: listItems,
+        ));
+      } else {
+        emit(state.copyWith(
+          msg: result.msg,
+          status: DataStatus.error,
+        ));
+      }
+    });
+
     on<Create>((event, emit) async {
       print('create....');
       if (state.status.isUpdating) return;
       emit(state.copyWith(status: DataStatus.updating));
 
+      List<SocialItem> listItems = [...state.listItems];
+
       final result = await _socialRepository.create(event.request);
       print(' ====== ${result}');
 
       if (result.success) {
+        listItems = [result.data!, ...listItems];
+
         emit(state.copyWith(
-          msg: result.msg,
-          status: DataStatus.success,
-          selectedItem: null,
-        ));
+            msg: result.msg,
+            status: DataStatus.success,
+            selectedItem: null,
+            listItems: listItems));
       } else {
         emit(state.copyWith(
           msg: result.msg,
@@ -103,5 +183,22 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
         page: 1,
       ));
     }
+  }
+
+  FormGroup get formgroup {
+    return fb.group(
+      {
+        'postId': [state.selectedItem?.postId],
+        'userId': [state.selectedItem?.userId],
+        'title': [
+          state.hasSelectedItem ? state.selectedItem!.title : "",
+          Validators.required,
+        ],
+        'contents': [
+          state.hasSelectedItem ? state.selectedItem!.contents : "",
+          Validators.required,
+        ],
+      },
+    );
   }
 }

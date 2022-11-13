@@ -53,7 +53,7 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/
+    - assets/images/
   fonts:
     - family: Jalnan
       fonts:

@@ -22,8 +22,11 @@ mixin _$SocialEvent {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
-    required TResult Function(UpdateSocialRequest request, int id) update,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
     required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,8 +35,10 @@ mixin _$SocialEvent {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,8 +47,10 @@ mixin _$SocialEvent {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +62,8 @@ mixin _$SocialEvent {
     required TResult Function(SetSelectedItem value) setSelectedItem,
     required TResult Function(Update value) update,
     required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +74,8 @@ mixin _$SocialEvent {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +86,8 @@ mixin _$SocialEvent {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,8 +151,11 @@ class _$Started implements Started {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
-    required TResult Function(UpdateSocialRequest request, int id) update,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
     required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
     return started();
   }
@@ -151,8 +167,10 @@ class _$Started implements Started {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
     return started?.call();
   }
@@ -164,8 +182,10 @@ class _$Started implements Started {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,6 +203,8 @@ class _$Started implements Started {
     required TResult Function(SetSelectedItem value) setSelectedItem,
     required TResult Function(Update value) update,
     required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
   }) {
     return started(this);
   }
@@ -196,6 +218,8 @@ class _$Started implements Started {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
   }) {
     return started?.call(this);
   }
@@ -209,6 +233,8 @@ class _$Started implements Started {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -265,8 +291,11 @@ class _$LoadMore implements LoadMore {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
-    required TResult Function(UpdateSocialRequest request, int id) update,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
     required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
     return loadMore();
   }
@@ -278,8 +307,10 @@ class _$LoadMore implements LoadMore {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
     return loadMore?.call();
   }
@@ -291,8 +322,10 @@ class _$LoadMore implements LoadMore {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -310,6 +343,8 @@ class _$LoadMore implements LoadMore {
     required TResult Function(SetSelectedItem value) setSelectedItem,
     required TResult Function(Update value) update,
     required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
   }) {
     return loadMore(this);
   }
@@ -323,6 +358,8 @@ class _$LoadMore implements LoadMore {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
   }) {
     return loadMore?.call(this);
   }
@@ -336,6 +373,8 @@ class _$LoadMore implements LoadMore {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -391,8 +430,11 @@ class _$Refresh implements Refresh {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
-    required TResult Function(UpdateSocialRequest request, int id) update,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
     required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
     return refresh();
   }
@@ -404,8 +446,10 @@ class _$Refresh implements Refresh {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
     return refresh?.call();
   }
@@ -417,8 +461,10 @@ class _$Refresh implements Refresh {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -436,6 +482,8 @@ class _$Refresh implements Refresh {
     required TResult Function(SetSelectedItem value) setSelectedItem,
     required TResult Function(Update value) update,
     required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
   }) {
     return refresh(this);
   }
@@ -449,6 +497,8 @@ class _$Refresh implements Refresh {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
   }) {
     return refresh?.call(this);
   }
@@ -462,6 +512,8 @@ class _$Refresh implements Refresh {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -558,8 +610,11 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
-    required TResult Function(UpdateSocialRequest request, int id) update,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
     required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
     return setSelectedItem(selectedItem);
   }
@@ -571,8 +626,10 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
     return setSelectedItem?.call(selectedItem);
   }
@@ -584,8 +641,10 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -603,6 +662,8 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function(SetSelectedItem value) setSelectedItem,
     required TResult Function(Update value) update,
     required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
   }) {
     return setSelectedItem(this);
   }
@@ -616,6 +677,8 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
   }) {
     return setSelectedItem?.call(this);
   }
@@ -629,6 +692,8 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -652,7 +717,7 @@ abstract class SetSelectedItem implements SocialEvent {
 abstract class _$$UpdateCopyWith<$Res> {
   factory _$$UpdateCopyWith(_$Update value, $Res Function(_$Update) then) =
       __$$UpdateCopyWithImpl<$Res>;
-  $Res call({UpdateSocialRequest request, int id});
+  $Res call({UpdateSocialRequest request, String postId});
 
   $UpdateSocialRequestCopyWith<$Res> get request;
 }
@@ -669,17 +734,17 @@ class __$$UpdateCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? request = freezed,
-    Object? id = freezed,
+    Object? postId = freezed,
   }) {
     return _then(_$Update(
       request == freezed
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as UpdateSocialRequest,
-      id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
+      postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -694,16 +759,16 @@ class __$$UpdateCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Update implements Update {
-  const _$Update(this.request, this.id);
+  const _$Update(this.request, this.postId);
 
   @override
   final UpdateSocialRequest request;
   @override
-  final int id;
+  final String postId;
 
   @override
   String toString() {
-    return 'SocialEvent.update(request: $request, id: $id)';
+    return 'SocialEvent.update(request: $request, postId: $postId)';
   }
 
   @override
@@ -712,14 +777,14 @@ class _$Update implements Update {
         (other.runtimeType == runtimeType &&
             other is _$Update &&
             const DeepCollectionEquality().equals(other.request, request) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.postId, postId));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(request),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(postId));
 
   @JsonKey(ignore: true)
   @override
@@ -733,10 +798,13 @@ class _$Update implements Update {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
-    required TResult Function(UpdateSocialRequest request, int id) update,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
     required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
-    return update(request, id);
+    return update(request, postId);
   }
 
   @override
@@ -746,10 +814,12 @@ class _$Update implements Update {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
-    return update?.call(request, id);
+    return update?.call(request, postId);
   }
 
   @override
@@ -759,12 +829,14 @@ class _$Update implements Update {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (update != null) {
-      return update(request, id);
+      return update(request, postId);
     }
     return orElse();
   }
@@ -778,6 +850,8 @@ class _$Update implements Update {
     required TResult Function(SetSelectedItem value) setSelectedItem,
     required TResult Function(Update value) update,
     required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
   }) {
     return update(this);
   }
@@ -791,6 +865,8 @@ class _$Update implements Update {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
   }) {
     return update?.call(this);
   }
@@ -804,6 +880,8 @@ class _$Update implements Update {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -814,11 +892,11 @@ class _$Update implements Update {
 }
 
 abstract class Update implements SocialEvent {
-  const factory Update(final UpdateSocialRequest request, final int id) =
+  const factory Update(final UpdateSocialRequest request, final String postId) =
       _$Update;
 
   UpdateSocialRequest get request;
-  int get id;
+  String get postId;
   @JsonKey(ignore: true)
   _$$UpdateCopyWith<_$Update> get copyWith =>
       throw _privateConstructorUsedError;
@@ -899,8 +977,11 @@ class _$Create implements Create {
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
-    required TResult Function(UpdateSocialRequest request, int id) update,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
     required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
     return create(request);
   }
@@ -912,8 +993,10 @@ class _$Create implements Create {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
     return create?.call(request);
   }
@@ -925,8 +1008,10 @@ class _$Create implements Create {
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
-    TResult Function(UpdateSocialRequest request, int id)? update,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
     TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -944,6 +1029,8 @@ class _$Create implements Create {
     required TResult Function(SetSelectedItem value) setSelectedItem,
     required TResult Function(Update value) update,
     required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
   }) {
     return create(this);
   }
@@ -957,6 +1044,8 @@ class _$Create implements Create {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
   }) {
     return create?.call(this);
   }
@@ -970,6 +1059,8 @@ class _$Create implements Create {
     TResult Function(SetSelectedItem value)? setSelectedItem,
     TResult Function(Update value)? update,
     TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -985,6 +1076,354 @@ abstract class Create implements SocialEvent {
   CreateSocialRequest get request;
   @JsonKey(ignore: true)
   _$$CreateCopyWith<_$Create> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteCopyWith<$Res> {
+  factory _$$DeleteCopyWith(_$Delete value, $Res Function(_$Delete) then) =
+      __$$DeleteCopyWithImpl<$Res>;
+  $Res call({String postId});
+}
+
+/// @nodoc
+class __$$DeleteCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$DeleteCopyWith<$Res> {
+  __$$DeleteCopyWithImpl(_$Delete _value, $Res Function(_$Delete) _then)
+      : super(_value, (v) => _then(v as _$Delete));
+
+  @override
+  _$Delete get _value => super._value as _$Delete;
+
+  @override
+  $Res call({
+    Object? postId = freezed,
+  }) {
+    return _then(_$Delete(
+      postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$Delete implements Delete {
+  const _$Delete(this.postId);
+
+  @override
+  final String postId;
+
+  @override
+  String toString() {
+    return 'SocialEvent.delete(postId: $postId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Delete &&
+            const DeepCollectionEquality().equals(other.postId, postId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(postId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$DeleteCopyWith<_$Delete> get copyWith =>
+      __$$DeleteCopyWithImpl<_$Delete>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+  }) {
+    return delete(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+  }) {
+    return delete?.call(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(postId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Delete implements SocialEvent {
+  const factory Delete(final String postId) = _$Delete;
+
+  String get postId;
+  @JsonKey(ignore: true)
+  _$$DeleteCopyWith<_$Delete> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterCopyWith<$Res> {
+  factory _$$FilterCopyWith(_$Filter value, $Res Function(_$Filter) then) =
+      __$$FilterCopyWithImpl<$Res>;
+  $Res call({FilterDataType type, dynamic data});
+}
+
+/// @nodoc
+class __$$FilterCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$FilterCopyWith<$Res> {
+  __$$FilterCopyWithImpl(_$Filter _value, $Res Function(_$Filter) _then)
+      : super(_value, (v) => _then(v as _$Filter));
+
+  @override
+  _$Filter get _value => super._value as _$Filter;
+
+  @override
+  $Res call({
+    Object? type = freezed,
+    Object? data = freezed,
+  }) {
+    return _then(_$Filter(
+      type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as FilterDataType,
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$Filter implements Filter {
+  const _$Filter(this.type, this.data);
+
+  @override
+  final FilterDataType type;
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'SocialEvent.filterNotes(type: $type, data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Filter &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FilterCopyWith<_$Filter> get copyWith =>
+      __$$FilterCopyWithImpl<_$Filter>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+  }) {
+    return filterNotes(type, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+  }) {
+    return filterNotes?.call(type, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    required TResult orElse(),
+  }) {
+    if (filterNotes != null) {
+      return filterNotes(type, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+  }) {
+    return filterNotes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+  }) {
+    return filterNotes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    required TResult orElse(),
+  }) {
+    if (filterNotes != null) {
+      return filterNotes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Filter implements SocialEvent {
+  const factory Filter(final FilterDataType type, final dynamic data) =
+      _$Filter;
+
+  FilterDataType get type;
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$FilterCopyWith<_$Filter> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

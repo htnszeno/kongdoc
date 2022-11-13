@@ -20,10 +20,9 @@ UpdateSocialRequest _$UpdateSocialRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdateSocialRequest {
-  int get id => throw _privateConstructorUsedError;
-  int get userId => throw _privateConstructorUsedError;
+  String get postId => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  String? get body => throw _privateConstructorUsedError;
+  String? get contents => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $UpdateSocialRequestCopyWith<$Res> {
   factory $UpdateSocialRequestCopyWith(
           UpdateSocialRequest value, $Res Function(UpdateSocialRequest) then) =
       _$UpdateSocialRequestCopyWithImpl<$Res>;
-  $Res call({int id, int userId, String? title, String? body});
+  $Res call({String postId, String? title, String? contents});
 }
 
 /// @nodoc
@@ -50,27 +49,22 @@ class _$UpdateSocialRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? userId = freezed,
+    Object? postId = freezed,
     Object? title = freezed,
-    Object? body = freezed,
+    Object? contents = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      userId: userId == freezed
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as int,
+      postId: postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      body: body == freezed
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
+      contents: contents == freezed
+          ? _value.contents
+          : contents // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -83,7 +77,7 @@ abstract class _$$_UpdateSocialRequestCopyWith<$Res>
           $Res Function(_$_UpdateSocialRequest) then) =
       __$$_UpdateSocialRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int id, int userId, String? title, String? body});
+  $Res call({String postId, String? title, String? contents});
 }
 
 /// @nodoc
@@ -99,27 +93,22 @@ class __$$_UpdateSocialRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? userId = freezed,
+    Object? postId = freezed,
     Object? title = freezed,
-    Object? body = freezed,
+    Object? contents = freezed,
   }) {
     return _then(_$_UpdateSocialRequest(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      userId: userId == freezed
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as int,
+      postId: postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      body: body == freezed
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
+      contents: contents == freezed
+          ? _value.contents
+          : contents // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -128,24 +117,21 @@ class __$$_UpdateSocialRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdateSocialRequest implements _UpdateSocialRequest {
-  _$_UpdateSocialRequest(
-      {required this.id, required this.userId, this.title, this.body});
+  _$_UpdateSocialRequest({required this.postId, this.title, this.contents});
 
   factory _$_UpdateSocialRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateSocialRequestFromJson(json);
 
   @override
-  final int id;
-  @override
-  final int userId;
+  final String postId;
   @override
   final String? title;
   @override
-  final String? body;
+  final String? contents;
 
   @override
   String toString() {
-    return 'UpdateSocialRequest(id: $id, userId: $userId, title: $title, body: $body)';
+    return 'UpdateSocialRequest(postId: $postId, title: $title, contents: $contents)';
   }
 
   @override
@@ -153,20 +139,18 @@ class _$_UpdateSocialRequest implements _UpdateSocialRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateSocialRequest &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.userId, userId) &&
+            const DeepCollectionEquality().equals(other.postId, postId) &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            const DeepCollectionEquality().equals(other.contents, contents));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(userId),
+      const DeepCollectionEquality().hash(postId),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(body));
+      const DeepCollectionEquality().hash(contents));
 
   @JsonKey(ignore: true)
   @override
@@ -184,22 +168,19 @@ class _$_UpdateSocialRequest implements _UpdateSocialRequest {
 
 abstract class _UpdateSocialRequest implements UpdateSocialRequest {
   factory _UpdateSocialRequest(
-      {required final int id,
-      required final int userId,
+      {required final String postId,
       final String? title,
-      final String? body}) = _$_UpdateSocialRequest;
+      final String? contents}) = _$_UpdateSocialRequest;
 
   factory _UpdateSocialRequest.fromJson(Map<String, dynamic> json) =
       _$_UpdateSocialRequest.fromJson;
 
   @override
-  int get id;
-  @override
-  int get userId;
+  String get postId;
   @override
   String? get title;
   @override
-  String? get body;
+  String? get contents;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateSocialRequestCopyWith<_$_UpdateSocialRequest> get copyWith =>

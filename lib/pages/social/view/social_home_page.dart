@@ -1,19 +1,11 @@
 import 'package:badges/badges.dart';
-import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hifive/app/bloc/app_bloc.dart';
+import 'package:hifive/app/bloc/app_bloc.dart' as ab;
 import 'package:hifive/models/social_model.dart';
-import 'package:hifive/pages/home/widget/avatar.dart';
-import 'package:hifive/pages/home/widget/bill_board.dart';
-import 'package:hifive/pages/home/widget/character_board.dart';
-import 'package:hifive/pages/home/widget/function_board.dart';
-import 'package:hifive/pages/home/widget/score_board.dart';
-import 'package:hifive/pages/home/widget/weather_board.dart';
-import 'package:hifive/pages/note/view/note_home_page.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
-import 'package:hifive/pages/social/request/create_social_request.dart';
+import 'package:hifive/pages/social/view/social_item_page.dart';
 import 'package:hifive/pages/social/widget/social_list.dart';
 import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/widget/blank_content.dart';
@@ -63,59 +55,89 @@ class _SocialPageState extends State<SocialPage> {
     return false;
   }
 
+  void _onPressedItem(SocialItem social) {
+    context.read<SocialBloc>().add(SetSelectedItem(social));
+    Navigator.of(context)
+        .push(SocialItemPage.route(context.read<SocialBloc>()));
+  }
+
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
+      floatingActionButton: BlocConsumer<SocialBloc, SocialState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          final isLoading =
+              state.status.isRefreshing || state.status.isLoadingMore;
+          return FloatingActionButton(
+            backgroundColor: Theme.of(context).primaryColor,
+            onPressed: () => isLoading
+                ? null
+                : Navigator.of(context)
+                    .push(SocialItemPage.route(context.read<SocialBloc>())),
+            child: isLoading
+                ? const CircularProgressIndicator(
+                    color: Colors.white,
+                  )
+                : const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+          );
+        },
+      ),
       appBar: AppBar(
-        title: Row(children: [
-          Icon(Icons.menu),
-          SizedBox(
-            width: 10,
-          ),
-          const Text(
-            'HiFive',
-            style: TextStyle(
-                fontFamily: 'Jalnan',
-                fontWeight: FontWeight.bold,
-                fontSize: 23),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 5.0, top: 7),
-            child: Text(
-              '반려동물의 함께하는 인생',
+        title: Row(
+          children: [
+            const Icon(Icons.menu),
+            const SizedBox(
+              width: 10,
+            ),
+            const Text(
+              'HiFive',
               style: TextStyle(
                   fontFamily: 'Jalnan',
-                  fontSize: 12,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23),
             ),
-          ),
-          const Spacer(
-            flex: 1,
-          ),
-          // Icon(Icons.dark_mode_outlined),
-          // SizedBox(
-          //   width: 10,
-          // ),
-          Icon(Icons.history_sharp),
-          SizedBox(
-            width: 10,
-          ),
-          Badge(
-              padding: const EdgeInsets.all(6),
-              badgeContent: const Text(
-                '3',
-                style: TextStyle(color: Colors.white, fontSize: 12),
+            const Padding(
+              padding: EdgeInsets.only(left: 5.0, top: 7),
+              child: Text(
+                '반려동물의 함께하는 인생',
+                style: TextStyle(
+                    fontFamily: 'Jalnan',
+                    fontSize: 12,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold),
               ),
-              // ignore: sort_child_properties_last
-              child: const Icon(
-                FontAwesomeIcons.bell,
-                size: 20,
-              ),
-              badgeColor: Colors.red),
-        ]),
+            ),
+            const Spacer(
+              flex: 1,
+            ),
+            IconButton(
+              key: const Key('homePage_logout_iconButton'),
+              icon: const Icon(Icons.history_sharp),
+              onPressed: () {
+                context.read<ab.AppBloc>().add(ab.AppLogoutRequested());
+              },
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Badge(
+                padding: const EdgeInsets.all(6),
+                badgeContent: const Text(
+                  '3',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+                // ignore: sort_child_properties_last
+                child: const Icon(
+                  FontAwesomeIcons.bell,
+                  size: 20,
+                ),
+                badgeColor: Colors.red),
+          ],
+        ),
         actions: <Widget>[],
       ),
       body: RefreshIndicator(
@@ -143,9 +165,8 @@ class _SocialPageState extends State<SocialPage> {
                     );
                   }
                   return SocialList(
-                    items: state.listItems,
-                    onSocialPressed: (SocialItem item) {},
-                  );
+                      items: state.listItems,
+                      onSocialItemPressed: _onPressedItem);
                 },
               )
             ],

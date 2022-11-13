@@ -5,6 +5,16 @@ class AppInterceptors extends QueuedInterceptor {
     return _singleton ??= AppInterceptors._internal();
   }
 
+  String camelToSentence(text) {
+    var result = text.replaceAll(RegExp(r'(?<!^)(?=[A-Z])'), r"_");
+    return result.toUpperCase();
+  }
+  List<String> returnKeys (keyData){
+    String convertData = keyData.keys.toString().replaceAll('(', '');
+    convertData = convertData.replaceAll(')', '');
+    return convertData.replaceAll(' ', '').split(',');
+  }
+
   AppInterceptors._internal();
   static AppInterceptors? _singleton;
   @override
@@ -15,6 +25,14 @@ class AppInterceptors extends QueuedInterceptor {
       // 로그인 시도로 이전 얻어온 토큰 설정
       options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
       prefs.remove('CSRF_TOKEN');
+    }
+    // 내부 카멜케이스 키를 XXX_XXX 형식으로 변환 전송
+    if (options.data != null && options.data.length > 0) {
+      List<String>  vars  = returnKeys(options.data);
+      vars.forEach((key) {
+        options.data[camelToSentence(key)] = options.data[key]??"";
+        options.data.remove(key);
+      });
     }
 
     if (prefs.getString('CSRF_TOKEN') != null &&

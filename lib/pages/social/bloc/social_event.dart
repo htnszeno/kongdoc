@@ -9,16 +9,22 @@ class SocialEvent with _$SocialEvent {
   // 재조회
   const factory SocialEvent.refresh() = Refresh;
 
-  const factory SocialEvent.setSelectedItem(SocialItem? selectedItem) = SetSelectedItem;
+  const factory SocialEvent.setSelectedItem(SocialItem? selectedItem) =
+      SetSelectedItem;
 
   // 수정
   const factory SocialEvent.update(
-      UpdateSocialRequest request,
-      int id,
-      ) = Update;
+    UpdateSocialRequest request,
+    String postId,
+  ) = Update;
 
   // 입력
   const factory SocialEvent.create(
-      CreateSocialRequest request,
-      ) = Create;
+    CreateSocialRequest request,
+  ) = Create;
+
+  const factory SocialEvent.delete(String postId) = Delete;
+
+  const factory SocialEvent.filterNotes(FilterDataType type, dynamic data) =
+      Filter;
 }
