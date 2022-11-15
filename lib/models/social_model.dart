@@ -9,7 +9,6 @@ class SocialItem with _$SocialItem {
     @JsonKey(name: "post_id") required String postId,
     @JsonKey(name: "user_id") required String userId,
     @JsonKey(name: "post_date") required String postDate,
-    required String title,
     required String? contents,
     @JsonKey(name: "add_user_name") required String addUserName,
   }) = _SocialItem;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hifive/util/colors.dart';
+import 'package:hifive/pages/shorts/view/shorts_page.dart';
 
 class ScoreBoard extends StatefulWidget {
   const ScoreBoard({super.key, this.photo});
@@ -31,10 +30,20 @@ class _ScoreBoardState extends State<ScoreBoard> {
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.grey, width: 0.5),
       ),
-      child: const Padding(
+      child: Padding(
         padding: EdgeInsets.all(8.0),
         child: Center(
-          child: Text("Score Board"),
+          child: ElevatedButton(
+            child: Text("Score Board"),
+            onPressed: () {
+              // ShortsPage.route()
+              // MaterialPageRoute(
+              //   fullscreenDialog: true,
+              //   builder: (BuildContext context) => ShortsPage(),
+              // )
+            Navigator.of(context).push(ShortsPage.route());
+            },
+          ),
         ),
       ),
     );

@@ -190,10 +190,6 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       {
         'postId': [state.selectedItem?.postId],
         'userId': [state.selectedItem?.userId],
-        'title': [
-          state.hasSelectedItem ? state.selectedItem!.title : "",
-          Validators.required,
-        ],
         'contents': [
           state.hasSelectedItem ? state.selectedItem!.contents : "",
           Validators.required,

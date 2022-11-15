@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ShortsPage extends StatelessWidget {
   const ShortsPage({super.key});
+
+  static Page<void> page() => const MaterialPage<void>(child: ShortsPage());
+
+  static Route<void> route() {
+    return MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (BuildContext context) => ShortsPage());
+  }
 
   @override
   Widget build(BuildContext context) {

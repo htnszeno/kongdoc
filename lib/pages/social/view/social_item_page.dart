@@ -55,7 +55,7 @@ class _SocialItemPageState extends State<SocialItemPage> {
         return Scaffold(
           appBar: AppBar(
               title: Text(isEditing
-                  ? '${_socialBloc.state.selectedItem?.title}'
+                  ? '${_socialBloc.state.selectedItem?.contents}'
                   : '입력하세요.')),
           body: SingleChildScrollView(
             padding:
@@ -64,7 +64,7 @@ class _SocialItemPageState extends State<SocialItemPage> {
               formGroup: formGroup,
               child: Column(
                 children: [
-                  const AppTextField(controlName: 'title', label: 'Title'),
+                  // const AppTextField(controlName: 'title', label: 'Title'),
                   const SizedBox(
                     height: 20.0,
                   ),

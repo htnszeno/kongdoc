@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
-
 import 'package:hifive/pages/profile/profile.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
 import 'package:hifive/repositories/social_repository.dart';
 
 import 'pages.dart';
+
+enum PageName { HOME, SEARCH, SHORT, ACTIVITY, MYPAGE }
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -61,7 +62,12 @@ class _MainPageState extends State<MainPage> {
     const ProfilePage()
   ];
 
-  void _onItemTapped(int index) {
+  void _onItemTapped(int index, {bool hasGesture = true}) {
+    var page = PageName.values[index];
+    if (page == PageName.SHORT) {
+      Navigator.of(context).push(ShortsPage.route());
+      return;
+    }
     setState(() {
       _selectedIndex = index;
     });
@@ -72,11 +78,12 @@ class _MainPageState extends State<MainPage> {
     final textTheme = Theme.of(context).textTheme;
     final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
-      body: SafeArea(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: IndexedStack(index: _selectedIndex, children: _widgetOptions),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        elevation: 0,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.person_pin_outlined),

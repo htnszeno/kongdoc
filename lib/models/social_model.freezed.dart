@@ -26,7 +26,6 @@ mixin _$SocialItem {
   String get userId => throw _privateConstructorUsedError;
   @JsonKey(name: "post_date")
   String get postDate => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
   String? get contents => throw _privateConstructorUsedError;
   @JsonKey(name: "add_user_name")
   String get addUserName => throw _privateConstructorUsedError;
@@ -46,7 +45,6 @@ abstract class $SocialItemCopyWith<$Res> {
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "user_id") String userId,
       @JsonKey(name: "post_date") String postDate,
-      String title,
       String? contents,
       @JsonKey(name: "add_user_name") String addUserName});
 }
@@ -64,7 +62,6 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
     Object? postId = freezed,
     Object? userId = freezed,
     Object? postDate = freezed,
-    Object? title = freezed,
     Object? contents = freezed,
     Object? addUserName = freezed,
   }) {
@@ -80,10 +77,6 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
       postDate: postDate == freezed
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
               as String,
       contents: contents == freezed
           ? _value.contents
@@ -108,7 +101,6 @@ abstract class _$$_SocialItemCopyWith<$Res>
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "user_id") String userId,
       @JsonKey(name: "post_date") String postDate,
-      String title,
       String? contents,
       @JsonKey(name: "add_user_name") String addUserName});
 }
@@ -128,7 +120,6 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
     Object? postId = freezed,
     Object? userId = freezed,
     Object? postDate = freezed,
-    Object? title = freezed,
     Object? contents = freezed,
     Object? addUserName = freezed,
   }) {
@@ -144,10 +135,6 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
       postDate: postDate == freezed
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
               as String,
       contents: contents == freezed
           ? _value.contents
@@ -168,7 +155,6 @@ class _$_SocialItem implements _SocialItem {
       {@JsonKey(name: "post_id") required this.postId,
       @JsonKey(name: "user_id") required this.userId,
       @JsonKey(name: "post_date") required this.postDate,
-      required this.title,
       required this.contents,
       @JsonKey(name: "add_user_name") required this.addUserName});
 
@@ -185,8 +171,6 @@ class _$_SocialItem implements _SocialItem {
   @JsonKey(name: "post_date")
   final String postDate;
   @override
-  final String title;
-  @override
   final String? contents;
   @override
   @JsonKey(name: "add_user_name")
@@ -194,7 +178,7 @@ class _$_SocialItem implements _SocialItem {
 
   @override
   String toString() {
-    return 'SocialItem(postId: $postId, userId: $userId, postDate: $postDate, title: $title, contents: $contents, addUserName: $addUserName)';
+    return 'SocialItem(postId: $postId, userId: $userId, postDate: $postDate, contents: $contents, addUserName: $addUserName)';
   }
 
   @override
@@ -205,7 +189,6 @@ class _$_SocialItem implements _SocialItem {
             const DeepCollectionEquality().equals(other.postId, postId) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
             const DeepCollectionEquality().equals(other.postDate, postDate) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.contents, contents) &&
             const DeepCollectionEquality()
                 .equals(other.addUserName, addUserName));
@@ -218,7 +201,6 @@ class _$_SocialItem implements _SocialItem {
       const DeepCollectionEquality().hash(postId),
       const DeepCollectionEquality().hash(userId),
       const DeepCollectionEquality().hash(postDate),
-      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(contents),
       const DeepCollectionEquality().hash(addUserName));
 
@@ -240,7 +222,6 @@ abstract class _SocialItem implements SocialItem {
           {@JsonKey(name: "post_id") required final String postId,
           @JsonKey(name: "user_id") required final String userId,
           @JsonKey(name: "post_date") required final String postDate,
-          required final String title,
           required final String? contents,
           @JsonKey(name: "add_user_name") required final String addUserName}) =
       _$_SocialItem;
@@ -257,8 +238,6 @@ abstract class _SocialItem implements SocialItem {
   @override
   @JsonKey(name: "post_date")
   String get postDate;
-  @override
-  String get title;
   @override
   String? get contents;
   @override
