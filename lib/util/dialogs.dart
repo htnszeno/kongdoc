@@ -18,32 +18,34 @@ void showMessageSnackbar(
 
 Future<bool> showConfirmation(
   BuildContext context, {
-  required String title,
+    String? title,
   required String content,
+      showCloseButton = true
 }) async {
   bool shouldDismiss = false;
   await showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(title),
+      title: (title!=null?Text(title):null),
       content: Text(content),
       actions: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            (showCloseButton?
             TextButton(
               onPressed: () {
                 Navigator.pop(context, 'Cancel');
                 shouldDismiss = false;
               },
-              child: const Text("CANCEL"),
-            ),
+              child: const Text("닫기"),
+            ):Container()),
             TextButton(
               onPressed: () {
                 Navigator.pop(context, 'Delete');
                 shouldDismiss = true;
               },
-              child: const Text("DELETE"),
+              child: const Text("확인"),
             ),
           ],
         )

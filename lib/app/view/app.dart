@@ -10,7 +10,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
+import 'package:hifive/binding/init_bindings.dart';
 import 'package:hifive/enums/app_status.dart';
 import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/main_page.dart';
@@ -87,38 +89,40 @@ class _AppViewState extends State<AppView> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: theme,
-        debugShowCheckedModeBanner: false,
-        navigatorKey: _navigatorKey,
-        builder: (context, child) {
-          return BlocListener<AppBloc, AppState>(
-            listener: (context, state) {
-              switch (state.status) {
-                case AppStatus.authenticated:
-                  _navigator.pushAndRemoveUntil<void>(
-                    MainPage.route(),
-                    (route) => false,
-                  );
-                  break;
-                case AppStatus.unauthenticated:
-                  _navigator.pushAndRemoveUntil<void>(
-                    LoginPage.route(),
-                    (route) => false,
-                  );
-                  break;
-                case AppStatus.unknown:
-                  _navigator.pushAndRemoveUntil<void>(
-                    SplashPage.route(),
-                    (route) => false,
-                  );
-                  break;
-              }
-            },
-            child: child,
-          );
-        },
-        home: const SplashPage());
+    return GetMaterialApp(
+      theme: theme,
+      debugShowCheckedModeBanner: false,
+      navigatorKey: _navigatorKey,
+      builder: (context, child) {
+        return BlocListener<AppBloc, AppState>(
+          listener: (context, state) {
+            switch (state.status) {
+              case AppStatus.authenticated:
+                _navigator.pushAndRemoveUntil<void>(
+                  MainPage.route(),
+                  (route) => false,
+                );
+                break;
+              case AppStatus.unauthenticated:
+                _navigator.pushAndRemoveUntil<void>(
+                  LoginPage.route(),
+                  (route) => false,
+                );
+                break;
+              case AppStatus.unknown:
+                _navigator.pushAndRemoveUntil<void>(
+                  SplashPage.route(),
+                  (route) => false,
+                );
+                break;
+            }
+          },
+          child: child,
+        );
+      },
+      home: const SplashPage(),
+      initialBinding: InitBindings(),
+    );
   }
 }
 

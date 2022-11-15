@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:formz/formz.dart';
+import 'package:hifive/constants.dart';
 // import 'package:hifive/pages/sign_up/sign_up.dart';
 import 'package:hifive/util/colors.dart';
 
@@ -19,7 +20,7 @@ class LoginForm extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
-                content: Text(state.errorMessage ?? '로그인 처리 시 문제 '),
+                content: Text(state.errorMessage ?? systemFailMessage),
               ),
             );
         }

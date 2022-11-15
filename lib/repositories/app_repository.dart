@@ -6,9 +6,12 @@ import 'package:cache/cache.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as GetX;
+import 'package:hifive/constants.dart';
 import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
+
 // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 // import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,9 +19,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class LogOutFailure implements Exception {}
 
 /**
- * AppRepository 
+ * AppRepository
  * 앱 전체 로그인 공통영역과 관련 모든 것 처리
- * 
+ *
  */
 class AppRepository {
   AppRepository({
@@ -28,6 +31,7 @@ class AppRepository {
     // GoogleSignIn? googleSignIn,
   })  : _dioClient = dioClient ?? DioClient().dio,
         _cache = cache ?? CacheClient();
+
   // _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
   // _googleSignIn = googleSignIn ?? GoogleSignIn.standard();
 
@@ -68,6 +72,20 @@ class AppRepository {
           password: prefs.getString('PW').toString(),
         );
       }
+    } else if (initData['success'] == false) {
+      // final result = await showConfirmation(
+      //   GetX.Get.context!,
+      //   // title: "1",
+      //   showCloseButton: false,
+      //   content: "시스템에 문제가 발생하였습니다.\n 잠시 후에 접속해주세요.",
+      // );
+      ScaffoldMessenger.of(GetX.Get.context!)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(
+            content: Text(systemFailMessage),
+          ),
+        );
     }
     _cache.write(key: userCacheKey, value: user);
     yield user; // 유저가 없다면 user.empty
