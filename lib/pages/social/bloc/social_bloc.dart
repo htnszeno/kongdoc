@@ -6,6 +6,7 @@ import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/repositories/social_repository.dart';
+import 'package:photo_manager/photo_manager.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 part 'social_bloc.freezed.dart';
@@ -32,6 +33,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     on<Started>((event, emit) async {
       await _getFirstPage(emit);
     });
+
 
     on<Delete>((event, emit) {
       _socialRepository.deleteSingle(event.postId);
@@ -105,14 +107,12 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     });
 
     on<Create>((event, emit) async {
-      print('create....');
       if (state.status.isUpdating) return;
       emit(state.copyWith(status: DataStatus.updating));
 
       List<SocialItem> listItems = [...state.listItems];
 
       final result = await _socialRepository.create(event.request);
-      print(' ====== ${result}');
 
       if (result.success) {
         listItems = [result.data!, ...listItems];
@@ -167,7 +167,6 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
 
   Future<void> _getFirstPage(Emitter<SocialState> emit) async {
     final result = await _socialRepository.getMany(currentPage: 1);
-    print(result);
     if (result.success) {
       emit(state.copyWith(
         listItems: result.data ?? [],

@@ -34,7 +34,9 @@ class _MainPageState extends State<MainPage> {
       child: BlocProvider<SocialBloc>(
         create: (context) => SocialBloc(
           socialRepository: context.read<SocialRepository>(),
-        )..add(const Started()),
+        )
+          ..add(const Started())
+          ..add(const AlbumsLoaded()),
         child: const SocialPage(),
       ),
     ),

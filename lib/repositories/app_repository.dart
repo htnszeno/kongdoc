@@ -11,6 +11,7 @@ import 'package:hifive/constants.dart';
 import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
+import 'package:photo_manager/photo_manager.dart';
 
 // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 // import 'package:google_sign_in/google_sign_in.dart';
@@ -43,11 +44,34 @@ class AppRepository {
   static const userCacheKey = '__user_cache_key__';
   final _controller = StreamController<User>();
 
+  final _albumController = StreamController<List<AssetPathEntity>>();
+
   @visibleForTesting
   bool isWeb = kIsWeb;
 
   User get currentUser {
     return _cache.read<User>(key: userCacheKey) ?? User.empty;
+  }
+
+  Stream<List<AssetPathEntity>> get albums async* {
+    List<AssetPathEntity> albums;
+    var result = await PhotoManager.requestPermissionExtend();
+    if (result.isAuth) {
+      albums = await PhotoManager.getAssetPathList(
+        type: RequestType.image,
+        filterOption: FilterOptionGroup(
+          imageOption: const FilterOption(
+            sizeConstraint: SizeConstraint(minHeight: 100, minWidth: 100),
+          ),
+          orders: [
+            const OrderOption(type: OrderOptionType.createDate, asc: false),
+          ],
+        ),
+      );
+      print("////====== . ${albums.length}");
+      yield albums;
+      yield* _albumController.stream;
+    }
   }
 
   Stream<User> get user async* {

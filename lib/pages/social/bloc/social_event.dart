@@ -3,6 +3,7 @@ part of 'social_bloc.dart';
 @freezed
 class SocialEvent with _$SocialEvent {
   const factory SocialEvent.started() = Started;
+  const factory SocialEvent.albumsLoaded() = AlbumsLoaded;
 
   const factory SocialEvent.loadMore() = LoadMore;
 

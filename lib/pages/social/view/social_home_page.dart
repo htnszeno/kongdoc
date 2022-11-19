@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
 import 'package:hifive/pages/social/view/social_add_page.dart';
@@ -8,7 +9,7 @@ import 'package:hifive/pages/social/widget/social_list.dart';
 import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/widget/app_top_bar.dart';
 import 'package:hifive/widget/blank_content.dart';
-import 'package:hifive/widget/image_select_page.dart';
+import 'package:hifive/pages/photo/view/image_select_page.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({super.key});
@@ -21,7 +22,9 @@ class SocialPage extends StatefulWidget {
         child: BlocProvider<SocialBloc>(
           create: (context) => SocialBloc(
             socialRepository: context.read<SocialRepository>(),
-          )..add(const Started()),
+          )
+            ..add(const AlbumsLoaded())
+            ..add(const Started()),
           child: const SocialPage(),
         ),
       ),

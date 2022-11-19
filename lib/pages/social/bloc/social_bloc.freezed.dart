@@ -19,6 +19,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -32,6 +33,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -44,6 +46,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -57,6 +60,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -69,6 +73,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -81,6 +86,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -148,6 +154,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -164,6 +171,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -179,6 +187,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -198,6 +207,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -213,6 +223,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -228,6 +239,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -246,6 +258,153 @@ class _$Started implements Started {
 
 abstract class Started implements SocialEvent {
   const factory Started() = _$Started;
+}
+
+/// @nodoc
+abstract class _$$AlbumsLoadedCopyWith<$Res> {
+  factory _$$AlbumsLoadedCopyWith(
+          _$AlbumsLoaded value, $Res Function(_$AlbumsLoaded) then) =
+      __$$AlbumsLoadedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AlbumsLoadedCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$AlbumsLoadedCopyWith<$Res> {
+  __$$AlbumsLoadedCopyWithImpl(
+      _$AlbumsLoaded _value, $Res Function(_$AlbumsLoaded) _then)
+      : super(_value, (v) => _then(v as _$AlbumsLoaded));
+
+  @override
+  _$AlbumsLoaded get _value => super._value as _$AlbumsLoaded;
+}
+
+/// @nodoc
+
+class _$AlbumsLoaded implements AlbumsLoaded {
+  const _$AlbumsLoaded();
+
+  @override
+  String toString() {
+    return 'SocialEvent.albumsLoaded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AlbumsLoaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() albumsLoaded,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+  }) {
+    return albumsLoaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? albumsLoaded,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+  }) {
+    return albumsLoaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? albumsLoaded,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    required TResult orElse(),
+  }) {
+    if (albumsLoaded != null) {
+      return albumsLoaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+  }) {
+    return albumsLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+  }) {
+    return albumsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    required TResult orElse(),
+  }) {
+    if (albumsLoaded != null) {
+      return albumsLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AlbumsLoaded implements SocialEvent {
+  const factory AlbumsLoaded() = _$AlbumsLoaded;
 }
 
 /// @nodoc
@@ -288,6 +447,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -304,6 +464,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -319,6 +480,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -338,6 +500,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -353,6 +516,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -368,6 +532,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -427,6 +592,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -443,6 +609,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -458,6 +625,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -477,6 +645,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -492,6 +661,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -507,6 +677,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -607,6 +778,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -623,6 +795,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -638,6 +811,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -657,6 +831,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -672,6 +847,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -687,6 +863,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -795,6 +972,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -811,6 +989,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -826,6 +1005,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -845,6 +1025,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -860,6 +1041,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -875,6 +1057,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -974,6 +1157,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -990,6 +1174,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -1005,6 +1190,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -1024,6 +1210,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -1039,6 +1226,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1054,6 +1242,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1142,6 +1331,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -1158,6 +1348,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -1173,6 +1364,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -1192,6 +1384,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -1207,6 +1400,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1222,6 +1416,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1320,6 +1515,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() albumsLoaded,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
@@ -1336,6 +1532,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -1351,6 +1548,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? albumsLoaded,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
@@ -1370,6 +1568,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -1385,6 +1584,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1400,6 +1600,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1435,6 +1636,10 @@ mixin _$SocialState {
   DataStatus get status => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
   String get msg => throw _privateConstructorUsedError;
+  List<AssetPathEntity> get albums => throw _privateConstructorUsedError;
+  AssetPathEntity? get selectedAlbum => throw _privateConstructorUsedError;
+  List<AssetEntity> get selectedAlbumPhotos =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SocialStateCopyWith<SocialState> get copyWith =>
@@ -1452,7 +1657,10 @@ abstract class $SocialStateCopyWith<$Res> {
       int page,
       DataStatus status,
       bool isLastPage,
-      String msg});
+      String msg,
+      List<AssetPathEntity> albums,
+      AssetPathEntity? selectedAlbum,
+      List<AssetEntity> selectedAlbumPhotos});
 
   $SocialItemCopyWith<$Res>? get selectedItem;
 }
@@ -1473,6 +1681,9 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
     Object? status = freezed,
     Object? isLastPage = freezed,
     Object? msg = freezed,
+    Object? albums = freezed,
+    Object? selectedAlbum = freezed,
+    Object? selectedAlbumPhotos = freezed,
   }) {
     return _then(_value.copyWith(
       listItems: listItems == freezed
@@ -1499,6 +1710,18 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
+      albums: albums == freezed
+          ? _value.albums
+          : albums // ignore: cast_nullable_to_non_nullable
+              as List<AssetPathEntity>,
+      selectedAlbum: selectedAlbum == freezed
+          ? _value.selectedAlbum
+          : selectedAlbum // ignore: cast_nullable_to_non_nullable
+              as AssetPathEntity?,
+      selectedAlbumPhotos: selectedAlbumPhotos == freezed
+          ? _value.selectedAlbumPhotos
+          : selectedAlbumPhotos // ignore: cast_nullable_to_non_nullable
+              as List<AssetEntity>,
     ));
   }
 
@@ -1527,7 +1750,10 @@ abstract class _$$_SocialStateCopyWith<$Res>
       int page,
       DataStatus status,
       bool isLastPage,
-      String msg});
+      String msg,
+      List<AssetPathEntity> albums,
+      AssetPathEntity? selectedAlbum,
+      List<AssetEntity> selectedAlbumPhotos});
 
   @override
   $SocialItemCopyWith<$Res>? get selectedItem;
@@ -1551,6 +1777,9 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
     Object? status = freezed,
     Object? isLastPage = freezed,
     Object? msg = freezed,
+    Object? albums = freezed,
+    Object? selectedAlbum = freezed,
+    Object? selectedAlbumPhotos = freezed,
   }) {
     return _then(_$_SocialState(
       listItems: listItems == freezed
@@ -1577,6 +1806,18 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
+      albums: albums == freezed
+          ? _value._albums
+          : albums // ignore: cast_nullable_to_non_nullable
+              as List<AssetPathEntity>,
+      selectedAlbum: selectedAlbum == freezed
+          ? _value.selectedAlbum
+          : selectedAlbum // ignore: cast_nullable_to_non_nullable
+              as AssetPathEntity?,
+      selectedAlbumPhotos: selectedAlbumPhotos == freezed
+          ? _value._selectedAlbumPhotos
+          : selectedAlbumPhotos // ignore: cast_nullable_to_non_nullable
+              as List<AssetEntity>,
     ));
   }
 }
@@ -1590,8 +1831,13 @@ class _$_SocialState extends _SocialState {
       required this.page,
       required this.status,
       required this.isLastPage,
-      required this.msg})
+      required this.msg,
+      required final List<AssetPathEntity> albums,
+      this.selectedAlbum,
+      required final List<AssetEntity> selectedAlbumPhotos})
       : _listItems = listItems,
+        _albums = albums,
+        _selectedAlbumPhotos = selectedAlbumPhotos,
         super._();
 
   final List<SocialItem> _listItems;
@@ -1611,10 +1857,25 @@ class _$_SocialState extends _SocialState {
   final bool isLastPage;
   @override
   final String msg;
+  final List<AssetPathEntity> _albums;
+  @override
+  List<AssetPathEntity> get albums {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_albums);
+  }
+
+  @override
+  final AssetPathEntity? selectedAlbum;
+  final List<AssetEntity> _selectedAlbumPhotos;
+  @override
+  List<AssetEntity> get selectedAlbumPhotos {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedAlbumPhotos);
+  }
 
   @override
   String toString() {
-    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, isLastPage: $isLastPage, msg: $msg)';
+    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos)';
   }
 
   @override
@@ -1630,7 +1891,12 @@ class _$_SocialState extends _SocialState {
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality()
                 .equals(other.isLastPage, isLastPage) &&
-            const DeepCollectionEquality().equals(other.msg, msg));
+            const DeepCollectionEquality().equals(other.msg, msg) &&
+            const DeepCollectionEquality().equals(other._albums, _albums) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedAlbum, selectedAlbum) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedAlbumPhotos, _selectedAlbumPhotos));
   }
 
   @override
@@ -1641,7 +1907,10 @@ class _$_SocialState extends _SocialState {
       const DeepCollectionEquality().hash(page),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(isLastPage),
-      const DeepCollectionEquality().hash(msg));
+      const DeepCollectionEquality().hash(msg),
+      const DeepCollectionEquality().hash(_albums),
+      const DeepCollectionEquality().hash(selectedAlbum),
+      const DeepCollectionEquality().hash(_selectedAlbumPhotos));
 
   @JsonKey(ignore: true)
   @override
@@ -1656,7 +1925,10 @@ abstract class _SocialState extends SocialState {
       required final int page,
       required final DataStatus status,
       required final bool isLastPage,
-      required final String msg}) = _$_SocialState;
+      required final String msg,
+      required final List<AssetPathEntity> albums,
+      final AssetPathEntity? selectedAlbum,
+      required final List<AssetEntity> selectedAlbumPhotos}) = _$_SocialState;
   const _SocialState._() : super._();
 
   @override
@@ -1671,6 +1943,12 @@ abstract class _SocialState extends SocialState {
   bool get isLastPage;
   @override
   String get msg;
+  @override
+  List<AssetPathEntity> get albums;
+  @override
+  AssetPathEntity? get selectedAlbum;
+  @override
+  List<AssetEntity> get selectedAlbumPhotos;
   @override
   @JsonKey(ignore: true)
   _$$_SocialStateCopyWith<_$_SocialState> get copyWith =>
