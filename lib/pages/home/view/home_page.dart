@@ -11,6 +11,7 @@ import 'package:hifive/pages/home/widget/function_board.dart';
 import 'package:hifive/pages/home/widget/score_board.dart';
 import 'package:hifive/pages/home/widget/weather_board.dart';
 import 'package:hifive/pages/note/view/note_home_page.dart';
+import 'package:hifive/widget/app_top_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,56 +33,7 @@ class _HomePageState extends State<HomePage> {
     final textTheme = Theme.of(context).textTheme;
     final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
-      appBar: AppBar(
-        title: Row(children: [
-          Icon(Icons.menu),
-          SizedBox(
-            width: 10,
-          ),
-          const Text(
-            'HiFive',
-            style: TextStyle(
-                fontFamily: 'Jalnan',
-                fontWeight: FontWeight.bold,
-                fontSize: 23),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 5.0, top: 7),
-            child: Text(
-              '반려동물의 함께하는 인생',
-              style: TextStyle(
-                  fontFamily: 'Jalnan',
-                  fontSize: 12,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          const Spacer(
-            flex: 1,
-          ),
-          // Icon(Icons.dark_mode_outlined),
-          // SizedBox(
-          //   width: 10,
-          // ),
-          Icon(Icons.history_sharp),
-          SizedBox(
-            width: 10,
-          ),
-          Badge(
-              padding: const EdgeInsets.all(6),
-              badgeContent: const Text(
-                '3',
-                style: TextStyle(color: Colors.white, fontSize: 12),
-              ),
-              // ignore: sort_child_properties_last
-              child: const Icon(
-                FontAwesomeIcons.bell,
-                size: 20,
-              ),
-              badgeColor: Colors.red),
-        ]),
-        actions: <Widget>[],
-      ),
+      appBar: const AppTopBar(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

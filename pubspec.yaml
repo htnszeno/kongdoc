@@ -35,6 +35,7 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.7.0
   path_provider: ^2.0.11
+  photo_manager: ^2.5.0
   pretty_dio_logger: ^1.1.1
   reactive_color_picker: ^0.4.0
   reactive_forms: ^14.1.0

@@ -1,14 +1,14 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hifive/app/bloc/app_bloc.dart' as ab;
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/pages/social/view/social_add_page.dart';
 import 'package:hifive/pages/social/view/social_item_page.dart';
 import 'package:hifive/pages/social/widget/social_list.dart';
 import 'package:hifive/repositories/social_repository.dart';
+import 'package:hifive/widget/app_top_bar.dart';
 import 'package:hifive/widget/blank_content.dart';
+import 'package:hifive/widget/image_select_page.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({super.key});
@@ -73,8 +73,7 @@ class _SocialPageState extends State<SocialPage> {
             backgroundColor: Theme.of(context).primaryColor,
             onPressed: () => isLoading
                 ? null
-                : Navigator.of(context)
-                    .push(SocialItemPage.route(context.read<SocialBloc>())),
+                : Navigator.of(context).push(ImageSelectPage.route()),
             child: isLoading
                 ? const CircularProgressIndicator(
                     color: Colors.white,
@@ -86,60 +85,7 @@ class _SocialPageState extends State<SocialPage> {
           );
         },
       ),
-      appBar: AppBar(
-        title: Row(
-          children: [
-            const Icon(Icons.menu),
-            const SizedBox(
-              width: 10,
-            ),
-            const Text(
-              'HiFive',
-              style: TextStyle(
-                  fontFamily: 'Jalnan',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 5.0, top: 7),
-              child: Text(
-                '반려동물의 함께하는 인생',
-                style: TextStyle(
-                    fontFamily: 'Jalnan',
-                    fontSize: 12,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            const Spacer(
-              flex: 1,
-            ),
-            IconButton(
-              key: const Key('homePage_logout_iconButton'),
-              icon: const Icon(Icons.history_sharp),
-              onPressed: () {
-                context.read<ab.AppBloc>().add(ab.AppLogoutRequested());
-              },
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Badge(
-                padding: const EdgeInsets.all(6),
-                badgeContent: const Text(
-                  '3',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-                // ignore: sort_child_properties_last
-                child: const Icon(
-                  FontAwesomeIcons.bell,
-                  size: 20,
-                ),
-                badgeColor: Colors.red),
-          ],
-        ),
-        actions: <Widget>[],
-      ),
+      appBar: const AppTopBar(),
       body: RefreshIndicator(
         onRefresh: () async {
           context.read<SocialBloc>().add(const Refresh());
