@@ -4,7 +4,6 @@ part of 'social_bloc.dart';
 class SocialEvent with _$SocialEvent {
   const factory SocialEvent.started() = Started;
 
-
   const factory SocialEvent.fileUpload(File file) = FileUpload;
 
   const factory SocialEvent.loadMore() = LoadMore;
@@ -23,9 +22,7 @@ class SocialEvent with _$SocialEvent {
 
   // 입력
   const factory SocialEvent.create(
-    CreateSocialRequest request,
-      File file
-  ) = Create;
+      CreateSocialRequest request, List<File> images) = Create;
 
   const factory SocialEvent.delete(String postId) = Delete;
 

@@ -36,7 +36,6 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       await _getFirstPage(emit);
     });
 
-
     on<Delete>((event, emit) {
       _socialRepository.deleteSingle(event.postId);
       emit(state.copyWith(
@@ -115,8 +114,10 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       List<SocialItem> listItems = [...state.listItems];
 
       final postIdData = await _socialRepository.getPostId();
-      await _socialRepository.fileUpload(file: event.file, postId: postIdData.data!);
-      final result = await _socialRepository.create(event.request, postIdData.data!);
+      await _socialRepository.fileUpload(
+          files: event.images, postId: postIdData.data!);
+      final result =
+          await _socialRepository.create(event.request, postIdData.data!);
       if (result.success) {
         listItems = [result.data!, ...listItems];
 

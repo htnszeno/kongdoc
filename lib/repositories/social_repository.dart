@@ -100,18 +100,21 @@ class SocialRepository {
   }
 
   Future<Map<String, dynamic>> fileUpload(
-      {required File file, required String postId}) async {
-    final List<String> filePaths = [file.path];
+      {required List<File> files, required String postId}) async {
+    final List<String> filePaths = [];
+    for (int i = 0; i < files.length; i++) {
+      filePaths.add(files[i].path);
+    }
     var formData = FormData.fromMap({
-      'file': await MultipartFile.fromFile(file.path),
-      // 'files': List.generate(filePaths.length,
-      //     (index) => MultipartFile.fromFileSync(filePaths[index])),
+      // 'file': await MultipartFile.fromFile(file.path),
+      'file': List.generate(filePaths.length,
+          (index) => MultipartFile.fromFileSync(filePaths[index])),
       'S_FUNC_CODE': 'APP',
       'REF_NO': postId,
       'REF_TYPE': 'MM'
     });
     final response =
-        await _dioClient.post("/api/file/uploadFile", data: formData);
+        await _dioClient.post("/api/file/uploadMultiFile", data: formData);
     // print('repsoon ===== ${response}');
     return response.data;
   }

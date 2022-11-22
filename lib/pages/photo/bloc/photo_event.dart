@@ -15,4 +15,7 @@ class PhotoEvent with _$PhotoEvent {
       SetSelectedAlbum;
 
   const factory PhotoEvent.setImageFilter() = SetImageFilter;
+
+  const factory PhotoEvent.multiPhotoSelection() = MultiPhotoSelection;
+
 }

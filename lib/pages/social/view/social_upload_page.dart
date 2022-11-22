@@ -10,19 +10,23 @@ import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/widget/app_text_field.dart';
+import 'package:photo_manager/photo_manager.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class SocialUploadPage extends StatefulWidget {
-  final File? image;
+  final File image;
+  final List<File> images;
+  const SocialUploadPage({Key? key, required this.image, required this.images})
+      : super(key: key);
 
-  const SocialUploadPage({Key? key, required this.image}) : super(key: key);
-
-  static Route<void> route(File? image, SocialBloc socialBloc) {
+  static Route<void> route(
+      File image, List<File> images, SocialBloc socialBloc) {
     return MaterialPageRoute(
       builder: (BuildContext context) => BlocProvider.value(
         value: socialBloc,
         child: SocialUploadPage(
           image: image,
+          images: images,
         ),
       ),
     );
@@ -231,7 +235,7 @@ class _SocialUploadPageState extends State<SocialUploadPage> {
       bloc.add(Update(request, state.selectedItem!.postId));
     } else {
       final request = CreateSocialRequest.fromFromGroup(value);
-      bloc.add(Create(request, widget.image!));
+      bloc.add(Create(request, widget.images));
     }
     return true;
   }

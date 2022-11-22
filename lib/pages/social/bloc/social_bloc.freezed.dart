@@ -25,7 +25,8 @@ mixin _$SocialEvent {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) =>
@@ -38,7 +39,7 @@ mixin _$SocialEvent {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) =>
@@ -51,7 +52,7 @@ mixin _$SocialEvent {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -160,7 +161,8 @@ class _$Started implements Started {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -176,7 +178,7 @@ class _$Started implements Started {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -192,7 +194,7 @@ class _$Started implements Started {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -331,7 +333,8 @@ class _$FileUpload implements FileUpload {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -347,7 +350,7 @@ class _$FileUpload implements FileUpload {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -363,7 +366,7 @@ class _$FileUpload implements FileUpload {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -482,7 +485,8 @@ class _$LoadMore implements LoadMore {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -498,7 +502,7 @@ class _$LoadMore implements LoadMore {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -514,7 +518,7 @@ class _$LoadMore implements LoadMore {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -627,7 +631,8 @@ class _$Refresh implements Refresh {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -643,7 +648,7 @@ class _$Refresh implements Refresh {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -659,7 +664,7 @@ class _$Refresh implements Refresh {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -813,7 +818,8 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -829,7 +835,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -845,7 +851,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -1007,7 +1013,8 @@ class _$Update implements Update {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -1023,7 +1030,7 @@ class _$Update implements Update {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -1039,7 +1046,7 @@ class _$Update implements Update {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -1118,7 +1125,7 @@ abstract class Update implements SocialEvent {
 abstract class _$$CreateCopyWith<$Res> {
   factory _$$CreateCopyWith(_$Create value, $Res Function(_$Create) then) =
       __$$CreateCopyWithImpl<$Res>;
-  $Res call({CreateSocialRequest request, File file});
+  $Res call({CreateSocialRequest request, List<File> images});
 
   $CreateSocialRequestCopyWith<$Res> get request;
 }
@@ -1135,17 +1142,17 @@ class __$$CreateCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? request = freezed,
-    Object? file = freezed,
+    Object? images = freezed,
   }) {
     return _then(_$Create(
       request == freezed
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as CreateSocialRequest,
-      file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as File,
+      images == freezed
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<File>,
     ));
   }
 
@@ -1160,16 +1167,20 @@ class __$$CreateCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Create implements Create {
-  const _$Create(this.request, this.file);
+  const _$Create(this.request, final List<File> images) : _images = images;
 
   @override
   final CreateSocialRequest request;
+  final List<File> _images;
   @override
-  final File file;
+  List<File> get images {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_images);
+  }
 
   @override
   String toString() {
-    return 'SocialEvent.create(request: $request, file: $file)';
+    return 'SocialEvent.create(request: $request, images: $images)';
   }
 
   @override
@@ -1178,14 +1189,14 @@ class _$Create implements Create {
         (other.runtimeType == runtimeType &&
             other is _$Create &&
             const DeepCollectionEquality().equals(other.request, request) &&
-            const DeepCollectionEquality().equals(other.file, file));
+            const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(request),
-      const DeepCollectionEquality().hash(file));
+      const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -1202,11 +1213,12 @@ class _$Create implements Create {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
-    return create(request, file);
+    return create(request, images);
   }
 
   @override
@@ -1218,11 +1230,11 @@ class _$Create implements Create {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
-    return create?.call(request, file);
+    return create?.call(request, images);
   }
 
   @override
@@ -1234,13 +1246,13 @@ class _$Create implements Create {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (create != null) {
-      return create(request, file);
+      return create(request, images);
     }
     return orElse();
   }
@@ -1299,11 +1311,11 @@ class _$Create implements Create {
 }
 
 abstract class Create implements SocialEvent {
-  const factory Create(final CreateSocialRequest request, final File file) =
-      _$Create;
+  const factory Create(
+      final CreateSocialRequest request, final List<File> images) = _$Create;
 
   CreateSocialRequest get request;
-  File get file;
+  List<File> get images;
   @JsonKey(ignore: true)
   _$$CreateCopyWith<_$Create> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1378,7 +1390,8 @@ class _$Delete implements Delete {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -1394,7 +1407,7 @@ class _$Delete implements Delete {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -1410,7 +1423,7 @@ class _$Delete implements Delete {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -1562,7 +1575,8 @@ class _$Filter implements Filter {
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request, File file) create,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -1578,7 +1592,7 @@ class _$Filter implements Filter {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -1594,7 +1608,7 @@ class _$Filter implements Filter {
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request, File file)? create,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),

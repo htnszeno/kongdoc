@@ -24,6 +24,7 @@ mixin _$PhotoEvent {
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
     required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
     required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$PhotoEvent {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$PhotoEvent {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$PhotoEvent {
     required TResult Function(SetSelectedImage value) setSelectedImage,
     required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
     required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$PhotoEvent {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$PhotoEvent {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +146,7 @@ class _$Started implements Started {
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
     required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
     required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
   }) {
     return started();
   }
@@ -153,6 +160,7 @@ class _$Started implements Started {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
   }) {
     return started?.call();
   }
@@ -166,6 +174,7 @@ class _$Started implements Started {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,6 +192,7 @@ class _$Started implements Started {
     required TResult Function(SetSelectedImage value) setSelectedImage,
     required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
     required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
   }) {
     return started(this);
   }
@@ -196,6 +206,7 @@ class _$Started implements Started {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
   }) {
     return started?.call(this);
   }
@@ -209,6 +220,7 @@ class _$Started implements Started {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -293,6 +305,7 @@ class _$SetSocialBloc implements SetSocialBloc {
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
     required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
     required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
   }) {
     return setSocialBloc(socialBloc);
   }
@@ -306,6 +319,7 @@ class _$SetSocialBloc implements SetSocialBloc {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
   }) {
     return setSocialBloc?.call(socialBloc);
   }
@@ -319,6 +333,7 @@ class _$SetSocialBloc implements SetSocialBloc {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setSocialBloc != null) {
@@ -336,6 +351,7 @@ class _$SetSocialBloc implements SetSocialBloc {
     required TResult Function(SetSelectedImage value) setSelectedImage,
     required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
     required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
   }) {
     return setSocialBloc(this);
   }
@@ -349,6 +365,7 @@ class _$SetSocialBloc implements SetSocialBloc {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
   }) {
     return setSocialBloc?.call(this);
   }
@@ -362,6 +379,7 @@ class _$SetSocialBloc implements SetSocialBloc {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setSocialBloc != null) {
@@ -426,6 +444,7 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
     required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
     required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
   }) {
     return albumsLoaded();
   }
@@ -439,6 +458,7 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
   }) {
     return albumsLoaded?.call();
   }
@@ -452,6 +472,7 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (albumsLoaded != null) {
@@ -469,6 +490,7 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     required TResult Function(SetSelectedImage value) setSelectedImage,
     required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
     required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
   }) {
     return albumsLoaded(this);
   }
@@ -482,6 +504,7 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
   }) {
     return albumsLoaded?.call(this);
   }
@@ -495,6 +518,7 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (albumsLoaded != null) {
@@ -580,6 +604,7 @@ class _$SetSelectedImage implements SetSelectedImage {
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
     required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
     required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
   }) {
     return setSelectedImage(selectedImage);
   }
@@ -593,6 +618,7 @@ class _$SetSelectedImage implements SetSelectedImage {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
   }) {
     return setSelectedImage?.call(selectedImage);
   }
@@ -606,6 +632,7 @@ class _$SetSelectedImage implements SetSelectedImage {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setSelectedImage != null) {
@@ -623,6 +650,7 @@ class _$SetSelectedImage implements SetSelectedImage {
     required TResult Function(SetSelectedImage value) setSelectedImage,
     required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
     required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
   }) {
     return setSelectedImage(this);
   }
@@ -636,6 +664,7 @@ class _$SetSelectedImage implements SetSelectedImage {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
   }) {
     return setSelectedImage?.call(this);
   }
@@ -649,6 +678,7 @@ class _$SetSelectedImage implements SetSelectedImage {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setSelectedImage != null) {
@@ -740,6 +770,7 @@ class _$SetSelectedAlbum implements SetSelectedAlbum {
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
     required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
     required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
   }) {
     return setSelectedAlbum(selectedAlbum);
   }
@@ -753,6 +784,7 @@ class _$SetSelectedAlbum implements SetSelectedAlbum {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
   }) {
     return setSelectedAlbum?.call(selectedAlbum);
   }
@@ -766,6 +798,7 @@ class _$SetSelectedAlbum implements SetSelectedAlbum {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setSelectedAlbum != null) {
@@ -783,6 +816,7 @@ class _$SetSelectedAlbum implements SetSelectedAlbum {
     required TResult Function(SetSelectedImage value) setSelectedImage,
     required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
     required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
   }) {
     return setSelectedAlbum(this);
   }
@@ -796,6 +830,7 @@ class _$SetSelectedAlbum implements SetSelectedAlbum {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
   }) {
     return setSelectedAlbum?.call(this);
   }
@@ -809,6 +844,7 @@ class _$SetSelectedAlbum implements SetSelectedAlbum {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setSelectedAlbum != null) {
@@ -875,6 +911,7 @@ class _$SetImageFilter implements SetImageFilter {
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
     required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
     required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
   }) {
     return setImageFilter();
   }
@@ -888,6 +925,7 @@ class _$SetImageFilter implements SetImageFilter {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
   }) {
     return setImageFilter?.call();
   }
@@ -901,6 +939,7 @@ class _$SetImageFilter implements SetImageFilter {
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
     TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
     TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setImageFilter != null) {
@@ -918,6 +957,7 @@ class _$SetImageFilter implements SetImageFilter {
     required TResult Function(SetSelectedImage value) setSelectedImage,
     required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
     required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
   }) {
     return setImageFilter(this);
   }
@@ -931,6 +971,7 @@ class _$SetImageFilter implements SetImageFilter {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
   }) {
     return setImageFilter?.call(this);
   }
@@ -944,6 +985,7 @@ class _$SetImageFilter implements SetImageFilter {
     TResult Function(SetSelectedImage value)? setSelectedImage,
     TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
     TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
     required TResult orElse(),
   }) {
     if (setImageFilter != null) {
@@ -958,6 +1000,141 @@ abstract class SetImageFilter implements PhotoEvent {
 }
 
 /// @nodoc
+abstract class _$$MultiPhotoSelectionCopyWith<$Res> {
+  factory _$$MultiPhotoSelectionCopyWith(_$MultiPhotoSelection value,
+          $Res Function(_$MultiPhotoSelection) then) =
+      __$$MultiPhotoSelectionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MultiPhotoSelectionCopyWithImpl<$Res>
+    extends _$PhotoEventCopyWithImpl<$Res>
+    implements _$$MultiPhotoSelectionCopyWith<$Res> {
+  __$$MultiPhotoSelectionCopyWithImpl(
+      _$MultiPhotoSelection _value, $Res Function(_$MultiPhotoSelection) _then)
+      : super(_value, (v) => _then(v as _$MultiPhotoSelection));
+
+  @override
+  _$MultiPhotoSelection get _value => super._value as _$MultiPhotoSelection;
+}
+
+/// @nodoc
+
+class _$MultiPhotoSelection implements MultiPhotoSelection {
+  const _$MultiPhotoSelection();
+
+  @override
+  String toString() {
+    return 'PhotoEvent.multiPhotoSelection()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$MultiPhotoSelection);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
+    required TResult Function() albumsLoaded,
+    required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
+    required TResult Function() multiPhotoSelection,
+  }) {
+    return multiPhotoSelection();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
+  }) {
+    return multiPhotoSelection?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+    TResult Function()? multiPhotoSelection,
+    required TResult orElse(),
+  }) {
+    if (multiPhotoSelection != null) {
+      return multiPhotoSelection();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
+    required TResult Function(MultiPhotoSelection value) multiPhotoSelection,
+  }) {
+    return multiPhotoSelection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
+  }) {
+    return multiPhotoSelection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+    TResult Function(MultiPhotoSelection value)? multiPhotoSelection,
+    required TResult orElse(),
+  }) {
+    if (multiPhotoSelection != null) {
+      return multiPhotoSelection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MultiPhotoSelection implements PhotoEvent {
+  const factory MultiPhotoSelection() = _$MultiPhotoSelection;
+}
+
+/// @nodoc
 mixin _$PhotoState {
   String? get headerTitle => throw _privateConstructorUsedError;
   List<AssetPathEntity> get albums => throw _privateConstructorUsedError;
@@ -965,6 +1142,8 @@ mixin _$PhotoState {
   List<AssetEntity> get selectedAlbumPhotos =>
       throw _privateConstructorUsedError;
   AssetEntity? get selectedImage => throw _privateConstructorUsedError;
+  List<AssetEntity?> get selectedImages => throw _privateConstructorUsedError;
+  bool? get multiPhotoSelection => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PhotoStateCopyWith<PhotoState> get copyWith =>
@@ -981,7 +1160,9 @@ abstract class $PhotoStateCopyWith<$Res> {
       List<AssetPathEntity> albums,
       AssetPathEntity? selectedAlbum,
       List<AssetEntity> selectedAlbumPhotos,
-      AssetEntity? selectedImage});
+      AssetEntity? selectedImage,
+      List<AssetEntity?> selectedImages,
+      bool? multiPhotoSelection});
 }
 
 /// @nodoc
@@ -999,6 +1180,8 @@ class _$PhotoStateCopyWithImpl<$Res> implements $PhotoStateCopyWith<$Res> {
     Object? selectedAlbum = freezed,
     Object? selectedAlbumPhotos = freezed,
     Object? selectedImage = freezed,
+    Object? selectedImages = freezed,
+    Object? multiPhotoSelection = freezed,
   }) {
     return _then(_value.copyWith(
       headerTitle: headerTitle == freezed
@@ -1021,6 +1204,14 @@ class _$PhotoStateCopyWithImpl<$Res> implements $PhotoStateCopyWith<$Res> {
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
               as AssetEntity?,
+      selectedImages: selectedImages == freezed
+          ? _value.selectedImages
+          : selectedImages // ignore: cast_nullable_to_non_nullable
+              as List<AssetEntity?>,
+      multiPhotoSelection: multiPhotoSelection == freezed
+          ? _value.multiPhotoSelection
+          : multiPhotoSelection // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1037,7 +1228,9 @@ abstract class _$$_PhotoStateCopyWith<$Res>
       List<AssetPathEntity> albums,
       AssetPathEntity? selectedAlbum,
       List<AssetEntity> selectedAlbumPhotos,
-      AssetEntity? selectedImage});
+      AssetEntity? selectedImage,
+      List<AssetEntity?> selectedImages,
+      bool? multiPhotoSelection});
 }
 
 /// @nodoc
@@ -1057,6 +1250,8 @@ class __$$_PhotoStateCopyWithImpl<$Res> extends _$PhotoStateCopyWithImpl<$Res>
     Object? selectedAlbum = freezed,
     Object? selectedAlbumPhotos = freezed,
     Object? selectedImage = freezed,
+    Object? selectedImages = freezed,
+    Object? multiPhotoSelection = freezed,
   }) {
     return _then(_$_PhotoState(
       headerTitle: headerTitle == freezed
@@ -1079,6 +1274,14 @@ class __$$_PhotoStateCopyWithImpl<$Res> extends _$PhotoStateCopyWithImpl<$Res>
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
               as AssetEntity?,
+      selectedImages: selectedImages == freezed
+          ? _value._selectedImages
+          : selectedImages // ignore: cast_nullable_to_non_nullable
+              as List<AssetEntity?>,
+      multiPhotoSelection: multiPhotoSelection == freezed
+          ? _value.multiPhotoSelection
+          : multiPhotoSelection // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1091,9 +1294,12 @@ class _$_PhotoState extends _PhotoState {
       required final List<AssetPathEntity> albums,
       required this.selectedAlbum,
       required final List<AssetEntity> selectedAlbumPhotos,
-      required this.selectedImage})
+      required this.selectedImage,
+      required final List<AssetEntity?> selectedImages,
+      this.multiPhotoSelection})
       : _albums = albums,
         _selectedAlbumPhotos = selectedAlbumPhotos,
+        _selectedImages = selectedImages,
         super._();
 
   @override
@@ -1116,10 +1322,19 @@ class _$_PhotoState extends _PhotoState {
 
   @override
   final AssetEntity? selectedImage;
+  final List<AssetEntity?> _selectedImages;
+  @override
+  List<AssetEntity?> get selectedImages {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedImages);
+  }
+
+  @override
+  final bool? multiPhotoSelection;
 
   @override
   String toString() {
-    return 'PhotoState(headerTitle: $headerTitle, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos, selectedImage: $selectedImage)';
+    return 'PhotoState(headerTitle: $headerTitle, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos, selectedImage: $selectedImage, selectedImages: $selectedImages, multiPhotoSelection: $multiPhotoSelection)';
   }
 
   @override
@@ -1135,7 +1350,11 @@ class _$_PhotoState extends _PhotoState {
             const DeepCollectionEquality()
                 .equals(other._selectedAlbumPhotos, _selectedAlbumPhotos) &&
             const DeepCollectionEquality()
-                .equals(other.selectedImage, selectedImage));
+                .equals(other.selectedImage, selectedImage) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedImages, _selectedImages) &&
+            const DeepCollectionEquality()
+                .equals(other.multiPhotoSelection, multiPhotoSelection));
   }
 
   @override
@@ -1145,7 +1364,9 @@ class _$_PhotoState extends _PhotoState {
       const DeepCollectionEquality().hash(_albums),
       const DeepCollectionEquality().hash(selectedAlbum),
       const DeepCollectionEquality().hash(_selectedAlbumPhotos),
-      const DeepCollectionEquality().hash(selectedImage));
+      const DeepCollectionEquality().hash(selectedImage),
+      const DeepCollectionEquality().hash(_selectedImages),
+      const DeepCollectionEquality().hash(multiPhotoSelection));
 
   @JsonKey(ignore: true)
   @override
@@ -1159,7 +1380,9 @@ abstract class _PhotoState extends PhotoState {
       required final List<AssetPathEntity> albums,
       required final AssetPathEntity? selectedAlbum,
       required final List<AssetEntity> selectedAlbumPhotos,
-      required final AssetEntity? selectedImage}) = _$_PhotoState;
+      required final AssetEntity? selectedImage,
+      required final List<AssetEntity?> selectedImages,
+      final bool? multiPhotoSelection}) = _$_PhotoState;
   const _PhotoState._() : super._();
 
   @override
@@ -1172,6 +1395,10 @@ abstract class _PhotoState extends PhotoState {
   List<AssetEntity> get selectedAlbumPhotos;
   @override
   AssetEntity? get selectedImage;
+  @override
+  List<AssetEntity?> get selectedImages;
+  @override
+  bool? get multiPhotoSelection;
   @override
   @JsonKey(ignore: true)
   _$$_PhotoStateCopyWith<_$_PhotoState> get copyWith =>

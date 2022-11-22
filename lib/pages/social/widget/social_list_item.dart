@@ -159,7 +159,7 @@ class SocialListItem extends StatelessWidget {
           builder: (BuildContext context) {
             return Container(
               width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.symmetric(horizontal: 5.0),
+             // margin: EdgeInsets.symmetric(horizontal: 5.0),
               //decoration: BoxDecoration(color: Colors.amber),
               child: CachedNetworkImage(
                   httpHeaders: {

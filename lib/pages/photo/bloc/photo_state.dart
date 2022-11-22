@@ -9,16 +9,20 @@ class PhotoState with _$PhotoState {
     required List<AssetPathEntity> albums,
     required AssetPathEntity? selectedAlbum,
     required List<AssetEntity> selectedAlbumPhotos,
-    required AssetEntity? selectedImage
+    required AssetEntity? selectedImage,
+    required List<AssetEntity?> selectedImages,
+    bool? multiPhotoSelection
   }) = _PhotoState;
 
   factory PhotoState.initial() {
     return const PhotoState(
-      headerTitle: null,
-      albums: [],
-      selectedAlbum: null,
-      selectedAlbumPhotos: [],
-      selectedImage: null
+        headerTitle: null,
+        albums: [],
+        selectedAlbum: null,
+        selectedAlbumPhotos: [],
+        selectedImage: null,
+        selectedImages: [],
+        multiPhotoSelection: false
     );
   }
 

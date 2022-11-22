@@ -24,7 +24,7 @@ class AppInterceptors extends QueuedInterceptor {
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     final prefs = await SharedPreferences.getInstance();
-    if (options.path != '/api/file/uploadFile') {
+    if (options.path != '/api/file/uploadMultiFile') {
       if (options.data['_csrf'] != null) {
         // 로그인 시도로 이전 얻어온 토큰 설정
         options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
@@ -32,7 +32,7 @@ class AppInterceptors extends QueuedInterceptor {
       }
     }
     // 내부 카멜케이스 키를 XXX_XXX 형식으로 변환 전송
-    if (options.path != '/api/file/uploadFile' &&
+    if (options.path != '/api/file/uploadMultiFile' &&
         options.data != null &&
         options.data.length > 0) {
       List<String> vars = returnKeys(options.data);
@@ -42,7 +42,7 @@ class AppInterceptors extends QueuedInterceptor {
       });
     }
 
-    if (options.path == '/api/file/uploadFile') {
+    if (options.path == '/api/file/uploadMultiFile') {
       // 로그인 이후 일반 통신 처리
       options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
       options.headers['Content-Type'] = 'application/json;charset=utf-8';

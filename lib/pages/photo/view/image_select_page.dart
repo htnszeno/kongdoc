@@ -16,7 +16,7 @@ class ImageSelectPage extends StatefulWidget {
       // fullscreenDialog: true,
       builder: (BuildContext context) => BlocProvider<PhotoBloc>(
         create: (context) => PhotoBloc()
-          ..add( SetSocialBloc(socialBloc))
+          ..add(SetSocialBloc(socialBloc))
           ..add(const AlbumsLoaded()),
         child: const ImageSelectPage(),
       ),
@@ -54,7 +54,8 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
           ),
           actions: [
             GestureDetector(
-              onTap:()=> context.read<PhotoBloc>().add(const SetImageFilter()),
+              onTap: () =>
+                  context.read<PhotoBloc>().add(const SetImageFilter()),
               child: Padding(
                 padding: EdgeInsets.only(right: 15),
                 child: ImageData(
@@ -90,7 +91,8 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
   Widget _imageSelectList() {
     return BlocBuilder<PhotoBloc, PhotoState>(
       buildWhen: (previous, current) {
-        return previous.selectedAlbumPhotos != current.selectedAlbumPhotos;
+        return previous.selectedAlbumPhotos != current.selectedAlbumPhotos
+            || previous.multiPhotoSelection != current.multiPhotoSelection;
       },
       builder: (context, state) {
         final selectedAlbumPhotos =
@@ -119,9 +121,11 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
                   builder: (context, state) {
                     final AssetEntity selectedImage = context
                         .select((PhotoBloc bloc) => bloc.state.selectedImage!);
+
+                    final selectedImages  =
+                    context.select((PhotoBloc bloc) => bloc.state.selectedImages);
                     return Opacity(
-                      opacity:
-                          selectedAlbumPhotos[index] == selectedImage ? 0.5 : 1,
+                      opacity:selectedImages.contains(selectedAlbumPhotos[index]) ? 1: 0.5,
                       child: Image.memory(
                         data,
                         fit: BoxFit.cover,
@@ -188,7 +192,9 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
                                   albums.length,
                                   (index) => GestureDetector(
                                     onTap: () {
-                                      context.read<PhotoBloc>().add(SetSelectedAlbum(albums[index]));
+                                      context
+                                          .read<PhotoBloc>()
+                                          .add(SetSelectedAlbum(albums[index]));
                                       Get.back();
                                     },
                                     child: Container(
@@ -222,19 +228,22 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
               ),
               Row(
                 children: [
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    decoration: BoxDecoration(
-                        color: const Color(0xff808080),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Row(children: [
-                      ImageData(IconsPath.imageSelectIcon),
-                      const Text(
-                        '여러항목선택',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
-                      )
-                    ]),
+                  GestureDetector(
+                    onTap: ()=> context.read<PhotoBloc>().add(MultiPhotoSelection()),
+                    child: Container(
+                      padding:
+                          const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      decoration: BoxDecoration(
+                          color: state.multiPhotoSelection!? Colors.blue: Color(0xff808080),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Row(children: [
+                        Icon(Icons.file_copy_outlined, color: Colors.white,),
+                        Text(
+                          '여러항목선택 ${state.selectedImages.length}',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        )
+                      ]),
+                    ),
                   ),
                   const SizedBox(width: 5),
                   Container(
@@ -257,6 +266,7 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
   Widget _imagePreview() {
     var width = Get.width;
     return BlocBuilder<PhotoBloc, PhotoState>(
+      buildWhen: (previous, current) => previous.selectedImage != current.selectedImage,
       builder: (context, state) {
         final AssetEntity selectedImage =
             context.select((PhotoBloc bloc) => bloc.state.selectedImage!);
