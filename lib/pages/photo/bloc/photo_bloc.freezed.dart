@@ -19,44 +19,62 @@ mixin _$PhotoEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
     required TResult Function() albumsLoaded,
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
     required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -117,8 +135,11 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
     required TResult Function() albumsLoaded,
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
   }) {
     return started();
   }
@@ -127,8 +148,11 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
   }) {
     return started?.call();
   }
@@ -137,8 +161,11 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -151,8 +178,11 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
     required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
   }) {
     return started(this);
   }
@@ -161,8 +191,11 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
   }) {
     return started?.call(this);
   }
@@ -171,8 +204,11 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -184,6 +220,164 @@ class _$Started implements Started {
 
 abstract class Started implements PhotoEvent {
   const factory Started() = _$Started;
+}
+
+/// @nodoc
+abstract class _$$SetSocialBlocCopyWith<$Res> {
+  factory _$$SetSocialBlocCopyWith(
+          _$SetSocialBloc value, $Res Function(_$SetSocialBloc) then) =
+      __$$SetSocialBlocCopyWithImpl<$Res>;
+  $Res call({SocialBloc socialBloc});
+}
+
+/// @nodoc
+class __$$SetSocialBlocCopyWithImpl<$Res> extends _$PhotoEventCopyWithImpl<$Res>
+    implements _$$SetSocialBlocCopyWith<$Res> {
+  __$$SetSocialBlocCopyWithImpl(
+      _$SetSocialBloc _value, $Res Function(_$SetSocialBloc) _then)
+      : super(_value, (v) => _then(v as _$SetSocialBloc));
+
+  @override
+  _$SetSocialBloc get _value => super._value as _$SetSocialBloc;
+
+  @override
+  $Res call({
+    Object? socialBloc = freezed,
+  }) {
+    return _then(_$SetSocialBloc(
+      socialBloc == freezed
+          ? _value.socialBloc
+          : socialBloc // ignore: cast_nullable_to_non_nullable
+              as SocialBloc,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetSocialBloc implements SetSocialBloc {
+  const _$SetSocialBloc(this.socialBloc);
+
+  @override
+  final SocialBloc socialBloc;
+
+  @override
+  String toString() {
+    return 'PhotoEvent.setSocialBloc(socialBloc: $socialBloc)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetSocialBloc &&
+            const DeepCollectionEquality()
+                .equals(other.socialBloc, socialBloc));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(socialBloc));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SetSocialBlocCopyWith<_$SetSocialBloc> get copyWith =>
+      __$$SetSocialBlocCopyWithImpl<_$SetSocialBloc>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
+    required TResult Function() albumsLoaded,
+    required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
+  }) {
+    return setSocialBloc(socialBloc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+  }) {
+    return setSocialBloc?.call(socialBloc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+    required TResult orElse(),
+  }) {
+    if (setSocialBloc != null) {
+      return setSocialBloc(socialBloc);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
+  }) {
+    return setSocialBloc(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+  }) {
+    return setSocialBloc?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+    required TResult orElse(),
+  }) {
+    if (setSocialBloc != null) {
+      return setSocialBloc(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetSocialBloc implements PhotoEvent {
+  const factory SetSocialBloc(final SocialBloc socialBloc) = _$SetSocialBloc;
+
+  SocialBloc get socialBloc;
+  @JsonKey(ignore: true)
+  _$$SetSocialBlocCopyWith<_$SetSocialBloc> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -227,8 +421,11 @@ class _$AlbumsLoaded implements AlbumsLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
     required TResult Function() albumsLoaded,
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
   }) {
     return albumsLoaded();
   }
@@ -237,8 +434,11 @@ class _$AlbumsLoaded implements AlbumsLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
   }) {
     return albumsLoaded?.call();
   }
@@ -247,8 +447,11 @@ class _$AlbumsLoaded implements AlbumsLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
     required TResult orElse(),
   }) {
     if (albumsLoaded != null) {
@@ -261,8 +464,11 @@ class _$AlbumsLoaded implements AlbumsLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
     required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
   }) {
     return albumsLoaded(this);
   }
@@ -271,8 +477,11 @@ class _$AlbumsLoaded implements AlbumsLoaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
   }) {
     return albumsLoaded?.call(this);
   }
@@ -281,8 +490,11 @@ class _$AlbumsLoaded implements AlbumsLoaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
     required TResult orElse(),
   }) {
     if (albumsLoaded != null) {
@@ -363,8 +575,11 @@ class _$SetSelectedImage implements SetSelectedImage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
     required TResult Function() albumsLoaded,
     required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
   }) {
     return setSelectedImage(selectedImage);
   }
@@ -373,8 +588,11 @@ class _$SetSelectedImage implements SetSelectedImage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
   }) {
     return setSelectedImage?.call(selectedImage);
   }
@@ -383,8 +601,11 @@ class _$SetSelectedImage implements SetSelectedImage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
     TResult Function()? albumsLoaded,
     TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
     required TResult orElse(),
   }) {
     if (setSelectedImage != null) {
@@ -397,8 +618,11 @@ class _$SetSelectedImage implements SetSelectedImage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
     required TResult Function(AlbumsLoaded value) albumsLoaded,
     required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
   }) {
     return setSelectedImage(this);
   }
@@ -407,8 +631,11 @@ class _$SetSelectedImage implements SetSelectedImage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
   }) {
     return setSelectedImage?.call(this);
   }
@@ -417,8 +644,11 @@ class _$SetSelectedImage implements SetSelectedImage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
     TResult Function(AlbumsLoaded value)? albumsLoaded,
     TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
     required TResult orElse(),
   }) {
     if (setSelectedImage != null) {
@@ -436,6 +666,295 @@ abstract class SetSelectedImage implements PhotoEvent {
   @JsonKey(ignore: true)
   _$$SetSelectedImageCopyWith<_$SetSelectedImage> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetSelectedAlbumCopyWith<$Res> {
+  factory _$$SetSelectedAlbumCopyWith(
+          _$SetSelectedAlbum value, $Res Function(_$SetSelectedAlbum) then) =
+      __$$SetSelectedAlbumCopyWithImpl<$Res>;
+  $Res call({AssetPathEntity selectedAlbum});
+}
+
+/// @nodoc
+class __$$SetSelectedAlbumCopyWithImpl<$Res>
+    extends _$PhotoEventCopyWithImpl<$Res>
+    implements _$$SetSelectedAlbumCopyWith<$Res> {
+  __$$SetSelectedAlbumCopyWithImpl(
+      _$SetSelectedAlbum _value, $Res Function(_$SetSelectedAlbum) _then)
+      : super(_value, (v) => _then(v as _$SetSelectedAlbum));
+
+  @override
+  _$SetSelectedAlbum get _value => super._value as _$SetSelectedAlbum;
+
+  @override
+  $Res call({
+    Object? selectedAlbum = freezed,
+  }) {
+    return _then(_$SetSelectedAlbum(
+      selectedAlbum == freezed
+          ? _value.selectedAlbum
+          : selectedAlbum // ignore: cast_nullable_to_non_nullable
+              as AssetPathEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetSelectedAlbum implements SetSelectedAlbum {
+  const _$SetSelectedAlbum(this.selectedAlbum);
+
+  @override
+  final AssetPathEntity selectedAlbum;
+
+  @override
+  String toString() {
+    return 'PhotoEvent.setSelectedAlbum(selectedAlbum: $selectedAlbum)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetSelectedAlbum &&
+            const DeepCollectionEquality()
+                .equals(other.selectedAlbum, selectedAlbum));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(selectedAlbum));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SetSelectedAlbumCopyWith<_$SetSelectedAlbum> get copyWith =>
+      __$$SetSelectedAlbumCopyWithImpl<_$SetSelectedAlbum>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
+    required TResult Function() albumsLoaded,
+    required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
+  }) {
+    return setSelectedAlbum(selectedAlbum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+  }) {
+    return setSelectedAlbum?.call(selectedAlbum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+    required TResult orElse(),
+  }) {
+    if (setSelectedAlbum != null) {
+      return setSelectedAlbum(selectedAlbum);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
+  }) {
+    return setSelectedAlbum(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+  }) {
+    return setSelectedAlbum?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+    required TResult orElse(),
+  }) {
+    if (setSelectedAlbum != null) {
+      return setSelectedAlbum(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetSelectedAlbum implements PhotoEvent {
+  const factory SetSelectedAlbum(final AssetPathEntity selectedAlbum) =
+      _$SetSelectedAlbum;
+
+  AssetPathEntity get selectedAlbum;
+  @JsonKey(ignore: true)
+  _$$SetSelectedAlbumCopyWith<_$SetSelectedAlbum> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetImageFilterCopyWith<$Res> {
+  factory _$$SetImageFilterCopyWith(
+          _$SetImageFilter value, $Res Function(_$SetImageFilter) then) =
+      __$$SetImageFilterCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SetImageFilterCopyWithImpl<$Res>
+    extends _$PhotoEventCopyWithImpl<$Res>
+    implements _$$SetImageFilterCopyWith<$Res> {
+  __$$SetImageFilterCopyWithImpl(
+      _$SetImageFilter _value, $Res Function(_$SetImageFilter) _then)
+      : super(_value, (v) => _then(v as _$SetImageFilter));
+
+  @override
+  _$SetImageFilter get _value => super._value as _$SetImageFilter;
+}
+
+/// @nodoc
+
+class _$SetImageFilter implements SetImageFilter {
+  const _$SetImageFilter();
+
+  @override
+  String toString() {
+    return 'PhotoEvent.setImageFilter()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SetImageFilter);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(SocialBloc socialBloc) setSocialBloc,
+    required TResult Function() albumsLoaded,
+    required TResult Function(AssetEntity selectedImage) setSelectedImage,
+    required TResult Function(AssetPathEntity selectedAlbum) setSelectedAlbum,
+    required TResult Function() setImageFilter,
+  }) {
+    return setImageFilter();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+  }) {
+    return setImageFilter?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SocialBloc socialBloc)? setSocialBloc,
+    TResult Function()? albumsLoaded,
+    TResult Function(AssetEntity selectedImage)? setSelectedImage,
+    TResult Function(AssetPathEntity selectedAlbum)? setSelectedAlbum,
+    TResult Function()? setImageFilter,
+    required TResult orElse(),
+  }) {
+    if (setImageFilter != null) {
+      return setImageFilter();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(SetSocialBloc value) setSocialBloc,
+    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(SetSelectedImage value) setSelectedImage,
+    required TResult Function(SetSelectedAlbum value) setSelectedAlbum,
+    required TResult Function(SetImageFilter value) setImageFilter,
+  }) {
+    return setImageFilter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+  }) {
+    return setImageFilter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(SetSocialBloc value)? setSocialBloc,
+    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(SetSelectedImage value)? setSelectedImage,
+    TResult Function(SetSelectedAlbum value)? setSelectedAlbum,
+    TResult Function(SetImageFilter value)? setImageFilter,
+    required TResult orElse(),
+  }) {
+    if (setImageFilter != null) {
+      return setImageFilter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetImageFilter implements PhotoEvent {
+  const factory SetImageFilter() = _$SetImageFilter;
 }
 
 /// @nodoc

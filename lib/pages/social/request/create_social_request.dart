@@ -6,6 +6,7 @@ part 'create_social_request.g.dart';
 @freezed
 class CreateSocialRequest with _$CreateSocialRequest {
   factory CreateSocialRequest({
+    String? postId,
     String? title,
     String? contents
   }) = _CreateSocialRequest;

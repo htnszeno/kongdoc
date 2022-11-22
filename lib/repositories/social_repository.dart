@@ -1,6 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:async';
+import 'dart:io';
 
 import 'package:cache/cache.dart';
 import 'package:dio/dio.dart';
@@ -38,14 +39,25 @@ class SocialRepository {
   @override
   Future<AppResponse<int?>> deleteSingle(String postId) async {
     final response = await _dioClient.post(
-      "/api/PETSO001SVC/delete",
-      data: {
-        'postId': postId
-      }
+        "/api/PETSO001SVC/delete",
+        data: {
+          'postId': postId
+        }
     );
     return AppResponse<int?>.fromJson(
       response.data,
           (json) => response.data['success'] && json != null ? json as int : null,
+    );
+  }
+  @override
+  Future<AppResponse<String?>> getPostId() async {
+    final response = await _dioClient.post(
+        "/api/SO001SVC/getPostId",
+        data: {}
+    );
+    return AppResponse<String?>.fromJson(
+      response.data,
+          (json) => response.data['success'] && json != null ? json as String : null,
     );
   }
 
@@ -63,10 +75,13 @@ class SocialRepository {
     );
   }
 
-  Future<AppResponse<SocialItem?>> create(CreateSocialRequest request) async {
+  Future<AppResponse<SocialItem?>> create(CreateSocialRequest request, String postId) async {
+    Map data =  request.toJson();
+    data["postId"] =postId;
+
     final response = await _dioClient.post(
       Endpoints.socialCreate,
-      data: request.toJson(),
+      data: data,
     );
     return AppResponse<SocialItem?>.fromJson(
       response.data,
@@ -87,6 +102,19 @@ class SocialRepository {
           .map((e) => SocialItem.fromJson(e))
           .toList();
     });
+  }
+
+  Future<Map<String, dynamic>> fileUpload(
+      {required File file, required String postId}) async {
+    var formData = FormData.fromMap({
+      'file' : await MultipartFile.fromFile(file.path),
+      'S_FUNC_CODE': 'APP',
+      'REF_NO': postId,
+      'REF_TYPE': 'MM'
+    });
+    final response = await _dioClient.post("/api/file/uploadFile", data: formData);
+  // print('repsoon ===== ${response}');
+    return response.data;
   }
 
   Future<AppResponse<List<SocialItem>?>> getMany({

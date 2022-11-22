@@ -41,7 +41,10 @@ dependencies:
   reactive_forms: ^14.1.0
   shared_preferences: ^2.0.15
   webview_flutter: ^3.0.4
-
+  photofilters: ^3.0.1
+  quiver: ^3.1.0
+  timeago: ^3.3.0
+  uuid: ^3.0.7
 dev_dependencies:
   bloc_test: ^9.1.0
   build_runner: ^2.2.0

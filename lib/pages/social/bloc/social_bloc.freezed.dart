@@ -19,13 +19,13 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) =>
@@ -33,12 +33,12 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) =>
@@ -46,12 +46,12 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -60,7 +60,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -73,7 +73,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -86,7 +86,7 @@ mixin _$SocialEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -154,13 +154,13 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -171,12 +171,12 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -187,12 +187,12 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -207,7 +207,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -223,7 +223,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -239,7 +239,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -261,91 +261,115 @@ abstract class Started implements SocialEvent {
 }
 
 /// @nodoc
-abstract class _$$AlbumsLoadedCopyWith<$Res> {
-  factory _$$AlbumsLoadedCopyWith(
-          _$AlbumsLoaded value, $Res Function(_$AlbumsLoaded) then) =
-      __$$AlbumsLoadedCopyWithImpl<$Res>;
+abstract class _$$FileUploadCopyWith<$Res> {
+  factory _$$FileUploadCopyWith(
+          _$FileUpload value, $Res Function(_$FileUpload) then) =
+      __$$FileUploadCopyWithImpl<$Res>;
+  $Res call({File file});
 }
 
 /// @nodoc
-class __$$AlbumsLoadedCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
-    implements _$$AlbumsLoadedCopyWith<$Res> {
-  __$$AlbumsLoadedCopyWithImpl(
-      _$AlbumsLoaded _value, $Res Function(_$AlbumsLoaded) _then)
-      : super(_value, (v) => _then(v as _$AlbumsLoaded));
+class __$$FileUploadCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$FileUploadCopyWith<$Res> {
+  __$$FileUploadCopyWithImpl(
+      _$FileUpload _value, $Res Function(_$FileUpload) _then)
+      : super(_value, (v) => _then(v as _$FileUpload));
 
   @override
-  _$AlbumsLoaded get _value => super._value as _$AlbumsLoaded;
+  _$FileUpload get _value => super._value as _$FileUpload;
+
+  @override
+  $Res call({
+    Object? file = freezed,
+  }) {
+    return _then(_$FileUpload(
+      file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$AlbumsLoaded implements AlbumsLoaded {
-  const _$AlbumsLoaded();
+class _$FileUpload implements FileUpload {
+  const _$FileUpload(this.file);
+
+  @override
+  final File file;
 
   @override
   String toString() {
-    return 'SocialEvent.albumsLoaded()';
+    return 'SocialEvent.fileUpload(file: $file)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AlbumsLoaded);
+        (other.runtimeType == runtimeType &&
+            other is _$FileUpload &&
+            const DeepCollectionEquality().equals(other.file, file));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(file));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FileUploadCopyWith<_$FileUpload> get copyWith =>
+      __$$FileUploadCopyWithImpl<_$FileUpload>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
-    return albumsLoaded();
+    return fileUpload(file);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
-    return albumsLoaded?.call();
+    return fileUpload?.call(file);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
-    if (albumsLoaded != null) {
-      return albumsLoaded();
+    if (fileUpload != null) {
+      return fileUpload(file);
     }
     return orElse();
   }
@@ -354,7 +378,7 @@ class _$AlbumsLoaded implements AlbumsLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -363,14 +387,14 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
   }) {
-    return albumsLoaded(this);
+    return fileUpload(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -379,14 +403,14 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
   }) {
-    return albumsLoaded?.call(this);
+    return fileUpload?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -396,15 +420,20 @@ class _$AlbumsLoaded implements AlbumsLoaded {
     TResult Function(Filter value)? filterNotes,
     required TResult orElse(),
   }) {
-    if (albumsLoaded != null) {
-      return albumsLoaded(this);
+    if (fileUpload != null) {
+      return fileUpload(this);
     }
     return orElse();
   }
 }
 
-abstract class AlbumsLoaded implements SocialEvent {
-  const factory AlbumsLoaded() = _$AlbumsLoaded;
+abstract class FileUpload implements SocialEvent {
+  const factory FileUpload(final File file) = _$FileUpload;
+
+  File get file;
+  @JsonKey(ignore: true)
+  _$$FileUploadCopyWith<_$FileUpload> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -447,13 +476,13 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -464,12 +493,12 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -480,12 +509,12 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -500,7 +529,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -516,7 +545,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -532,7 +561,7 @@ class _$LoadMore implements LoadMore {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -592,13 +621,13 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -609,12 +638,12 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -625,12 +654,12 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -645,7 +674,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -661,7 +690,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -677,7 +706,7 @@ class _$Refresh implements Refresh {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -778,13 +807,13 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -795,12 +824,12 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -811,12 +840,12 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -831,7 +860,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -847,7 +876,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -863,7 +892,7 @@ class _$SetSelectedItem implements SetSelectedItem {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -972,13 +1001,13 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -989,12 +1018,12 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -1005,12 +1034,12 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -1025,7 +1054,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -1041,7 +1070,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1057,7 +1086,7 @@ class _$Update implements Update {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1089,7 +1118,7 @@ abstract class Update implements SocialEvent {
 abstract class _$$CreateCopyWith<$Res> {
   factory _$$CreateCopyWith(_$Create value, $Res Function(_$Create) then) =
       __$$CreateCopyWithImpl<$Res>;
-  $Res call({CreateSocialRequest request});
+  $Res call({CreateSocialRequest request, File file});
 
   $CreateSocialRequestCopyWith<$Res> get request;
 }
@@ -1106,12 +1135,17 @@ class __$$CreateCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? request = freezed,
+    Object? file = freezed,
   }) {
     return _then(_$Create(
       request == freezed
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as CreateSocialRequest,
+      file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File,
     ));
   }
 
@@ -1126,14 +1160,16 @@ class __$$CreateCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Create implements Create {
-  const _$Create(this.request);
+  const _$Create(this.request, this.file);
 
   @override
   final CreateSocialRequest request;
+  @override
+  final File file;
 
   @override
   String toString() {
-    return 'SocialEvent.create(request: $request)';
+    return 'SocialEvent.create(request: $request, file: $file)';
   }
 
   @override
@@ -1141,12 +1177,15 @@ class _$Create implements Create {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Create &&
-            const DeepCollectionEquality().equals(other.request, request));
+            const DeepCollectionEquality().equals(other.request, request) &&
+            const DeepCollectionEquality().equals(other.file, file));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(request));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(request),
+      const DeepCollectionEquality().hash(file));
 
   @JsonKey(ignore: true)
   @override
@@ -1157,51 +1196,51 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
-    return create(request);
+    return create(request, file);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
-    return create?.call(request);
+    return create?.call(request, file);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
   }) {
     if (create != null) {
-      return create(request);
+      return create(request, file);
     }
     return orElse();
   }
@@ -1210,7 +1249,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -1226,7 +1265,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1242,7 +1281,7 @@ class _$Create implements Create {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1260,9 +1299,11 @@ class _$Create implements Create {
 }
 
 abstract class Create implements SocialEvent {
-  const factory Create(final CreateSocialRequest request) = _$Create;
+  const factory Create(final CreateSocialRequest request, final File file) =
+      _$Create;
 
   CreateSocialRequest get request;
+  File get file;
   @JsonKey(ignore: true)
   _$$CreateCopyWith<_$Create> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1331,13 +1372,13 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -1348,12 +1389,12 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -1364,12 +1405,12 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -1384,7 +1425,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -1400,7 +1441,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1416,7 +1457,7 @@ class _$Delete implements Delete {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1515,13 +1556,13 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() albumsLoaded,
+    required TResult Function(File file) fileUpload,
     required TResult Function() loadMore,
     required TResult Function() refresh,
     required TResult Function(SocialItem? selectedItem) setSelectedItem,
     required TResult Function(UpdateSocialRequest request, String postId)
         update,
-    required TResult Function(CreateSocialRequest request) create,
+    required TResult Function(CreateSocialRequest request, File file) create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
   }) {
@@ -1532,12 +1573,12 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
   }) {
@@ -1548,12 +1589,12 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? albumsLoaded,
+    TResult Function(File file)? fileUpload,
     TResult Function()? loadMore,
     TResult Function()? refresh,
     TResult Function(SocialItem? selectedItem)? setSelectedItem,
     TResult Function(UpdateSocialRequest request, String postId)? update,
-    TResult Function(CreateSocialRequest request)? create,
+    TResult Function(CreateSocialRequest request, File file)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     required TResult orElse(),
@@ -1568,7 +1609,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(AlbumsLoaded value) albumsLoaded,
+    required TResult Function(FileUpload value) fileUpload,
     required TResult Function(LoadMore value) loadMore,
     required TResult Function(Refresh value) refresh,
     required TResult Function(SetSelectedItem value) setSelectedItem,
@@ -1584,7 +1625,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,
@@ -1600,7 +1641,7 @@ class _$Filter implements Filter {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(AlbumsLoaded value)? albumsLoaded,
+    TResult Function(FileUpload value)? fileUpload,
     TResult Function(LoadMore value)? loadMore,
     TResult Function(Refresh value)? refresh,
     TResult Function(SetSelectedItem value)? setSelectedItem,

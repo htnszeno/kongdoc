@@ -137,7 +137,7 @@ class _SocialItemPageState extends State<SocialItemPage> {
       bloc.add(Update(request, state.selectedItem!.postId));
     } else {
       final request = CreateSocialRequest.fromFromGroup(value);
-      bloc.add(Create(request));
+      // bloc.add(Create(request));
     }
   }
 }

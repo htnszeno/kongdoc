@@ -20,6 +20,7 @@ CreateSocialRequest _$CreateSocialRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateSocialRequest {
+  String? get postId => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get contents => throw _privateConstructorUsedError;
 
@@ -34,7 +35,7 @@ abstract class $CreateSocialRequestCopyWith<$Res> {
   factory $CreateSocialRequestCopyWith(
           CreateSocialRequest value, $Res Function(CreateSocialRequest) then) =
       _$CreateSocialRequestCopyWithImpl<$Res>;
-  $Res call({String? title, String? contents});
+  $Res call({String? postId, String? title, String? contents});
 }
 
 /// @nodoc
@@ -48,10 +49,15 @@ class _$CreateSocialRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? postId = freezed,
     Object? title = freezed,
     Object? contents = freezed,
   }) {
     return _then(_value.copyWith(
+      postId: postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -71,7 +77,7 @@ abstract class _$$_CreateSocialRequestCopyWith<$Res>
           $Res Function(_$_CreateSocialRequest) then) =
       __$$_CreateSocialRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? title, String? contents});
+  $Res call({String? postId, String? title, String? contents});
 }
 
 /// @nodoc
@@ -87,10 +93,15 @@ class __$$_CreateSocialRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? postId = freezed,
     Object? title = freezed,
     Object? contents = freezed,
   }) {
     return _then(_$_CreateSocialRequest(
+      postId: postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -106,11 +117,13 @@ class __$$_CreateSocialRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateSocialRequest implements _CreateSocialRequest {
-  _$_CreateSocialRequest({this.title, this.contents});
+  _$_CreateSocialRequest({this.postId, this.title, this.contents});
 
   factory _$_CreateSocialRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateSocialRequestFromJson(json);
 
+  @override
+  final String? postId;
   @override
   final String? title;
   @override
@@ -118,7 +131,7 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
 
   @override
   String toString() {
-    return 'CreateSocialRequest(title: $title, contents: $contents)';
+    return 'CreateSocialRequest(postId: $postId, title: $title, contents: $contents)';
   }
 
   @override
@@ -126,6 +139,7 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateSocialRequest &&
+            const DeepCollectionEquality().equals(other.postId, postId) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.contents, contents));
   }
@@ -134,6 +148,7 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(postId),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(contents));
 
@@ -152,12 +167,16 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
 }
 
 abstract class _CreateSocialRequest implements CreateSocialRequest {
-  factory _CreateSocialRequest({final String? title, final String? contents}) =
-      _$_CreateSocialRequest;
+  factory _CreateSocialRequest(
+      {final String? postId,
+      final String? title,
+      final String? contents}) = _$_CreateSocialRequest;
 
   factory _CreateSocialRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateSocialRequest.fromJson;
 
+  @override
+  String? get postId;
   @override
   String? get title;
   @override

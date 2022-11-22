@@ -9,37 +9,54 @@ class AppInterceptors extends QueuedInterceptor {
     var result = text.replaceAll(RegExp(r'(?<!^)(?=[A-Z])'), r"_");
     return result.toUpperCase();
   }
-  List<String> returnKeys (keyData){
+
+  List<String> returnKeys(keyData) {
     String convertData = keyData.keys.toString().replaceAll('(', '');
     convertData = convertData.replaceAll(')', '');
     return convertData.replaceAll(' ', '').split(',');
   }
 
   AppInterceptors._internal();
+
   static AppInterceptors? _singleton;
+
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     final prefs = await SharedPreferences.getInstance();
-    if (options.data['_csrf'] != null) {
-      // 로그인 시도로 이전 얻어온 토큰 설정
-      options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
-      prefs.remove('CSRF_TOKEN');
+    if (options.path != '/api/file/uploadFile') {
+      if (options.data['_csrf'] != null) {
+        // 로그인 시도로 이전 얻어온 토큰 설정
+        options.headers['X-CSRF-TOKEN'] = options.data['_csrf'];
+        prefs.remove('CSRF_TOKEN');
+      }
     }
     // 내부 카멜케이스 키를 XXX_XXX 형식으로 변환 전송
-    if (options.data != null && options.data.length > 0) {
-      List<String>  vars  = returnKeys(options.data);
+    if (options.path != '/api/file/uploadFile' &&
+        options.data != null &&
+        options.data.length > 0) {
+      List<String> vars = returnKeys(options.data);
       vars.forEach((key) {
-        options.data[camelToSentence(key)] = options.data[key]??"";
+        options.data[camelToSentence(key)] = options.data[key] ?? "";
         options.data.remove(key);
       });
     }
 
-    if (prefs.getString('CSRF_TOKEN') != null &&
-        options.data['USER_ID'] != 'tokenfix') {
+    if (options.path == '/api/file/uploadFile') {
       // 로그인 이후 일반 통신 처리
       options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
       options.headers['Content-Type'] = 'application/json;charset=utf-8';
+    } else {
+      if (prefs.getString('CSRF_TOKEN') != null &&
+          options.data['USER_ID'] != 'tokenfix') {
+
+        Globals().setCookie = options.headers['cookie'].toString();
+
+        // 로그인 이후 일반 통신 처리
+        options.headers['X-CSRF-TOKEN'] = prefs.getString('CSRF_TOKEN');
+        print(prefs.getString('CSRF_TOKEN'));
+        options.headers['Content-Type'] = 'application/json;charset=utf-8';
+      }
     }
     return handler.next(options);
   }
@@ -56,6 +73,7 @@ class AppInterceptors extends QueuedInterceptor {
       prefs.setString('CSRF_TOKEN', token);
       prefs.setString('USER_ID', response.requestOptions.data['USER_ID']);
       prefs.setString('PW', response.requestOptions.data['PW']);
+      Globals().setCsrfToken = token;
     } else if (response.data['type'] == 200111) {
       prefs.remove('CSRF_TOKEN');
     }

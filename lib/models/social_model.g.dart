@@ -13,6 +13,7 @@ _$_SocialItem _$$_SocialItemFromJson(Map<String, dynamic> json) =>
       postDate: json['post_date'] as String,
       contents: json['contents'] as String?,
       addUserName: json['add_user_name'] as String,
+      images: json['images'],
     );
 
 Map<String, dynamic> _$$_SocialItemToJson(_$_SocialItem instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_SocialItemToJson(_$_SocialItem instance) =>
       'post_date': instance.postDate,
       'contents': instance.contents,
       'add_user_name': instance.addUserName,
+      'images': instance.images,
     };

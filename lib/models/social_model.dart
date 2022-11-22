@@ -11,6 +11,8 @@ class SocialItem with _$SocialItem {
     @JsonKey(name: "post_date") required String postDate,
     required String? contents,
     @JsonKey(name: "add_user_name") required String addUserName,
+
+     dynamic? images
   }) = _SocialItem;
 
   factory SocialItem.fromJson(Map<String, dynamic> json) =>

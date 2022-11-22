@@ -4,17 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hifive/pages/photo/bloc/photo_bloc.dart';
+import 'package:hifive/pages/social/bloc/social_bloc.dart';
 import 'package:hifive/widget/image_data.dart';
 import 'package:photo_manager/photo_manager.dart';
 
 class ImageSelectPage extends StatefulWidget {
   const ImageSelectPage({super.key});
 
-  static Route<void> route() {
+  static Route<void> route(SocialBloc socialBloc) {
     return MaterialPageRoute(
       // fullscreenDialog: true,
       builder: (BuildContext context) => BlocProvider<PhotoBloc>(
-        create: (context) => PhotoBloc()..add(const AlbumsLoaded()),
+        create: (context) => PhotoBloc()
+          ..add( SetSocialBloc(socialBloc))
+          ..add(const AlbumsLoaded()),
         child: const ImageSelectPage(),
       ),
     );
@@ -51,7 +54,7 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
           ),
           actions: [
             GestureDetector(
-              // onTap: controller.gotoimageFilter,
+              onTap:()=> context.read<PhotoBloc>().add(const SetImageFilter()),
               child: Padding(
                 padding: EdgeInsets.only(right: 15),
                 child: ImageData(
@@ -68,11 +71,17 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
               return previous.albums != current.albums;
             },
             builder: (context, state) {
-              return Column(children: [
-                _imagePreview(),
-                _header(),
-                _imageSelectList(),
-              ]);
+              if (state.hasAlbums) {
+                return Column(children: [
+                  _imagePreview(),
+                  _header(),
+                  _imageSelectList(),
+                ]);
+              }
+
+              return const CircularProgressIndicator(
+                color: Colors.white,
+              );
             },
           ),
         ));
@@ -144,7 +153,7 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
                 onTap: () {
                   showModalBottomSheet(
                     context: Get.context!,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
@@ -179,9 +188,8 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
                                   albums.length,
                                   (index) => GestureDetector(
                                     onTap: () {
-                                      // controller
-                                      //     .changeAlbum(controller.albums[index]);
-                                      // Get.back();
+                                      context.read<PhotoBloc>().add(SetSelectedAlbum(albums[index]));
+                                      Get.back();
                                     },
                                     child: Container(
                                       padding: const EdgeInsets.symmetric(
@@ -208,7 +216,7 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
                         fontSize: 18,
                       ),
                     ),
-                    Icon(Icons.arrow_drop_down)
+                    const Icon(Icons.arrow_drop_down)
                   ]),
                 ),
               ),
@@ -228,12 +236,10 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
                       )
                     ]),
                   ),
-                  SizedBox(
-                    width: 5,
-                  ),
+                  const SizedBox(width: 5),
                   Container(
-                    padding: EdgeInsets.all(6),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(6),
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Color(0xff808080),
                     ),
@@ -276,6 +282,7 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
 
   Widget _photoWidget(AssetEntity asset, int size,
       {required Widget Function(Uint8List) builder}) {
+    var width = Get.width;
     return FutureBuilder(
       future:
           asset.thumbnailDataWithSize(ThumbnailSize(size, size), quality: 100),
@@ -283,7 +290,10 @@ class _ImageSelectPageState extends State<ImageSelectPage> {
         if (snapshot.hasData) {
           return builder(snapshot.data!);
         }
-        return Container();
+        return Container(
+          width: width,
+          height: width,
+        );
       },
     );
   }

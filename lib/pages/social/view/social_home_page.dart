@@ -23,7 +23,7 @@ class SocialPage extends StatefulWidget {
           create: (context) => SocialBloc(
             socialRepository: context.read<SocialRepository>(),
           )
-            ..add(const AlbumsLoaded())
+            // ..add(const AlbumsLoaded())
             ..add(const Started()),
           child: const SocialPage(),
         ),
@@ -76,7 +76,7 @@ class _SocialPageState extends State<SocialPage> {
             backgroundColor: Theme.of(context).primaryColor,
             onPressed: () => isLoading
                 ? null
-                : Navigator.of(context).push(ImageSelectPage.route()),
+                : Navigator.of(context).push(ImageSelectPage.route(context.read<SocialBloc>())),
             child: isLoading
                 ? const CircularProgressIndicator(
                     color: Colors.white,

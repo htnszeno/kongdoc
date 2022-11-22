@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hifive/enums/data_status.dart';
@@ -112,8 +114,9 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
 
       List<SocialItem> listItems = [...state.listItems];
 
-      final result = await _socialRepository.create(event.request);
-
+      final postIdData = await _socialRepository.getPostId();
+      await _socialRepository.fileUpload(file: event.file, postId: postIdData.data!);
+      final result = await _socialRepository.create(event.request, postIdData.data!);
       if (result.success) {
         listItems = [result.data!, ...listItems];
 
@@ -163,6 +166,9 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
         );
       }
     });
+    // on<FileUpload>((event, emit) async {
+    //
+    // });
   }
 
   Future<void> _getFirstPage(Emitter<SocialState> emit) async {
