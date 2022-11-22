@@ -35,29 +35,23 @@ class SocialRepository {
   @visibleForTesting
   bool isWeb = kIsWeb;
 
-
   @override
   Future<AppResponse<int?>> deleteSingle(String postId) async {
-    final response = await _dioClient.post(
-        "/api/PETSO001SVC/delete",
-        data: {
-          'postId': postId
-        }
-    );
+    final response = await _dioClient
+        .post("/api/PETSO001SVC/delete", data: {'postId': postId});
     return AppResponse<int?>.fromJson(
       response.data,
-          (json) => response.data['success'] && json != null ? json as int : null,
+      (json) => response.data['success'] && json != null ? json as int : null,
     );
   }
+
   @override
   Future<AppResponse<String?>> getPostId() async {
-    final response = await _dioClient.post(
-        "/api/SO001SVC/getPostId",
-        data: {}
-    );
+    final response = await _dioClient.post("/api/SO001SVC/getPostId", data: {});
     return AppResponse<String?>.fromJson(
       response.data,
-          (json) => response.data['success'] && json != null ? json as String : null,
+      (json) =>
+          response.data['success'] && json != null ? json as String : null,
     );
   }
 
@@ -75,9 +69,10 @@ class SocialRepository {
     );
   }
 
-  Future<AppResponse<SocialItem?>> create(CreateSocialRequest request, String postId) async {
-    Map data =  request.toJson();
-    data["postId"] =postId;
+  Future<AppResponse<SocialItem?>> create(
+      CreateSocialRequest request, String postId) async {
+    Map data = request.toJson();
+    data["postId"] = postId;
 
     final response = await _dioClient.post(
       Endpoints.socialCreate,
@@ -106,14 +101,18 @@ class SocialRepository {
 
   Future<Map<String, dynamic>> fileUpload(
       {required File file, required String postId}) async {
+    final List<String> filePaths = [file.path];
     var formData = FormData.fromMap({
-      'file' : await MultipartFile.fromFile(file.path),
+      'file': await MultipartFile.fromFile(file.path),
+      // 'files': List.generate(filePaths.length,
+      //     (index) => MultipartFile.fromFileSync(filePaths[index])),
       'S_FUNC_CODE': 'APP',
       'REF_NO': postId,
       'REF_TYPE': 'MM'
     });
-    final response = await _dioClient.post("/api/file/uploadFile", data: formData);
-  // print('repsoon ===== ${response}');
+    final response =
+        await _dioClient.post("/api/file/uploadFile", data: formData);
+    // print('repsoon ===== ${response}');
     return response.data;
   }
 

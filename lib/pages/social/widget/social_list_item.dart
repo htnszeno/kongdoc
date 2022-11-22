@@ -145,7 +145,7 @@ class SocialListItem extends StatelessWidget {
     }
     List<dynamic> mgtCodes = [];
     for (int i = 0; i < social.images.length; i++) {
-      mgtCodes.add(social.images[i]['file_mgt_code']);
+      mgtCodes.add(social.images[i]['FILE_MGT_CODE']);
     }
     return CarouselSlider(
       options: CarouselOptions(
