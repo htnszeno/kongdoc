@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class AppTextField extends StatelessWidget {
-  const AppTextField({
-    Key? key,
-    required this.controlName,
-    required this.label,
-    this.isRequired = false,
-    this.maxLines = 1,
-    this.hintText,
-    this.onSubmitted,
-    this.nextFocusControlName,
-    this.formGroup,
-    this.autofocus = false,
-  }) : super(key: key);
+  const AppTextField(
+      {Key? key,
+      required this.controlName,
+      required this.label,
+      this.isRequired = false,
+      this.maxLines = 1,
+      this.hintText,
+      this.onSubmitted,
+      this.nextFocusControlName,
+      this.formGroup,
+      this.autofocus = false,
+      this.focusNode})
+      : super(key: key);
 
   final String controlName;
   final String label;
@@ -24,6 +25,7 @@ class AppTextField extends StatelessWidget {
   final String? nextFocusControlName;
   final FormGroup? formGroup;
   final bool autofocus;
+  final FocusNode? focusNode;
 
   _onSubmit(FormControl<Object?> control) {
     if (onSubmitted != null) {
@@ -38,8 +40,9 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ReactiveTextField(
+      focusNode: focusNode,
       autofocus: autofocus,
-      maxLines: maxLines,
+      maxLines: maxLines == 0 ? null : maxLines,
       keyboardType: maxLines > 1 ? TextInputType.multiline : TextInputType.text,
       formControlName: controlName,
       validationMessages: isRequired
@@ -53,7 +56,11 @@ class AppTextField extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(4.0),
         ),
-        labelText: maxLines > 1 ? null : "$label${isRequired ? "*" : ""}",
+        labelText: maxLines > 1
+            ? null
+            : maxLines == 0
+                ? null
+                : ("$label${isRequired ? "*" : ""}"),
       ),
       onSubmitted: _onSubmit,
     );

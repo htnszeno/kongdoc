@@ -3,14 +3,18 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/pages/social/widget/avatar_widget.dart';
 import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/util/global.dart';
+import 'package:hifive/widget/app_text_field.dart';
 import 'package:hifive/widget/image_data.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 class SocialListItem extends StatefulWidget {
   const SocialListItem({
@@ -27,20 +31,41 @@ class SocialListItem extends StatefulWidget {
 }
 
 class _SocialListItemState extends State<SocialListItem> {
+  late SocialBloc _socialBloc;
   int _current = 0;
   final CarouselController _controller = CarouselController();
   List<dynamic> mgtCodes = [];
+  TextEditingController _textEditingController = TextEditingController();
+  late FocusNode _contentTextFieldFocusNode;
+
   @override
   void initState() {
     for (int i = 0; i < widget.social.images.length; i++) {
       mgtCodes.add(widget.social.images[i]['FILE_MGT_CODE']);
     }
+    _textEditingController.text = widget.social.contents!;
+    _contentTextFieldFocusNode = FocusNode();
     super.initState();
   }
 
   @override
+  void dispose() {
+    _contentTextFieldFocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    _socialBloc = context.read<SocialBloc>();
+    final selectedItem =
+        context.select((SocialBloc bloc) => bloc.state.selectedItem);
+    final formGroup = _socialBloc.formgroup;
+    final isEditing = _socialBloc.state.hasSelectedItem;
     return GestureDetector(
+      // onTap: () {
+      //   context.read<SocialBloc>().add(SetSelectedItem(null));
+      //   FocusManager.instance.primaryFocus?.unfocus();
+      // },
       onTap: () => widget.onSocialItemPressed(widget.social),
       child: Dismissible(
         key: ValueKey("dismissable-${widget.social.postId}"),
@@ -75,26 +100,101 @@ class _SocialListItemState extends State<SocialListItem> {
         },
         child: Container(
           margin: const EdgeInsets.only(top: 20),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            _header(widget.social),
-            const SizedBox(height: 15),
-            _postImages(widget.social),
-            const SizedBox(height: 15),
-            _infoCount(),
-            const SizedBox(height: 15),
-            _infoDescription(widget.social),
-            const SizedBox(height: 15),
-            _replyTextBtn(),
-            const SizedBox(height: 15),
-            _dateAgo()
-          ]),
+          child: BlocBuilder<SocialBloc, SocialState>(
+            builder: (context, state) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _header(widget.social),
+                  const SizedBox(height: 15),
+                  _postImages(widget.social),
+                  const SizedBox(height: 15),
+                  _infoCount(),
+                  const SizedBox(height: 15),
+                  Visibility(
+                    visible: !(selectedItem == widget.social),
+                    child: _infoDescription(widget.social),
+                  ),
+                  Visibility(
+                    visible: selectedItem == widget.social,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ReactiveForm(
+                        formGroup: formGroup,
+                        child: Column(
+                          children: [
+                            AppTextField(
+                              formGroup: formGroup,
+                              focusNode: _contentTextFieldFocusNode,
+                              controlName: 'contents',
+                              label: "",
+                              maxLines: 0,
+                              isRequired: true,
+                              hintText: "Write your content here...",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  BlocConsumer<SocialBloc, SocialState>(
+                    listener: (context, state) {
+                      if (state.isProcessing) {
+                        showMessageSnackbar(
+                          context,
+                          "Processing...",
+                        );
+                      } else if (state.status.isSuccess) {
+                        showMessageSnackbar(
+                          context,
+                          state.msg,
+                        );
+                      } else if (state.status.isError) {
+                        showMessageSnackbar(
+                          context,
+                          state.msg,
+                          color: Colors.red,
+                        );
+                      }
+                    },
+                    builder: (context, state) {
+                      return ElevatedButton(
+                          onPressed: () {
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            if (state.isProcessing) return;
+                            if (formGroup.invalid) {
+                              // This will validate all [isRequired] AppTextField
+                              formGroup.markAllAsTouched();
+                              return;
+                            }
+                            final value = formGroup.value;
+                            if (state.hasSelectedItem) {
+                              final request =
+                                  UpdateSocialRequest.fromFromGroup(value);
+                              _socialBloc.add(
+                                  Update(request, state.selectedItem!.postId));
+                            }
+                          },
+                          child: Text("SAVE"));
+                    },
+                  ),
+                  const SizedBox(height: 15),
+                  _replyTextBtn(),
+                  const SizedBox(height: 15),
+                  _dateAgo(),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
   }
 
   Widget _imageIndicator() {
+    if (mgtCodes.length == 1) {
+      return Container();
+    }
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: mgtCodes.asMap().entries.map((entry) {
@@ -116,9 +216,97 @@ class _SocialListItemState extends State<SocialListItem> {
     );
   }
 
+  void _showControlPanel() {
+    showModalBottomSheet(
+      context: Get.context!,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
+      )),
+      isScrollControlled: true,
+      constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(Get.context!).size.height -
+              MediaQuery.of(Get.context!).padding.top),
+      builder: (_) => Container(
+        height: 400,
+        // height: albums.length > 10
+        //     ? Size.infinite.height
+        //     : albums.length * 60,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Center(
+              child: Container(
+                margin: const EdgeInsets.only(top: 7),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black54),
+                width: 40,
+                height: 4,
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.star_border),
+                          ),
+                          Text("즐겨찾기에 추가 ")
+                        ],
+                      ),
+                      Divider(),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(FontAwesomeIcons.outdent),
+                          ),
+                          Text("친구 취소")
+                        ],
+                      ),
+                      Divider(),
+                      GestureDetector(
+                        onTap: () {
+                          Get.back();
+                          widget.onSocialItemPressed(widget.social);
+                          _contentTextFieldFocusNode.requestFocus();
+                        },
+                        child: Container(
+                          color: Colors.blue,
+                          height: 60,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 15, right: 10),
+                                child: Icon(Icons.edit),
+                              ),
+                              Text(
+                                "수정",
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Divider()
+                    ]),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _header(SocialItem social) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -128,25 +316,23 @@ class _SocialListItemState extends State<SocialListItem> {
             nickname: social.addUserName,
             thumbPath: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
           ),
-          GestureDetector(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ImageData(
-                IconsPath.postMoreIcon,
-                width: 30,
-              ),
+          IconButton(
+            // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+            icon: const FaIcon(
+              size: 20,
+              FontAwesomeIcons.ellipsisVertical,
             ),
-          )
+            onPressed: _showControlPanel,
+          ),
         ],
       ),
     );
   }
 
   Widget _postImages(social) {
-    if (social.images.length == 0) {
-      return const Text("이미지가 없습니다. ");
-    }
+    // if (social.images.length == 0) {
+    //   return const Text("이미지가 없습니다. ");
+    // }
 
     return CarouselSlider(
       carouselController: _controller,
@@ -172,7 +358,7 @@ class _SocialListItemState extends State<SocialListItem> {
                     'Cookie': Globals().cookie,
                   },
                   imageUrl:
-                      '${Constants.baseApiUrl}/api/file/getDownload/Onix/${i}'),
+                      '${Constants.baseApiUrl}/api/file/getDownload/Onix/$i'),
             );
           },
         );
@@ -186,32 +372,36 @@ class _SocialListItemState extends State<SocialListItem> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SizedBox(
+          Container(
+            // color: Colors.red,
             width: Get.width / 4,
             child: Row(
               children: [
-                ImageData(
-                  IconsPath.likeOffIcon,
-                  width: 65,
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints: BoxConstraints(),
+                  icon: const FaIcon(
+                    size: 20,
+                    FontAwesomeIcons.heart,
+                  ),
+                  onPressed: () {},
                 ),
                 const SizedBox(
                   width: 10,
                 ),
-                ImageData(
-                  IconsPath.replyIcon,
-                  width: 60,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                ImageData(
-                  IconsPath.directMessage,
-                  width: 60,
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints: BoxConstraints(),
+                  icon: const FaIcon(
+                    size: 20,
+                    FontAwesomeIcons.message,
+                  ),
+                  onPressed: () {},
                 ),
               ],
             ),
           ),
-          _imageIndicator(),
+          Expanded(child: _imageIndicator()),
           SizedBox(
             width: Get.width / 4,
             child: Row(
@@ -243,7 +433,7 @@ class _SocialListItemState extends State<SocialListItem> {
             social.contents!,
             prefixText: '개발남',
             onPrefixTap: () {},
-            prefixStyle: TextStyle(fontWeight: FontWeight.bold),
+            prefixStyle: const TextStyle(fontWeight: FontWeight.bold),
             expandText: '더보기',
             collapseText: '접기',
             maxLines: 3,

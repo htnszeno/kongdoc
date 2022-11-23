@@ -10,7 +10,7 @@ class SocialList extends StatelessWidget {
   }) : super(key: key);
 
   final List<SocialItem> items;
-  final void Function(SocialItem) onSocialItemPressed;
+  final void Function(SocialItem?) onSocialItemPressed;
 
   @override
   Widget build(BuildContext context) {

@@ -45,17 +45,19 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     });
 
     on<SetSelectedItem>((event, emit) async {
-      if (event.selectedItem == null) {
-        emit(state.copyWith(selectedItem: null));
-        return;
-      }
+      emit(state.copyWith(selectedItem: event.selectedItem));
 
-      String? postId = event.selectedItem?.postId;
-      emit(state.copyWith(status: DataStatus.loading));
-      await Future.delayed(const Duration(seconds: 1));
-      final result = await _socialRepository.getSingle(postId: postId!);
-      emit(state.copyWith(
-          selectedItem: result.data?[0], status: DataStatus.loaded));
+      // 별도 화면에서 ajax로 불러오는 로직
+      // if (event.selectedItem == null) {
+      //   emit(state.copyWith(selectedItem: event.selectedItem));
+      //   return;
+      // }
+      // String? postId = event.selectedItem?.postId;
+      // emit(state.copyWith(status: DataStatus.loading));
+      // await Future.delayed(const Duration(seconds: 1));
+      // final result = await _socialRepository.getSingle(postId: postId!);
+      // emit(state.copyWith(
+      //     selectedItem: result.data?[0], status: DataStatus.loaded));
     });
 
     on<Filter>((event, emit) {

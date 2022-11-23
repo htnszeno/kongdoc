@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/pages/social/view/social_add_page.dart';
 import 'package:hifive/pages/social/view/social_item_page.dart';
 import 'package:hifive/pages/social/widget/social_list.dart';
@@ -58,12 +59,30 @@ class _SocialPageState extends State<SocialPage> {
     return false;
   }
 
-  void _onPressedItem(SocialItem social) {
+  void _onPressedItem(SocialItem? social) {
     context.read<SocialBloc>().add(SetSelectedItem(social));
     Navigator.of(context)
         .push(SocialItemPage.route(context.read<SocialBloc>()));
   }
 
+  void onSave(context, SocialState state, bloc) {
+    FocusScope.of(context).requestFocus(FocusNode());
+    final formGroup = bloc.formgroup;
+    final isEditing = bloc.state.hasSelectedItem;
+
+    if (bloc.state.isProcessing) return;
+    if (formGroup.invalid) {
+      // This will validate all [isRequired] AppTextField
+      formGroup.markAllAsTouched();
+      return;
+    }
+    final value = formGroup.value;
+    if (bloc.state.hasSelectedItem) {
+      final request = UpdateSocialRequest.fromFromGroup(value);
+      bloc.add(Update(request, bloc.state.selectedItem!.postId));
+    }
+    context.read<SocialBloc>().add(SetSelectedItem(null));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,16 +92,18 @@ class _SocialPageState extends State<SocialPage> {
           final isLoading =
               state.status.isRefreshing || state.status.isLoadingMore;
           return FloatingActionButton(
+
             backgroundColor: Theme.of(context).primaryColor,
             onPressed: () => isLoading
                 ? null
-                : Navigator.of(context).push(ImageSelectPage.route(context.read<SocialBloc>())),
+                : (state.selectedItem != null?onSave(context, state,  context.read<SocialBloc>()):Navigator.of(context).push(ImageSelectPage.route(context.read<SocialBloc>()))),
             child: isLoading
                 ? const CircularProgressIndicator(
                     color: Colors.white,
                   )
-                : const Icon(
-                    Icons.add,
+                : Icon(
+
+                    state.selectedItem==null?Icons.add:Icons.check,
                     color: Colors.white,
                   ),
           );
