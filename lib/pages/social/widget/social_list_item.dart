@@ -20,11 +20,14 @@ class SocialListItem extends StatefulWidget {
   const SocialListItem({
     Key? key,
     required this.social,
-    required this.onSocialItemPressed,
+    required this.onSave,
+    required this.formGroup
   }) : super(key: key);
 
   final SocialItem social;
-  final void Function(SocialItem) onSocialItemPressed;
+  final FormGroup formGroup;
+
+  final void Function(FormGroup) onSave;
 
   @override
   State<SocialListItem> createState() => _SocialListItemState();
@@ -59,14 +62,12 @@ class _SocialListItemState extends State<SocialListItem> {
     _socialBloc = context.read<SocialBloc>();
     final selectedItem =
         context.select((SocialBloc bloc) => bloc.state.selectedItem);
-    final formGroup = _socialBloc.formgroup;
-    final isEditing = _socialBloc.state.hasSelectedItem;
     return GestureDetector(
-      // onTap: () {
-      //   context.read<SocialBloc>().add(SetSelectedItem(null));
-      //   FocusManager.instance.primaryFocus?.unfocus();
-      // },
-      onTap: () => widget.onSocialItemPressed(widget.social),
+      onTap: () {
+        _socialBloc.add(SetSelectedItem(null));
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      // onTap: () => widget.onSocialItemPressed(widget.social),
       child: Dismissible(
         key: ValueKey("dismissable-${widget.social.postId}"),
         direction: DismissDirection.endToStart,
@@ -96,7 +97,7 @@ class _SocialListItemState extends State<SocialListItem> {
           return result;
         },
         onDismissed: (_) {
-          context.read<SocialBloc>().add(Delete(widget.social.postId));
+          _socialBloc.add(Delete(widget.social.postId));
         },
         child: Container(
           margin: const EdgeInsets.only(top: 20),
@@ -120,63 +121,18 @@ class _SocialListItemState extends State<SocialListItem> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ReactiveForm(
-                        formGroup: formGroup,
-                        child: Column(
-                          children: [
-                            AppTextField(
-                              formGroup: formGroup,
-                              focusNode: _contentTextFieldFocusNode,
-                              controlName: 'contents',
-                              label: "",
-                              maxLines: 0,
-                              isRequired: true,
-                              hintText: "Write your content here...",
-                            ),
-                          ],
+                        formGroup: widget.formGroup,
+                        child: AppTextField(
+                          focusNode: _contentTextFieldFocusNode,
+                          controlName: 'contents',
+                          label: "",
+                          maxLines: 0,
+                          isRequired: true,
+                          hintText: "Write your content here...",
+                          onSubmitted: (value)=> widget.onSave(widget.formGroup)
                         ),
                       ),
                     ),
-                  ),
-                  BlocConsumer<SocialBloc, SocialState>(
-                    listener: (context, state) {
-                      if (state.isProcessing) {
-                        showMessageSnackbar(
-                          context,
-                          "Processing...",
-                        );
-                      } else if (state.status.isSuccess) {
-                        showMessageSnackbar(
-                          context,
-                          state.msg,
-                        );
-                      } else if (state.status.isError) {
-                        showMessageSnackbar(
-                          context,
-                          state.msg,
-                          color: Colors.red,
-                        );
-                      }
-                    },
-                    builder: (context, state) {
-                      return ElevatedButton(
-                          onPressed: () {
-                            FocusScope.of(context).requestFocus(FocusNode());
-                            if (state.isProcessing) return;
-                            if (formGroup.invalid) {
-                              // This will validate all [isRequired] AppTextField
-                              formGroup.markAllAsTouched();
-                              return;
-                            }
-                            final value = formGroup.value;
-                            if (state.hasSelectedItem) {
-                              final request =
-                                  UpdateSocialRequest.fromFromGroup(value);
-                              _socialBloc.add(
-                                  Update(request, state.selectedItem!.postId));
-                            }
-                          },
-                          child: Text("SAVE"));
-                    },
                   ),
                   const SizedBox(height: 15),
                   _replyTextBtn(),
@@ -274,7 +230,7 @@ class _SocialListItemState extends State<SocialListItem> {
                       GestureDetector(
                         onTap: () {
                           Get.back();
-                          widget.onSocialItemPressed(widget.social);
+                          context.read<SocialBloc>().add(SocialEvent.setSelectedItem(widget.social));
                           _contentTextFieldFocusNode.requestFocus();
                         },
                         child: Container(

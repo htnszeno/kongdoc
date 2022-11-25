@@ -9,6 +9,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
@@ -33,6 +34,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FocusManager.instance.primaryFocus?.unfocus();
+    // 키보드 열려 있다면 닫는다.
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider.value(

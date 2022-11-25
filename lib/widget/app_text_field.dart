@@ -13,7 +13,8 @@ class AppTextField extends StatelessWidget {
       this.nextFocusControlName,
       this.formGroup,
       this.autofocus = false,
-      this.focusNode})
+      this.focusNode,
+      this.onChanged})
       : super(key: key);
 
   final String controlName;
@@ -26,6 +27,7 @@ class AppTextField extends StatelessWidget {
   final FormGroup? formGroup;
   final bool autofocus;
   final FocusNode? focusNode;
+  final void Function(FormControl<Object?>)? onChanged;
 
   _onSubmit(FormControl<Object?> control) {
     if (onSubmitted != null) {
@@ -40,6 +42,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ReactiveTextField(
+      onChanged: onChanged,
       focusNode: focusNode,
       autofocus: autofocus,
       maxLines: maxLines == 0 ? null : maxLines,
