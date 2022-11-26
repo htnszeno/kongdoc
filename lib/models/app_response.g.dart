@@ -16,6 +16,7 @@ AppResponse<T> _$AppResponseFromJson<T>(
       statusCode: json['statusCode'] as int?,
       statusMessage: json['statusMessage'] as String?,
       data: _$nullableGenericFromJson(json['data'], fromJsonT),
+      type: json['type'] as int?,
     );
 
 Map<String, dynamic> _$AppResponseToJson<T>(
@@ -28,6 +29,7 @@ Map<String, dynamic> _$AppResponseToJson<T>(
       'data': _$nullableGenericToJson(instance.data, toJsonT),
       'statusCode': instance.statusCode,
       'statusMessage': instance.statusMessage,
+      'type': instance.type,
     };
 
 T? _$nullableGenericFromJson<T>(

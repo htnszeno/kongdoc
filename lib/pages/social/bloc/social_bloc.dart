@@ -165,6 +165,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
           state.copyWith(
             msg: result.msg,
             status: DataStatus.error,
+            returnType: result.type!
           ),
         );
       }

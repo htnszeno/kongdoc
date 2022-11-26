@@ -1689,6 +1689,7 @@ mixin _$SocialState {
   SocialItem? get selectedItem => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   DataStatus get status => throw _privateConstructorUsedError;
+  int get returnType => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
   String get msg => throw _privateConstructorUsedError;
   List<AssetPathEntity> get albums => throw _privateConstructorUsedError;
@@ -1711,6 +1712,7 @@ abstract class $SocialStateCopyWith<$Res> {
       SocialItem? selectedItem,
       int page,
       DataStatus status,
+      int returnType,
       bool isLastPage,
       String msg,
       List<AssetPathEntity> albums,
@@ -1734,6 +1736,7 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
     Object? selectedItem = freezed,
     Object? page = freezed,
     Object? status = freezed,
+    Object? returnType = freezed,
     Object? isLastPage = freezed,
     Object? msg = freezed,
     Object? albums = freezed,
@@ -1757,6 +1760,10 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
+      returnType: returnType == freezed
+          ? _value.returnType
+          : returnType // ignore: cast_nullable_to_non_nullable
+              as int,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -1804,6 +1811,7 @@ abstract class _$$_SocialStateCopyWith<$Res>
       SocialItem? selectedItem,
       int page,
       DataStatus status,
+      int returnType,
       bool isLastPage,
       String msg,
       List<AssetPathEntity> albums,
@@ -1830,6 +1838,7 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
     Object? selectedItem = freezed,
     Object? page = freezed,
     Object? status = freezed,
+    Object? returnType = freezed,
     Object? isLastPage = freezed,
     Object? msg = freezed,
     Object? albums = freezed,
@@ -1853,6 +1862,10 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
+      returnType: returnType == freezed
+          ? _value.returnType
+          : returnType // ignore: cast_nullable_to_non_nullable
+              as int,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -1885,6 +1898,7 @@ class _$_SocialState extends _SocialState {
       required this.selectedItem,
       required this.page,
       required this.status,
+      required this.returnType,
       required this.isLastPage,
       required this.msg,
       required final List<AssetPathEntity> albums,
@@ -1909,6 +1923,8 @@ class _$_SocialState extends _SocialState {
   @override
   final DataStatus status;
   @override
+  final int returnType;
+  @override
   final bool isLastPage;
   @override
   final String msg;
@@ -1930,7 +1946,7 @@ class _$_SocialState extends _SocialState {
 
   @override
   String toString() {
-    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos)';
+    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, returnType: $returnType, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos)';
   }
 
   @override
@@ -1944,6 +1960,8 @@ class _$_SocialState extends _SocialState {
                 .equals(other.selectedItem, selectedItem) &&
             const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.returnType, returnType) &&
             const DeepCollectionEquality()
                 .equals(other.isLastPage, isLastPage) &&
             const DeepCollectionEquality().equals(other.msg, msg) &&
@@ -1961,6 +1979,7 @@ class _$_SocialState extends _SocialState {
       const DeepCollectionEquality().hash(selectedItem),
       const DeepCollectionEquality().hash(page),
       const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(returnType),
       const DeepCollectionEquality().hash(isLastPage),
       const DeepCollectionEquality().hash(msg),
       const DeepCollectionEquality().hash(_albums),
@@ -1979,6 +1998,7 @@ abstract class _SocialState extends SocialState {
       required final SocialItem? selectedItem,
       required final int page,
       required final DataStatus status,
+      required final int returnType,
       required final bool isLastPage,
       required final String msg,
       required final List<AssetPathEntity> albums,
@@ -1994,6 +2014,8 @@ abstract class _SocialState extends SocialState {
   int get page;
   @override
   DataStatus get status;
+  @override
+  int get returnType;
   @override
   bool get isLastPage;
   @override

@@ -95,12 +95,10 @@ class _AddNotePageState extends State<AddNotePage> {
         listener: (context, state) {
           if (state.isProcessing) {
             showMessageSnackbar(
-              context,
               "Processing...",
             );
           } else if (state.status.isSuccess) {
             showMessageSnackbar(
-              context,
               state.msg,
             );
             // Navigator.pop(context);
@@ -108,7 +106,6 @@ class _AddNotePageState extends State<AddNotePage> {
             // Navigator.of(context).popAndPushNamed('/note_home');
           } else if (state.status.isError) {
             showMessageSnackbar(
-              context,
               state.msg,
               color: Colors.red,
             );

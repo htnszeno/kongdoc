@@ -86,18 +86,15 @@ class _SocialItemPageState extends State<SocialItemPage> {
             listener: (context, state) {
               if (state.isProcessing) {
                 showMessageSnackbar(
-                  context,
                   "Processing...",
                 );
               } else if (state.status.isSuccess) {
                 showMessageSnackbar(
-                  context,
                   state.msg,
                 );
                 Navigator.of(context).pop();
               } else if (state.status.isError) {
                 showMessageSnackbar(
-                  context,
                   state.msg,
                   color: Colors.red,
                 );

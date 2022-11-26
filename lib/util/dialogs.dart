@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 void showMessageSnackbar(
-  BuildContext context,
   String message, {
   Color? color,
 }) {
@@ -10,7 +11,7 @@ void showMessageSnackbar(
     content: Text(message),
     behavior: SnackBarBehavior.floating,
   );
-  final scaffoldMsg = ScaffoldMessenger.of(context);
+  final scaffoldMsg = ScaffoldMessenger.of(Get.context!);
   scaffoldMsg
     ..hideCurrentSnackBar()
     ..showSnackBar(snackbar);

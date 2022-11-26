@@ -3,9 +3,11 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:hifive/enums/app_status.dart';
 import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/app_repository.dart';
+import 'package:hifive/util/dialogs.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 part 'app_event.dart';
@@ -29,22 +31,26 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       add(AppUserChanged(user));
     });
 
-    // on<AppActiveLoginRequested>(_onAppActiveLogin);
+    on<AppActiveLoginRequested>(_onAppActiveLogin);
   }
 
-  // void _onAppActiveLogin(
-  //     AppActiveLoginRequested event, Emitter<AppState> emit) async {
-  //   final initData = await _appRepository.getInit();
-  //   if (initData['TYPE'] == 200130) {
-  //     final prefs = await SharedPreferences.getInstance();
-  //     if (prefs.getString('USER_ID')?.isNotEmpty == true) {
-  //       final result = await _appRepository.logInWithUserIdAndPassword(
-  //         userId: prefs.getString('USER_ID').toString(),
-  //         password: prefs.getString('PW').toString(),
-  //       );
-  //     }
-  //   }
-  // }
+/**
+ * 강제로인 처리  
+ */
+  void _onAppActiveLogin(
+      AppActiveLoginRequested event, Emitter<AppState> emit) async {
+    final initData = await _appRepository.getInit();
+    if (initData['type'] == 200130) {
+      final prefs = await SharedPreferences.getInstance();
+      if (prefs.getString('USER_ID')?.isNotEmpty == true) {
+        final result = await _appRepository.logInWithUserIdAndPassword(
+          userId: prefs.getString('USER_ID').toString(),
+          password: prefs.getString('PW').toString(),
+        );
+        showMessageSnackbar(result['msg']);
+      }
+    }
+  }
 
   void _onLogoutRequested(
       AppLogoutRequested event, Emitter<AppState> emit) async {

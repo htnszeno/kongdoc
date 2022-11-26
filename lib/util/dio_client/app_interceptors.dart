@@ -64,7 +64,6 @@ class AppInterceptors extends QueuedInterceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
     final prefs = await SharedPreferences.getInstance();
-
     final responseData = mapResponseData(
         requestOptions: response.requestOptions, response: response);
     // 로그인 성공 후
@@ -76,6 +75,10 @@ class AppInterceptors extends QueuedInterceptor {
       Globals().setCsrfToken = token;
     } else if (response.data['type'] == 200111) {
       prefs.remove('CSRF_TOKEN');
+    }else if(response.data['type'] == 200130){
+      // "msg" -> "Invalid CSRF Token '3f3f081b-ecfc-46d8-9621-0221b15fe9fb' was found on the request parameter '_csrf'..."
+      // context.read<AppBloc>().add(AppLogoutRequested());
+      // Globals().appBloc.add(AppActiveLoginRequested());
     }
 
     return handler.resolve(responseData);

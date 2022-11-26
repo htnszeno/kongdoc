@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/app/view/app.dart';
 import 'package:hifive/enums/data_status.dart';
 import 'package:hifive/models/social_model.dart';
@@ -93,10 +94,13 @@ class _SocialPageState extends State<SocialPage> {
             listener: (context, state) {
               if (state.status.isError) {
                 showMessageSnackbar(
-                  context,
                   state.msg,
                   color: Colors.red,
                 );
+                if(state.returnType==200130){
+                  // context.read<AppBloc>().add(AppLogoutRequested());
+
+                }
               }
             },
             builder: (context, state) {

@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/config.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/app_response.dart';

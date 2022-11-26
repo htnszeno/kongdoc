@@ -89,12 +89,10 @@ class _ExamCubitItemPageState extends State<ExamCubitItemPage> {
             listener: (context, state) {
               if (state.isProcessing) {
                 showMessageSnackbar(
-                  context,
                   "Processing...",
                 );
               } else if (state.status.isSuccess) {
                 showMessageSnackbar(
-                  context,
                   state.msg,
                 );
                 // Navigator.pop(context);
@@ -102,7 +100,6 @@ class _ExamCubitItemPageState extends State<ExamCubitItemPage> {
                 // Navigator.of(context).popAndPushNamed('/note_home');
               } else if (state.status.isError) {
                 showMessageSnackbar(
-                  context,
                   state.msg,
                   color: Colors.red,
                 );

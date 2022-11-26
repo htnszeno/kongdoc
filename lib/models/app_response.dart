@@ -20,37 +20,35 @@ class AppResponse<T> extends Equatable {
   /// statusMessage added by http response (Not from server)
   final String statusMessage;
 
-  const AppResponse._({
-    required this.success,
-    required this.msg,
-    required this.statusCode,
-    required this.statusMessage,
-    this.data,
-  });
+  final int? type;
 
-  factory AppResponse({
-    required success,
-    required String msg,
-    int? statusCode,
-    String? statusMessage,
-    T? data,
-  }) {
+  const AppResponse._(
+      {required this.success,
+      required this.msg,
+      required this.statusCode,
+      required this.statusMessage,
+      this.data,
+      this.type});
+
+  factory AppResponse(
+      {required success,
+      required String msg,
+      int? statusCode,
+      String? statusMessage,
+      T? data,
+      int? type}) {
     return AppResponse._(
-      success: success??false,
-      msg: msg,
-      statusCode: statusCode ?? 200,
-      statusMessage: statusMessage ?? "The request has succeeded.",
-      data: data,
-    );
+        success: success ?? false,
+        msg: msg,
+        statusCode: statusCode ?? 200,
+        statusMessage: statusMessage ?? "The request has succeeded.",
+        data: data,
+        type: type);
   }
 
   @override
   List<Object> get props {
-    return [
-      success,
-      msg,
-      data ?? "",
-    ];
+    return [success, msg, data ?? "", type ?? 0];
   }
 
   factory AppResponse.fromJson(

@@ -17,12 +17,12 @@ import 'package:hifive/widget/image_data.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class SocialListItem extends StatefulWidget {
-  const SocialListItem({
-    Key? key,
-    required this.social,
-    required this.onSave,
-    required this.formGroup
-  }) : super(key: key);
+  const SocialListItem(
+      {Key? key,
+      required this.social,
+      required this.onSave,
+      required this.formGroup})
+      : super(key: key);
 
   final SocialItem social;
   final FormGroup formGroup;
@@ -123,14 +123,14 @@ class _SocialListItemState extends State<SocialListItem> {
                       child: ReactiveForm(
                         formGroup: widget.formGroup,
                         child: AppTextField(
-                          focusNode: _contentTextFieldFocusNode,
-                          controlName: 'contents',
-                          label: "",
-                          maxLines: 0,
-                          isRequired: true,
-                          hintText: "Write your content here...",
-                          onSubmitted: (value)=> widget.onSave(widget.formGroup)
-                        ),
+                            focusNode: _contentTextFieldFocusNode,
+                            controlName: 'contents',
+                            label: "",
+                            maxLines: 0,
+                            isRequired: true,
+                            hintText: "Write your content here...",
+                            onSubmitted: (value) =>
+                                widget.onSave(widget.formGroup)),
                       ),
                     ),
                   ),
@@ -230,7 +230,9 @@ class _SocialListItemState extends State<SocialListItem> {
                       GestureDetector(
                         onTap: () {
                           Get.back();
-                          context.read<SocialBloc>().add(SocialEvent.setSelectedItem(widget.social));
+                          context
+                              .read<SocialBloc>()
+                              .add(SocialEvent.setSelectedItem(widget.social));
                           _contentTextFieldFocusNode.requestFocus();
                         },
                         child: Container(
@@ -313,6 +315,7 @@ class _SocialListItemState extends State<SocialListItem> {
                     'X-CSRF-TOKEN': Globals().csrfToken,
                     'Cookie': Globals().cookie,
                   },
+                  fit: BoxFit.cover,
                   imageUrl:
                       '${Constants.baseApiUrl}/api/file/getDownload/Onix/$i'),
             );

@@ -18,13 +18,15 @@ import 'package:hifive/enums/app_status.dart';
 import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/main_page.dart';
 import 'package:hifive/repositories/app_repository.dart';
-import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/theme.dart';
+import 'package:hifive/util/dialogs.dart';
+import 'package:hifive/util/global.dart';
 
 class App extends StatelessWidget {
   final AppRepository _appRepository;
   final SocialRepository _socialRepository;
+
   const App({
     super.key,
     required AppRepository appRepository,
@@ -65,26 +67,26 @@ class AppView extends StatefulWidget {
 class _AppViewState extends State<AppView> {
   final _navigatorKey = GlobalKey<NavigatorState>();
   bool isAppInactive = false;
+
   NavigatorState get _navigator => _navigatorKey.currentState!;
 
   @override
   void initState() {
     super.initState();
     // @todo : 추후 사용 가능할때 ..
-    // WidgetsBinding.instance.addObserver(
-    //   LifecycleEventHandler(
-    //     resumeCallBack: () async => setState(() {
-    //       setState(() {
-    //         isAppInactive = false;
-    //       });
-    //     }),
-    //     suspendingCallBack: () async {
-    //       setState(() {
-    //         isAppInactive = true;
-    //       });
-    //     },
-    //   ),
-    // );
+    WidgetsBinding.instance.addObserver(
+      LifecycleEventHandler(
+        resumeCallBack: () async => setState(() {
+          isAppInactive = false;
+          Globals().appBloc.add(AppActiveLoginRequested());
+        }),
+        suspendingCallBack: () async {
+          setState(() {
+            isAppInactive = true;
+          });
+        },
+      ),
+    );
   }
 
   @override
@@ -94,6 +96,8 @@ class _AppViewState extends State<AppView> {
 
   @override
   Widget build(BuildContext context) {
+    // set global
+    Globals().setAppBloc = context.read<AppBloc>();
     return GetMaterialApp(
       theme: theme,
       debugShowCheckedModeBanner: false,
