@@ -90,7 +90,6 @@ class _SocialListItemState extends State<SocialListItem> {
         ),
         confirmDismiss: (_) async {
           final result = showConfirmation(
-            context,
             title: "Are you sure?",
             content: "You want to delete this note?",
           );
@@ -126,7 +125,7 @@ class _SocialListItemState extends State<SocialListItem> {
                             focusNode: _contentTextFieldFocusNode,
                             controlName: 'contents',
                             label: "",
-                            maxLines: 0,
+                            maxLines: 5,
                             isRequired: true,
                             hintText: "Write your content here...",
                             onSubmitted: (value) =>
@@ -211,22 +210,22 @@ class _SocialListItemState extends State<SocialListItem> {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.star_border),
+                            icon: const Icon(Icons.star_border),
                           ),
                           Text("즐겨찾기에 추가 ")
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Row(
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(FontAwesomeIcons.outdent),
+                            icon: const Icon(FontAwesomeIcons.outdent),
                           ),
-                          Text("친구 취소")
+                          const Text("친구 취소")
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       GestureDetector(
                         onTap: () {
                           Get.back();
@@ -236,23 +235,48 @@ class _SocialListItemState extends State<SocialListItem> {
                           _contentTextFieldFocusNode.requestFocus();
                         },
                         child: Container(
-                          color: Colors.blue,
-                          height: 60,
+                          height: 40,
                           child: Row(
                             children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 15, right: 10),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 15, right: 10),
                                 child: Icon(Icons.edit),
                               ),
-                              Text(
+                              const Text(
                                 "수정",
                               ),
                             ],
                           ),
                         ),
                       ),
-                      Divider()
+                      const Divider(),
+                      GestureDetector(
+                        onTap: () async {
+                          final result = await showConfirmation(
+                            title: "확인",
+                            content: "게시물을 삭제하시겠습니까.?",
+                          );
+                          if(result){
+                            Get.back();
+                            context.read<SocialBloc>().add(SocialEvent.delete(widget.social.postId));
+                          }
+                        },
+                        child: Container(
+                          height: 40,
+                          child: Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(left: 15, right: 10),
+                                child: Icon(Icons.delete),
+                              ),
+                              const Text(
+                                "삭제",
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Divider()
                     ]),
               ),
             )

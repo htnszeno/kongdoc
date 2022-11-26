@@ -72,7 +72,6 @@ class ExamListItem extends StatelessWidget {
           ),
           confirmDismiss: (_) async {
             final result = showConfirmation(
-              context,
               title: "Are you sure?",
               content: "You want to delete this note?",
             );

@@ -97,10 +97,6 @@ class _SocialPageState extends State<SocialPage> {
                   state.msg,
                   color: Colors.red,
                 );
-                if(state.returnType==200130){
-                  // context.read<AppBloc>().add(AppLogoutRequested());
-
-                }
               }
             },
             builder: (context, state) {

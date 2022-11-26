@@ -8,6 +8,7 @@ import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/repositories/social_repository.dart';
+import 'package:hifive/util/dialogs.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -36,8 +37,9 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       await _getFirstPage(emit);
     });
 
-    on<Delete>((event, emit) {
-      _socialRepository.deleteSingle(event.postId);
+    on<Delete>((event, emit) async{
+      await _socialRepository.deleteSingle(event.postId);
+      showMessageSnackbar('게시물이 삭제되었습니다.');
       emit(state.copyWith(
         listItems: [...state.listItems]
           ..removeWhere((element) => element.postId == event.postId),
