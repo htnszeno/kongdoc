@@ -19,4 +19,7 @@ class Endpoints {
   ////////////////// 쇼셜 SNS ///////////////////
   static const socialGetMany = '/api/SO001SVC/get';
   static const socialCreate = '/api/SO001SVC/create';
+  static const addLikeCount = '/api/SO002SVC/addLikeCount';
+  static const getLikeMany = '/api/SO002SVC/getLikeMany';
+
 }

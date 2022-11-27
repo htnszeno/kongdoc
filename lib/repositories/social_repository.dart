@@ -120,12 +120,13 @@ class SocialRepository {
   }
 
   Future<AppResponse<List<SocialItem>?>> getMany({
-    required int currentPage,
+    int currentPage=1,
     int limit = 20,
+    String? postId,
   }) async {
     int start = currentPage == 1 ? 0 : ((currentPage * limit) - limit);
     final response = await _dioClient.post(Endpoints.socialGetMany,
-        data: {'start': start, 'limit': limit, 'page': currentPage});
+        data: {'start': start, 'limit': limit, 'page': currentPage, 'postId': postId});
 
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
         (dynamic json) {
@@ -133,5 +134,34 @@ class SocialRepository {
           .map((e) => SocialItem.fromJson(e))
           .toList();
     });
+  }
+
+  /**
+   * 좋아요 전체 가져오기
+   */
+  Future<AppResponse<List<SocialItem>?>> getLikeMany({
+    String? postId,
+    String? userId
+  }) async {
+    final response = await _dioClient.post(Endpoints.getLikeMany,
+        data: {'postId': postId, 'likeUserId': userId});
+
+    return AppResponse<List<SocialItem>?>.fromJson(response.data,
+            (dynamic json) {
+          return (json as List<dynamic>)
+              .map((e) => SocialItem.fromJson(e))
+              .toList();
+        });
+  }
+
+  // 좋아요
+  Future<AppResponse<int?>> addLikeCount(String postId, String userId) async {
+    final response = await _dioClient.post(
+      Endpoints.addLikeCount,
+        data: {'postId': postId, 'likeUserId': userId},);
+    return AppResponse<int?>.fromJson(
+      response.data,
+          (json) => response.data['success'] && json != null ? json as int : null,
+    );
   }
 }

@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
-import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/pages/social/widget/avatar_widget.dart';
 import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/util/global.dart';
@@ -43,8 +42,10 @@ class _SocialListItemState extends State<SocialListItem> {
 
   @override
   void initState() {
-    for (int i = 0; i < widget.social.images.length; i++) {
-      mgtCodes.add(widget.social.images[i]['FILE_MGT_CODE']);
+    if (widget.social.images != null) {
+      for (int i = 0; i < widget.social.images.length; i++) {
+        mgtCodes.add(widget.social.images[i]['FILE_MGT_CODE']);
+      }
     }
     _textEditingController.text = widget.social.contents!;
     _contentTextFieldFocusNode = FocusNode();
@@ -256,9 +257,11 @@ class _SocialListItemState extends State<SocialListItem> {
                             title: "확인",
                             content: "게시물을 삭제하시겠습니까.?",
                           );
-                          if(result){
+                          if (result) {
                             Get.back();
-                            context.read<SocialBloc>().add(SocialEvent.delete(widget.social.postId));
+                            context
+                                .read<SocialBloc>()
+                                .add(SocialEvent.delete(widget.social.postId));
                           }
                         },
                         child: Container(
@@ -295,7 +298,7 @@ class _SocialListItemState extends State<SocialListItem> {
           AvatarWidget(
             type: AvatarType.TYPE3,
             size: 40,
-            nickname: social.addUserName,
+            nickname: social.userName,
             thumbPath: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
           ),
           IconButton(
@@ -361,14 +364,21 @@ class _SocialListItemState extends State<SocialListItem> {
             child: Row(
               children: [
                 IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: BoxConstraints(),
-                  icon: const FaIcon(
-                    size: 20,
-                    FontAwesomeIcons.heart,
-                  ),
-                  onPressed: () {},
-                ),
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints(),
+                    icon: FaIcon(
+                        size: 20,
+                        color: widget.social.isLike == 1
+                            ? Colors.red
+                            : Colors.black,
+                        widget.social.isLike == 1
+                            ? FontAwesomeIcons.heartCircleBolt
+                            : FontAwesomeIcons.heart),
+                    // onPressed:(){}
+                    onPressed: () {
+                      context.read<SocialBloc>().add(AddLikeCount(
+                          widget.social.postId, Globals().session['user_id']));
+                    }),
                 const SizedBox(
                   width: 10,
                 ),
@@ -408,8 +418,8 @@ class _SocialListItemState extends State<SocialListItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            '좋아요 120개',
+           Text(
+            '좋아요 ${social.likeCount}개',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           ExpandableText(

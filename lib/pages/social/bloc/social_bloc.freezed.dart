@@ -29,6 +29,7 @@ mixin _$SocialEvent {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +43,7 @@ mixin _$SocialEvent {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +57,7 @@ mixin _$SocialEvent {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +72,7 @@ mixin _$SocialEvent {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +86,7 @@ mixin _$SocialEvent {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,6 +100,7 @@ mixin _$SocialEvent {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -165,6 +171,7 @@ class _$Started implements Started {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return started();
   }
@@ -181,6 +188,7 @@ class _$Started implements Started {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return started?.call();
   }
@@ -197,6 +205,7 @@ class _$Started implements Started {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -217,6 +226,7 @@ class _$Started implements Started {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return started(this);
   }
@@ -233,6 +243,7 @@ class _$Started implements Started {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return started?.call(this);
   }
@@ -249,6 +260,7 @@ class _$Started implements Started {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -337,6 +349,7 @@ class _$FileUpload implements FileUpload {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return fileUpload(file);
   }
@@ -353,6 +366,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return fileUpload?.call(file);
   }
@@ -369,6 +383,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (fileUpload != null) {
@@ -389,6 +404,7 @@ class _$FileUpload implements FileUpload {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return fileUpload(this);
   }
@@ -405,6 +421,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return fileUpload?.call(this);
   }
@@ -421,6 +438,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (fileUpload != null) {
@@ -489,6 +507,7 @@ class _$LoadMore implements LoadMore {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return loadMore();
   }
@@ -505,6 +524,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return loadMore?.call();
   }
@@ -521,6 +541,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -541,6 +562,7 @@ class _$LoadMore implements LoadMore {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return loadMore(this);
   }
@@ -557,6 +579,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return loadMore?.call(this);
   }
@@ -573,6 +596,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -635,6 +659,7 @@ class _$Refresh implements Refresh {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return refresh();
   }
@@ -651,6 +676,7 @@ class _$Refresh implements Refresh {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return refresh?.call();
   }
@@ -667,6 +693,7 @@ class _$Refresh implements Refresh {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -687,6 +714,7 @@ class _$Refresh implements Refresh {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return refresh(this);
   }
@@ -703,6 +731,7 @@ class _$Refresh implements Refresh {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return refresh?.call(this);
   }
@@ -719,6 +748,7 @@ class _$Refresh implements Refresh {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -822,6 +852,7 @@ class _$SetSelectedItem implements SetSelectedItem {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return setSelectedItem(selectedItem);
   }
@@ -838,6 +869,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return setSelectedItem?.call(selectedItem);
   }
@@ -854,6 +886,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -874,6 +907,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return setSelectedItem(this);
   }
@@ -890,6 +924,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return setSelectedItem?.call(this);
   }
@@ -906,6 +941,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -1017,6 +1053,7 @@ class _$Update implements Update {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return update(request, postId);
   }
@@ -1033,6 +1070,7 @@ class _$Update implements Update {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return update?.call(request, postId);
   }
@@ -1049,6 +1087,7 @@ class _$Update implements Update {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1069,6 +1108,7 @@ class _$Update implements Update {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return update(this);
   }
@@ -1085,6 +1125,7 @@ class _$Update implements Update {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return update?.call(this);
   }
@@ -1101,6 +1142,7 @@ class _$Update implements Update {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1217,6 +1259,7 @@ class _$Create implements Create {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return create(request, images);
   }
@@ -1233,6 +1276,7 @@ class _$Create implements Create {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return create?.call(request, images);
   }
@@ -1249,6 +1293,7 @@ class _$Create implements Create {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1269,6 +1314,7 @@ class _$Create implements Create {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return create(this);
   }
@@ -1285,6 +1331,7 @@ class _$Create implements Create {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return create?.call(this);
   }
@@ -1301,6 +1348,7 @@ class _$Create implements Create {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1394,6 +1442,7 @@ class _$Delete implements Delete {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return delete(postId);
   }
@@ -1410,6 +1459,7 @@ class _$Delete implements Delete {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return delete?.call(postId);
   }
@@ -1426,6 +1476,7 @@ class _$Delete implements Delete {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1446,6 +1497,7 @@ class _$Delete implements Delete {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return delete(this);
   }
@@ -1462,6 +1514,7 @@ class _$Delete implements Delete {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return delete?.call(this);
   }
@@ -1478,6 +1531,7 @@ class _$Delete implements Delete {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1579,6 +1633,7 @@ class _$Filter implements Filter {
         create,
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
   }) {
     return filterNotes(type, data);
   }
@@ -1595,6 +1650,7 @@ class _$Filter implements Filter {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
   }) {
     return filterNotes?.call(type, data);
   }
@@ -1611,6 +1667,7 @@ class _$Filter implements Filter {
     TResult Function(CreateSocialRequest request, List<File> images)? create,
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -1631,6 +1688,7 @@ class _$Filter implements Filter {
     required TResult Function(Create value) create,
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
   }) {
     return filterNotes(this);
   }
@@ -1647,6 +1705,7 @@ class _$Filter implements Filter {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
   }) {
     return filterNotes?.call(this);
   }
@@ -1663,6 +1722,7 @@ class _$Filter implements Filter {
     TResult Function(Create value)? create,
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -1680,6 +1740,201 @@ abstract class Filter implements SocialEvent {
   dynamic get data;
   @JsonKey(ignore: true)
   _$$FilterCopyWith<_$Filter> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddLikeCountCopyWith<$Res> {
+  factory _$$AddLikeCountCopyWith(
+          _$AddLikeCount value, $Res Function(_$AddLikeCount) then) =
+      __$$AddLikeCountCopyWithImpl<$Res>;
+  $Res call({String postId, String userId});
+}
+
+/// @nodoc
+class __$$AddLikeCountCopyWithImpl<$Res> extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$AddLikeCountCopyWith<$Res> {
+  __$$AddLikeCountCopyWithImpl(
+      _$AddLikeCount _value, $Res Function(_$AddLikeCount) _then)
+      : super(_value, (v) => _then(v as _$AddLikeCount));
+
+  @override
+  _$AddLikeCount get _value => super._value as _$AddLikeCount;
+
+  @override
+  $Res call({
+    Object? postId = freezed,
+    Object? userId = freezed,
+  }) {
+    return _then(_$AddLikeCount(
+      postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddLikeCount implements AddLikeCount {
+  const _$AddLikeCount(this.postId, this.userId);
+
+  @override
+  final String postId;
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'SocialEvent.addLikeCount(postId: $postId, userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddLikeCount &&
+            const DeepCollectionEquality().equals(other.postId, postId) &&
+            const DeepCollectionEquality().equals(other.userId, userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(postId),
+      const DeepCollectionEquality().hash(userId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$AddLikeCountCopyWith<_$AddLikeCount> get copyWith =>
+      __$$AddLikeCountCopyWithImpl<_$AddLikeCount>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(File file) fileUpload,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
+  }) {
+    return addLikeCount(postId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+  }) {
+    return addLikeCount?.call(postId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    required TResult orElse(),
+  }) {
+    if (addLikeCount != null) {
+      return addLikeCount(postId, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(FileUpload value) fileUpload,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
+  }) {
+    return addLikeCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+  }) {
+    return addLikeCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    required TResult orElse(),
+  }) {
+    if (addLikeCount != null) {
+      return addLikeCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddLikeCount implements SocialEvent {
+  const factory AddLikeCount(final String postId, final String userId) =
+      _$AddLikeCount;
+
+  String get postId;
+  String get userId;
+  @JsonKey(ignore: true)
+  _$$AddLikeCountCopyWith<_$AddLikeCount> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

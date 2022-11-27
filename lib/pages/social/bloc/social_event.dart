@@ -28,4 +28,7 @@ class SocialEvent with _$SocialEvent {
 
   const factory SocialEvent.filterNotes(FilterDataType type, dynamic data) =
       Filter;
+
+  // 좋아요
+  const factory SocialEvent.addLikeCount(String postId, String userId) = AddLikeCount;
 }

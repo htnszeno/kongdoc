@@ -49,7 +49,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     on<SetSelectedItem>((event, emit) async {
       emit(state.copyWith(selectedItem: event.selectedItem));
 
-      // 별도 화면에서 ajax로 불러오는 로직
+      // 별도 화면에서 ajax로 불러오는 로직 화면 변화로 제거됨.
       // if (event.selectedItem == null) {
       //   emit(state.copyWith(selectedItem: event.selectedItem));
       //   return;
@@ -137,6 +137,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
         ));
       }
     });
+
     on<LoadMore>((event, emit) async {
       if (state.status.isLoadingMore || state.isLastPage) return;
 
@@ -172,9 +173,31 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
         );
       }
     });
-    // on<FileUpload>((event, emit) async {
-    //
-    // });
+    on<AddLikeCount>((event, emit) async {
+      await _socialRepository.addLikeCount(event.postId, event.userId);
+      final result = await _socialRepository.getMany(postId: event.postId!);
+
+      if (result.success) {
+        List<SocialItem> listItems = [...state.listItems];
+        final updateNoteIndex =
+        listItems.indexWhere((element) => element.postId == event.postId);
+        if (updateNoteIndex != -1) {
+          listItems[updateNoteIndex] = result.data![0];
+        }
+
+        emit(state.copyWith(
+            listItems: listItems,
+            status: DataStatus.loaded,
+            msg: result.msg,
+        ));
+      } else {
+        emit(state.copyWith(
+          msg: result.msg,
+          status: DataStatus.error,
+        ));
+      }
+
+    });
   }
 
   Future<void> _getFirstPage(Emitter<SocialState> emit) async {

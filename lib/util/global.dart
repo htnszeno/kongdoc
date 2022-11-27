@@ -10,13 +10,16 @@ class Globals {
     _appDirectoryPath = '';
     _csrfToken = '';
     _cookie = '';
-    _appBloc=null;
+    _appBloc = null;
   }
 
   String? _appDirectoryPath;
   String? _csrfToken;
   String? _cookie;
   AppBloc? _appBloc;
+  dynamic? _session;
+
+  dynamic get session => _session;
 
   String get csrfToken => _csrfToken!;
 
@@ -33,4 +36,6 @@ class Globals {
   set setAppDirectoryPath(String value) => _appDirectoryPath = value;
 
   set setAppBloc(AppBloc value) => _appBloc = value;
+
+  set setSession(dynamic value) => _session = value;
 }

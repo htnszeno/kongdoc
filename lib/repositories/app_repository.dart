@@ -11,6 +11,7 @@ import 'package:hifive/constants.dart';
 import 'package:hifive/models/user_model.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
+import 'package:hifive/util/global.dart';
 import 'package:photo_manager/photo_manager.dart';
 
 // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
@@ -81,6 +82,7 @@ class AppRepository {
     final initData = await getInit();
     if (initData['type'] == 1) {
       var session = initData['data']['session'];
+      Globals().setSession = session;
       user = User(
           userId: session['user_id'],
           userName: session['user_name_eng'],
@@ -155,6 +157,8 @@ class AppRepository {
           userName: session['user_name_loc'],
           email: session['email'],
         ));
+
+        Globals().setSession = session;
       }
     }
     return response.data;
