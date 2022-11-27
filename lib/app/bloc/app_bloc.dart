@@ -47,7 +47,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           userId: prefs.getString('USER_ID').toString(),
           password: prefs.getString('PW').toString(),
         );
-        showMessageSnackbar(result['msg']);
       }
     }
   }

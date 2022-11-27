@@ -55,21 +55,20 @@ class SocialRepository {
     );
   }
 
-  Future<AppResponse<SocialItem?>> update(UpdateSocialRequest request) async {
+  Future<AppResponse<List<SocialItem>?>> update(UpdateSocialRequest request) async {
     final response = await _dioClient.post(
       "/api/SO001SVC/put",
       data: request.toJson(),
     );
-
-    return AppResponse<SocialItem?>.fromJson(
-      response.data,
-      (dynamic json) => response.data['success'] && json != null
-          ? SocialItem.fromJson(json)
-          : null,
-    );
+    return AppResponse<List<SocialItem>?>.fromJson(response.data,
+            (dynamic json) {
+          return (json as List<dynamic>)
+              .map((e) => SocialItem.fromJson(e))
+              .toList();
+        });
   }
 
-  Future<AppResponse<SocialItem?>> create(
+  Future<AppResponse<List<SocialItem>?>>  create(
       CreateSocialRequest request, String postId) async {
     Map data = request.toJson();
     data["postId"] = postId;
@@ -78,12 +77,12 @@ class SocialRepository {
       Endpoints.socialCreate,
       data: data,
     );
-    return AppResponse<SocialItem?>.fromJson(
-      response.data,
-      (dynamic json) => response.data['success'] && json != null
-          ? SocialItem.fromJson(json)
-          : null,
-    );
+    return AppResponse<List<SocialItem>?>.fromJson(response.data,
+            (dynamic json) {
+          return (json as List<dynamic>)
+              .map((e) => SocialItem.fromJson(e))
+              .toList();
+        });
   }
 
   Future<AppResponse<List<SocialItem>?>> getSingle(
@@ -120,13 +119,17 @@ class SocialRepository {
   }
 
   Future<AppResponse<List<SocialItem>?>> getMany({
-    int currentPage=1,
+    int currentPage = 1,
     int limit = 20,
     String? postId,
   }) async {
     int start = currentPage == 1 ? 0 : ((currentPage * limit) - limit);
-    final response = await _dioClient.post(Endpoints.socialGetMany,
-        data: {'start': start, 'limit': limit, 'page': currentPage, 'postId': postId});
+    final response = await _dioClient.post(Endpoints.socialGetMany, data: {
+      'start': start,
+      'limit': limit,
+      'page': currentPage,
+      'postId': postId
+    });
 
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
         (dynamic json) {
@@ -139,29 +142,28 @@ class SocialRepository {
   /**
    * 좋아요 전체 가져오기
    */
-  Future<AppResponse<List<SocialItem>?>> getLikeMany({
-    String? postId,
-    String? userId
-  }) async {
+  Future<AppResponse<List<SocialItem>?>> getLikeMany(
+      {String? postId, String? userId}) async {
     final response = await _dioClient.post(Endpoints.getLikeMany,
         data: {'postId': postId, 'likeUserId': userId});
 
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
-            (dynamic json) {
-          return (json as List<dynamic>)
-              .map((e) => SocialItem.fromJson(e))
-              .toList();
-        });
+        (dynamic json) {
+      return (json as List<dynamic>)
+          .map((e) => SocialItem.fromJson(e))
+          .toList();
+    });
   }
 
   // 좋아요
   Future<AppResponse<int?>> addLikeCount(String postId, String userId) async {
     final response = await _dioClient.post(
       Endpoints.addLikeCount,
-        data: {'postId': postId, 'likeUserId': userId},);
+      data: {'postId': postId, 'likeUserId': userId},
+    );
     return AppResponse<int?>.fromJson(
       response.data,
-          (json) => response.data['success'] && json != null ? json as int : null,
+      (json) => response.data['success'] && json != null ? json as int : null,
     );
   }
 }

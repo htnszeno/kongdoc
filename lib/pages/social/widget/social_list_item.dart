@@ -13,7 +13,9 @@ import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/util/global.dart';
 import 'package:hifive/widget/app_text_field.dart';
 import 'package:hifive/widget/image_data.dart';
+import 'package:hifive/widget/placeholders.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:shimmer/shimmer.dart';
 
 class SocialListItem extends StatefulWidget {
   const SocialListItem(
@@ -336,8 +338,14 @@ class _SocialListItemState extends State<SocialListItem> {
         return Builder(
           builder: (BuildContext context) {
             return SizedBox(
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               child: CachedNetworkImage(
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Shimmer.fromColors(
+                        baseColor: Colors.grey.shade300,
+                        highlightColor: Colors.grey.shade100,
+                        child: const BannerPlaceholder(),
+                      ),
                   httpHeaders: {
                     'X-CSRF-TOKEN': Globals().csrfToken,
                     'Cookie': Globals().cookie,
@@ -365,7 +373,7 @@ class _SocialListItemState extends State<SocialListItem> {
               children: [
                 IconButton(
                     padding: EdgeInsets.zero,
-                    constraints: BoxConstraints(),
+                    constraints: const BoxConstraints(),
                     icon: FaIcon(
                         size: 20,
                         color: widget.social.isLike == 1
@@ -384,7 +392,7 @@ class _SocialListItemState extends State<SocialListItem> {
                 ),
                 IconButton(
                   padding: EdgeInsets.zero,
-                  constraints: BoxConstraints(),
+                  constraints: const BoxConstraints(),
                   icon: const FaIcon(
                     size: 20,
                     FontAwesomeIcons.message,
@@ -418,7 +426,7 @@ class _SocialListItemState extends State<SocialListItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-           Text(
+          Text(
             '좋아요 ${social.likeCount}개',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),

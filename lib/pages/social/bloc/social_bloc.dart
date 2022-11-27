@@ -95,7 +95,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
         final updateNoteIndex =
             listItems.indexWhere((element) => element.postId == event.postId);
         if (updateNoteIndex != -1) {
-          listItems[updateNoteIndex] = result.data!;
+          listItems[updateNoteIndex] = result.data![0];
         }
         emit(state.copyWith(
           msg: result.msg,
@@ -123,7 +123,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       final result =
           await _socialRepository.create(event.request, postIdData.data!);
       if (result.success) {
-        listItems = [result.data!, ...listItems];
+        listItems = [result.data![0], ...listItems];
 
         emit(state.copyWith(
             msg: result.msg,
