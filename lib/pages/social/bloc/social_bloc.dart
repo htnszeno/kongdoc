@@ -25,7 +25,11 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     required SocialRepository socialRepository,
   })  : _socialRepository = socialRepository,
         super(SocialState.initial()) {
-    on<SocialEvent>((event, emit) {});
+    // 좋아요 리스트
+    on<ReqeustLikeData>((event, emit) async{
+      await _getLikeFirstPage(event, emit);
+    });
+
     on<Refresh>((event, emit) async {
       if (state.status.isRefreshing) return;
 
@@ -37,7 +41,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       await _getFirstPage(emit);
     });
 
-    on<Delete>((event, emit) async{
+    on<Delete>((event, emit) async {
       await _socialRepository.deleteSingle(event.postId);
       showMessageSnackbar('게시물이 삭제되었습니다.');
       emit(state.copyWith(
@@ -166,10 +170,9 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       } else {
         emit(
           state.copyWith(
-            msg: result.msg,
-            status: DataStatus.error,
-            returnType: result.type!
-          ),
+              msg: result.msg,
+              status: DataStatus.error,
+              returnType: result.type!),
         );
       }
     });
@@ -180,15 +183,15 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       if (result.success) {
         List<SocialItem> listItems = [...state.listItems];
         final updateNoteIndex =
-        listItems.indexWhere((element) => element.postId == event.postId);
+            listItems.indexWhere((element) => element.postId == event.postId);
         if (updateNoteIndex != -1) {
           listItems[updateNoteIndex] = result.data![0];
         }
 
         emit(state.copyWith(
-            listItems: listItems,
-            status: DataStatus.loaded,
-            msg: result.msg,
+          listItems: listItems,
+          status: DataStatus.loaded,
+          msg: result.msg,
         ));
       } else {
         emit(state.copyWith(
@@ -196,8 +199,27 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
           status: DataStatus.error,
         ));
       }
-
     });
+  }
+
+  // 좋아요
+  Future<void> _getLikeFirstPage(ReqeustLikeData event, Emitter<SocialState> emit) async {
+    final result = await _socialRepository.getLikeMany(postId: event.postId);
+    if (result.success) {
+      emit(state.copyWith(
+        likeItems: result.data ?? [],
+        status: DataStatus.initial,
+        isLastPage: false,
+        page: 1,
+      ));
+    } else {
+      emit(state.copyWith(
+        msg: result.msg,
+        status: DataStatus.error,
+        isLastPage: false,
+        page: 1,
+      ));
+    }
   }
 
   Future<void> _getFirstPage(Emitter<SocialState> emit) async {

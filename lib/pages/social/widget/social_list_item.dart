@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/pages/social/view/social_like_page.dart';
 import 'package:hifive/pages/social/widget/avatar_widget.dart';
 import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/util/global.dart';
@@ -215,7 +216,7 @@ class _SocialListItemState extends State<SocialListItem> {
                             onPressed: () {},
                             icon: const Icon(Icons.star_border),
                           ),
-                          Text("즐겨찾기에 추가 ")
+                          const Text("즐겨찾기에 추가 ")
                         ],
                       ),
                       const Divider(),
@@ -272,7 +273,7 @@ class _SocialListItemState extends State<SocialListItem> {
                             children: [
                               const Padding(
                                 padding: EdgeInsets.only(left: 15, right: 10),
-                                child: Icon(Icons.delete),
+                                child: Icon(Icons.delete, color: Colors.red,),
                               ),
                               const Text(
                                 "삭제",
@@ -426,10 +427,13 @@ class _SocialListItemState extends State<SocialListItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
+          GestureDetector(
+            onTap: ()=> Navigator.of(context).push(SocialLikePage.route(social)),
+            child: Text(
             '좋아요 ${social.likeCount}개',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),),
+          const SizedBox(height: 10,),
           ExpandableText(
             social.contents!,
             prefixText: '개발남',

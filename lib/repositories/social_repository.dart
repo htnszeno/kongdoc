@@ -3,24 +3,20 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:cache/cache.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:hifive/models/app_response.dart';
-import 'package:hifive/models/exam_model.dart';
 import 'package:hifive/models/social_model.dart';
-import 'package:hifive/models/user_model.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
 import 'package:hifive/util/dio_client/dio_client.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 /**
- * AppRepository 
+ * AppRepository
  * 앱 전체 로그인 공통영역과 관련 모든 것 처리
- * 
+ *
  */
 class SocialRepository {
   SocialRepository({
@@ -55,20 +51,21 @@ class SocialRepository {
     );
   }
 
-  Future<AppResponse<List<SocialItem>?>> update(UpdateSocialRequest request) async {
+  Future<AppResponse<List<SocialItem>?>> update(
+      UpdateSocialRequest request) async {
     final response = await _dioClient.post(
       "/api/SO001SVC/put",
       data: request.toJson(),
     );
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
-            (dynamic json) {
-          return (json as List<dynamic>)
-              .map((e) => SocialItem.fromJson(e))
-              .toList();
-        });
+        (dynamic json) {
+      return (json as List<dynamic>)
+          .map((e) => SocialItem.fromJson(e))
+          .toList();
+    });
   }
 
-  Future<AppResponse<List<SocialItem>?>>  create(
+  Future<AppResponse<List<SocialItem>?>> create(
       CreateSocialRequest request, String postId) async {
     Map data = request.toJson();
     data["postId"] = postId;
@@ -78,11 +75,11 @@ class SocialRepository {
       data: data,
     );
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
-            (dynamic json) {
-          return (json as List<dynamic>)
-              .map((e) => SocialItem.fromJson(e))
-              .toList();
-        });
+        (dynamic json) {
+      return (json as List<dynamic>)
+          .map((e) => SocialItem.fromJson(e))
+          .toList();
+    });
   }
 
   Future<AppResponse<List<SocialItem>?>> getSingle(
@@ -142,10 +139,14 @@ class SocialRepository {
   /**
    * 좋아요 전체 가져오기
    */
-  Future<AppResponse<List<SocialItem>?>> getLikeMany(
-      {String? postId, String? userId}) async {
+  Future<AppResponse<List<SocialItem>?>> getLikeMany({
+    int? currentPage = 1,
+    int? limit = 20,
+    String? postId,
+    String? userId,
+  }) async {
     final response = await _dioClient.post(Endpoints.getLikeMany,
-        data: {'postId': postId, 'likeUserId': userId});
+        data: {'postId': postId});
 
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
         (dynamic json) {

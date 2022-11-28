@@ -8,7 +8,7 @@ class SocialItem with _$SocialItem {
   factory SocialItem({
     @JsonKey(name: "post_id") required String postId,
     @JsonKey(name: "user_id") required String userId,
-    @JsonKey(name: "post_date") required String postDate,
+    @JsonKey(name: "post_date")  String? postDate,
     required String? contents,
     @JsonKey(name: "user_name") required String userName,
      dynamic? images,

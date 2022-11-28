@@ -4,17 +4,19 @@ part of 'social_bloc.dart';
 class SocialState with _$SocialState {
   const SocialState._();
 
-  const factory SocialState(
-      {required List<SocialItem> listItems,
-      required SocialItem? selectedItem,
-      required int page,
-      required DataStatus status,
-      required int returnType,
-      required bool isLastPage,
-      required String msg,
-      required List<AssetPathEntity> albums,
-      AssetPathEntity? selectedAlbum,
-      required List<AssetEntity> selectedAlbumPhotos}) = _SocialState;
+  const factory SocialState({
+    required List<SocialItem> listItems,
+    required SocialItem? selectedItem,
+    required int page,
+    required DataStatus status,
+    required int returnType,
+    required bool isLastPage,
+    required String msg,
+    required List<AssetPathEntity> albums,
+    AssetPathEntity? selectedAlbum,
+    required List<AssetEntity> selectedAlbumPhotos,
+    required List<SocialItem> likeItems,
+  }) = _SocialState;
 
   factory SocialState.initial() {
     return const SocialState(
@@ -27,8 +29,12 @@ class SocialState with _$SocialState {
         selectedItem: null,
         albums: [],
         selectedAlbum: null,
-        selectedAlbumPhotos: []);
+        selectedAlbumPhotos: [],
+        likeItems:[]
+    );
   }
+
+  bool get hasLikeItems => likeItems.isNotEmpty;
 
   bool get hasListData => listItems.isNotEmpty;
 

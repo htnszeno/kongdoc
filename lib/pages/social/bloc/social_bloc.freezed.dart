@@ -30,6 +30,7 @@ mixin _$SocialEvent {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$SocialEvent {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +60,7 @@ mixin _$SocialEvent {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +76,7 @@ mixin _$SocialEvent {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +91,7 @@ mixin _$SocialEvent {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,6 +106,7 @@ mixin _$SocialEvent {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -172,6 +178,7 @@ class _$Started implements Started {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return started();
   }
@@ -189,6 +196,7 @@ class _$Started implements Started {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return started?.call();
   }
@@ -206,6 +214,7 @@ class _$Started implements Started {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -227,6 +236,7 @@ class _$Started implements Started {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return started(this);
   }
@@ -244,6 +254,7 @@ class _$Started implements Started {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return started?.call(this);
   }
@@ -261,6 +272,7 @@ class _$Started implements Started {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -350,6 +362,7 @@ class _$FileUpload implements FileUpload {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return fileUpload(file);
   }
@@ -367,6 +380,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return fileUpload?.call(file);
   }
@@ -384,6 +398,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (fileUpload != null) {
@@ -405,6 +420,7 @@ class _$FileUpload implements FileUpload {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return fileUpload(this);
   }
@@ -422,6 +438,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return fileUpload?.call(this);
   }
@@ -439,6 +456,7 @@ class _$FileUpload implements FileUpload {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (fileUpload != null) {
@@ -508,6 +526,7 @@ class _$LoadMore implements LoadMore {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return loadMore();
   }
@@ -525,6 +544,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return loadMore?.call();
   }
@@ -542,6 +562,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -563,6 +584,7 @@ class _$LoadMore implements LoadMore {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return loadMore(this);
   }
@@ -580,6 +602,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return loadMore?.call(this);
   }
@@ -597,6 +620,7 @@ class _$LoadMore implements LoadMore {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -660,6 +684,7 @@ class _$Refresh implements Refresh {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return refresh();
   }
@@ -677,6 +702,7 @@ class _$Refresh implements Refresh {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return refresh?.call();
   }
@@ -694,6 +720,7 @@ class _$Refresh implements Refresh {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -715,6 +742,7 @@ class _$Refresh implements Refresh {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return refresh(this);
   }
@@ -732,6 +760,7 @@ class _$Refresh implements Refresh {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return refresh?.call(this);
   }
@@ -749,6 +778,7 @@ class _$Refresh implements Refresh {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -853,6 +883,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return setSelectedItem(selectedItem);
   }
@@ -870,6 +901,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return setSelectedItem?.call(selectedItem);
   }
@@ -887,6 +919,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -908,6 +941,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return setSelectedItem(this);
   }
@@ -925,6 +959,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return setSelectedItem?.call(this);
   }
@@ -942,6 +977,7 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -1054,6 +1090,7 @@ class _$Update implements Update {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return update(request, postId);
   }
@@ -1071,6 +1108,7 @@ class _$Update implements Update {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return update?.call(request, postId);
   }
@@ -1088,6 +1126,7 @@ class _$Update implements Update {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1109,6 +1148,7 @@ class _$Update implements Update {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return update(this);
   }
@@ -1126,6 +1166,7 @@ class _$Update implements Update {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return update?.call(this);
   }
@@ -1143,6 +1184,7 @@ class _$Update implements Update {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1260,6 +1302,7 @@ class _$Create implements Create {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return create(request, images);
   }
@@ -1277,6 +1320,7 @@ class _$Create implements Create {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return create?.call(request, images);
   }
@@ -1294,6 +1338,7 @@ class _$Create implements Create {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1315,6 +1360,7 @@ class _$Create implements Create {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return create(this);
   }
@@ -1332,6 +1378,7 @@ class _$Create implements Create {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return create?.call(this);
   }
@@ -1349,6 +1396,7 @@ class _$Create implements Create {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1443,6 +1491,7 @@ class _$Delete implements Delete {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return delete(postId);
   }
@@ -1460,6 +1509,7 @@ class _$Delete implements Delete {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return delete?.call(postId);
   }
@@ -1477,6 +1527,7 @@ class _$Delete implements Delete {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1498,6 +1549,7 @@ class _$Delete implements Delete {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return delete(this);
   }
@@ -1515,6 +1567,7 @@ class _$Delete implements Delete {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return delete?.call(this);
   }
@@ -1532,6 +1585,7 @@ class _$Delete implements Delete {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1634,6 +1688,7 @@ class _$Filter implements Filter {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return filterNotes(type, data);
   }
@@ -1651,6 +1706,7 @@ class _$Filter implements Filter {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return filterNotes?.call(type, data);
   }
@@ -1668,6 +1724,7 @@ class _$Filter implements Filter {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -1689,6 +1746,7 @@ class _$Filter implements Filter {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return filterNotes(this);
   }
@@ -1706,6 +1764,7 @@ class _$Filter implements Filter {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return filterNotes?.call(this);
   }
@@ -1723,6 +1782,7 @@ class _$Filter implements Filter {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -1829,6 +1889,7 @@ class _$AddLikeCount implements AddLikeCount {
     required TResult Function(String postId) delete,
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
   }) {
     return addLikeCount(postId, userId);
   }
@@ -1846,6 +1907,7 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
   }) {
     return addLikeCount?.call(postId, userId);
   }
@@ -1863,6 +1925,7 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(String postId)? delete,
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (addLikeCount != null) {
@@ -1884,6 +1947,7 @@ class _$AddLikeCount implements AddLikeCount {
     required TResult Function(Delete value) delete,
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
   }) {
     return addLikeCount(this);
   }
@@ -1901,6 +1965,7 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
   }) {
     return addLikeCount?.call(this);
   }
@@ -1918,6 +1983,7 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(Delete value)? delete,
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
     required TResult orElse(),
   }) {
     if (addLikeCount != null) {
@@ -1939,6 +2005,196 @@ abstract class AddLikeCount implements SocialEvent {
 }
 
 /// @nodoc
+abstract class _$$ReqeustLikeDataCopyWith<$Res> {
+  factory _$$ReqeustLikeDataCopyWith(
+          _$ReqeustLikeData value, $Res Function(_$ReqeustLikeData) then) =
+      __$$ReqeustLikeDataCopyWithImpl<$Res>;
+  $Res call({String postId});
+}
+
+/// @nodoc
+class __$$ReqeustLikeDataCopyWithImpl<$Res>
+    extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$ReqeustLikeDataCopyWith<$Res> {
+  __$$ReqeustLikeDataCopyWithImpl(
+      _$ReqeustLikeData _value, $Res Function(_$ReqeustLikeData) _then)
+      : super(_value, (v) => _then(v as _$ReqeustLikeData));
+
+  @override
+  _$ReqeustLikeData get _value => super._value as _$ReqeustLikeData;
+
+  @override
+  $Res call({
+    Object? postId = freezed,
+  }) {
+    return _then(_$ReqeustLikeData(
+      postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReqeustLikeData implements ReqeustLikeData {
+  const _$ReqeustLikeData(this.postId);
+
+  @override
+  final String postId;
+
+  @override
+  String toString() {
+    return 'SocialEvent.reqeustLikeData(postId: $postId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReqeustLikeData &&
+            const DeepCollectionEquality().equals(other.postId, postId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(postId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ReqeustLikeDataCopyWith<_$ReqeustLikeData> get copyWith =>
+      __$$ReqeustLikeDataCopyWithImpl<_$ReqeustLikeData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(File file) fileUpload,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
+  }) {
+    return reqeustLikeData(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+  }) {
+    return reqeustLikeData?.call(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+    required TResult orElse(),
+  }) {
+    if (reqeustLikeData != null) {
+      return reqeustLikeData(postId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(FileUpload value) fileUpload,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
+  }) {
+    return reqeustLikeData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+  }) {
+    return reqeustLikeData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    required TResult orElse(),
+  }) {
+    if (reqeustLikeData != null) {
+      return reqeustLikeData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReqeustLikeData implements SocialEvent {
+  const factory ReqeustLikeData(final String postId) = _$ReqeustLikeData;
+
+  String get postId;
+  @JsonKey(ignore: true)
+  _$$ReqeustLikeDataCopyWith<_$ReqeustLikeData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SocialState {
   List<SocialItem> get listItems => throw _privateConstructorUsedError;
   SocialItem? get selectedItem => throw _privateConstructorUsedError;
@@ -1951,6 +2207,7 @@ mixin _$SocialState {
   AssetPathEntity? get selectedAlbum => throw _privateConstructorUsedError;
   List<AssetEntity> get selectedAlbumPhotos =>
       throw _privateConstructorUsedError;
+  List<SocialItem> get likeItems => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SocialStateCopyWith<SocialState> get copyWith =>
@@ -1972,7 +2229,8 @@ abstract class $SocialStateCopyWith<$Res> {
       String msg,
       List<AssetPathEntity> albums,
       AssetPathEntity? selectedAlbum,
-      List<AssetEntity> selectedAlbumPhotos});
+      List<AssetEntity> selectedAlbumPhotos,
+      List<SocialItem> likeItems});
 
   $SocialItemCopyWith<$Res>? get selectedItem;
 }
@@ -1997,6 +2255,7 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
     Object? albums = freezed,
     Object? selectedAlbum = freezed,
     Object? selectedAlbumPhotos = freezed,
+    Object? likeItems = freezed,
   }) {
     return _then(_value.copyWith(
       listItems: listItems == freezed
@@ -2039,6 +2298,10 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
           ? _value.selectedAlbumPhotos
           : selectedAlbumPhotos // ignore: cast_nullable_to_non_nullable
               as List<AssetEntity>,
+      likeItems: likeItems == freezed
+          ? _value.likeItems
+          : likeItems // ignore: cast_nullable_to_non_nullable
+              as List<SocialItem>,
     ));
   }
 
@@ -2071,7 +2334,8 @@ abstract class _$$_SocialStateCopyWith<$Res>
       String msg,
       List<AssetPathEntity> albums,
       AssetPathEntity? selectedAlbum,
-      List<AssetEntity> selectedAlbumPhotos});
+      List<AssetEntity> selectedAlbumPhotos,
+      List<SocialItem> likeItems});
 
   @override
   $SocialItemCopyWith<$Res>? get selectedItem;
@@ -2099,6 +2363,7 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
     Object? albums = freezed,
     Object? selectedAlbum = freezed,
     Object? selectedAlbumPhotos = freezed,
+    Object? likeItems = freezed,
   }) {
     return _then(_$_SocialState(
       listItems: listItems == freezed
@@ -2141,6 +2406,10 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
           ? _value._selectedAlbumPhotos
           : selectedAlbumPhotos // ignore: cast_nullable_to_non_nullable
               as List<AssetEntity>,
+      likeItems: likeItems == freezed
+          ? _value._likeItems
+          : likeItems // ignore: cast_nullable_to_non_nullable
+              as List<SocialItem>,
     ));
   }
 }
@@ -2158,10 +2427,12 @@ class _$_SocialState extends _SocialState {
       required this.msg,
       required final List<AssetPathEntity> albums,
       this.selectedAlbum,
-      required final List<AssetEntity> selectedAlbumPhotos})
+      required final List<AssetEntity> selectedAlbumPhotos,
+      required final List<SocialItem> likeItems})
       : _listItems = listItems,
         _albums = albums,
         _selectedAlbumPhotos = selectedAlbumPhotos,
+        _likeItems = likeItems,
         super._();
 
   final List<SocialItem> _listItems;
@@ -2199,9 +2470,16 @@ class _$_SocialState extends _SocialState {
     return EqualUnmodifiableListView(_selectedAlbumPhotos);
   }
 
+  final List<SocialItem> _likeItems;
+  @override
+  List<SocialItem> get likeItems {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_likeItems);
+  }
+
   @override
   String toString() {
-    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, returnType: $returnType, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos)';
+    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, returnType: $returnType, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos, likeItems: $likeItems)';
   }
 
   @override
@@ -2224,7 +2502,9 @@ class _$_SocialState extends _SocialState {
             const DeepCollectionEquality()
                 .equals(other.selectedAlbum, selectedAlbum) &&
             const DeepCollectionEquality()
-                .equals(other._selectedAlbumPhotos, _selectedAlbumPhotos));
+                .equals(other._selectedAlbumPhotos, _selectedAlbumPhotos) &&
+            const DeepCollectionEquality()
+                .equals(other._likeItems, _likeItems));
   }
 
   @override
@@ -2239,7 +2519,8 @@ class _$_SocialState extends _SocialState {
       const DeepCollectionEquality().hash(msg),
       const DeepCollectionEquality().hash(_albums),
       const DeepCollectionEquality().hash(selectedAlbum),
-      const DeepCollectionEquality().hash(_selectedAlbumPhotos));
+      const DeepCollectionEquality().hash(_selectedAlbumPhotos),
+      const DeepCollectionEquality().hash(_likeItems));
 
   @JsonKey(ignore: true)
   @override
@@ -2258,7 +2539,8 @@ abstract class _SocialState extends SocialState {
       required final String msg,
       required final List<AssetPathEntity> albums,
       final AssetPathEntity? selectedAlbum,
-      required final List<AssetEntity> selectedAlbumPhotos}) = _$_SocialState;
+      required final List<AssetEntity> selectedAlbumPhotos,
+      required final List<SocialItem> likeItems}) = _$_SocialState;
   const _SocialState._() : super._();
 
   @override
@@ -2281,6 +2563,8 @@ abstract class _SocialState extends SocialState {
   AssetPathEntity? get selectedAlbum;
   @override
   List<AssetEntity> get selectedAlbumPhotos;
+  @override
+  List<SocialItem> get likeItems;
   @override
   @JsonKey(ignore: true)
   _$$_SocialStateCopyWith<_$_SocialState> get copyWith =>

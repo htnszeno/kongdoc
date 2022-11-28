@@ -23,8 +23,13 @@ Future<bool> showConfirmation(
   await showDialog(
     context: Get.context!,
     builder: (context) => AlertDialog(
+      // insetPadding: EdgeInsets.symmetric(horizontal: 110),
+      // contentPadding: EdgeInsets.zero,
+      // clipBehavior: Clip.antiAliasWithSaveLayer,
       title: (title != null ? Text(title) : null),
-      content: Text(content),
+      content: Container(
+          width: Get.width,
+          child: Text(content)),
       actions: [
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -37,7 +42,7 @@ Future<bool> showConfirmation(
                     },
                     child: const Text("닫기"),
                   )
-                : Container()),
+                : const SizedBox.shrink()),
             TextButton(
               onPressed: () {
                 Navigator.pop(context, 'Delete');

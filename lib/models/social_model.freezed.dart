@@ -25,7 +25,7 @@ mixin _$SocialItem {
   @JsonKey(name: "user_id")
   String get userId => throw _privateConstructorUsedError;
   @JsonKey(name: "post_date")
-  String get postDate => throw _privateConstructorUsedError;
+  String? get postDate => throw _privateConstructorUsedError;
   String? get contents => throw _privateConstructorUsedError;
   @JsonKey(name: "user_name")
   String get userName => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $SocialItemCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "user_id") String userId,
-      @JsonKey(name: "post_date") String postDate,
+      @JsonKey(name: "post_date") String? postDate,
       String? contents,
       @JsonKey(name: "user_name") String userName,
       dynamic? images,
@@ -88,7 +88,7 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
       postDate: postDate == freezed
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       contents: contents == freezed
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ abstract class _$$_SocialItemCopyWith<$Res>
   $Res call(
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "user_id") String userId,
-      @JsonKey(name: "post_date") String postDate,
+      @JsonKey(name: "post_date") String? postDate,
       String? contents,
       @JsonKey(name: "user_name") String userName,
       dynamic? images,
@@ -164,7 +164,7 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
       postDate: postDate == freezed
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       contents: contents == freezed
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
@@ -195,7 +195,7 @@ class _$_SocialItem implements _SocialItem {
   _$_SocialItem(
       {@JsonKey(name: "post_id") required this.postId,
       @JsonKey(name: "user_id") required this.userId,
-      @JsonKey(name: "post_date") required this.postDate,
+      @JsonKey(name: "post_date") this.postDate,
       required this.contents,
       @JsonKey(name: "user_name") required this.userName,
       this.images,
@@ -213,7 +213,7 @@ class _$_SocialItem implements _SocialItem {
   final String userId;
   @override
   @JsonKey(name: "post_date")
-  final String postDate;
+  final String? postDate;
   @override
   final String? contents;
   @override
@@ -278,7 +278,7 @@ abstract class _SocialItem implements SocialItem {
   factory _SocialItem(
       {@JsonKey(name: "post_id") required final String postId,
       @JsonKey(name: "user_id") required final String userId,
-      @JsonKey(name: "post_date") required final String postDate,
+      @JsonKey(name: "post_date") final String? postDate,
       required final String? contents,
       @JsonKey(name: "user_name") required final String userName,
       final dynamic? images,
@@ -296,7 +296,7 @@ abstract class _SocialItem implements SocialItem {
   String get userId;
   @override
   @JsonKey(name: "post_date")
-  String get postDate;
+  String? get postDate;
   @override
   String? get contents;
   @override

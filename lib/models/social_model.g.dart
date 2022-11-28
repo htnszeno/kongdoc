@@ -10,7 +10,7 @@ _$_SocialItem _$$_SocialItemFromJson(Map<String, dynamic> json) =>
     _$_SocialItem(
       postId: json['post_id'] as String,
       userId: json['user_id'] as String,
-      postDate: json['post_date'] as String,
+      postDate: json['post_date'] as String?,
       contents: json['contents'] as String?,
       userName: json['user_name'] as String,
       images: json['images'],

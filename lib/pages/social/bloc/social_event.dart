@@ -31,4 +31,7 @@ class SocialEvent with _$SocialEvent {
 
   // 좋아요
   const factory SocialEvent.addLikeCount(String postId, String userId) = AddLikeCount;
+
+  // 게시글의 좋아요 목록 요청
+  const factory SocialEvent.reqeustLikeData(String postId) = ReqeustLikeData;
 }
