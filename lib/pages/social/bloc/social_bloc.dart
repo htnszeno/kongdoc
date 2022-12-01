@@ -26,7 +26,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
   })  : _socialRepository = socialRepository,
         super(SocialState.initial()) {
     // 좋아요 리스트
-    on<ReqeustLikeData>((event, emit) async{
+    on<ReqeustLikeData>((event, emit) async {
       await _getLikeFirstPage(event, emit);
     });
 
@@ -203,7 +203,8 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
   }
 
   // 좋아요
-  Future<void> _getLikeFirstPage(ReqeustLikeData event, Emitter<SocialState> emit) async {
+  Future<void> _getLikeFirstPage(
+      ReqeustLikeData event, Emitter<SocialState> emit) async {
     final result = await _socialRepository.getLikeMany(postId: event.postId);
     if (result.success) {
       emit(state.copyWith(
@@ -250,6 +251,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
           state.hasSelectedItem ? state.selectedItem!.contents : "",
           Validators.required,
         ],
+        'reply': [state.selectedItem?.reply]
       },
     );
   }

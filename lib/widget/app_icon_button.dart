@@ -16,6 +16,8 @@ class AppIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints(),
       tooltip: tooltip,
       splashRadius: kIconButtonSplashRadius,
       onPressed: onPressed,

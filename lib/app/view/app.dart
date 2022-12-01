@@ -11,10 +11,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/binding/init_bindings.dart';
 import 'package:hifive/enums/app_status.dart';
+import 'package:hifive/l10n/l10n.dart';
 import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/main_page.dart';
 import 'package:hifive/repositories/app_repository.dart';
@@ -131,6 +133,11 @@ class _AppViewState extends State<AppView> {
       },
       home: const SplashPage(),
       initialBinding: InitBindings(),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

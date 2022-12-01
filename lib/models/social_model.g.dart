@@ -16,6 +16,7 @@ _$_SocialItem _$$_SocialItemFromJson(Map<String, dynamic> json) =>
       images: json['images'],
       isLike: json['is_like'] as int?,
       likeCount: json['like_count'] as int?,
+      reply: json['reply'] as String?,
     );
 
 Map<String, dynamic> _$$_SocialItemToJson(_$_SocialItem instance) =>
@@ -28,4 +29,5 @@ Map<String, dynamic> _$$_SocialItemToJson(_$_SocialItem instance) =>
       'images': instance.images,
       'is_like': instance.isLike,
       'like_count': instance.likeCount,
+      'reply': instance.reply,
     };
