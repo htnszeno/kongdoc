@@ -88,7 +88,7 @@ class _SocialPageState extends State<SocialPage> {
         if (state.status == DataStatus.loading) {
           return const SplashPage();
         }
-        final formGroup = _socialBloc.formgroup;
+        final formGroup = _socialBloc.socialFormgroup;
         return Scaffold(
           floatingActionButton: BlocConsumer<SocialBloc, SocialState>(
             listener: (context, state) {

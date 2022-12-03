@@ -34,4 +34,12 @@ class SocialEvent with _$SocialEvent {
 
   // 게시글의 좋아요 목록 요청
   const factory SocialEvent.reqeustLikeData(String postId) = ReqeustLikeData;
+
+  // 댓글 입력
+  const factory SocialEvent.createComment(CommentRequest request) = CreateComment;
+  const factory SocialEvent.reqeustCommentData(String postId) = ReqeustCommentData;
+
+  const factory SocialEvent.setSelectedCommentItem(CommentItem? selectedCommentItem) =
+  SetSelectedCommentItem;
+
 }

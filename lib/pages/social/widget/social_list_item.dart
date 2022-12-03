@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 import 'package:hifive/constants.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/pages/social/view/social_comment_page.dart';
 import 'package:hifive/pages/social/view/social_like_page.dart';
-import 'package:hifive/pages/social/view/social_reply_page.dart';
 import 'package:hifive/pages/social/widget/avatar_widget.dart';
 import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/util/global.dart';
@@ -239,7 +239,7 @@ class _SocialListItemState extends State<SocialListItem> {
                               .add(SocialEvent.setSelectedItem(widget.social));
                           _contentTextFieldFocusNode.requestFocus();
                         },
-                        child: Container(
+                        child: SizedBox(
                           height: 40,
                           child: Row(
                             children: [
@@ -399,7 +399,7 @@ class _SocialListItemState extends State<SocialListItem> {
                     FontAwesomeIcons.message,
                   ),
                   onPressed: () => Navigator.of(context)
-                      .push(SocialReplyPage.route(widget.social)),
+                      .push(SocialCommentPage.route(widget.social)),
                 ),
               ],
             ),
@@ -441,7 +441,7 @@ class _SocialListItemState extends State<SocialListItem> {
           ),
           ExpandableText(
             social.contents!,
-            prefixText: '개발남',
+            // prefixText: '개발남',
             onPrefixTap: () {},
             prefixStyle: const TextStyle(fontWeight: FontWeight.bold),
             expandText: '더보기',

@@ -1,39 +1,22 @@
-class Comment {
-  String authorName;
-  String authorImageUrl;
-  String text;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  Comment({
-    required this.authorName,
-    required this.authorImageUrl,
-    required this.text,
-  });
+part 'comment_model.freezed.dart';
+
+part 'comment_model.g.dart';
+
+@freezed
+class CommentItem with _$CommentItem {
+  factory CommentItem({
+    @JsonKey(name: "post_id") required String postId,
+    @JsonKey(name: "comment_id") required String commentId,
+    @JsonKey(name: "parent_comment_id") required String parentCommentId,
+    @JsonKey(name: "comment_user_id") String? commentUserId,
+    @JsonKey(name: "comment_user_name") String? commentUserName,
+    @JsonKey(name: "comment_date") DateTime? commentDate,
+    required String? comment,
+    int? level,
+  }) = _CommentItem;
+
+  factory CommentItem.fromJson(Map<String, dynamic> json) =>
+      _$CommentItemFromJson(json);
 }
-
-final List<Comment> comments = [
-  Comment(
-    authorName: 'Angel',
-    authorImageUrl: 'assets/images/user2.png',
-    text: 'Loving this photo!!',
-  ),
-  Comment(
-    authorName: 'Charlie',
-    authorImageUrl: 'assets/images/user3.png',
-    text: 'One of the best photos of you...',
-  ),
-  Comment(
-    authorName: 'Angelina Martin',
-    authorImageUrl: 'assets/images/user4.png',
-    text: 'Can\'t wait for you to post more!',
-  ),
-  Comment(
-    authorName: 'Jax',
-    authorImageUrl: 'assets/images/user1.png',
-    text: 'Nice job',
-  ),
-  Comment(
-    authorName: 'Sam Martin',
-    authorImageUrl: 'assets/images/user0.png',
-    text: 'Thanks everyone :)',
-  ),
-];

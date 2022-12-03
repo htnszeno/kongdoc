@@ -33,7 +33,8 @@ class App extends StatelessWidget {
     super.key,
     required AppRepository appRepository,
     required SocialRepository socialRepository,
-  })  : _appRepository = appRepository,
+  })
+      : _appRepository = appRepository,
         _socialRepository = socialRepository;
 
   @override
@@ -78,10 +79,11 @@ class _AppViewState extends State<AppView> {
     // @todo : 추후 사용 가능할때 ..
     WidgetsBinding.instance.addObserver(
       LifecycleEventHandler(
-        resumeCallBack: () async => setState(() {
-          isAppInactive = false;
-          Globals().appBloc.add(AppActiveLoginRequested());
-        }),
+        resumeCallBack: () async =>
+            setState(() {
+              isAppInactive = false;
+              Globals().appBloc.add(AppActiveLoginRequested());
+            }),
         suspendingCallBack: () async {
           setState(() {
             isAppInactive = true;
@@ -101,43 +103,48 @@ class _AppViewState extends State<AppView> {
     // set global
     Globals().setAppBloc = context.read<AppBloc>();
     return GetMaterialApp(
-      theme: theme,
-      debugShowCheckedModeBanner: false,
-      navigatorKey: _navigatorKey,
-      builder: (context, child) {
-        return BlocListener<AppBloc, AppState>(
-          listener: (context, state) {
-            switch (state.status) {
-              case AppStatus.authenticated:
-                _navigator.pushAndRemoveUntil<void>(
-                  MainPage.route(),
-                  (route) => false,
-                );
-                break;
-              case AppStatus.unauthenticated:
-                _navigator.pushAndRemoveUntil<void>(
-                  LoginPage.route(),
-                  (route) => false,
-                );
-                break;
-              case AppStatus.unknown:
-                _navigator.pushAndRemoveUntil<void>(
-                  SplashPage.route(),
-                  (route) => false,
-                );
-                break;
-            }
-          },
-          child: child,
-        );
-      },
-      home: const SplashPage(),
-      initialBinding: InitBindings(),
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-      ],
-      supportedLocales: AppLocalizations.supportedLocales,
+        theme: theme,
+        debugShowCheckedModeBanner: false,
+        navigatorKey: _navigatorKey,
+        builder: (context, child) {
+          return BlocListener<AppBloc, AppState>(
+            listener: (context, state) {
+              switch (state.status) {
+                case AppStatus.authenticated:
+                  _navigator.pushAndRemoveUntil<void>(
+                    MainPage.route(),
+                        (route) => false,
+                  );
+                  break;
+                case AppStatus.unauthenticated:
+                  _navigator.pushAndRemoveUntil<void>(
+                    LoginPage.route(),
+                        (route) => false,
+                  );
+                  break;
+                case AppStatus.unknown:
+                  _navigator.pushAndRemoveUntil<void>(
+                    SplashPage.route(),
+                        (route) => false,
+                  );
+                  break;
+              }
+            },
+            child: child,
+          );
+        },
+        home: const SplashPage(),
+        initialBinding: InitBindings(),
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en', ''), // English, no country code
+          Locale('ko', ''), // Korean, no country code
+        ],
     );
   }
 }

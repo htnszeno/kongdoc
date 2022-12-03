@@ -23,18 +23,17 @@ mixin _$SocialItem {
   @JsonKey(name: "post_id")
   String get postId => throw _privateConstructorUsedError;
   @JsonKey(name: "user_id")
-  String get userId => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
   @JsonKey(name: "post_date")
   String? get postDate => throw _privateConstructorUsedError;
   String? get contents => throw _privateConstructorUsedError;
   @JsonKey(name: "user_name")
-  String get userName => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
   dynamic? get images => throw _privateConstructorUsedError;
   @JsonKey(name: "is_like")
   int? get isLike => throw _privateConstructorUsedError;
   @JsonKey(name: "like_count")
   int? get likeCount => throw _privateConstructorUsedError;
-  String? get reply => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,14 +48,13 @@ abstract class $SocialItemCopyWith<$Res> {
       _$SocialItemCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "post_id") String postId,
-      @JsonKey(name: "user_id") String userId,
+      @JsonKey(name: "user_id") String? userId,
       @JsonKey(name: "post_date") String? postDate,
       String? contents,
-      @JsonKey(name: "user_name") String userName,
+      @JsonKey(name: "user_name") String? userName,
       dynamic? images,
       @JsonKey(name: "is_like") int? isLike,
-      @JsonKey(name: "like_count") int? likeCount,
-      String? reply});
+      @JsonKey(name: "like_count") int? likeCount});
 }
 
 /// @nodoc
@@ -77,7 +75,6 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
     Object? images = freezed,
     Object? isLike = freezed,
     Object? likeCount = freezed,
-    Object? reply = freezed,
   }) {
     return _then(_value.copyWith(
       postId: postId == freezed
@@ -87,7 +84,7 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       postDate: postDate == freezed
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
@@ -99,7 +96,7 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       images: images == freezed
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -112,10 +109,6 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      reply: reply == freezed
-          ? _value.reply
-          : reply // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -129,14 +122,13 @@ abstract class _$$_SocialItemCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: "post_id") String postId,
-      @JsonKey(name: "user_id") String userId,
+      @JsonKey(name: "user_id") String? userId,
       @JsonKey(name: "post_date") String? postDate,
       String? contents,
-      @JsonKey(name: "user_name") String userName,
+      @JsonKey(name: "user_name") String? userName,
       dynamic? images,
       @JsonKey(name: "is_like") int? isLike,
-      @JsonKey(name: "like_count") int? likeCount,
-      String? reply});
+      @JsonKey(name: "like_count") int? likeCount});
 }
 
 /// @nodoc
@@ -159,7 +151,6 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
     Object? images = freezed,
     Object? isLike = freezed,
     Object? likeCount = freezed,
-    Object? reply = freezed,
   }) {
     return _then(_$_SocialItem(
       postId: postId == freezed
@@ -169,7 +160,7 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       postDate: postDate == freezed
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
@@ -181,7 +172,7 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       images: images == freezed
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -194,10 +185,6 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      reply: reply == freezed
-          ? _value.reply
-          : reply // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -207,14 +194,13 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
 class _$_SocialItem implements _SocialItem {
   _$_SocialItem(
       {@JsonKey(name: "post_id") required this.postId,
-      @JsonKey(name: "user_id") required this.userId,
+      @JsonKey(name: "user_id") this.userId,
       @JsonKey(name: "post_date") this.postDate,
       required this.contents,
-      @JsonKey(name: "user_name") required this.userName,
+      @JsonKey(name: "user_name") this.userName,
       this.images,
       @JsonKey(name: "is_like") this.isLike,
-      @JsonKey(name: "like_count") this.likeCount,
-      this.reply});
+      @JsonKey(name: "like_count") this.likeCount});
 
   factory _$_SocialItem.fromJson(Map<String, dynamic> json) =>
       _$$_SocialItemFromJson(json);
@@ -224,7 +210,7 @@ class _$_SocialItem implements _SocialItem {
   final String postId;
   @override
   @JsonKey(name: "user_id")
-  final String userId;
+  final String? userId;
   @override
   @JsonKey(name: "post_date")
   final String? postDate;
@@ -232,7 +218,7 @@ class _$_SocialItem implements _SocialItem {
   final String? contents;
   @override
   @JsonKey(name: "user_name")
-  final String userName;
+  final String? userName;
   @override
   final dynamic? images;
   @override
@@ -241,12 +227,10 @@ class _$_SocialItem implements _SocialItem {
   @override
   @JsonKey(name: "like_count")
   final int? likeCount;
-  @override
-  final String? reply;
 
   @override
   String toString() {
-    return 'SocialItem(postId: $postId, userId: $userId, postDate: $postDate, contents: $contents, userName: $userName, images: $images, isLike: $isLike, likeCount: $likeCount, reply: $reply)';
+    return 'SocialItem(postId: $postId, userId: $userId, postDate: $postDate, contents: $contents, userName: $userName, images: $images, isLike: $isLike, likeCount: $likeCount)';
   }
 
   @override
@@ -261,8 +245,7 @@ class _$_SocialItem implements _SocialItem {
             const DeepCollectionEquality().equals(other.userName, userName) &&
             const DeepCollectionEquality().equals(other.images, images) &&
             const DeepCollectionEquality().equals(other.isLike, isLike) &&
-            const DeepCollectionEquality().equals(other.likeCount, likeCount) &&
-            const DeepCollectionEquality().equals(other.reply, reply));
+            const DeepCollectionEquality().equals(other.likeCount, likeCount));
   }
 
   @JsonKey(ignore: true)
@@ -276,8 +259,7 @@ class _$_SocialItem implements _SocialItem {
       const DeepCollectionEquality().hash(userName),
       const DeepCollectionEquality().hash(images),
       const DeepCollectionEquality().hash(isLike),
-      const DeepCollectionEquality().hash(likeCount),
-      const DeepCollectionEquality().hash(reply));
+      const DeepCollectionEquality().hash(likeCount));
 
   @JsonKey(ignore: true)
   @override
@@ -295,14 +277,13 @@ class _$_SocialItem implements _SocialItem {
 abstract class _SocialItem implements SocialItem {
   factory _SocialItem(
       {@JsonKey(name: "post_id") required final String postId,
-      @JsonKey(name: "user_id") required final String userId,
+      @JsonKey(name: "user_id") final String? userId,
       @JsonKey(name: "post_date") final String? postDate,
       required final String? contents,
-      @JsonKey(name: "user_name") required final String userName,
+      @JsonKey(name: "user_name") final String? userName,
       final dynamic? images,
       @JsonKey(name: "is_like") final int? isLike,
-      @JsonKey(name: "like_count") final int? likeCount,
-      final String? reply}) = _$_SocialItem;
+      @JsonKey(name: "like_count") final int? likeCount}) = _$_SocialItem;
 
   factory _SocialItem.fromJson(Map<String, dynamic> json) =
       _$_SocialItem.fromJson;
@@ -312,7 +293,7 @@ abstract class _SocialItem implements SocialItem {
   String get postId;
   @override
   @JsonKey(name: "user_id")
-  String get userId;
+  String? get userId;
   @override
   @JsonKey(name: "post_date")
   String? get postDate;
@@ -320,7 +301,7 @@ abstract class _SocialItem implements SocialItem {
   String? get contents;
   @override
   @JsonKey(name: "user_name")
-  String get userName;
+  String? get userName;
   @override
   dynamic? get images;
   @override
@@ -329,8 +310,6 @@ abstract class _SocialItem implements SocialItem {
   @override
   @JsonKey(name: "like_count")
   int? get likeCount;
-  @override
-  String? get reply;
   @override
   @JsonKey(ignore: true)
   _$$_SocialItemCopyWith<_$_SocialItem> get copyWith =>

@@ -10,7 +10,6 @@ _$_CreateSocialRequest _$$_CreateSocialRequestFromJson(
         Map<String, dynamic> json) =>
     _$_CreateSocialRequest(
       postId: json['postId'] as String?,
-      title: json['title'] as String?,
       contents: json['contents'] as String?,
     );
 
@@ -18,6 +17,5 @@ Map<String, dynamic> _$$_CreateSocialRequestToJson(
         _$_CreateSocialRequest instance) =>
     <String, dynamic>{
       'postId': instance.postId,
-      'title': instance.title,
       'contents': instance.contents,
     };

@@ -57,7 +57,7 @@ class _SocialUploadPageState extends State<SocialUploadPage> {
         if (state.status == DataStatus.loading) {
           return const SplashPage();
         }
-        final formGroup = _socialBloc.formgroup;
+        final formGroup = _socialBloc.socialFormgroup;
 
         return Scaffold(
           appBar: AppBar(

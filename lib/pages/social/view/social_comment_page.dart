@@ -3,19 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hifive/app/view/app.dart';
 import 'package:hifive/enums/data_status.dart';
+import 'package:hifive/models/comment_model.dart';
 import 'package:hifive/models/social_model.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
+import 'package:hifive/pages/social/request/comment_request.dart';
 import 'package:hifive/pages/social/widget/avatar_widget.dart';
-import 'package:hifive/pages/social/widget/social_like_list.dart';
+import 'package:hifive/pages/social/widget/social_comment_list.dart';
 import 'package:hifive/repositories/social_repository.dart';
-import 'package:hifive/widget/app_text_field.dart';
 import 'package:hifive/widget/blank_content.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class SocialReplyPage extends StatefulWidget {
+class SocialCommentPage extends StatefulWidget {
   final SocialItem socialItem;
 
-  const SocialReplyPage({Key? key, required this.socialItem}) : super(key: key);
+  const SocialCommentPage({Key? key, required this.socialItem})
+      : super(key: key);
 
   /// 호출한 쪽 Bloc를 공유하지 않도록 하자.
   /// 새로 생성 이후 없애도록 한다.
@@ -27,31 +29,33 @@ class SocialReplyPage extends StatefulWidget {
         child: BlocProvider<SocialBloc>(
           create: (context) => SocialBloc(
             socialRepository: context.read<SocialRepository>(),
-          )..add(ReqeustLikeData(socialItem.postId)),
-          child: SocialReplyPage(socialItem: socialItem),
+          )..add(ReqeustCommentData(socialItem.postId)),
+          child: SocialCommentPage(socialItem: socialItem),
         ),
       ),
     );
   }
 
   @override
-  State<SocialReplyPage> createState() => _SocialReplyPageState();
+  State<SocialCommentPage> createState() => _SocialCommentPageState();
 }
 
-class _SocialReplyPageState extends State<SocialReplyPage> {
+class _SocialCommentPageState extends State<SocialCommentPage> {
   late SocialBloc _socialBloc;
   ScrollController? _scrollController;
-
+  late FocusNode _contentTextFieldFocusNode;
   @override
   void initState() {
     _socialBloc = context.read<SocialBloc>();
     _scrollController = ScrollController();
+    _contentTextFieldFocusNode = FocusNode();
     super.initState();
   }
 
   @override
   void dispose() {
     _scrollController?.dispose();
+    _contentTextFieldFocusNode.dispose();
     super.dispose();
   }
 
@@ -83,26 +87,26 @@ class _SocialReplyPageState extends State<SocialReplyPage> {
           body: Column(
             children: [
               Container(
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(color: Colors.grey, width: 0.5),
-                    ),
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: Colors.grey, width: 0.5),
                   ),
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AvatarWidget(
-                        type: AvatarType.TYPE3,
-                        size: 40,
-                        thumbPath:
-                            'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                          child: Column(
+                ),
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AvatarWidget(
+                      type: AvatarType.TYPE3,
+                      size: 40,
+                      thumbPath:
+                          'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
@@ -116,9 +120,11 @@ class _SocialReplyPageState extends State<SocialReplyPage> {
                             style: const TextStyle(fontSize: 15),
                           ),
                         ],
-                      ))
-                    ],
-                  )),
+                      ),
+                    )
+                  ],
+                ),
+              ),
               Expanded(
                 child: CustomScrollView(
                   controller: _scrollController,
@@ -133,14 +139,17 @@ class _SocialReplyPageState extends State<SocialReplyPage> {
                             ),
                           );
                         }
-                        if (!state.hasLikeItems) {
+                        if (!state.hasCommentItems) {
                           return const SliverFillRemaining(
                             child: BlankContent(),
                           );
                         }
-                        return SocialLikeList(
-                          likeItems: state.likeItems,
-                          onSave: onSave,
+                        return SocialCommentList(
+                          commentItems: state.commentItems,
+                          onSelect: (CommentItem comment) {
+                            _socialBloc.add(SocialEvent.setSelectedCommentItem(comment));
+                            _contentTextFieldFocusNode.requestFocus();
+                          },
                         );
                       },
                     )
@@ -156,13 +165,44 @@ class _SocialReplyPageState extends State<SocialReplyPage> {
   }
 
   _bottomReplyTextBar() {
-    final formGroup = context.read<SocialBloc>().formgroup;
+    // SocialBloc bloc = context.read<SocialBloc>();
+    // final selectedCommentItem =
+    // context.select((SocialBloc bloc) => bloc.state.selectedCommentItem);
 
-    return ReactiveForm(
-        formGroup: formGroup,
-        child: Container(
+
+    // _textEditingController.value=TextEditingValue(text: "sample text");
+    // final updatedText = _textEditingController.text + '@111';
+    // _textEditingController.value = _textEditingController.value.copyWith(
+    //   text: updatedText,
+    //   selection: TextSelection.collapsed(offset: updatedText.length),
+    // );
+    // print("111111111");
+    return BlocConsumer<SocialBloc, SocialState>(
+      listener: (context, state) {
+        if (state.hasSelectedCommentItem) {
+
+
+
+          // final updatedText = _textEditingController.text + '@${state.selectedCommentItem?.commentUserId}';
+          // _textEditingController.value = TextEditingValue(text: "ANY TEXT");
+          // _textEditingController.value = _textEditingController.value.copyWith(
+          //   text: updatedText,
+          //   selection: TextSelection.collapsed(offset: updatedText.length),
+          // );
+        }
+      },
+      builder: (context, state) {
+        TextEditingController _textEditingController = TextEditingController();
+        if (state.hasSelectedCommentItem) {
+          final updatedText = _textEditingController.text + '@${state.selectedCommentItem?.commentUserId} ';
+          // _textEditingController.value = TextEditingValue(text: '@${state.selectedCommentItem?.commentUserId} ');
+          _textEditingController.value = _textEditingController.value.copyWith(
+            text: updatedText,
+            selection: TextSelection.collapsed(offset: updatedText.length),
+          );
+        }
+        return Container(
           padding: const EdgeInsets.only(bottom: 20, right: 10),
-          // color: Colors.red,
           child: Row(
             children: [
               AvatarWidget(
@@ -171,27 +211,33 @@ class _SocialReplyPageState extends State<SocialReplyPage> {
                 thumbPath:
                     'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
               ),
-              const Expanded(
+              Expanded(
                 child: TextField(
-                  decoration: InputDecoration(
+                  controller: _textEditingController,
+                  focusNode: _contentTextFieldFocusNode,
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     labelText: '댓글',
                   ),
                 ),
               ),
-              // const Expanded(
-              //     child: AppTextField(controlName: 'reply', label: 'ss')),
-              const Text(
-                "게시",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () => onSave(_textEditingController.text, state.selectedCommentItem!),
+                child: const Text(
+                  "게시",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
               )
             ],
           ),
-        ));
+        );
+      },
+    );
   }
 
-  void onSave() {
+  void onSave(String comment, CommentItem commentItem) {
     FocusScope.of(context).requestFocus(FocusNode());
-    SocialBloc bloc = context.read<SocialBloc>();
+    _socialBloc.add(CreateComment(
+        CommentRequest(postId: widget.socialItem.postId, comment: comment, parentCommentId: commentItem.commentId)));
   }
 }

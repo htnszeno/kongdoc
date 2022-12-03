@@ -1,0 +1,7 @@
+{
+    "@@locale": "ko",
+    "counterAppBarTitle": "카운터",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    }
+}

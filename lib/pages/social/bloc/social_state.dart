@@ -16,6 +16,8 @@ class SocialState with _$SocialState {
     AssetPathEntity? selectedAlbum,
     required List<AssetEntity> selectedAlbumPhotos,
     required List<SocialItem> likeItems,
+    required List<CommentItem> commentItems,
+    required CommentItem? selectedCommentItem,
   }) = _SocialState;
 
   factory SocialState.initial() {
@@ -30,8 +32,9 @@ class SocialState with _$SocialState {
         albums: [],
         selectedAlbum: null,
         selectedAlbumPhotos: [],
-        likeItems:[]
-    );
+        likeItems: [],
+        commentItems: [],
+        selectedCommentItem: null);
   }
 
   bool get hasLikeItems => likeItems.isNotEmpty;
@@ -39,6 +42,10 @@ class SocialState with _$SocialState {
   bool get hasListData => listItems.isNotEmpty;
 
   bool get hasSelectedItem => selectedItem != null;
+
+  bool get hasCommentItems => commentItems.isNotEmpty;
+
+  bool get hasSelectedCommentItem => selectedCommentItem != null;
 
   bool get isProcessing =>
       status.isDeleting || status.isUpdating || status.isSubmitting;

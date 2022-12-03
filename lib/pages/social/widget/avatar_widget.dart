@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hifive/util/time.dart';
 
-enum AvatarType { TYPE1, TYPE2, TYPE3 }
+enum AvatarType { TYPE1, TYPE2, TYPE3, TYPE4 }
 
 class AvatarWidget extends StatelessWidget {
   bool? hasStory;
@@ -9,14 +12,19 @@ class AvatarWidget extends StatelessWidget {
   String? nickname;
   AvatarType type;
   double? size;
-  AvatarWidget(
-      {Key? key,
-      required this.type,
-      required this.thumbPath,
-      this.hasStory,
-      this.nickname,
-      this.size = 65})
-      : super(key: key);
+  String? description;
+  DateTime? time;
+
+  AvatarWidget({
+    Key? key,
+    required this.type,
+    required this.thumbPath,
+    this.hasStory,
+    this.nickname,
+    this.size = 65,
+    this.description,
+    this.time,
+  }) : super(key: key);
 
   Widget type1Widget() {
     return Container(
@@ -64,6 +72,9 @@ class AvatarWidget extends StatelessWidget {
       case AvatarType.TYPE3:
         return type3Widget();
         break;
+      case AvatarType.TYPE4:
+        return type4Widget();
+        break;
     }
     return Container();
   }
@@ -80,6 +91,91 @@ class AvatarWidget extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+
+  Widget type4Widget() {
+    // return Column(
+    //   children: [
+    //     Expanded(
+    //       child: ExpandableText(
+    //         description!,
+    //         // prefixText: '개발남',
+    //         onPrefixTap: () {},
+    //         prefixStyle: const TextStyle(fontWeight: FontWeight.bold),
+    //         expandText: '더보기',
+    //         collapseText: '접기',
+    //         maxLines: 3,
+    //         // expandOnTextTap: true,
+    //         // collapseOnTextTap: true,
+    //         // linkColor: Colors.grey,
+    //       ),
+    //     ),
+    //   ],
+    // );
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          type1Widget(),
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    nickname ?? '',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    TimeUtil.timeAgo(
+                        milliseconds: time!.millisecondsSinceEpoch),
+                    style: const TextStyle(
+                      // fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: Get.context!.width-100,
+                child: ExpandableText(
+                  description!,
+                  // prefixText: '개발남',
+                  onPrefixTap: () {},
+                  prefixStyle: const TextStyle(fontWeight: FontWeight.bold),
+                  expandText: '더보기',
+                  collapseText: '접기',
+                  maxLines: 3,
+                  // expandOnTextTap: true,
+                  // collapseOnTextTap: true,
+                  // linkColor: Colors.grey,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                '답글달기',
+                style: TextStyle(
+                  // fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }

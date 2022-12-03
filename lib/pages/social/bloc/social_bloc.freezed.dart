@@ -31,6 +31,10 @@ mixin _$SocialEvent {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,6 +50,9 @@ mixin _$SocialEvent {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +68,9 @@ mixin _$SocialEvent {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +87,10 @@ mixin _$SocialEvent {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +106,9 @@ mixin _$SocialEvent {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,6 +124,9 @@ mixin _$SocialEvent {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -179,6 +199,10 @@ class _$Started implements Started {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return started();
   }
@@ -197,6 +221,9 @@ class _$Started implements Started {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return started?.call();
   }
@@ -215,6 +242,9 @@ class _$Started implements Started {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -237,6 +267,10 @@ class _$Started implements Started {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return started(this);
   }
@@ -255,6 +289,9 @@ class _$Started implements Started {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return started?.call(this);
   }
@@ -273,6 +310,9 @@ class _$Started implements Started {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -363,6 +403,10 @@ class _$FileUpload implements FileUpload {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return fileUpload(file);
   }
@@ -381,6 +425,9 @@ class _$FileUpload implements FileUpload {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return fileUpload?.call(file);
   }
@@ -399,6 +446,9 @@ class _$FileUpload implements FileUpload {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (fileUpload != null) {
@@ -421,6 +471,10 @@ class _$FileUpload implements FileUpload {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return fileUpload(this);
   }
@@ -439,6 +493,9 @@ class _$FileUpload implements FileUpload {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return fileUpload?.call(this);
   }
@@ -457,6 +514,9 @@ class _$FileUpload implements FileUpload {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (fileUpload != null) {
@@ -527,6 +587,10 @@ class _$LoadMore implements LoadMore {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return loadMore();
   }
@@ -545,6 +609,9 @@ class _$LoadMore implements LoadMore {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return loadMore?.call();
   }
@@ -563,6 +630,9 @@ class _$LoadMore implements LoadMore {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -585,6 +655,10 @@ class _$LoadMore implements LoadMore {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return loadMore(this);
   }
@@ -603,6 +677,9 @@ class _$LoadMore implements LoadMore {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return loadMore?.call(this);
   }
@@ -621,6 +698,9 @@ class _$LoadMore implements LoadMore {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -685,6 +765,10 @@ class _$Refresh implements Refresh {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return refresh();
   }
@@ -703,6 +787,9 @@ class _$Refresh implements Refresh {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return refresh?.call();
   }
@@ -721,6 +808,9 @@ class _$Refresh implements Refresh {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -743,6 +833,10 @@ class _$Refresh implements Refresh {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return refresh(this);
   }
@@ -761,6 +855,9 @@ class _$Refresh implements Refresh {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return refresh?.call(this);
   }
@@ -779,6 +876,9 @@ class _$Refresh implements Refresh {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -884,6 +984,10 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return setSelectedItem(selectedItem);
   }
@@ -902,6 +1006,9 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return setSelectedItem?.call(selectedItem);
   }
@@ -920,6 +1027,9 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -942,6 +1052,10 @@ class _$SetSelectedItem implements SetSelectedItem {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return setSelectedItem(this);
   }
@@ -960,6 +1074,9 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return setSelectedItem?.call(this);
   }
@@ -978,6 +1095,9 @@ class _$SetSelectedItem implements SetSelectedItem {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (setSelectedItem != null) {
@@ -1091,6 +1211,10 @@ class _$Update implements Update {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return update(request, postId);
   }
@@ -1109,6 +1233,9 @@ class _$Update implements Update {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return update?.call(request, postId);
   }
@@ -1127,6 +1254,9 @@ class _$Update implements Update {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1149,6 +1279,10 @@ class _$Update implements Update {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return update(this);
   }
@@ -1167,6 +1301,9 @@ class _$Update implements Update {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return update?.call(this);
   }
@@ -1185,6 +1322,9 @@ class _$Update implements Update {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1303,6 +1443,10 @@ class _$Create implements Create {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return create(request, images);
   }
@@ -1321,6 +1465,9 @@ class _$Create implements Create {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return create?.call(request, images);
   }
@@ -1339,6 +1486,9 @@ class _$Create implements Create {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1361,6 +1511,10 @@ class _$Create implements Create {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return create(this);
   }
@@ -1379,6 +1533,9 @@ class _$Create implements Create {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return create?.call(this);
   }
@@ -1397,6 +1554,9 @@ class _$Create implements Create {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -1492,6 +1652,10 @@ class _$Delete implements Delete {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return delete(postId);
   }
@@ -1510,6 +1674,9 @@ class _$Delete implements Delete {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return delete?.call(postId);
   }
@@ -1528,6 +1695,9 @@ class _$Delete implements Delete {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1550,6 +1720,10 @@ class _$Delete implements Delete {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return delete(this);
   }
@@ -1568,6 +1742,9 @@ class _$Delete implements Delete {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return delete?.call(this);
   }
@@ -1586,6 +1763,9 @@ class _$Delete implements Delete {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -1689,6 +1869,10 @@ class _$Filter implements Filter {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return filterNotes(type, data);
   }
@@ -1707,6 +1891,9 @@ class _$Filter implements Filter {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return filterNotes?.call(type, data);
   }
@@ -1725,6 +1912,9 @@ class _$Filter implements Filter {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -1747,6 +1937,10 @@ class _$Filter implements Filter {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return filterNotes(this);
   }
@@ -1765,6 +1959,9 @@ class _$Filter implements Filter {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return filterNotes?.call(this);
   }
@@ -1783,6 +1980,9 @@ class _$Filter implements Filter {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (filterNotes != null) {
@@ -1890,6 +2090,10 @@ class _$AddLikeCount implements AddLikeCount {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return addLikeCount(postId, userId);
   }
@@ -1908,6 +2112,9 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return addLikeCount?.call(postId, userId);
   }
@@ -1926,6 +2133,9 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (addLikeCount != null) {
@@ -1948,6 +2158,10 @@ class _$AddLikeCount implements AddLikeCount {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return addLikeCount(this);
   }
@@ -1966,6 +2180,9 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return addLikeCount?.call(this);
   }
@@ -1984,6 +2201,9 @@ class _$AddLikeCount implements AddLikeCount {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (addLikeCount != null) {
@@ -2082,6 +2302,10 @@ class _$ReqeustLikeData implements ReqeustLikeData {
     required TResult Function(FilterDataType type, dynamic data) filterNotes,
     required TResult Function(String postId, String userId) addLikeCount,
     required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
   }) {
     return reqeustLikeData(postId);
   }
@@ -2100,6 +2324,9 @@ class _$ReqeustLikeData implements ReqeustLikeData {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
   }) {
     return reqeustLikeData?.call(postId);
   }
@@ -2118,6 +2345,9 @@ class _$ReqeustLikeData implements ReqeustLikeData {
     TResult Function(FilterDataType type, dynamic data)? filterNotes,
     TResult Function(String postId, String userId)? addLikeCount,
     TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (reqeustLikeData != null) {
@@ -2140,6 +2370,10 @@ class _$ReqeustLikeData implements ReqeustLikeData {
     required TResult Function(Filter value) filterNotes,
     required TResult Function(AddLikeCount value) addLikeCount,
     required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
   }) {
     return reqeustLikeData(this);
   }
@@ -2158,6 +2392,9 @@ class _$ReqeustLikeData implements ReqeustLikeData {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
   }) {
     return reqeustLikeData?.call(this);
   }
@@ -2176,6 +2413,9 @@ class _$ReqeustLikeData implements ReqeustLikeData {
     TResult Function(Filter value)? filterNotes,
     TResult Function(AddLikeCount value)? addLikeCount,
     TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
     required TResult orElse(),
   }) {
     if (reqeustLikeData != null) {
@@ -2195,6 +2435,663 @@ abstract class ReqeustLikeData implements SocialEvent {
 }
 
 /// @nodoc
+abstract class _$$CreateCommentCopyWith<$Res> {
+  factory _$$CreateCommentCopyWith(
+          _$CreateComment value, $Res Function(_$CreateComment) then) =
+      __$$CreateCommentCopyWithImpl<$Res>;
+  $Res call({CommentRequest request});
+
+  $CommentRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class __$$CreateCommentCopyWithImpl<$Res>
+    extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$CreateCommentCopyWith<$Res> {
+  __$$CreateCommentCopyWithImpl(
+      _$CreateComment _value, $Res Function(_$CreateComment) _then)
+      : super(_value, (v) => _then(v as _$CreateComment));
+
+  @override
+  _$CreateComment get _value => super._value as _$CreateComment;
+
+  @override
+  $Res call({
+    Object? request = freezed,
+  }) {
+    return _then(_$CreateComment(
+      request == freezed
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as CommentRequest,
+    ));
+  }
+
+  @override
+  $CommentRequestCopyWith<$Res> get request {
+    return $CommentRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CreateComment implements CreateComment {
+  const _$CreateComment(this.request);
+
+  @override
+  final CommentRequest request;
+
+  @override
+  String toString() {
+    return 'SocialEvent.createComment(request: $request)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateComment &&
+            const DeepCollectionEquality().equals(other.request, request));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(request));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$CreateCommentCopyWith<_$CreateComment> get copyWith =>
+      __$$CreateCommentCopyWithImpl<_$CreateComment>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(File file) fileUpload,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
+  }) {
+    return createComment(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
+  }) {
+    return createComment?.call(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
+    required TResult orElse(),
+  }) {
+    if (createComment != null) {
+      return createComment(request);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(FileUpload value) fileUpload,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
+  }) {
+    return createComment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
+  }) {
+    return createComment?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
+    required TResult orElse(),
+  }) {
+    if (createComment != null) {
+      return createComment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateComment implements SocialEvent {
+  const factory CreateComment(final CommentRequest request) = _$CreateComment;
+
+  CommentRequest get request;
+  @JsonKey(ignore: true)
+  _$$CreateCommentCopyWith<_$CreateComment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReqeustCommentDataCopyWith<$Res> {
+  factory _$$ReqeustCommentDataCopyWith(_$ReqeustCommentData value,
+          $Res Function(_$ReqeustCommentData) then) =
+      __$$ReqeustCommentDataCopyWithImpl<$Res>;
+  $Res call({String postId});
+}
+
+/// @nodoc
+class __$$ReqeustCommentDataCopyWithImpl<$Res>
+    extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$ReqeustCommentDataCopyWith<$Res> {
+  __$$ReqeustCommentDataCopyWithImpl(
+      _$ReqeustCommentData _value, $Res Function(_$ReqeustCommentData) _then)
+      : super(_value, (v) => _then(v as _$ReqeustCommentData));
+
+  @override
+  _$ReqeustCommentData get _value => super._value as _$ReqeustCommentData;
+
+  @override
+  $Res call({
+    Object? postId = freezed,
+  }) {
+    return _then(_$ReqeustCommentData(
+      postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReqeustCommentData implements ReqeustCommentData {
+  const _$ReqeustCommentData(this.postId);
+
+  @override
+  final String postId;
+
+  @override
+  String toString() {
+    return 'SocialEvent.reqeustCommentData(postId: $postId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReqeustCommentData &&
+            const DeepCollectionEquality().equals(other.postId, postId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(postId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ReqeustCommentDataCopyWith<_$ReqeustCommentData> get copyWith =>
+      __$$ReqeustCommentDataCopyWithImpl<_$ReqeustCommentData>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(File file) fileUpload,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
+  }) {
+    return reqeustCommentData(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
+  }) {
+    return reqeustCommentData?.call(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
+    required TResult orElse(),
+  }) {
+    if (reqeustCommentData != null) {
+      return reqeustCommentData(postId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(FileUpload value) fileUpload,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
+  }) {
+    return reqeustCommentData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
+  }) {
+    return reqeustCommentData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
+    required TResult orElse(),
+  }) {
+    if (reqeustCommentData != null) {
+      return reqeustCommentData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReqeustCommentData implements SocialEvent {
+  const factory ReqeustCommentData(final String postId) = _$ReqeustCommentData;
+
+  String get postId;
+  @JsonKey(ignore: true)
+  _$$ReqeustCommentDataCopyWith<_$ReqeustCommentData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetSelectedCommentItemCopyWith<$Res> {
+  factory _$$SetSelectedCommentItemCopyWith(_$SetSelectedCommentItem value,
+          $Res Function(_$SetSelectedCommentItem) then) =
+      __$$SetSelectedCommentItemCopyWithImpl<$Res>;
+  $Res call({CommentItem? selectedCommentItem});
+
+  $CommentItemCopyWith<$Res>? get selectedCommentItem;
+}
+
+/// @nodoc
+class __$$SetSelectedCommentItemCopyWithImpl<$Res>
+    extends _$SocialEventCopyWithImpl<$Res>
+    implements _$$SetSelectedCommentItemCopyWith<$Res> {
+  __$$SetSelectedCommentItemCopyWithImpl(_$SetSelectedCommentItem _value,
+      $Res Function(_$SetSelectedCommentItem) _then)
+      : super(_value, (v) => _then(v as _$SetSelectedCommentItem));
+
+  @override
+  _$SetSelectedCommentItem get _value =>
+      super._value as _$SetSelectedCommentItem;
+
+  @override
+  $Res call({
+    Object? selectedCommentItem = freezed,
+  }) {
+    return _then(_$SetSelectedCommentItem(
+      selectedCommentItem == freezed
+          ? _value.selectedCommentItem
+          : selectedCommentItem // ignore: cast_nullable_to_non_nullable
+              as CommentItem?,
+    ));
+  }
+
+  @override
+  $CommentItemCopyWith<$Res>? get selectedCommentItem {
+    if (_value.selectedCommentItem == null) {
+      return null;
+    }
+
+    return $CommentItemCopyWith<$Res>(_value.selectedCommentItem!, (value) {
+      return _then(_value.copyWith(selectedCommentItem: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SetSelectedCommentItem implements SetSelectedCommentItem {
+  const _$SetSelectedCommentItem(this.selectedCommentItem);
+
+  @override
+  final CommentItem? selectedCommentItem;
+
+  @override
+  String toString() {
+    return 'SocialEvent.setSelectedCommentItem(selectedCommentItem: $selectedCommentItem)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetSelectedCommentItem &&
+            const DeepCollectionEquality()
+                .equals(other.selectedCommentItem, selectedCommentItem));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(selectedCommentItem));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SetSelectedCommentItemCopyWith<_$SetSelectedCommentItem> get copyWith =>
+      __$$SetSelectedCommentItemCopyWithImpl<_$SetSelectedCommentItem>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(File file) fileUpload,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function(SocialItem? selectedItem) setSelectedItem,
+    required TResult Function(UpdateSocialRequest request, String postId)
+        update,
+    required TResult Function(CreateSocialRequest request, List<File> images)
+        create,
+    required TResult Function(String postId) delete,
+    required TResult Function(FilterDataType type, dynamic data) filterNotes,
+    required TResult Function(String postId, String userId) addLikeCount,
+    required TResult Function(String postId) reqeustLikeData,
+    required TResult Function(CommentRequest request) createComment,
+    required TResult Function(String postId) reqeustCommentData,
+    required TResult Function(CommentItem? selectedCommentItem)
+        setSelectedCommentItem,
+  }) {
+    return setSelectedCommentItem(selectedCommentItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
+  }) {
+    return setSelectedCommentItem?.call(selectedCommentItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(File file)? fileUpload,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function(SocialItem? selectedItem)? setSelectedItem,
+    TResult Function(UpdateSocialRequest request, String postId)? update,
+    TResult Function(CreateSocialRequest request, List<File> images)? create,
+    TResult Function(String postId)? delete,
+    TResult Function(FilterDataType type, dynamic data)? filterNotes,
+    TResult Function(String postId, String userId)? addLikeCount,
+    TResult Function(String postId)? reqeustLikeData,
+    TResult Function(CommentRequest request)? createComment,
+    TResult Function(String postId)? reqeustCommentData,
+    TResult Function(CommentItem? selectedCommentItem)? setSelectedCommentItem,
+    required TResult orElse(),
+  }) {
+    if (setSelectedCommentItem != null) {
+      return setSelectedCommentItem(selectedCommentItem);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(FileUpload value) fileUpload,
+    required TResult Function(LoadMore value) loadMore,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(SetSelectedItem value) setSelectedItem,
+    required TResult Function(Update value) update,
+    required TResult Function(Create value) create,
+    required TResult Function(Delete value) delete,
+    required TResult Function(Filter value) filterNotes,
+    required TResult Function(AddLikeCount value) addLikeCount,
+    required TResult Function(ReqeustLikeData value) reqeustLikeData,
+    required TResult Function(CreateComment value) createComment,
+    required TResult Function(ReqeustCommentData value) reqeustCommentData,
+    required TResult Function(SetSelectedCommentItem value)
+        setSelectedCommentItem,
+  }) {
+    return setSelectedCommentItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
+  }) {
+    return setSelectedCommentItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(FileUpload value)? fileUpload,
+    TResult Function(LoadMore value)? loadMore,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(SetSelectedItem value)? setSelectedItem,
+    TResult Function(Update value)? update,
+    TResult Function(Create value)? create,
+    TResult Function(Delete value)? delete,
+    TResult Function(Filter value)? filterNotes,
+    TResult Function(AddLikeCount value)? addLikeCount,
+    TResult Function(ReqeustLikeData value)? reqeustLikeData,
+    TResult Function(CreateComment value)? createComment,
+    TResult Function(ReqeustCommentData value)? reqeustCommentData,
+    TResult Function(SetSelectedCommentItem value)? setSelectedCommentItem,
+    required TResult orElse(),
+  }) {
+    if (setSelectedCommentItem != null) {
+      return setSelectedCommentItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetSelectedCommentItem implements SocialEvent {
+  const factory SetSelectedCommentItem(final CommentItem? selectedCommentItem) =
+      _$SetSelectedCommentItem;
+
+  CommentItem? get selectedCommentItem;
+  @JsonKey(ignore: true)
+  _$$SetSelectedCommentItemCopyWith<_$SetSelectedCommentItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SocialState {
   List<SocialItem> get listItems => throw _privateConstructorUsedError;
   SocialItem? get selectedItem => throw _privateConstructorUsedError;
@@ -2208,6 +3105,8 @@ mixin _$SocialState {
   List<AssetEntity> get selectedAlbumPhotos =>
       throw _privateConstructorUsedError;
   List<SocialItem> get likeItems => throw _privateConstructorUsedError;
+  List<CommentItem> get commentItems => throw _privateConstructorUsedError;
+  CommentItem? get selectedCommentItem => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SocialStateCopyWith<SocialState> get copyWith =>
@@ -2230,9 +3129,12 @@ abstract class $SocialStateCopyWith<$Res> {
       List<AssetPathEntity> albums,
       AssetPathEntity? selectedAlbum,
       List<AssetEntity> selectedAlbumPhotos,
-      List<SocialItem> likeItems});
+      List<SocialItem> likeItems,
+      List<CommentItem> commentItems,
+      CommentItem? selectedCommentItem});
 
   $SocialItemCopyWith<$Res>? get selectedItem;
+  $CommentItemCopyWith<$Res>? get selectedCommentItem;
 }
 
 /// @nodoc
@@ -2256,6 +3158,8 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
     Object? selectedAlbum = freezed,
     Object? selectedAlbumPhotos = freezed,
     Object? likeItems = freezed,
+    Object? commentItems = freezed,
+    Object? selectedCommentItem = freezed,
   }) {
     return _then(_value.copyWith(
       listItems: listItems == freezed
@@ -2302,6 +3206,14 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
           ? _value.likeItems
           : likeItems // ignore: cast_nullable_to_non_nullable
               as List<SocialItem>,
+      commentItems: commentItems == freezed
+          ? _value.commentItems
+          : commentItems // ignore: cast_nullable_to_non_nullable
+              as List<CommentItem>,
+      selectedCommentItem: selectedCommentItem == freezed
+          ? _value.selectedCommentItem
+          : selectedCommentItem // ignore: cast_nullable_to_non_nullable
+              as CommentItem?,
     ));
   }
 
@@ -2313,6 +3225,17 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
 
     return $SocialItemCopyWith<$Res>(_value.selectedItem!, (value) {
       return _then(_value.copyWith(selectedItem: value));
+    });
+  }
+
+  @override
+  $CommentItemCopyWith<$Res>? get selectedCommentItem {
+    if (_value.selectedCommentItem == null) {
+      return null;
+    }
+
+    return $CommentItemCopyWith<$Res>(_value.selectedCommentItem!, (value) {
+      return _then(_value.copyWith(selectedCommentItem: value));
     });
   }
 }
@@ -2335,10 +3258,14 @@ abstract class _$$_SocialStateCopyWith<$Res>
       List<AssetPathEntity> albums,
       AssetPathEntity? selectedAlbum,
       List<AssetEntity> selectedAlbumPhotos,
-      List<SocialItem> likeItems});
+      List<SocialItem> likeItems,
+      List<CommentItem> commentItems,
+      CommentItem? selectedCommentItem});
 
   @override
   $SocialItemCopyWith<$Res>? get selectedItem;
+  @override
+  $CommentItemCopyWith<$Res>? get selectedCommentItem;
 }
 
 /// @nodoc
@@ -2364,6 +3291,8 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
     Object? selectedAlbum = freezed,
     Object? selectedAlbumPhotos = freezed,
     Object? likeItems = freezed,
+    Object? commentItems = freezed,
+    Object? selectedCommentItem = freezed,
   }) {
     return _then(_$_SocialState(
       listItems: listItems == freezed
@@ -2410,6 +3339,14 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
           ? _value._likeItems
           : likeItems // ignore: cast_nullable_to_non_nullable
               as List<SocialItem>,
+      commentItems: commentItems == freezed
+          ? _value._commentItems
+          : commentItems // ignore: cast_nullable_to_non_nullable
+              as List<CommentItem>,
+      selectedCommentItem: selectedCommentItem == freezed
+          ? _value.selectedCommentItem
+          : selectedCommentItem // ignore: cast_nullable_to_non_nullable
+              as CommentItem?,
     ));
   }
 }
@@ -2428,11 +3365,14 @@ class _$_SocialState extends _SocialState {
       required final List<AssetPathEntity> albums,
       this.selectedAlbum,
       required final List<AssetEntity> selectedAlbumPhotos,
-      required final List<SocialItem> likeItems})
+      required final List<SocialItem> likeItems,
+      required final List<CommentItem> commentItems,
+      required this.selectedCommentItem})
       : _listItems = listItems,
         _albums = albums,
         _selectedAlbumPhotos = selectedAlbumPhotos,
         _likeItems = likeItems,
+        _commentItems = commentItems,
         super._();
 
   final List<SocialItem> _listItems;
@@ -2477,9 +3417,19 @@ class _$_SocialState extends _SocialState {
     return EqualUnmodifiableListView(_likeItems);
   }
 
+  final List<CommentItem> _commentItems;
+  @override
+  List<CommentItem> get commentItems {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_commentItems);
+  }
+
+  @override
+  final CommentItem? selectedCommentItem;
+
   @override
   String toString() {
-    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, returnType: $returnType, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos, likeItems: $likeItems)';
+    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, returnType: $returnType, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos, likeItems: $likeItems, commentItems: $commentItems, selectedCommentItem: $selectedCommentItem)';
   }
 
   @override
@@ -2504,7 +3454,11 @@ class _$_SocialState extends _SocialState {
             const DeepCollectionEquality()
                 .equals(other._selectedAlbumPhotos, _selectedAlbumPhotos) &&
             const DeepCollectionEquality()
-                .equals(other._likeItems, _likeItems));
+                .equals(other._likeItems, _likeItems) &&
+            const DeepCollectionEquality()
+                .equals(other._commentItems, _commentItems) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedCommentItem, selectedCommentItem));
   }
 
   @override
@@ -2520,7 +3474,9 @@ class _$_SocialState extends _SocialState {
       const DeepCollectionEquality().hash(_albums),
       const DeepCollectionEquality().hash(selectedAlbum),
       const DeepCollectionEquality().hash(_selectedAlbumPhotos),
-      const DeepCollectionEquality().hash(_likeItems));
+      const DeepCollectionEquality().hash(_likeItems),
+      const DeepCollectionEquality().hash(_commentItems),
+      const DeepCollectionEquality().hash(selectedCommentItem));
 
   @JsonKey(ignore: true)
   @override
@@ -2540,7 +3496,9 @@ abstract class _SocialState extends SocialState {
       required final List<AssetPathEntity> albums,
       final AssetPathEntity? selectedAlbum,
       required final List<AssetEntity> selectedAlbumPhotos,
-      required final List<SocialItem> likeItems}) = _$_SocialState;
+      required final List<SocialItem> likeItems,
+      required final List<CommentItem> commentItems,
+      required final CommentItem? selectedCommentItem}) = _$_SocialState;
   const _SocialState._() : super._();
 
   @override
@@ -2565,6 +3523,10 @@ abstract class _SocialState extends SocialState {
   List<AssetEntity> get selectedAlbumPhotos;
   @override
   List<SocialItem> get likeItems;
+  @override
+  List<CommentItem> get commentItems;
+  @override
+  CommentItem? get selectedCommentItem;
   @override
   @JsonKey(ignore: true)
   _$$_SocialStateCopyWith<_$_SocialState> get copyWith =>

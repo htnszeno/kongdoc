@@ -7,7 +7,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:hifive/models/app_response.dart';
+import 'package:hifive/models/comment_model.dart';
 import 'package:hifive/models/social_model.dart';
+import 'package:hifive/pages/social/request/comment_request.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/repositories/core/endpoint.dart';
@@ -34,7 +36,7 @@ class SocialRepository {
   @override
   Future<AppResponse<int?>> deleteSingle(String postId) async {
     final response = await _dioClient
-        .post("/api/PETSO001SVC/delete", data: {'postId': postId});
+        .post("/api/PETSO001SVC/put", data: {'postId': postId, 'status': 'D'});
     return AppResponse<int?>.fromJson(
       response.data,
       (json) => response.data['success'] && json != null ? json as int : null,
@@ -54,7 +56,7 @@ class SocialRepository {
   Future<AppResponse<List<SocialItem>?>> update(
       UpdateSocialRequest request) async {
     final response = await _dioClient.post(
-      "/api/SO001SVC/put",
+      "/api/CUSSO001SVC/put",
       data: request.toJson(),
     );
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
@@ -145,8 +147,8 @@ class SocialRepository {
     String? postId,
     String? userId,
   }) async {
-    final response = await _dioClient.post(Endpoints.getLikeMany,
-        data: {'postId': postId});
+    final response =
+        await _dioClient.post(Endpoints.getLikeMany, data: {'postId': postId});
 
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
         (dynamic json) {
@@ -166,5 +168,48 @@ class SocialRepository {
       response.data,
       (json) => response.data['success'] && json != null ? json as int : null,
     );
+  }
+
+
+  //////////////////// 댓글저장 //////////////////////////
+  Future<AppResponse<List<CommentItem>?>> createComment(
+      CommentRequest request) async {
+
+    final response = await _dioClient.post(
+      Endpoints.commentCreate,
+      data: request.toJson(),
+    );
+    print(response.data);
+    return AppResponse<List<CommentItem>?>.fromJson(response.data,
+            (dynamic json) {
+          return (json as List<dynamic>)
+              .map((e) => CommentItem.fromJson(e))
+              .toList();
+        });
+  }
+
+  /**
+   * 댓글 전체 가져오기
+   */
+  Future<AppResponse<List<CommentItem>?>> getCommentMany({
+    int currentPage = 1,
+    int limit = 20,
+    String? postId,
+    String? userId,
+  }) async {
+    int start = currentPage == 1 ? 0 : ((currentPage * limit) - limit);
+    final response = await _dioClient.post(Endpoints.getCommentMany, data: {
+      'start': start,
+      'limit': limit,
+      'page': currentPage,
+      'postId': postId
+    });
+
+    return AppResponse<List<CommentItem>?>.fromJson(response.data,
+            (dynamic json) {
+          return (json as List<dynamic>)
+              .map((e) => CommentItem.fromJson(e))
+              .toList();
+        });
   }
 }

@@ -9,14 +9,13 @@ part of 'social_model.dart';
 _$_SocialItem _$$_SocialItemFromJson(Map<String, dynamic> json) =>
     _$_SocialItem(
       postId: json['post_id'] as String,
-      userId: json['user_id'] as String,
+      userId: json['user_id'] as String?,
       postDate: json['post_date'] as String?,
       contents: json['contents'] as String?,
-      userName: json['user_name'] as String,
+      userName: json['user_name'] as String?,
       images: json['images'],
       isLike: json['is_like'] as int?,
       likeCount: json['like_count'] as int?,
-      reply: json['reply'] as String?,
     );
 
 Map<String, dynamic> _$$_SocialItemToJson(_$_SocialItem instance) =>
@@ -29,5 +28,4 @@ Map<String, dynamic> _$$_SocialItemToJson(_$_SocialItem instance) =>
       'images': instance.images,
       'is_like': instance.isLike,
       'like_count': instance.likeCount,
-      'reply': instance.reply,
     };

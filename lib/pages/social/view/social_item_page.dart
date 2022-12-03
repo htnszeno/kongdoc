@@ -50,7 +50,7 @@ class _SocialItemPageState extends State<SocialItemPage> {
         if (state.status == DataStatus.loading) {
           return const SplashPage();
         }
-        final formGroup = _socialBloc.formgroup;
+        final formGroup = _socialBloc.socialFormgroup;
         final isEditing = _socialBloc.state.hasSelectedItem;
         return Scaffold(
           appBar: AppBar(

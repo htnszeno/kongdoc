@@ -57,61 +57,62 @@ class _SocialLikePageState extends State<SocialLikePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SocialBloc, SocialState>(
-      builder: (context, state) {
-        if (state.status == DataStatus.loading) {
-          return const SplashPage();
-        }
-        return Scaffold(
-          appBar: AppBar(
-            centerTitle: false,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text('좋아요'),
-                const SizedBox(
-                  width: 10,
-                ),
-                const FaIcon(
-                  size: 20,
-                  // color: Colors.red,
-                  FontAwesomeIcons.heart,
-                ),
-              ],
-            ),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomScrollView(
-              controller: _scrollController,
-              slivers: [
-                BlocConsumer<SocialBloc, SocialState>(
-                  listener: (_, __) {},
-                  builder: (context, state) {
-                    if (state.status.isLoading) {
-                      return const SliverFillRemaining(
-                        child: BlankContent(
-                          isLoading: true,
-                        ),
-                      );
-                    }
-                    if (!state.hasLikeItems) {
-                      return const SliverFillRemaining(
-                        child: BlankContent(),
-                      );
-                    }
-                    return SocialLikeList(
-                      likeItems: state.likeItems,
-                      onSave: onSave,
-                    );
-                  },
-                )
-              ],
-            ),
-          ),
-        );
-      },
-    );
+    return Container(child: Text("ddd"),);
+    // return BlocBuilder<SocialBloc, SocialState>(
+    //   builder: (context, state) {
+    //     if (state.status == DataStatus.loading) {
+    //       return const SplashPage();
+    //     }
+    //     return Scaffold(
+    //       appBar: AppBar(
+    //         centerTitle: false,
+    //         title: Row(
+    //           crossAxisAlignment: CrossAxisAlignment.center,
+    //           children: [
+    //             const Text('좋아요'),
+    //             const SizedBox(
+    //               width: 10,
+    //             ),
+    //             const FaIcon(
+    //               size: 20,
+    //               // color: Colors.red,
+    //               FontAwesomeIcons.heart,
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //       body: Padding(
+    //         padding: const EdgeInsets.all(8.0),
+    //         child: CustomScrollView(
+    //           controller: _scrollController,
+    //           slivers: [
+    //             BlocConsumer<SocialBloc, SocialState>(
+    //               listener: (_, __) {},
+    //               builder: (context, state) {
+    //                 if (state.status.isLoading) {
+    //                   return const SliverFillRemaining(
+    //                     child: BlankContent(
+    //                       isLoading: true,
+    //                     ),
+    //                   );
+    //                 }
+    //                 if (!state.hasLikeItems) {
+    //                   return const SliverFillRemaining(
+    //                     child: BlankContent(),
+    //                   );
+    //                 }
+    //                 return SocialLikeList(
+    //                   likeItems: state.likeItems,
+    //                   onSave: onSave,
+    //                 );
+    //               },
+    //             )
+    //           ],
+    //         ),
+    //       ),
+    //     );
+    //   },
+    // );
   }
 
   void onSave() {

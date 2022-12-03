@@ -4,7 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hifive/enums/data_status.dart';
 import 'package:hifive/enums/filter_data_type.dart';
+import 'package:hifive/models/comment_model.dart';
 import 'package:hifive/models/social_model.dart';
+import 'package:hifive/pages/social/request/comment_request.dart';
 import 'package:hifive/pages/social/request/create_social_request.dart';
 import 'package:hifive/pages/social/request/update_social_request.dart';
 import 'package:hifive/repositories/social_repository.dart';
@@ -28,6 +30,10 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     // 좋아요 리스트
     on<ReqeustLikeData>((event, emit) async {
       await _getLikeFirstPage(event, emit);
+    });
+    on<ReqeustCommentData>((event, emit) async {
+      print("ReqeustCommentData.....");
+      await _getCommentFirstPage(event, emit);
     });
 
     on<Refresh>((event, emit) async {
@@ -200,6 +206,62 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
         ));
       }
     });
+
+    // 댓글 입력
+    on<CreateComment>((event, emit) async {
+      if (state.status.isUpdating) return;
+      emit(state.copyWith(status: DataStatus.updating));
+
+      List<CommentItem> commentItems = [...state.commentItems];
+
+      final result = await _socialRepository.createComment(event.request);
+      if (result.success) {
+        // @todo 부모댓글을 찾아서 이하로 넣어줘야함.
+        final updateNoteIndex =
+        commentItems.indexWhere((element) => element.commentId == event.request.parentCommentId);
+        if (updateNoteIndex != -1) {
+          // 대체가 아니라끼워 넣어야한다.
+          commentItems.insert(updateNoteIndex+1, result.data![0]);
+        }
+
+        emit(state.copyWith(
+          msg: result.msg,
+          status: DataStatus.success,
+          commentItems: commentItems,
+        ));
+      } else {
+        emit(state.copyWith(
+          msg: result.msg,
+          status: DataStatus.error,
+        ));
+      }
+    });
+
+    // 댓글 입력
+    on<SetSelectedCommentItem>((event, emit) async {
+      emit(state.copyWith(selectedCommentItem: event.selectedCommentItem));
+    });
+  }
+
+  // 댓글
+  Future<void> _getCommentFirstPage(
+      ReqeustCommentData event, Emitter<SocialState> emit) async {
+    final result = await _socialRepository.getCommentMany(postId: event.postId);
+    if (result.success) {
+      emit(state.copyWith(
+        commentItems: result.data ?? [],
+        status: DataStatus.initial,
+        isLastPage: false,
+        page: 1,
+      ));
+    } else {
+      emit(state.copyWith(
+        msg: result.msg,
+        status: DataStatus.error,
+        isLastPage: false,
+        page: 1,
+      ));
+    }
   }
 
   // 좋아요
@@ -242,7 +304,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     }
   }
 
-  FormGroup get formgroup {
+  FormGroup get socialFormgroup {
     return fb.group(
       {
         'postId': [state.selectedItem?.postId],
@@ -251,8 +313,20 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
           state.hasSelectedItem ? state.selectedItem!.contents : "",
           Validators.required,
         ],
-        'reply': [state.selectedItem?.reply]
       },
     );
   }
+
+// FormGroup get commentFormgroup {
+//   return fb.group(
+//     {
+//       'postId': [state.selectedItem?.postId],
+//       'userId': [state.selectedItem?.userId],
+//       'comment': [
+//         state.hasSelectedItem ? state.selectedItem!.contents : "",
+//         Validators.required,
+//       ],
+//     },
+//   );
+// }
 }

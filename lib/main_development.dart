@@ -13,10 +13,13 @@ import 'package:hifive/repositories/app_repository.dart';
 import 'package:hifive/repositories/note/note_repository.dart';
 import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/util/global.dart';
+import 'package:hifive/util/time.dart';
 import 'package:path_provider/path_provider.dart';
-
+import 'package:timeago/timeago.dart' as timeago;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  TimeUtil.setLocalMessages();
+
   final directory = await getApplicationSupportDirectory();
   Globals().setAppDirectoryPath = directory.path;
 

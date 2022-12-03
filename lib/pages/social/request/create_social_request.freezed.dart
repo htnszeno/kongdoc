@@ -21,7 +21,6 @@ CreateSocialRequest _$CreateSocialRequestFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateSocialRequest {
   String? get postId => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
   String? get contents => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +34,7 @@ abstract class $CreateSocialRequestCopyWith<$Res> {
   factory $CreateSocialRequestCopyWith(
           CreateSocialRequest value, $Res Function(CreateSocialRequest) then) =
       _$CreateSocialRequestCopyWithImpl<$Res>;
-  $Res call({String? postId, String? title, String? contents});
+  $Res call({String? postId, String? contents});
 }
 
 /// @nodoc
@@ -50,17 +49,12 @@ class _$CreateSocialRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? postId = freezed,
-    Object? title = freezed,
     Object? contents = freezed,
   }) {
     return _then(_value.copyWith(
       postId: postId == freezed
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       contents: contents == freezed
           ? _value.contents
@@ -77,7 +71,7 @@ abstract class _$$_CreateSocialRequestCopyWith<$Res>
           $Res Function(_$_CreateSocialRequest) then) =
       __$$_CreateSocialRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? postId, String? title, String? contents});
+  $Res call({String? postId, String? contents});
 }
 
 /// @nodoc
@@ -94,17 +88,12 @@ class __$$_CreateSocialRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? postId = freezed,
-    Object? title = freezed,
     Object? contents = freezed,
   }) {
     return _then(_$_CreateSocialRequest(
       postId: postId == freezed
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       contents: contents == freezed
           ? _value.contents
@@ -117,7 +106,7 @@ class __$$_CreateSocialRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateSocialRequest implements _CreateSocialRequest {
-  _$_CreateSocialRequest({this.postId, this.title, this.contents});
+  _$_CreateSocialRequest({this.postId, this.contents});
 
   factory _$_CreateSocialRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateSocialRequestFromJson(json);
@@ -125,13 +114,11 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
   @override
   final String? postId;
   @override
-  final String? title;
-  @override
   final String? contents;
 
   @override
   String toString() {
-    return 'CreateSocialRequest(postId: $postId, title: $title, contents: $contents)';
+    return 'CreateSocialRequest(postId: $postId, contents: $contents)';
   }
 
   @override
@@ -140,7 +127,6 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
         (other.runtimeType == runtimeType &&
             other is _$_CreateSocialRequest &&
             const DeepCollectionEquality().equals(other.postId, postId) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.contents, contents));
   }
 
@@ -149,7 +135,6 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(postId),
-      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(contents));
 
   @JsonKey(ignore: true)
@@ -167,18 +152,14 @@ class _$_CreateSocialRequest implements _CreateSocialRequest {
 }
 
 abstract class _CreateSocialRequest implements CreateSocialRequest {
-  factory _CreateSocialRequest(
-      {final String? postId,
-      final String? title,
-      final String? contents}) = _$_CreateSocialRequest;
+  factory _CreateSocialRequest({final String? postId, final String? contents}) =
+      _$_CreateSocialRequest;
 
   factory _CreateSocialRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateSocialRequest.fromJson;
 
   @override
   String? get postId;
-  @override
-  String? get title;
   @override
   String? get contents;
   @override
