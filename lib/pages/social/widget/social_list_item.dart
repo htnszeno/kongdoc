@@ -305,7 +305,7 @@ class _SocialListItemState extends State<SocialListItem> {
           AvatarWidget(
             type: AvatarType.TYPE3,
             size: 40,
-            nickname: social.userName,
+            nickname: social.postUserName,
             thumbPath: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
           ),
           IconButton(
@@ -458,12 +458,13 @@ class _SocialListItemState extends State<SocialListItem> {
 
   Widget _replyTextBtn() {
     return GestureDetector(
-      onTap: () {},
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.0),
+      onTap: () =>
+          Navigator.of(context).push(SocialCommentPage.route(widget.social)),
+      child:  Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Text(
-          '댓글 199개 모두 보기',
-          style: TextStyle(
+          '댓글 ${widget.social.commentCount}개 모두 보기',
+          style: const TextStyle(
             color: Colors.grey,
             fontSize: 13,
           ),

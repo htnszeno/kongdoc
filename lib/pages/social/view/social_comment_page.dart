@@ -165,34 +165,14 @@ class _SocialCommentPageState extends State<SocialCommentPage> {
   }
 
   _bottomReplyTextBar() {
-    // SocialBloc bloc = context.read<SocialBloc>();
-    // final selectedCommentItem =
-    // context.select((SocialBloc bloc) => bloc.state.selectedCommentItem);
-
-
-    // _textEditingController.value=TextEditingValue(text: "sample text");
-    // final updatedText = _textEditingController.text + '@111';
-    // _textEditingController.value = _textEditingController.value.copyWith(
-    //   text: updatedText,
-    //   selection: TextSelection.collapsed(offset: updatedText.length),
-    // );
-    // print("111111111");
+    TextEditingController _textEditingController = TextEditingController();
     return BlocConsumer<SocialBloc, SocialState>(
       listener: (context, state) {
         if (state.hasSelectedCommentItem) {
-
-
-
-          // final updatedText = _textEditingController.text + '@${state.selectedCommentItem?.commentUserId}';
-          // _textEditingController.value = TextEditingValue(text: "ANY TEXT");
-          // _textEditingController.value = _textEditingController.value.copyWith(
-          //   text: updatedText,
-          //   selection: TextSelection.collapsed(offset: updatedText.length),
-          // );
         }
       },
       builder: (context, state) {
-        TextEditingController _textEditingController = TextEditingController();
+
         if (state.hasSelectedCommentItem) {
           final updatedText = _textEditingController.text + '@${state.selectedCommentItem?.commentUserId} ';
           // _textEditingController.value = TextEditingValue(text: '@${state.selectedCommentItem?.commentUserId} ');
@@ -222,7 +202,7 @@ class _SocialCommentPageState extends State<SocialCommentPage> {
                 ),
               ),
               GestureDetector(
-                onTap: () => onSave(_textEditingController.text, state.selectedCommentItem!),
+                onTap: () => onSave(_textEditingController.text, state.selectedCommentItem),
                 child: const Text(
                   "게시",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -235,9 +215,9 @@ class _SocialCommentPageState extends State<SocialCommentPage> {
     );
   }
 
-  void onSave(String comment, CommentItem commentItem) {
+  void onSave(String comment, CommentItem? commentItem) {
     FocusScope.of(context).requestFocus(FocusNode());
     _socialBloc.add(CreateComment(
-        CommentRequest(postId: widget.socialItem.postId, comment: comment, parentCommentId: commentItem.commentId)));
+        CommentRequest(postId: widget.socialItem.postId, comment: comment, parentCommentId: commentItem?.commentId)));
   }
 }

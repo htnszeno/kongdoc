@@ -51,7 +51,7 @@ class _SocialLikeItemState extends State<SocialLikeItem> {
           AvatarWidget(
             type: AvatarType.TYPE3,
             size: 40,
-            nickname: social.userName,
+            nickname: social.postUserName,
             thumbPath: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
           ),
 

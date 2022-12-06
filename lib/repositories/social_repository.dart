@@ -130,6 +130,7 @@ class SocialRepository {
       'postId': postId
     });
 
+    print(response.data);
     return AppResponse<List<SocialItem>?>.fromJson(response.data,
         (dynamic json) {
       return (json as List<dynamic>)
@@ -170,22 +171,20 @@ class SocialRepository {
     );
   }
 
-
   //////////////////// 댓글저장 //////////////////////////
   Future<AppResponse<List<CommentItem>?>> createComment(
       CommentRequest request) async {
-
     final response = await _dioClient.post(
       Endpoints.commentCreate,
       data: request.toJson(),
     );
     print(response.data);
     return AppResponse<List<CommentItem>?>.fromJson(response.data,
-            (dynamic json) {
-          return (json as List<dynamic>)
-              .map((e) => CommentItem.fromJson(e))
-              .toList();
-        });
+        (dynamic json) {
+      return (json as List<dynamic>)
+          .map((e) => CommentItem.fromJson(e))
+          .toList();
+    });
   }
 
   /**
@@ -206,10 +205,10 @@ class SocialRepository {
     });
 
     return AppResponse<List<CommentItem>?>.fromJson(response.data,
-            (dynamic json) {
-          return (json as List<dynamic>)
-              .map((e) => CommentItem.fromJson(e))
-              .toList();
-        });
+        (dynamic json) {
+      return (json as List<dynamic>)
+          .map((e) => CommentItem.fromJson(e))
+          .toList();
+    });
   }
 }

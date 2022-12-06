@@ -222,6 +222,8 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
         if (updateNoteIndex != -1) {
           // 대체가 아니라끼워 넣어야한다.
           commentItems.insert(updateNoteIndex+1, result.data![0]);
+        }else{
+          commentItems = [result.data![0], ...commentItems];
         }
 
         emit(state.copyWith(
@@ -308,7 +310,7 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
     return fb.group(
       {
         'postId': [state.selectedItem?.postId],
-        'userId': [state.selectedItem?.userId],
+        'userId': [state.selectedItem?.postUserId],
         'contents': [
           state.hasSelectedItem ? state.selectedItem!.contents : "",
           Validators.required,
