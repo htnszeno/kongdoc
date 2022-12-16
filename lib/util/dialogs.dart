@@ -7,6 +7,7 @@ void showMessageSnackbar(
   Color? color,
 }) {
   final snackbar = SnackBar(
+    duration: const Duration(milliseconds: 1000),
     backgroundColor: color,
     content: Text(message),
     behavior: SnackBarBehavior.floating,
@@ -27,9 +28,7 @@ Future<bool> showConfirmation(
       // contentPadding: EdgeInsets.zero,
       // clipBehavior: Clip.antiAliasWithSaveLayer,
       title: (title != null ? Text(title) : null),
-      content: Container(
-          width: Get.width,
-          child: Text(content)),
+      content: Container(width: Get.width, child: Text(content)),
       actions: [
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
