@@ -18,10 +18,11 @@ class SocialState with _$SocialState {
     required List<SocialItem> likeItems,
     required List<CommentItem> commentItems,
     required CommentItem? selectedCommentItem,
+    required String instanceDate,
   }) = _SocialState;
 
   factory SocialState.initial() {
-    return const SocialState(
+    return SocialState(
         page: 1,
         listItems: [],
         status: DataStatus.initial,
@@ -34,7 +35,8 @@ class SocialState with _$SocialState {
         selectedAlbumPhotos: [],
         likeItems: [],
         commentItems: [],
-        selectedCommentItem: null);
+        selectedCommentItem: null,
+        instanceDate: DateFormat("yyyy-MM-dd HH:m:s").format(DateTime.now()));
   }
 
   bool get hasLikeItems => likeItems.isNotEmpty;

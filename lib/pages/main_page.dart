@@ -29,36 +29,16 @@ class _MainPageState extends State<MainPage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   final List<Widget> _widgetOptions = <Widget>[
+    const HomePage(),
     RepositoryProvider(
       create: (_) => SocialRepository(),
       child: BlocProvider<SocialBloc>(
         create: (context) => SocialBloc(
           socialRepository: context.read<SocialRepository>(),
-        )
-          ..add(const Started()),
-          // ..add(const AlbumsLoaded()),
+        )..add(const Started()),
         child: const SocialPage(),
       ),
     ),
-    const HomePage(),
-    // RepositoryProvider(
-    //   create: (_) => ExamRepository(),
-    //   child: BlocProvider<ExamBloc>(
-    //     create: (context) => ExamBloc(
-    //       examRepository: context.read<ExamRepository>(),
-    //     )..add(Started()),
-    //     child: const ExamBlocPage(),
-    //   ),
-    // ),
-    // RepositoryProvider(
-    //   create: (_) => ExamRepository(),
-    //   child: BlocProvider<ExamCubit>(
-    //     create: (context) =>
-    //         ExamCubit(context.read<ExamRepository>())..started(),
-    //     child: const ExamCubitPage(),
-    //   ),
-    // ),
-
     const ShortsPage(),
     const OpenChatPage(),
     const ProfilePage()
@@ -88,22 +68,13 @@ class _MainPageState extends State<MainPage> {
         elevation: 0,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_pin_outlined),
-            label: '소셜',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: '홈',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.stream_sharp),
-          //   label: '샘플Bloc',
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.stream_sharp),
-          //   label: '샘플Cubit',
-          // ),
-
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_pin_outlined),
+            label: '소셜',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.movie_creation_outlined),
             label: '쇼츠',

@@ -13,7 +13,7 @@ import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/util/dialogs.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-
+import 'package:intl/intl.dart';
 part 'social_bloc.freezed.dart';
 
 part 'social_event.dart';
@@ -217,12 +217,12 @@ class SocialBloc extends Bloc<SocialEvent, SocialState> {
       final result = await _socialRepository.createComment(event.request);
       if (result.success) {
         // @todo 부모댓글을 찾아서 이하로 넣어줘야함.
-        final updateNoteIndex =
-        commentItems.indexWhere((element) => element.commentId == event.request.parentCommentId);
+        final updateNoteIndex = commentItems.indexWhere(
+            (element) => element.commentId == event.request.parentCommentId);
         if (updateNoteIndex != -1) {
           // 대체가 아니라끼워 넣어야한다.
-          commentItems.insert(updateNoteIndex+1, result.data![0]);
-        }else{
+          commentItems.insert(updateNoteIndex + 1, result.data![0]);
+        } else {
           commentItems = [result.data![0], ...commentItems];
         }
 

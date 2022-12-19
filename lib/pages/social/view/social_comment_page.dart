@@ -61,6 +61,10 @@ class _SocialCommentPageState extends State<SocialCommentPage> {
 
   @override
   Widget build(BuildContext context) {
+    final instanceDate =
+    context.select((SocialBloc bloc) => bloc.state.instanceDate);
+
+    print('_socialBloc.state.instanceDate : $instanceDate');
     return BlocBuilder<SocialBloc, SocialState>(
       builder: (context, state) {
         if (state.status == DataStatus.loading) {

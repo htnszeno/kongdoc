@@ -3107,6 +3107,7 @@ mixin _$SocialState {
   List<SocialItem> get likeItems => throw _privateConstructorUsedError;
   List<CommentItem> get commentItems => throw _privateConstructorUsedError;
   CommentItem? get selectedCommentItem => throw _privateConstructorUsedError;
+  String get instanceDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SocialStateCopyWith<SocialState> get copyWith =>
@@ -3131,7 +3132,8 @@ abstract class $SocialStateCopyWith<$Res> {
       List<AssetEntity> selectedAlbumPhotos,
       List<SocialItem> likeItems,
       List<CommentItem> commentItems,
-      CommentItem? selectedCommentItem});
+      CommentItem? selectedCommentItem,
+      String instanceDate});
 
   $SocialItemCopyWith<$Res>? get selectedItem;
   $CommentItemCopyWith<$Res>? get selectedCommentItem;
@@ -3160,6 +3162,7 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
     Object? likeItems = freezed,
     Object? commentItems = freezed,
     Object? selectedCommentItem = freezed,
+    Object? instanceDate = freezed,
   }) {
     return _then(_value.copyWith(
       listItems: listItems == freezed
@@ -3214,6 +3217,10 @@ class _$SocialStateCopyWithImpl<$Res> implements $SocialStateCopyWith<$Res> {
           ? _value.selectedCommentItem
           : selectedCommentItem // ignore: cast_nullable_to_non_nullable
               as CommentItem?,
+      instanceDate: instanceDate == freezed
+          ? _value.instanceDate
+          : instanceDate // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -3260,7 +3267,8 @@ abstract class _$$_SocialStateCopyWith<$Res>
       List<AssetEntity> selectedAlbumPhotos,
       List<SocialItem> likeItems,
       List<CommentItem> commentItems,
-      CommentItem? selectedCommentItem});
+      CommentItem? selectedCommentItem,
+      String instanceDate});
 
   @override
   $SocialItemCopyWith<$Res>? get selectedItem;
@@ -3293,6 +3301,7 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
     Object? likeItems = freezed,
     Object? commentItems = freezed,
     Object? selectedCommentItem = freezed,
+    Object? instanceDate = freezed,
   }) {
     return _then(_$_SocialState(
       listItems: listItems == freezed
@@ -3347,6 +3356,10 @@ class __$$_SocialStateCopyWithImpl<$Res> extends _$SocialStateCopyWithImpl<$Res>
           ? _value.selectedCommentItem
           : selectedCommentItem // ignore: cast_nullable_to_non_nullable
               as CommentItem?,
+      instanceDate: instanceDate == freezed
+          ? _value.instanceDate
+          : instanceDate // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -3367,7 +3380,8 @@ class _$_SocialState extends _SocialState {
       required final List<AssetEntity> selectedAlbumPhotos,
       required final List<SocialItem> likeItems,
       required final List<CommentItem> commentItems,
-      required this.selectedCommentItem})
+      required this.selectedCommentItem,
+      required this.instanceDate})
       : _listItems = listItems,
         _albums = albums,
         _selectedAlbumPhotos = selectedAlbumPhotos,
@@ -3426,10 +3440,12 @@ class _$_SocialState extends _SocialState {
 
   @override
   final CommentItem? selectedCommentItem;
+  @override
+  final String instanceDate;
 
   @override
   String toString() {
-    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, returnType: $returnType, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos, likeItems: $likeItems, commentItems: $commentItems, selectedCommentItem: $selectedCommentItem)';
+    return 'SocialState(listItems: $listItems, selectedItem: $selectedItem, page: $page, status: $status, returnType: $returnType, isLastPage: $isLastPage, msg: $msg, albums: $albums, selectedAlbum: $selectedAlbum, selectedAlbumPhotos: $selectedAlbumPhotos, likeItems: $likeItems, commentItems: $commentItems, selectedCommentItem: $selectedCommentItem, instanceDate: $instanceDate)';
   }
 
   @override
@@ -3458,7 +3474,9 @@ class _$_SocialState extends _SocialState {
             const DeepCollectionEquality()
                 .equals(other._commentItems, _commentItems) &&
             const DeepCollectionEquality()
-                .equals(other.selectedCommentItem, selectedCommentItem));
+                .equals(other.selectedCommentItem, selectedCommentItem) &&
+            const DeepCollectionEquality()
+                .equals(other.instanceDate, instanceDate));
   }
 
   @override
@@ -3476,7 +3494,8 @@ class _$_SocialState extends _SocialState {
       const DeepCollectionEquality().hash(_selectedAlbumPhotos),
       const DeepCollectionEquality().hash(_likeItems),
       const DeepCollectionEquality().hash(_commentItems),
-      const DeepCollectionEquality().hash(selectedCommentItem));
+      const DeepCollectionEquality().hash(selectedCommentItem),
+      const DeepCollectionEquality().hash(instanceDate));
 
   @JsonKey(ignore: true)
   @override
@@ -3498,7 +3517,8 @@ abstract class _SocialState extends SocialState {
       required final List<AssetEntity> selectedAlbumPhotos,
       required final List<SocialItem> likeItems,
       required final List<CommentItem> commentItems,
-      required final CommentItem? selectedCommentItem}) = _$_SocialState;
+      required final CommentItem? selectedCommentItem,
+      required final String instanceDate}) = _$_SocialState;
   const _SocialState._() : super._();
 
   @override
@@ -3527,6 +3547,8 @@ abstract class _SocialState extends SocialState {
   List<CommentItem> get commentItems;
   @override
   CommentItem? get selectedCommentItem;
+  @override
+  String get instanceDate;
   @override
   @JsonKey(ignore: true)
   _$$_SocialStateCopyWith<_$_SocialState> get copyWith =>

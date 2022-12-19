@@ -45,7 +45,7 @@ class SocialRepository {
 
   @override
   Future<AppResponse<String?>> getPostId() async {
-    final response = await _dioClient.post("/api/SO001SVC/getPostId", data: {});
+    final response = await _dioClient.post("/api/CUSSO001SVC/getPostId", data: {});
     return AppResponse<String?>.fromJson(
       response.data,
       (json) =>

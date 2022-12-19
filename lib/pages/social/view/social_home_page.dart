@@ -20,17 +20,7 @@ class SocialPage extends StatefulWidget {
   static Route<void> route() {
     return MaterialPageRoute(
       fullscreenDialog: true,
-      builder: (BuildContext context) => RepositoryProvider(
-        create: (_) => SocialRepository(),
-        child: BlocProvider<SocialBloc>(
-          create: (context) => SocialBloc(
-            socialRepository: context.read<SocialRepository>(),
-          )
-            // ..add(const AlbumsLoaded())
-            ..add(const Started()),
-          child: const SocialPage(),
-        ),
-      ),
+      builder: (BuildContext context) => const SocialPage(),
     );
   }
 
@@ -46,6 +36,8 @@ class _SocialPageState extends State<SocialPage> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
+    _socialBloc = context.read<SocialBloc>();
+    _socialBloc.add(const Started());
   }
 
   @override
@@ -80,10 +72,7 @@ class _SocialPageState extends State<SocialPage> {
 
   @override
   Widget build(BuildContext context) {
-    _socialBloc = context.read<SocialBloc>();
-
     return BlocBuilder<SocialBloc, SocialState>(
-      // buildWhen: (previous, current) => previous.selectedItem != current.selectedItem,
       builder: (context, state) {
         if (state.status == DataStatus.loading) {
           return const SplashPage();
