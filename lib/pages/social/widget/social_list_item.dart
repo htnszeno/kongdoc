@@ -112,8 +112,8 @@ class _SocialListItemState extends State<SocialListItem> {
                 children: [
                   _header(widget.social),
                   const SizedBox(height: 15),
-                  _postImages(widget.social),
-                  const SizedBox(height: 15),
+                  // _postImages(widget.social),
+                  // const SizedBox(height: 15),
                   _infoCount(),
                   const SizedBox(height: 15),
                   Visibility(
