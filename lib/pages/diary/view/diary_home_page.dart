@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
+import 'package:hifive/pages/diary/view/diary_edit_page.dart';
 import 'package:intl/intl.dart';
 
 class DiaryHomePage extends StatefulWidget {
@@ -176,7 +177,9 @@ class _DiaryHomePageState extends State<DiaryHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(DiaryEditPage.route());
+        },
         child: const Icon(
           Icons.add,
           color: Colors.white,

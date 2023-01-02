@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class ImageData extends StatelessWidget {
@@ -15,6 +17,8 @@ class ImageData extends StatelessWidget {
 }
 
 class IconsPath {
+  static String get face1 => 'assets/images/diary/face1.png';
+
   static String get homeOff => 'assets/images/bottom_nav_home_off_icon.jpg';
   static String get homeOn => 'assets/images/bottom_nav_home_on_icon.jpg';
   static String get searchOff => 'assets/images/bottom_nav_search_off_icon.jpg';

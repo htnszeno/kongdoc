@@ -1,0 +1,686 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "_fe_analyzer_shared",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-50.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "analyzer",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/analyzer-5.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "args",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/args-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "async",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/async-2.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "boolean_selector",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "characters",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/characters-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "charcode",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "clock",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/clock-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "collection",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/collection-1.16.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "convert",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/convert-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "cross_file",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "crypto",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "csslib",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/csslib-0.17.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "device_info_plus",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/device_info_plus-8.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "device_info_plus_platform_interface",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/device_info_plus_platform_interface-7.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "diff_match_patch",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/diff_match_patch-0.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "equatable",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/equatable-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "fake_async",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "ffi",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/ffi-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "file",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/file-6.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "filesystem_picker",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/filesystem_picker-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/packages/flutter",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_colorpicker",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_colorpicker-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_inappwebview",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.7.2+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "flutter_keyboard_visibility",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility-5.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_keyboard_visibility_linux",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility_linux-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_keyboard_visibility_macos",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility_macos-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_keyboard_visibility_platform_interface",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility_platform_interface-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_keyboard_visibility_web",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility_web-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_keyboard_visibility_windows",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility_windows-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_localizations",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/packages/flutter_localizations",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_math_fork",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_math_fork-0.6.3+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_quill",
+      "rootUri": "../../flutter_quill",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_svg",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/flutter_svg-1.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_test",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "gallery_saver",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/gallery_saver-2.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "gettext_parser",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/gettext_parser-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "glob",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/glob-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "holding_gesture",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/holding_gesture-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "html",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/html-0.15.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/http-0.13.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "i18n_extension",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/i18n_extension-6.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "image_picker",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "image_picker_android",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/image_picker_android-0.8.5+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "image_picker_for_web",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "image_picker_ios",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/image_picker_ios-0.8.6+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "image_picker_platform_interface",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.6.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "intl",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "matcher",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.12",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "material_color_utilities",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.13"
+    },
+    {
+      "name": "math_expressions",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/math_expressions-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "math_keyboard",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/math_keyboard-0.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "meta",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/meta-1.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "nested",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "package_config",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/package_config-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "pasteboard",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/pasteboard-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path-1.8.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_drawing",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_drawing-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_parsing-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "path_provider_android",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.22",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "path_provider_ios",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "path_provider_linux",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_macos",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_provider_platform_interface-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_windows",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "pedantic",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "petitparser",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/petitparser-5.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "photo_view",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/photo_view-0.14.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "platform",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "plugin_platform_interface",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "process",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/process-4.2.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/provider-6.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "pub_semver",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "quiver",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/quiver-3.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "sky_engine",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/bin/cache/pkg/sky_engine",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "source_span",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "sprintf",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/sprintf-7.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "stack_trace",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "stream_channel",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "string_scanner",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "string_validator",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/string_validator-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "term_glyph",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "test_api",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.12",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "tuple",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/tuple-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "typed_data",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "universal_html",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/universal_html-2.0.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "universal_io",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/universal_io-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "url_launcher_android",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.22",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "url_launcher_ios",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher_ios-6.0.17",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "url_launcher_linux",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_macos",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_web",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-2.0.13",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_windows",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "vector_math",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "video_player",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/video_player-2.4.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "video_player_android",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/video_player_android-2.3.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "video_player_avfoundation",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/video_player_avfoundation-2.3.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "video_player_platform_interface",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/video_player_platform_interface-6.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "video_player_web",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/video_player_web-2.0.13",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "watcher",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/watcher-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "win32",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/win32-3.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "xdg_directories",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.2.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "xml",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/xml-6.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "yaml",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "youtube_player_flutter",
+      "rootUri": "file:///Users/benny/DEVROOT/FLUTTER/sdk2.5.2/.pub-cache/hosted/pub.dartlang.org/youtube_player_flutter-8.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_quill_extensions",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    }
+  ],
+  "generated": "2022-12-31T05:33:53.978767Z",
+  "generator": "pub",
+  "generatorVersion": "2.18.4"
+}

@@ -13,18 +13,26 @@ dependencies:
   cache:
     path: packages/cache
   cached_network_image: ^3.2.2
+  carousel_slider: ^4.1.1
   change_app_package_name: ^1.1.0
   cookie_jar: ^3.0.1
   dio: ^4.0.6
   dio_cookie_manager: ^2.0.0
   equatable: ^2.0.5
   expandable_text: ^2.3.0
+  file_picker: ^5.2.4
+  filesystem_picker: ^3.1.0
   flow_builder: ^0.0.9
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  flutter_calendar_carousel: ^2.4.1
   flutter_localizations:
     sdk: flutter
+  flutter_quill:
+    path: packages/flutter_quill
+  flutter_quill_extensions:
+    path: packages/flutter_quill_extensions
   font_awesome: ^5.10.1
   font_awesome_flutter: ^10.2.1
   form_inputs:
@@ -33,37 +41,40 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^3.0.1
   intl: ^0.17.0
+  introduction_screen: ^3.1.2
   json_annotation: ^4.7.0
   path_provider: ^2.0.11
   photo_manager: ^2.5.0
+  photofilters: ^3.0.1
   pretty_dio_logger: ^1.1.1
+  quiver: ^3.1.0
   reactive_color_picker: ^0.4.0
   reactive_forms: ^14.1.0
   shared_preferences: ^2.0.15
-  webview_flutter: ^3.0.4
-  photofilters: ^3.0.1
-  quiver: ^3.1.0
-  timeago: ^3.3.0
-  uuid: ^3.0.7
-  carousel_slider: ^4.1.1
   shimmer: ^2.0.0
-  flutter_calendar_carousel: ^2.4.1
+  timeago: ^3.3.0
+  tuple: ^2.0.1
+  uuid: ^3.0.7
+  webview_flutter: ^3.0.4
+
 dev_dependencies:
   bloc_test: ^9.1.0
   build_runner: ^2.2.0
   flutter_lints: ^2.0.1
-  flutter_test:
-    sdk: flutter
   freezed: ^2.1.0+1
   json_serializable: ^6.3.1
-  mocktail: ^0.3.0
   very_good_analysis: ^3.1.0
+#  flutter_test:
+#    sdk: flutter
+#  mocktail: ^0.3.0
 
 flutter:
   uses-material-design: true
   generate: true
   assets:
     - assets/images/
+    - assets/datas/
+    - assets/images/diary/
   fonts:
     - family: Jalnan
       fonts:

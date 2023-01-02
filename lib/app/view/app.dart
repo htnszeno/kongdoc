@@ -1,12 +1,3 @@
-// Copyright (c) 2022, Very Good Ventures
-// https://verygood.ventures
-//
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT.
-
-// ignore_for_file: sort_constructors_first
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,25 +8,28 @@ import 'package:hifive/app/bloc/app_bloc.dart';
 import 'package:hifive/binding/init_bindings.dart';
 import 'package:hifive/enums/app_status.dart';
 import 'package:hifive/l10n/l10n.dart';
+import 'package:hifive/pages/diary/bloc/diary_bloc.dart';
 import 'package:hifive/pages/login/view/view.dart';
 import 'package:hifive/pages/main_page.dart';
 import 'package:hifive/pages/social/bloc/social_bloc.dart';
 import 'package:hifive/repositories/app_repository.dart';
+import 'package:hifive/repositories/diary_repository.dart';
 import 'package:hifive/repositories/social_repository.dart';
 import 'package:hifive/theme.dart';
-import 'package:hifive/util/dialogs.dart';
 import 'package:hifive/util/global.dart';
 
 class App extends StatelessWidget {
   final AppRepository _appRepository;
   final SocialRepository _socialRepository;
-
+  final DiaryRepository _diaryRepository;
   const App({
     super.key,
     required AppRepository appRepository,
     required SocialRepository socialRepository,
+    required DiaryRepository diaryRepository,
   })  : _appRepository = appRepository,
-        _socialRepository = socialRepository;
+        _socialRepository = socialRepository,
+        _diaryRepository = diaryRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +45,26 @@ class App extends StatelessWidget {
         RepositoryProvider.value(
           value: _socialRepository,
         ),
+        RepositoryProvider.value(
+          value: _diaryRepository,
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider<AppBloc>(
-            create: (BuildContext context) =>
-                AppBloc(appRepository: _appRepository),
+            create: (BuildContext context) => AppBloc(
+              appRepository: _appRepository,
+            ),
           ),
           BlocProvider<SocialBloc>(
-            create: (BuildContext context) =>
-                SocialBloc(socialRepository: _socialRepository),
+            create: (BuildContext context) => SocialBloc(
+              socialRepository: _socialRepository,
+            ),
+          ),
+          BlocProvider<DiaryBloc>(
+            create: (BuildContext context) => DiaryBloc(
+              diaryRepository: _diaryRepository,
+            ),
           ),
         ],
         child: const AppView(),
@@ -85,7 +89,6 @@ class _AppViewState extends State<AppView> {
   @override
   void initState() {
     super.initState();
-    // @todo : 추후 사용 가능할때 ..
     WidgetsBinding.instance.addObserver(
       LifecycleEventHandler(
         resumeCallBack: () async => setState(() {
@@ -108,7 +111,7 @@ class _AppViewState extends State<AppView> {
 
   @override
   Widget build(BuildContext context) {
-    // set global
+    // AppBloc는 전역설정
     Globals().setAppBloc = context.read<AppBloc>();
     return GetMaterialApp(
       theme: theme,
