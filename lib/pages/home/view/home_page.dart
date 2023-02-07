@@ -25,12 +25,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-
+  late HomeBloc _homeBloc;
 
   @override
   void initState() {
     super.initState();
-
+    _homeBloc = context.read<HomeBloc>();
+    _homeBloc.add(const Started());
   }
 
   @override
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     final textTheme = Theme.of(context).textTheme;
     final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
-        // appBar: const AppTopBar(),
+        appBar: const AppTopBar(),
         body: HomeScreen()
     );
   }
