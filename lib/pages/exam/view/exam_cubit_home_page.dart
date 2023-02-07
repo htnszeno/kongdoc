@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hifive/app/bloc/app_bloc.dart';
-import 'package:hifive/models/exam_model.dart';
-import 'package:hifive/pages/exam/cubit/exam_cubit.dart';
-import 'package:hifive/pages/exam/view/exam_bloc_item_page.dart';
-import 'package:hifive/pages/exam/view/exam_cubit_item_page.dart';
-import 'package:hifive/pages/exam/widget/exam_app_bar.dart';
-import 'package:hifive/pages/exam/widget/exam_list.dart';
-import 'package:hifive/repositories/exam_repository.dart';
-import 'package:hifive/widget/blank_content.dart';
+import 'package:kongdoc/app/bloc/app_bloc.dart';
+import 'package:kongdoc/models/exam_model.dart';
+import 'package:kongdoc/pages/exam/cubit/exam_cubit.dart';
+import 'package:kongdoc/pages/exam/view/exam_bloc_item_page.dart';
+import 'package:kongdoc/pages/exam/view/exam_cubit_item_page.dart';
+import 'package:kongdoc/pages/exam/widget/exam_app_bar.dart';
+import 'package:kongdoc/pages/exam/widget/exam_list.dart';
+import 'package:kongdoc/repositories/exam_repository.dart';
+import 'package:kongdoc/widget/blank_content.dart';
 
 class ExamCubitPage extends StatefulWidget {
   const ExamCubitPage({super.key});
@@ -112,10 +112,7 @@ class _ExamCubitPageState extends State<ExamCubitPage> {
                         child: BlankContent(),
                       );
                     }
-                    return ExamList(
-                      items: state.items,
-                      onNotePressed: _onNotePressed,
-                    );
+                    return BlankContent();
                   },
                 ),
               )

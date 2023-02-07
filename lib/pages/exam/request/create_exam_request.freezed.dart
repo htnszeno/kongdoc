@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'create_exam_request.dart';
 
@@ -34,39 +34,42 @@ mixin _$CreateExamRequest {
 abstract class $CreateExamRequestCopyWith<$Res> {
   factory $CreateExamRequestCopyWith(
           CreateExamRequest value, $Res Function(CreateExamRequest) then) =
-      _$CreateExamRequestCopyWithImpl<$Res>;
+      _$CreateExamRequestCopyWithImpl<$Res, CreateExamRequest>;
+  @useResult
   $Res call({int userId, String? title, String? body});
 }
 
 /// @nodoc
-class _$CreateExamRequestCopyWithImpl<$Res>
+class _$CreateExamRequestCopyWithImpl<$Res, $Val extends CreateExamRequest>
     implements $CreateExamRequestCopyWith<$Res> {
   _$CreateExamRequestCopyWithImpl(this._value, this._then);
 
-  final CreateExamRequest _value;
   // ignore: unused_field
-  final $Res Function(CreateExamRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = freezed,
+    Object? userId = null,
     Object? title = freezed,
     Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      userId: userId == freezed
+      userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      body: body == freezed
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_CreateExamRequestCopyWith<$Res>
           $Res Function(_$_CreateExamRequest) then) =
       __$$_CreateExamRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int userId, String? title, String? body});
 }
 
 /// @nodoc
 class __$$_CreateExamRequestCopyWithImpl<$Res>
-    extends _$CreateExamRequestCopyWithImpl<$Res>
+    extends _$CreateExamRequestCopyWithImpl<$Res, _$_CreateExamRequest>
     implements _$$_CreateExamRequestCopyWith<$Res> {
   __$$_CreateExamRequestCopyWithImpl(
       _$_CreateExamRequest _value, $Res Function(_$_CreateExamRequest) _then)
-      : super(_value, (v) => _then(v as _$_CreateExamRequest));
+      : super(_value, _then);
 
-  @override
-  _$_CreateExamRequest get _value => super._value as _$_CreateExamRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = freezed,
+    Object? userId = null,
     Object? title = freezed,
     Object? body = freezed,
   }) {
     return _then(_$_CreateExamRequest(
-      userId: userId == freezed
+      userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      body: body == freezed
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -139,21 +141,18 @@ class _$_CreateExamRequest implements _CreateExamRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateExamRequest &&
-            const DeepCollectionEquality().equals(other.userId, userId) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.body, body) || other.body == body));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(userId),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(body));
+  int get hashCode => Object.hash(runtimeType, userId, title, body);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CreateExamRequestCopyWith<_$_CreateExamRequest> get copyWith =>
       __$$_CreateExamRequestCopyWithImpl<_$_CreateExamRequest>(
           this, _$identity);

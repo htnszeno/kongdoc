@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'comment_model.dart';
 
@@ -45,7 +45,8 @@ mixin _$CommentItem {
 abstract class $CommentItemCopyWith<$Res> {
   factory $CommentItemCopyWith(
           CommentItem value, $Res Function(CommentItem) then) =
-      _$CommentItemCopyWithImpl<$Res>;
+      _$CommentItemCopyWithImpl<$Res, CommentItem>;
+  @useResult
   $Res call(
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "comment_id") String commentId,
@@ -58,18 +59,21 @@ abstract class $CommentItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CommentItemCopyWithImpl<$Res> implements $CommentItemCopyWith<$Res> {
+class _$CommentItemCopyWithImpl<$Res, $Val extends CommentItem>
+    implements $CommentItemCopyWith<$Res> {
   _$CommentItemCopyWithImpl(this._value, this._then);
 
-  final CommentItem _value;
   // ignore: unused_field
-  final $Res Function(CommentItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postId = freezed,
-    Object? commentId = freezed,
-    Object? parentCommentId = freezed,
+    Object? postId = null,
+    Object? commentId = null,
+    Object? parentCommentId = null,
     Object? commentUserId = freezed,
     Object? commentUserName = freezed,
     Object? commentDate = freezed,
@@ -77,39 +81,39 @@ class _$CommentItemCopyWithImpl<$Res> implements $CommentItemCopyWith<$Res> {
     Object? level = freezed,
   }) {
     return _then(_value.copyWith(
-      postId: postId == freezed
+      postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as String,
-      commentId: commentId == freezed
+      commentId: null == commentId
           ? _value.commentId
           : commentId // ignore: cast_nullable_to_non_nullable
               as String,
-      parentCommentId: parentCommentId == freezed
+      parentCommentId: null == parentCommentId
           ? _value.parentCommentId
           : parentCommentId // ignore: cast_nullable_to_non_nullable
               as String,
-      commentUserId: commentUserId == freezed
+      commentUserId: freezed == commentUserId
           ? _value.commentUserId
           : commentUserId // ignore: cast_nullable_to_non_nullable
               as String?,
-      commentUserName: commentUserName == freezed
+      commentUserName: freezed == commentUserName
           ? _value.commentUserName
           : commentUserName // ignore: cast_nullable_to_non_nullable
               as String?,
-      commentDate: commentDate == freezed
+      commentDate: freezed == commentDate
           ? _value.commentDate
           : commentDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      comment: comment == freezed
+      comment: freezed == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: level == freezed
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -120,6 +124,7 @@ abstract class _$$_CommentItemCopyWith<$Res>
           _$_CommentItem value, $Res Function(_$_CommentItem) then) =
       __$$_CommentItemCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "comment_id") String commentId,
@@ -132,20 +137,19 @@ abstract class _$$_CommentItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CommentItemCopyWithImpl<$Res> extends _$CommentItemCopyWithImpl<$Res>
+class __$$_CommentItemCopyWithImpl<$Res>
+    extends _$CommentItemCopyWithImpl<$Res, _$_CommentItem>
     implements _$$_CommentItemCopyWith<$Res> {
   __$$_CommentItemCopyWithImpl(
       _$_CommentItem _value, $Res Function(_$_CommentItem) _then)
-      : super(_value, (v) => _then(v as _$_CommentItem));
+      : super(_value, _then);
 
-  @override
-  _$_CommentItem get _value => super._value as _$_CommentItem;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postId = freezed,
-    Object? commentId = freezed,
-    Object? parentCommentId = freezed,
+    Object? postId = null,
+    Object? commentId = null,
+    Object? parentCommentId = null,
     Object? commentUserId = freezed,
     Object? commentUserName = freezed,
     Object? commentDate = freezed,
@@ -153,35 +157,35 @@ class __$$_CommentItemCopyWithImpl<$Res> extends _$CommentItemCopyWithImpl<$Res>
     Object? level = freezed,
   }) {
     return _then(_$_CommentItem(
-      postId: postId == freezed
+      postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as String,
-      commentId: commentId == freezed
+      commentId: null == commentId
           ? _value.commentId
           : commentId // ignore: cast_nullable_to_non_nullable
               as String,
-      parentCommentId: parentCommentId == freezed
+      parentCommentId: null == parentCommentId
           ? _value.parentCommentId
           : parentCommentId // ignore: cast_nullable_to_non_nullable
               as String,
-      commentUserId: commentUserId == freezed
+      commentUserId: freezed == commentUserId
           ? _value.commentUserId
           : commentUserId // ignore: cast_nullable_to_non_nullable
               as String?,
-      commentUserName: commentUserName == freezed
+      commentUserName: freezed == commentUserName
           ? _value.commentUserName
           : commentUserName // ignore: cast_nullable_to_non_nullable
               as String?,
-      commentDate: commentDate == freezed
+      commentDate: freezed == commentDate
           ? _value.commentDate
           : commentDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      comment: comment == freezed
+      comment: freezed == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: level == freezed
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -238,35 +242,37 @@ class _$_CommentItem implements _CommentItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CommentItem &&
-            const DeepCollectionEquality().equals(other.postId, postId) &&
-            const DeepCollectionEquality().equals(other.commentId, commentId) &&
-            const DeepCollectionEquality()
-                .equals(other.parentCommentId, parentCommentId) &&
-            const DeepCollectionEquality()
-                .equals(other.commentUserId, commentUserId) &&
-            const DeepCollectionEquality()
-                .equals(other.commentUserName, commentUserName) &&
-            const DeepCollectionEquality()
-                .equals(other.commentDate, commentDate) &&
-            const DeepCollectionEquality().equals(other.comment, comment) &&
-            const DeepCollectionEquality().equals(other.level, level));
+            (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.commentId, commentId) ||
+                other.commentId == commentId) &&
+            (identical(other.parentCommentId, parentCommentId) ||
+                other.parentCommentId == parentCommentId) &&
+            (identical(other.commentUserId, commentUserId) ||
+                other.commentUserId == commentUserId) &&
+            (identical(other.commentUserName, commentUserName) ||
+                other.commentUserName == commentUserName) &&
+            (identical(other.commentDate, commentDate) ||
+                other.commentDate == commentDate) &&
+            (identical(other.comment, comment) || other.comment == comment) &&
+            (identical(other.level, level) || other.level == level));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(postId),
-      const DeepCollectionEquality().hash(commentId),
-      const DeepCollectionEquality().hash(parentCommentId),
-      const DeepCollectionEquality().hash(commentUserId),
-      const DeepCollectionEquality().hash(commentUserName),
-      const DeepCollectionEquality().hash(commentDate),
-      const DeepCollectionEquality().hash(comment),
-      const DeepCollectionEquality().hash(level));
+      postId,
+      commentId,
+      parentCommentId,
+      commentUserId,
+      commentUserName,
+      commentDate,
+      comment,
+      level);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CommentItemCopyWith<_$_CommentItem> get copyWith =>
       __$$_CommentItemCopyWithImpl<_$_CommentItem>(this, _$identity);
 

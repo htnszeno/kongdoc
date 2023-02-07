@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:hifive/util/dio_client/dio_client.dart';
+import 'package:kongdoc/util/dio_client/dio_client.dart';
 
 class DiaryRepository {
   DiaryRepository({

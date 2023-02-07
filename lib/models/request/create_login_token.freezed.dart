@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'create_login_token.dart';
 
@@ -33,34 +33,37 @@ mixin _$LoginTokenRequest {
 abstract class $LoginTokenRequestCopyWith<$Res> {
   factory $LoginTokenRequestCopyWith(
           LoginTokenRequest value, $Res Function(LoginTokenRequest) then) =
-      _$LoginTokenRequestCopyWithImpl<$Res>;
+      _$LoginTokenRequestCopyWithImpl<$Res, LoginTokenRequest>;
+  @useResult
   $Res call({String USER_ID, String PW});
 }
 
 /// @nodoc
-class _$LoginTokenRequestCopyWithImpl<$Res>
+class _$LoginTokenRequestCopyWithImpl<$Res, $Val extends LoginTokenRequest>
     implements $LoginTokenRequestCopyWith<$Res> {
   _$LoginTokenRequestCopyWithImpl(this._value, this._then);
 
-  final LoginTokenRequest _value;
   // ignore: unused_field
-  final $Res Function(LoginTokenRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? USER_ID = freezed,
-    Object? PW = freezed,
+    Object? USER_ID = null,
+    Object? PW = null,
   }) {
     return _then(_value.copyWith(
-      USER_ID: USER_ID == freezed
+      USER_ID: null == USER_ID
           ? _value.USER_ID
           : USER_ID // ignore: cast_nullable_to_non_nullable
               as String,
-      PW: PW == freezed
+      PW: null == PW
           ? _value.PW
           : PW // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_LoginTokenRequestCopyWith<$Res>
           $Res Function(_$_LoginTokenRequest) then) =
       __$$_LoginTokenRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String USER_ID, String PW});
 }
 
 /// @nodoc
 class __$$_LoginTokenRequestCopyWithImpl<$Res>
-    extends _$LoginTokenRequestCopyWithImpl<$Res>
+    extends _$LoginTokenRequestCopyWithImpl<$Res, _$_LoginTokenRequest>
     implements _$$_LoginTokenRequestCopyWith<$Res> {
   __$$_LoginTokenRequestCopyWithImpl(
       _$_LoginTokenRequest _value, $Res Function(_$_LoginTokenRequest) _then)
-      : super(_value, (v) => _then(v as _$_LoginTokenRequest));
+      : super(_value, _then);
 
-  @override
-  _$_LoginTokenRequest get _value => super._value as _$_LoginTokenRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? USER_ID = freezed,
-    Object? PW = freezed,
+    Object? USER_ID = null,
+    Object? PW = null,
   }) {
     return _then(_$_LoginTokenRequest(
-      USER_ID: USER_ID == freezed
+      USER_ID: null == USER_ID
           ? _value.USER_ID
           : USER_ID // ignore: cast_nullable_to_non_nullable
               as String,
-      PW: PW == freezed
+      PW: null == PW
           ? _value.PW
           : PW // ignore: cast_nullable_to_non_nullable
               as String,
@@ -126,19 +128,17 @@ class _$_LoginTokenRequest implements _LoginTokenRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoginTokenRequest &&
-            const DeepCollectionEquality().equals(other.USER_ID, USER_ID) &&
-            const DeepCollectionEquality().equals(other.PW, PW));
+            (identical(other.USER_ID, USER_ID) || other.USER_ID == USER_ID) &&
+            (identical(other.PW, PW) || other.PW == PW));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(USER_ID),
-      const DeepCollectionEquality().hash(PW));
+  int get hashCode => Object.hash(runtimeType, USER_ID, PW);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoginTokenRequestCopyWith<_$_LoginTokenRequest> get copyWith =>
       __$$_LoginTokenRequestCopyWithImpl<_$_LoginTokenRequest>(
           this, _$identity);

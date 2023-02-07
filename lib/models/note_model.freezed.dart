@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'note_model.dart';
 
@@ -36,7 +36,8 @@ mixin _$NoteItem {
 /// @nodoc
 abstract class $NoteItemCopyWith<$Res> {
   factory $NoteItemCopyWith(NoteItem value, $Res Function(NoteItem) then) =
-      _$NoteItemCopyWithImpl<$Res>;
+      _$NoteItemCopyWithImpl<$Res, NoteItem>;
+  @useResult
   $Res call(
       {int id,
       String title,
@@ -46,43 +47,46 @@ abstract class $NoteItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NoteItemCopyWithImpl<$Res> implements $NoteItemCopyWith<$Res> {
+class _$NoteItemCopyWithImpl<$Res, $Val extends NoteItem>
+    implements $NoteItemCopyWith<$Res> {
   _$NoteItemCopyWithImpl(this._value, this._then);
 
-  final NoteItem _value;
   // ignore: unused_field
-  final $Res Function(NoteItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? createdAt = freezed,
-    Object? color = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? createdAt = null,
+    Object? color = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      color: color == freezed
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -92,6 +96,7 @@ abstract class _$$_NoteItemCopyWith<$Res> implements $NoteItemCopyWith<$Res> {
           _$_NoteItem value, $Res Function(_$_NoteItem) then) =
       __$$_NoteItemCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String title,
@@ -101,41 +106,40 @@ abstract class _$$_NoteItemCopyWith<$Res> implements $NoteItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NoteItemCopyWithImpl<$Res> extends _$NoteItemCopyWithImpl<$Res>
+class __$$_NoteItemCopyWithImpl<$Res>
+    extends _$NoteItemCopyWithImpl<$Res, _$_NoteItem>
     implements _$$_NoteItemCopyWith<$Res> {
   __$$_NoteItemCopyWithImpl(
       _$_NoteItem _value, $Res Function(_$_NoteItem) _then)
-      : super(_value, (v) => _then(v as _$_NoteItem));
+      : super(_value, _then);
 
-  @override
-  _$_NoteItem get _value => super._value as _$_NoteItem;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? createdAt = freezed,
-    Object? color = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? createdAt = null,
+    Object? color = null,
   }) {
     return _then(_$_NoteItem(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      color: color == freezed
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
@@ -178,25 +182,22 @@ class _$_NoteItem implements _NoteItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NoteItem &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.color, color));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(color));
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, content, createdAt, color);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NoteItemCopyWith<_$_NoteItem> get copyWith =>
       __$$_NoteItemCopyWithImpl<_$_NoteItem>(this, _$identity);
 

@@ -2,10 +2,11 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:hifive/config.dart';
-import 'package:hifive/models/app_response.dart';
+import 'package:kongdoc/config.dart';
+import 'package:kongdoc/models/app_response.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../../../models/app_response.dart';
 import 'constants.dart';
 
 part 'app_interceptors.dart';

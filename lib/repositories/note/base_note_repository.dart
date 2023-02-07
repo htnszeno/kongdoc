@@ -1,5 +1,5 @@
-import 'package:hifive/models/app_response.dart';
-import 'package:hifive/models/note_model.dart';
+import 'package:kongdoc/models/app_response.dart';
+import 'package:kongdoc/models/note_model.dart';
 
 abstract class BaseNoteRepository {
   Future<AppResponse<List<NoteItem>?>> getMany({

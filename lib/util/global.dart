@@ -1,5 +1,5 @@
-import 'package:hifive/app/app.dart';
-import 'package:hifive/app/bloc/app_bloc.dart';
+import 'package:kongdoc/app/app.dart';
+import 'package:kongdoc/app/bloc/app_bloc.dart';
 
 class Globals {
   static final Globals _instance = Globals._internal();

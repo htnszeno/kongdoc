@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'exam_cubit.dart';
 
@@ -31,7 +31,8 @@ mixin _$ExamState {
 /// @nodoc
 abstract class $ExamStateCopyWith<$Res> {
   factory $ExamStateCopyWith(ExamState value, $Res Function(ExamState) then) =
-      _$ExamStateCopyWithImpl<$Res>;
+      _$ExamStateCopyWithImpl<$Res, ExamState>;
+  @useResult
   $Res call(
       {List<ExamItem> items,
       ExamItem? exam,
@@ -44,58 +45,62 @@ abstract class $ExamStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
+class _$ExamStateCopyWithImpl<$Res, $Val extends ExamState>
+    implements $ExamStateCopyWith<$Res> {
   _$ExamStateCopyWithImpl(this._value, this._then);
 
-  final ExamState _value;
   // ignore: unused_field
-  final $Res Function(ExamState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = freezed,
+    Object? items = null,
     Object? exam = freezed,
-    Object? page = freezed,
-    Object? status = freezed,
-    Object? isLastPage = freezed,
-    Object? msg = freezed,
+    Object? page = null,
+    Object? status = null,
+    Object? isLastPage = null,
+    Object? msg = null,
   }) {
     return _then(_value.copyWith(
-      items: items == freezed
+      items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ExamItem>,
-      exam: exam == freezed
+      exam: freezed == exam
           ? _value.exam
           : exam // ignore: cast_nullable_to_non_nullable
               as ExamItem?,
-      page: page == freezed
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
-      isLastPage: isLastPage == freezed
+      isLastPage: null == isLastPage
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ExamItemCopyWith<$Res>? get exam {
     if (_value.exam == null) {
       return null;
     }
 
     return $ExamItemCopyWith<$Res>(_value.exam!, (value) {
-      return _then(_value.copyWith(exam: value));
+      return _then(_value.copyWith(exam: value) as $Val);
     });
   }
 }
@@ -106,6 +111,7 @@ abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
           _$_ExamState value, $Res Function(_$_ExamState) then) =
       __$$_ExamStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<ExamItem> items,
       ExamItem? exam,
@@ -119,46 +125,45 @@ abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
+class __$$_ExamStateCopyWithImpl<$Res>
+    extends _$ExamStateCopyWithImpl<$Res, _$_ExamState>
     implements _$$_ExamStateCopyWith<$Res> {
   __$$_ExamStateCopyWithImpl(
       _$_ExamState _value, $Res Function(_$_ExamState) _then)
-      : super(_value, (v) => _then(v as _$_ExamState));
+      : super(_value, _then);
 
-  @override
-  _$_ExamState get _value => super._value as _$_ExamState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = freezed,
+    Object? items = null,
     Object? exam = freezed,
-    Object? page = freezed,
-    Object? status = freezed,
-    Object? isLastPage = freezed,
-    Object? msg = freezed,
+    Object? page = null,
+    Object? status = null,
+    Object? isLastPage = null,
+    Object? msg = null,
   }) {
     return _then(_$_ExamState(
-      items: items == freezed
+      items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ExamItem>,
-      exam: exam == freezed
+      exam: freezed == exam
           ? _value.exam
           : exam // ignore: cast_nullable_to_non_nullable
               as ExamItem?,
-      page: page == freezed
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
-      isLastPage: isLastPage == freezed
+      isLastPage: null == isLastPage
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
@@ -182,6 +187,7 @@ class _$_ExamState extends _ExamState {
   final List<ExamItem> _items;
   @override
   List<ExamItem> get items {
+    if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_items);
   }
@@ -208,26 +214,27 @@ class _$_ExamState extends _ExamState {
         (other.runtimeType == runtimeType &&
             other is _$_ExamState &&
             const DeepCollectionEquality().equals(other._items, _items) &&
-            const DeepCollectionEquality().equals(other.exam, exam) &&
-            const DeepCollectionEquality().equals(other.page, page) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality()
-                .equals(other.isLastPage, isLastPage) &&
-            const DeepCollectionEquality().equals(other.msg, msg));
+            (identical(other.exam, exam) || other.exam == exam) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isLastPage, isLastPage) ||
+                other.isLastPage == isLastPage) &&
+            (identical(other.msg, msg) || other.msg == msg));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_items),
-      const DeepCollectionEquality().hash(exam),
-      const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(isLastPage),
-      const DeepCollectionEquality().hash(msg));
+      exam,
+      page,
+      status,
+      isLastPage,
+      msg);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ExamStateCopyWith<_$_ExamState> get copyWith =>
       __$$_ExamStateCopyWithImpl<_$_ExamState>(this, _$identity);
 }

@@ -1,5 +1,5 @@
-name: hifive
-description: HiFive Mobile App
+name: kongdoc
+description: Kongdoc Mobile App
 version: 1.0.0+1
 publish_to: none
 
@@ -75,6 +75,7 @@ flutter:
     - assets/images/
     - assets/datas/
     - assets/images/diary/
+    - assets/fitness_app/
   fonts:
     - family: Jalnan
       fonts:

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'exam_bloc.dart';
 
@@ -28,12 +28,12 @@ mixin _$ExamEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? loadMore,
-    TResult Function()? refresh,
-    TResult Function(ExamItem? exam)? setSelectedExam,
-    TResult Function(UpdateExamRequest request, int id)? update,
-    TResult Function(CreateExamRequest request)? create,
+    TResult? Function()? started,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function(ExamItem? exam)? setSelectedExam,
+    TResult? Function(UpdateExamRequest request, int id)? update,
+    TResult? Function(CreateExamRequest request)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,12 +59,12 @@ mixin _$ExamEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(LoadMore value)? loadMore,
-    TResult Function(Refresh value)? refresh,
-    TResult Function(SetSelectedExam value)? setSelectedExam,
-    TResult Function(Update value)? update,
-    TResult Function(Create value)? create,
+    TResult? Function(Started value)? started,
+    TResult? Function(LoadMore value)? loadMore,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(SetSelectedExam value)? setSelectedExam,
+    TResult? Function(Update value)? update,
+    TResult? Function(Create value)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,16 +83,18 @@ mixin _$ExamEvent {
 /// @nodoc
 abstract class $ExamEventCopyWith<$Res> {
   factory $ExamEventCopyWith(ExamEvent value, $Res Function(ExamEvent) then) =
-      _$ExamEventCopyWithImpl<$Res>;
+      _$ExamEventCopyWithImpl<$Res, ExamEvent>;
 }
 
 /// @nodoc
-class _$ExamEventCopyWithImpl<$Res> implements $ExamEventCopyWith<$Res> {
+class _$ExamEventCopyWithImpl<$Res, $Val extends ExamEvent>
+    implements $ExamEventCopyWith<$Res> {
   _$ExamEventCopyWithImpl(this._value, this._then);
 
-  final ExamEvent _value;
   // ignore: unused_field
-  final $Res Function(ExamEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -102,13 +104,11 @@ abstract class _$$StartedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$StartedCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
+class __$$StartedCopyWithImpl<$Res>
+    extends _$ExamEventCopyWithImpl<$Res, _$Started>
     implements _$$StartedCopyWith<$Res> {
   __$$StartedCopyWithImpl(_$Started _value, $Res Function(_$Started) _then)
-      : super(_value, (v) => _then(v as _$Started));
-
-  @override
-  _$Started get _value => super._value as _$Started;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -146,12 +146,12 @@ class _$Started implements Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? loadMore,
-    TResult Function()? refresh,
-    TResult Function(ExamItem? exam)? setSelectedExam,
-    TResult Function(UpdateExamRequest request, int id)? update,
-    TResult Function(CreateExamRequest request)? create,
+    TResult? Function()? started,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function(ExamItem? exam)? setSelectedExam,
+    TResult? Function(UpdateExamRequest request, int id)? update,
+    TResult? Function(CreateExamRequest request)? create,
   }) {
     return started?.call();
   }
@@ -189,12 +189,12 @@ class _$Started implements Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(LoadMore value)? loadMore,
-    TResult Function(Refresh value)? refresh,
-    TResult Function(SetSelectedExam value)? setSelectedExam,
-    TResult Function(Update value)? update,
-    TResult Function(Create value)? create,
+    TResult? Function(Started value)? started,
+    TResult? Function(LoadMore value)? loadMore,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(SetSelectedExam value)? setSelectedExam,
+    TResult? Function(Update value)? update,
+    TResult? Function(Create value)? create,
   }) {
     return started?.call(this);
   }
@@ -229,13 +229,11 @@ abstract class _$$LoadMoreCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LoadMoreCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
+class __$$LoadMoreCopyWithImpl<$Res>
+    extends _$ExamEventCopyWithImpl<$Res, _$LoadMore>
     implements _$$LoadMoreCopyWith<$Res> {
   __$$LoadMoreCopyWithImpl(_$LoadMore _value, $Res Function(_$LoadMore) _then)
-      : super(_value, (v) => _then(v as _$LoadMore));
-
-  @override
-  _$LoadMore get _value => super._value as _$LoadMore;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -273,12 +271,12 @@ class _$LoadMore implements LoadMore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? loadMore,
-    TResult Function()? refresh,
-    TResult Function(ExamItem? exam)? setSelectedExam,
-    TResult Function(UpdateExamRequest request, int id)? update,
-    TResult Function(CreateExamRequest request)? create,
+    TResult? Function()? started,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function(ExamItem? exam)? setSelectedExam,
+    TResult? Function(UpdateExamRequest request, int id)? update,
+    TResult? Function(CreateExamRequest request)? create,
   }) {
     return loadMore?.call();
   }
@@ -316,12 +314,12 @@ class _$LoadMore implements LoadMore {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(LoadMore value)? loadMore,
-    TResult Function(Refresh value)? refresh,
-    TResult Function(SetSelectedExam value)? setSelectedExam,
-    TResult Function(Update value)? update,
-    TResult Function(Create value)? create,
+    TResult? Function(Started value)? started,
+    TResult? Function(LoadMore value)? loadMore,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(SetSelectedExam value)? setSelectedExam,
+    TResult? Function(Update value)? update,
+    TResult? Function(Create value)? create,
   }) {
     return loadMore?.call(this);
   }
@@ -355,13 +353,11 @@ abstract class _$$RefreshCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RefreshCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
+class __$$RefreshCopyWithImpl<$Res>
+    extends _$ExamEventCopyWithImpl<$Res, _$Refresh>
     implements _$$RefreshCopyWith<$Res> {
   __$$RefreshCopyWithImpl(_$Refresh _value, $Res Function(_$Refresh) _then)
-      : super(_value, (v) => _then(v as _$Refresh));
-
-  @override
-  _$Refresh get _value => super._value as _$Refresh;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -399,12 +395,12 @@ class _$Refresh implements Refresh {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? loadMore,
-    TResult Function()? refresh,
-    TResult Function(ExamItem? exam)? setSelectedExam,
-    TResult Function(UpdateExamRequest request, int id)? update,
-    TResult Function(CreateExamRequest request)? create,
+    TResult? Function()? started,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function(ExamItem? exam)? setSelectedExam,
+    TResult? Function(UpdateExamRequest request, int id)? update,
+    TResult? Function(CreateExamRequest request)? create,
   }) {
     return refresh?.call();
   }
@@ -442,12 +438,12 @@ class _$Refresh implements Refresh {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(LoadMore value)? loadMore,
-    TResult Function(Refresh value)? refresh,
-    TResult Function(SetSelectedExam value)? setSelectedExam,
-    TResult Function(Update value)? update,
-    TResult Function(Create value)? create,
+    TResult? Function(Started value)? started,
+    TResult? Function(LoadMore value)? loadMore,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(SetSelectedExam value)? setSelectedExam,
+    TResult? Function(Update value)? update,
+    TResult? Function(Create value)? create,
   }) {
     return refresh?.call(this);
   }
@@ -479,6 +475,7 @@ abstract class _$$SetSelectedExamCopyWith<$Res> {
   factory _$$SetSelectedExamCopyWith(
           _$SetSelectedExam value, $Res Function(_$SetSelectedExam) then) =
       __$$SetSelectedExamCopyWithImpl<$Res>;
+  @useResult
   $Res call({ExamItem? exam});
 
   $ExamItemCopyWith<$Res>? get exam;
@@ -486,21 +483,19 @@ abstract class _$$SetSelectedExamCopyWith<$Res> {
 
 /// @nodoc
 class __$$SetSelectedExamCopyWithImpl<$Res>
-    extends _$ExamEventCopyWithImpl<$Res>
+    extends _$ExamEventCopyWithImpl<$Res, _$SetSelectedExam>
     implements _$$SetSelectedExamCopyWith<$Res> {
   __$$SetSelectedExamCopyWithImpl(
       _$SetSelectedExam _value, $Res Function(_$SetSelectedExam) _then)
-      : super(_value, (v) => _then(v as _$SetSelectedExam));
+      : super(_value, _then);
 
-  @override
-  _$SetSelectedExam get _value => super._value as _$SetSelectedExam;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? exam = freezed,
   }) {
     return _then(_$SetSelectedExam(
-      exam == freezed
+      freezed == exam
           ? _value.exam
           : exam // ignore: cast_nullable_to_non_nullable
               as ExamItem?,
@@ -508,6 +503,7 @@ class __$$SetSelectedExamCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ExamItemCopyWith<$Res>? get exam {
     if (_value.exam == null) {
       return null;
@@ -537,15 +533,15 @@ class _$SetSelectedExam implements SetSelectedExam {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SetSelectedExam &&
-            const DeepCollectionEquality().equals(other.exam, exam));
+            (identical(other.exam, exam) || other.exam == exam));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(exam));
+  int get hashCode => Object.hash(runtimeType, exam);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SetSelectedExamCopyWith<_$SetSelectedExam> get copyWith =>
       __$$SetSelectedExamCopyWithImpl<_$SetSelectedExam>(this, _$identity);
 
@@ -565,12 +561,12 @@ class _$SetSelectedExam implements SetSelectedExam {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? loadMore,
-    TResult Function()? refresh,
-    TResult Function(ExamItem? exam)? setSelectedExam,
-    TResult Function(UpdateExamRequest request, int id)? update,
-    TResult Function(CreateExamRequest request)? create,
+    TResult? Function()? started,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function(ExamItem? exam)? setSelectedExam,
+    TResult? Function(UpdateExamRequest request, int id)? update,
+    TResult? Function(CreateExamRequest request)? create,
   }) {
     return setSelectedExam?.call(exam);
   }
@@ -608,12 +604,12 @@ class _$SetSelectedExam implements SetSelectedExam {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(LoadMore value)? loadMore,
-    TResult Function(Refresh value)? refresh,
-    TResult Function(SetSelectedExam value)? setSelectedExam,
-    TResult Function(Update value)? update,
-    TResult Function(Create value)? create,
+    TResult? Function(Started value)? started,
+    TResult? Function(LoadMore value)? loadMore,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(SetSelectedExam value)? setSelectedExam,
+    TResult? Function(Update value)? update,
+    TResult? Function(Create value)? create,
   }) {
     return setSelectedExam?.call(this);
   }
@@ -649,31 +645,31 @@ abstract class SetSelectedExam implements ExamEvent {
 abstract class _$$UpdateCopyWith<$Res> {
   factory _$$UpdateCopyWith(_$Update value, $Res Function(_$Update) then) =
       __$$UpdateCopyWithImpl<$Res>;
+  @useResult
   $Res call({UpdateExamRequest request, int id});
 
   $UpdateExamRequestCopyWith<$Res> get request;
 }
 
 /// @nodoc
-class __$$UpdateCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
+class __$$UpdateCopyWithImpl<$Res>
+    extends _$ExamEventCopyWithImpl<$Res, _$Update>
     implements _$$UpdateCopyWith<$Res> {
   __$$UpdateCopyWithImpl(_$Update _value, $Res Function(_$Update) _then)
-      : super(_value, (v) => _then(v as _$Update));
+      : super(_value, _then);
 
-  @override
-  _$Update get _value => super._value as _$Update;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? request = freezed,
-    Object? id = freezed,
+    Object? request = null,
+    Object? id = null,
   }) {
     return _then(_$Update(
-      request == freezed
+      null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as UpdateExamRequest,
-      id == freezed
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
@@ -681,6 +677,7 @@ class __$$UpdateCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $UpdateExamRequestCopyWith<$Res> get request {
     return $UpdateExamRequestCopyWith<$Res>(_value.request, (value) {
       return _then(_value.copyWith(request: value));
@@ -708,18 +705,16 @@ class _$Update implements Update {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Update &&
-            const DeepCollectionEquality().equals(other.request, request) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.request, request) || other.request == request) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(request),
-      const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, request, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$UpdateCopyWith<_$Update> get copyWith =>
       __$$UpdateCopyWithImpl<_$Update>(this, _$identity);
 
@@ -739,12 +734,12 @@ class _$Update implements Update {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? loadMore,
-    TResult Function()? refresh,
-    TResult Function(ExamItem? exam)? setSelectedExam,
-    TResult Function(UpdateExamRequest request, int id)? update,
-    TResult Function(CreateExamRequest request)? create,
+    TResult? Function()? started,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function(ExamItem? exam)? setSelectedExam,
+    TResult? Function(UpdateExamRequest request, int id)? update,
+    TResult? Function(CreateExamRequest request)? create,
   }) {
     return update?.call(request, id);
   }
@@ -782,12 +777,12 @@ class _$Update implements Update {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(LoadMore value)? loadMore,
-    TResult Function(Refresh value)? refresh,
-    TResult Function(SetSelectedExam value)? setSelectedExam,
-    TResult Function(Update value)? update,
-    TResult Function(Create value)? create,
+    TResult? Function(Started value)? started,
+    TResult? Function(LoadMore value)? loadMore,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(SetSelectedExam value)? setSelectedExam,
+    TResult? Function(Update value)? update,
+    TResult? Function(Create value)? create,
   }) {
     return update?.call(this);
   }
@@ -825,26 +820,26 @@ abstract class Update implements ExamEvent {
 abstract class _$$CreateCopyWith<$Res> {
   factory _$$CreateCopyWith(_$Create value, $Res Function(_$Create) then) =
       __$$CreateCopyWithImpl<$Res>;
+  @useResult
   $Res call({CreateExamRequest request});
 
   $CreateExamRequestCopyWith<$Res> get request;
 }
 
 /// @nodoc
-class __$$CreateCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
+class __$$CreateCopyWithImpl<$Res>
+    extends _$ExamEventCopyWithImpl<$Res, _$Create>
     implements _$$CreateCopyWith<$Res> {
   __$$CreateCopyWithImpl(_$Create _value, $Res Function(_$Create) _then)
-      : super(_value, (v) => _then(v as _$Create));
+      : super(_value, _then);
 
-  @override
-  _$Create get _value => super._value as _$Create;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? request = freezed,
+    Object? request = null,
   }) {
     return _then(_$Create(
-      request == freezed
+      null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as CreateExamRequest,
@@ -852,6 +847,7 @@ class __$$CreateCopyWithImpl<$Res> extends _$ExamEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CreateExamRequestCopyWith<$Res> get request {
     return $CreateExamRequestCopyWith<$Res>(_value.request, (value) {
       return _then(_value.copyWith(request: value));
@@ -877,15 +873,15 @@ class _$Create implements Create {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Create &&
-            const DeepCollectionEquality().equals(other.request, request));
+            (identical(other.request, request) || other.request == request));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(request));
+  int get hashCode => Object.hash(runtimeType, request);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CreateCopyWith<_$Create> get copyWith =>
       __$$CreateCopyWithImpl<_$Create>(this, _$identity);
 
@@ -905,12 +901,12 @@ class _$Create implements Create {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? loadMore,
-    TResult Function()? refresh,
-    TResult Function(ExamItem? exam)? setSelectedExam,
-    TResult Function(UpdateExamRequest request, int id)? update,
-    TResult Function(CreateExamRequest request)? create,
+    TResult? Function()? started,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function(ExamItem? exam)? setSelectedExam,
+    TResult? Function(UpdateExamRequest request, int id)? update,
+    TResult? Function(CreateExamRequest request)? create,
   }) {
     return create?.call(request);
   }
@@ -948,12 +944,12 @@ class _$Create implements Create {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(LoadMore value)? loadMore,
-    TResult Function(Refresh value)? refresh,
-    TResult Function(SetSelectedExam value)? setSelectedExam,
-    TResult Function(Update value)? update,
-    TResult Function(Create value)? create,
+    TResult? Function(Started value)? started,
+    TResult? Function(LoadMore value)? loadMore,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(SetSelectedExam value)? setSelectedExam,
+    TResult? Function(Update value)? update,
+    TResult? Function(Create value)? create,
   }) {
     return create?.call(this);
   }
@@ -1002,7 +998,8 @@ mixin _$ExamState {
 /// @nodoc
 abstract class $ExamStateCopyWith<$Res> {
   factory $ExamStateCopyWith(ExamState value, $Res Function(ExamState) then) =
-      _$ExamStateCopyWithImpl<$Res>;
+      _$ExamStateCopyWithImpl<$Res, ExamState>;
+  @useResult
   $Res call(
       {List<ExamItem> items,
       ExamItem? exam,
@@ -1015,58 +1012,62 @@ abstract class $ExamStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExamStateCopyWithImpl<$Res> implements $ExamStateCopyWith<$Res> {
+class _$ExamStateCopyWithImpl<$Res, $Val extends ExamState>
+    implements $ExamStateCopyWith<$Res> {
   _$ExamStateCopyWithImpl(this._value, this._then);
 
-  final ExamState _value;
   // ignore: unused_field
-  final $Res Function(ExamState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = freezed,
+    Object? items = null,
     Object? exam = freezed,
-    Object? page = freezed,
-    Object? status = freezed,
-    Object? isLastPage = freezed,
-    Object? msg = freezed,
+    Object? page = null,
+    Object? status = null,
+    Object? isLastPage = null,
+    Object? msg = null,
   }) {
     return _then(_value.copyWith(
-      items: items == freezed
+      items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ExamItem>,
-      exam: exam == freezed
+      exam: freezed == exam
           ? _value.exam
           : exam // ignore: cast_nullable_to_non_nullable
               as ExamItem?,
-      page: page == freezed
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
-      isLastPage: isLastPage == freezed
+      isLastPage: null == isLastPage
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ExamItemCopyWith<$Res>? get exam {
     if (_value.exam == null) {
       return null;
     }
 
     return $ExamItemCopyWith<$Res>(_value.exam!, (value) {
-      return _then(_value.copyWith(exam: value));
+      return _then(_value.copyWith(exam: value) as $Val);
     });
   }
 }
@@ -1077,6 +1078,7 @@ abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
           _$_ExamState value, $Res Function(_$_ExamState) then) =
       __$$_ExamStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<ExamItem> items,
       ExamItem? exam,
@@ -1090,46 +1092,45 @@ abstract class _$$_ExamStateCopyWith<$Res> implements $ExamStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ExamStateCopyWithImpl<$Res> extends _$ExamStateCopyWithImpl<$Res>
+class __$$_ExamStateCopyWithImpl<$Res>
+    extends _$ExamStateCopyWithImpl<$Res, _$_ExamState>
     implements _$$_ExamStateCopyWith<$Res> {
   __$$_ExamStateCopyWithImpl(
       _$_ExamState _value, $Res Function(_$_ExamState) _then)
-      : super(_value, (v) => _then(v as _$_ExamState));
+      : super(_value, _then);
 
-  @override
-  _$_ExamState get _value => super._value as _$_ExamState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = freezed,
+    Object? items = null,
     Object? exam = freezed,
-    Object? page = freezed,
-    Object? status = freezed,
-    Object? isLastPage = freezed,
-    Object? msg = freezed,
+    Object? page = null,
+    Object? status = null,
+    Object? isLastPage = null,
+    Object? msg = null,
   }) {
     return _then(_$_ExamState(
-      items: items == freezed
+      items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ExamItem>,
-      exam: exam == freezed
+      exam: freezed == exam
           ? _value.exam
           : exam // ignore: cast_nullable_to_non_nullable
               as ExamItem?,
-      page: page == freezed
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DataStatus,
-      isLastPage: isLastPage == freezed
+      isLastPage: null == isLastPage
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1153,6 +1154,7 @@ class _$_ExamState extends _ExamState {
   final List<ExamItem> _items;
   @override
   List<ExamItem> get items {
+    if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_items);
   }
@@ -1179,26 +1181,27 @@ class _$_ExamState extends _ExamState {
         (other.runtimeType == runtimeType &&
             other is _$_ExamState &&
             const DeepCollectionEquality().equals(other._items, _items) &&
-            const DeepCollectionEquality().equals(other.exam, exam) &&
-            const DeepCollectionEquality().equals(other.page, page) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality()
-                .equals(other.isLastPage, isLastPage) &&
-            const DeepCollectionEquality().equals(other.msg, msg));
+            (identical(other.exam, exam) || other.exam == exam) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isLastPage, isLastPage) ||
+                other.isLastPage == isLastPage) &&
+            (identical(other.msg, msg) || other.msg == msg));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_items),
-      const DeepCollectionEquality().hash(exam),
-      const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(isLastPage),
-      const DeepCollectionEquality().hash(msg));
+      exam,
+      page,
+      status,
+      isLastPage,
+      msg);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ExamStateCopyWith<_$_ExamState> get copyWith =>
       __$$_ExamStateCopyWithImpl<_$_ExamState>(this, _$identity);
 }

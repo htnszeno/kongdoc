@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:hifive/models/app_response.dart';
-import 'package:hifive/models/exam_model.dart';
-import 'package:hifive/pages/exam/request/create_exam_request.dart';
-import 'package:hifive/pages/exam/request/update_exam_request.dart';
-import 'package:hifive/repositories/core/endpoint.dart';
+import 'package:kongdoc/models/app_response.dart';
+import 'package:kongdoc/models/exam_model.dart';
+import 'package:kongdoc/pages/exam/request/create_exam_request.dart';
+import 'package:kongdoc/pages/exam/request/update_exam_request.dart';
+import 'package:kongdoc/repositories/core/endpoint.dart';
 
 import '../pages/exam/dio/dio_client.dart';
 

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'create_note_request.dart';
 
@@ -34,39 +34,42 @@ mixin _$CreateNoteRequest {
 abstract class $CreateNoteRequestCopyWith<$Res> {
   factory $CreateNoteRequestCopyWith(
           CreateNoteRequest value, $Res Function(CreateNoteRequest) then) =
-      _$CreateNoteRequestCopyWithImpl<$Res>;
+      _$CreateNoteRequestCopyWithImpl<$Res, CreateNoteRequest>;
+  @useResult
   $Res call({String title, String content, String color});
 }
 
 /// @nodoc
-class _$CreateNoteRequestCopyWithImpl<$Res>
+class _$CreateNoteRequestCopyWithImpl<$Res, $Val extends CreateNoteRequest>
     implements $CreateNoteRequestCopyWith<$Res> {
   _$CreateNoteRequestCopyWithImpl(this._value, this._then);
 
-  final CreateNoteRequest _value;
   // ignore: unused_field
-  final $Res Function(CreateNoteRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? color = freezed,
+    Object? title = null,
+    Object? content = null,
+    Object? color = null,
   }) {
     return _then(_value.copyWith(
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      color: color == freezed
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_CreateNoteRequestCopyWith<$Res>
           $Res Function(_$_CreateNoteRequest) then) =
       __$$_CreateNoteRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String title, String content, String color});
 }
 
 /// @nodoc
 class __$$_CreateNoteRequestCopyWithImpl<$Res>
-    extends _$CreateNoteRequestCopyWithImpl<$Res>
+    extends _$CreateNoteRequestCopyWithImpl<$Res, _$_CreateNoteRequest>
     implements _$$_CreateNoteRequestCopyWith<$Res> {
   __$$_CreateNoteRequestCopyWithImpl(
       _$_CreateNoteRequest _value, $Res Function(_$_CreateNoteRequest) _then)
-      : super(_value, (v) => _then(v as _$_CreateNoteRequest));
+      : super(_value, _then);
 
-  @override
-  _$_CreateNoteRequest get _value => super._value as _$_CreateNoteRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? color = freezed,
+    Object? title = null,
+    Object? content = null,
+    Object? color = null,
   }) {
     return _then(_$_CreateNoteRequest(
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      color: color == freezed
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
@@ -140,21 +142,18 @@ class _$_CreateNoteRequest implements _CreateNoteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateNoteRequest &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality().equals(other.color, color));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(color));
+  int get hashCode => Object.hash(runtimeType, title, content, color);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CreateNoteRequestCopyWith<_$_CreateNoteRequest> get copyWith =>
       __$$_CreateNoteRequestCopyWithImpl<_$_CreateNoteRequest>(
           this, _$identity);

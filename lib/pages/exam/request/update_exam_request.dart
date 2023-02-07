@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/material.dart';
-import 'package:hifive/util/util.dart';
+import 'package:kongdoc/util/util.dart';
 
 part 'update_exam_request.freezed.dart';
 part 'update_exam_request.g.dart';

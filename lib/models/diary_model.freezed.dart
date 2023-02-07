@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'diary_model.dart';
 
@@ -31,28 +31,32 @@ mixin _$DiaryItem {
 /// @nodoc
 abstract class $DiaryItemCopyWith<$Res> {
   factory $DiaryItemCopyWith(DiaryItem value, $Res Function(DiaryItem) then) =
-      _$DiaryItemCopyWithImpl<$Res>;
+      _$DiaryItemCopyWithImpl<$Res, DiaryItem>;
+  @useResult
   $Res call({int id});
 }
 
 /// @nodoc
-class _$DiaryItemCopyWithImpl<$Res> implements $DiaryItemCopyWith<$Res> {
+class _$DiaryItemCopyWithImpl<$Res, $Val extends DiaryItem>
+    implements $DiaryItemCopyWith<$Res> {
   _$DiaryItemCopyWithImpl(this._value, this._then);
 
-  final DiaryItem _value;
   // ignore: unused_field
-  final $Res Function(DiaryItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -62,25 +66,25 @@ abstract class _$$_DiaryItemCopyWith<$Res> implements $DiaryItemCopyWith<$Res> {
           _$_DiaryItem value, $Res Function(_$_DiaryItem) then) =
       __$$_DiaryItemCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$_DiaryItemCopyWithImpl<$Res> extends _$DiaryItemCopyWithImpl<$Res>
+class __$$_DiaryItemCopyWithImpl<$Res>
+    extends _$DiaryItemCopyWithImpl<$Res, _$_DiaryItem>
     implements _$$_DiaryItemCopyWith<$Res> {
   __$$_DiaryItemCopyWithImpl(
       _$_DiaryItem _value, $Res Function(_$_DiaryItem) _then)
-      : super(_value, (v) => _then(v as _$_DiaryItem));
+      : super(_value, _then);
 
-  @override
-  _$_DiaryItem get _value => super._value as _$_DiaryItem;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_DiaryItem(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
@@ -109,16 +113,16 @@ class _$_DiaryItem implements _DiaryItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DiaryItem &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DiaryItemCopyWith<_$_DiaryItem> get copyWith =>
       __$$_DiaryItemCopyWithImpl<_$_DiaryItem>(this, _$identity);
 

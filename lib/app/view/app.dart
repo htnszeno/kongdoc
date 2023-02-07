@@ -4,32 +4,33 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:hifive/app/bloc/app_bloc.dart';
-import 'package:hifive/binding/init_bindings.dart';
-import 'package:hifive/enums/app_status.dart';
-import 'package:hifive/l10n/l10n.dart';
-import 'package:hifive/pages/diary/bloc/diary_bloc.dart';
-import 'package:hifive/pages/login/view/view.dart';
-import 'package:hifive/pages/main_page.dart';
-import 'package:hifive/pages/social/bloc/social_bloc.dart';
-import 'package:hifive/repositories/app_repository.dart';
-import 'package:hifive/repositories/diary_repository.dart';
-import 'package:hifive/repositories/social_repository.dart';
-import 'package:hifive/theme.dart';
-import 'package:hifive/util/global.dart';
+import 'package:kongdoc/app/bloc/app_bloc.dart';
+import 'package:kongdoc/binding/init_bindings.dart';
+import 'package:kongdoc/enums/app_status.dart';
+import 'package:kongdoc/l10n/l10n.dart';
+import 'package:kongdoc/pages/login/view/view.dart';
+import 'package:kongdoc/pages/main_page.dart';
+import 'package:kongdoc/repositories/app_repository.dart';
+import 'package:kongdoc/repositories/diary_repository.dart';
+import 'package:kongdoc/theme.dart';
+import 'package:kongdoc/util/global.dart';
+
+import '../../pages/home/bloc/home_bloc.dart';
+import '../../repositories/home_repository.dart';
 
 class App extends StatelessWidget {
   final AppRepository _appRepository;
-  final SocialRepository _socialRepository;
   final DiaryRepository _diaryRepository;
+  final HomeRepository _homeRepository;
+
   const App({
     super.key,
     required AppRepository appRepository,
-    required SocialRepository socialRepository,
     required DiaryRepository diaryRepository,
+    required HomeRepository homeRepository,
   })  : _appRepository = appRepository,
-        _socialRepository = socialRepository,
-        _diaryRepository = diaryRepository;
+        _diaryRepository = diaryRepository,
+        _homeRepository = homeRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +43,14 @@ class App extends StatelessWidget {
         RepositoryProvider.value(
           value: _appRepository,
         ),
-        RepositoryProvider.value(
-          value: _socialRepository,
-        ),
+        // RepositoryProvider.value(
+        //   value: _socialRepository,
+        // ),
         RepositoryProvider.value(
           value: _diaryRepository,
+        ),
+        RepositoryProvider.value(
+          value: _homeRepository,
         ),
       ],
       child: MultiBlocProvider(
@@ -56,16 +60,21 @@ class App extends StatelessWidget {
               appRepository: _appRepository,
             ),
           ),
-          BlocProvider<SocialBloc>(
-            create: (BuildContext context) => SocialBloc(
-              socialRepository: _socialRepository,
+          BlocProvider<HomeBloc>(
+            create: (BuildContext context) => HomeBloc(
+              homeRepository: _homeRepository,
             ),
           ),
-          BlocProvider<DiaryBloc>(
-            create: (BuildContext context) => DiaryBloc(
-              diaryRepository: _diaryRepository,
-            ),
-          ),
+          // BlocProvider<SocialBloc>(
+          //   create: (BuildContext context) => SocialBloc(
+          //     socialRepository: _socialRepository,
+          //   ),
+          // ),
+          // BlocProvider<DiaryBloc>(
+          //   create: (BuildContext context) => DiaryBloc(
+          //     diaryRepository: _diaryRepository,
+          //   ),
+          // ),
         ],
         child: const AppView(),
       ),

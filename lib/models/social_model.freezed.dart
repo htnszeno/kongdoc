@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'social_model.dart';
 
@@ -47,7 +47,8 @@ mixin _$SocialItem {
 abstract class $SocialItemCopyWith<$Res> {
   factory $SocialItemCopyWith(
           SocialItem value, $Res Function(SocialItem) then) =
-      _$SocialItemCopyWithImpl<$Res>;
+      _$SocialItemCopyWithImpl<$Res, SocialItem>;
+  @useResult
   $Res call(
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "post_user_id") String? postUserId,
@@ -61,16 +62,19 @@ abstract class $SocialItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
+class _$SocialItemCopyWithImpl<$Res, $Val extends SocialItem>
+    implements $SocialItemCopyWith<$Res> {
   _$SocialItemCopyWithImpl(this._value, this._then);
 
-  final SocialItem _value;
   // ignore: unused_field
-  final $Res Function(SocialItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postId = freezed,
+    Object? postId = null,
     Object? postUserId = freezed,
     Object? postDate = freezed,
     Object? contents = freezed,
@@ -81,43 +85,43 @@ class _$SocialItemCopyWithImpl<$Res> implements $SocialItemCopyWith<$Res> {
     Object? commentCount = freezed,
   }) {
     return _then(_value.copyWith(
-      postId: postId == freezed
+      postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as String,
-      postUserId: postUserId == freezed
+      postUserId: freezed == postUserId
           ? _value.postUserId
           : postUserId // ignore: cast_nullable_to_non_nullable
               as String?,
-      postDate: postDate == freezed
+      postDate: freezed == postDate
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      contents: contents == freezed
+      contents: freezed == contents
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
               as String?,
-      postUserName: postUserName == freezed
+      postUserName: freezed == postUserName
           ? _value.postUserName
           : postUserName // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      isLike: isLike == freezed
+      isLike: freezed == isLike
           ? _value.isLike
           : isLike // ignore: cast_nullable_to_non_nullable
               as int?,
-      likeCount: likeCount == freezed
+      likeCount: freezed == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      commentCount: commentCount == freezed
+      commentCount: freezed == commentCount
           ? _value.commentCount
           : commentCount // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -128,6 +132,7 @@ abstract class _$$_SocialItemCopyWith<$Res>
           _$_SocialItem value, $Res Function(_$_SocialItem) then) =
       __$$_SocialItemCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "post_id") String postId,
       @JsonKey(name: "post_user_id") String? postUserId,
@@ -141,18 +146,17 @@ abstract class _$$_SocialItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
+class __$$_SocialItemCopyWithImpl<$Res>
+    extends _$SocialItemCopyWithImpl<$Res, _$_SocialItem>
     implements _$$_SocialItemCopyWith<$Res> {
   __$$_SocialItemCopyWithImpl(
       _$_SocialItem _value, $Res Function(_$_SocialItem) _then)
-      : super(_value, (v) => _then(v as _$_SocialItem));
+      : super(_value, _then);
 
-  @override
-  _$_SocialItem get _value => super._value as _$_SocialItem;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postId = freezed,
+    Object? postId = null,
     Object? postUserId = freezed,
     Object? postDate = freezed,
     Object? contents = freezed,
@@ -163,39 +167,39 @@ class __$$_SocialItemCopyWithImpl<$Res> extends _$SocialItemCopyWithImpl<$Res>
     Object? commentCount = freezed,
   }) {
     return _then(_$_SocialItem(
-      postId: postId == freezed
+      postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as String,
-      postUserId: postUserId == freezed
+      postUserId: freezed == postUserId
           ? _value.postUserId
           : postUserId // ignore: cast_nullable_to_non_nullable
               as String?,
-      postDate: postDate == freezed
+      postDate: freezed == postDate
           ? _value.postDate
           : postDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      contents: contents == freezed
+      contents: freezed == contents
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
               as String?,
-      postUserName: postUserName == freezed
+      postUserName: freezed == postUserName
           ? _value.postUserName
           : postUserName // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      isLike: isLike == freezed
+      isLike: freezed == isLike
           ? _value.isLike
           : isLike // ignore: cast_nullable_to_non_nullable
               as int?,
-      likeCount: likeCount == freezed
+      likeCount: freezed == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      commentCount: commentCount == freezed
+      commentCount: freezed == commentCount
           ? _value.commentCount
           : commentCount // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -256,36 +260,40 @@ class _$_SocialItem implements _SocialItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SocialItem &&
-            const DeepCollectionEquality().equals(other.postId, postId) &&
-            const DeepCollectionEquality()
-                .equals(other.postUserId, postUserId) &&
-            const DeepCollectionEquality().equals(other.postDate, postDate) &&
-            const DeepCollectionEquality().equals(other.contents, contents) &&
-            const DeepCollectionEquality()
-                .equals(other.postUserName, postUserName) &&
+            (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.postUserId, postUserId) ||
+                other.postUserId == postUserId) &&
+            (identical(other.postDate, postDate) ||
+                other.postDate == postDate) &&
+            (identical(other.contents, contents) ||
+                other.contents == contents) &&
+            (identical(other.postUserName, postUserName) ||
+                other.postUserName == postUserName) &&
             const DeepCollectionEquality().equals(other.images, images) &&
-            const DeepCollectionEquality().equals(other.isLike, isLike) &&
-            const DeepCollectionEquality().equals(other.likeCount, likeCount) &&
-            const DeepCollectionEquality()
-                .equals(other.commentCount, commentCount));
+            (identical(other.isLike, isLike) || other.isLike == isLike) &&
+            (identical(other.likeCount, likeCount) ||
+                other.likeCount == likeCount) &&
+            (identical(other.commentCount, commentCount) ||
+                other.commentCount == commentCount));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(postId),
-      const DeepCollectionEquality().hash(postUserId),
-      const DeepCollectionEquality().hash(postDate),
-      const DeepCollectionEquality().hash(contents),
-      const DeepCollectionEquality().hash(postUserName),
+      postId,
+      postUserId,
+      postDate,
+      contents,
+      postUserName,
       const DeepCollectionEquality().hash(images),
-      const DeepCollectionEquality().hash(isLike),
-      const DeepCollectionEquality().hash(likeCount),
-      const DeepCollectionEquality().hash(commentCount));
+      isLike,
+      likeCount,
+      commentCount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SocialItemCopyWith<_$_SocialItem> get copyWith =>
       __$$_SocialItemCopyWithImpl<_$_SocialItem>(this, _$identity);
 

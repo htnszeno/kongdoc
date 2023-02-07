@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hifive/app/bloc/app_bloc.dart';
-import 'package:hifive/pages/exam/bloc/exam_bloc.dart';
+import 'package:kongdoc/app/bloc/app_bloc.dart';
+import 'package:kongdoc/pages/exam/bloc/exam_bloc.dart';
 
 class AppSliverAppBar extends StatelessWidget {
   const AppSliverAppBar({

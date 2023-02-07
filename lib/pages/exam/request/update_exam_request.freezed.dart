@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_exam_request.dart';
 
@@ -35,44 +35,47 @@ mixin _$UpdateExamRequest {
 abstract class $UpdateExamRequestCopyWith<$Res> {
   factory $UpdateExamRequestCopyWith(
           UpdateExamRequest value, $Res Function(UpdateExamRequest) then) =
-      _$UpdateExamRequestCopyWithImpl<$Res>;
+      _$UpdateExamRequestCopyWithImpl<$Res, UpdateExamRequest>;
+  @useResult
   $Res call({int id, int userId, String? title, String? body});
 }
 
 /// @nodoc
-class _$UpdateExamRequestCopyWithImpl<$Res>
+class _$UpdateExamRequestCopyWithImpl<$Res, $Val extends UpdateExamRequest>
     implements $UpdateExamRequestCopyWith<$Res> {
   _$UpdateExamRequestCopyWithImpl(this._value, this._then);
 
-  final UpdateExamRequest _value;
   // ignore: unused_field
-  final $Res Function(UpdateExamRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? userId = freezed,
+    Object? id = null,
+    Object? userId = null,
     Object? title = freezed,
     Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      userId: userId == freezed
+      userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      body: body == freezed
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,41 +86,40 @@ abstract class _$$_UpdateExamRequestCopyWith<$Res>
           $Res Function(_$_UpdateExamRequest) then) =
       __$$_UpdateExamRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int id, int userId, String? title, String? body});
 }
 
 /// @nodoc
 class __$$_UpdateExamRequestCopyWithImpl<$Res>
-    extends _$UpdateExamRequestCopyWithImpl<$Res>
+    extends _$UpdateExamRequestCopyWithImpl<$Res, _$_UpdateExamRequest>
     implements _$$_UpdateExamRequestCopyWith<$Res> {
   __$$_UpdateExamRequestCopyWithImpl(
       _$_UpdateExamRequest _value, $Res Function(_$_UpdateExamRequest) _then)
-      : super(_value, (v) => _then(v as _$_UpdateExamRequest));
+      : super(_value, _then);
 
-  @override
-  _$_UpdateExamRequest get _value => super._value as _$_UpdateExamRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? userId = freezed,
+    Object? id = null,
+    Object? userId = null,
     Object? title = freezed,
     Object? body = freezed,
   }) {
     return _then(_$_UpdateExamRequest(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      userId: userId == freezed
+      userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      body: body == freezed
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -153,23 +155,19 @@ class _$_UpdateExamRequest implements _UpdateExamRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateExamRequest &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.userId, userId) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.body, body) || other.body == body));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(userId),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(body));
+  int get hashCode => Object.hash(runtimeType, id, userId, title, body);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UpdateExamRequestCopyWith<_$_UpdateExamRequest> get copyWith =>
       __$$_UpdateExamRequestCopyWithImpl<_$_UpdateExamRequest>(
           this, _$identity);

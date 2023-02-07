@@ -1,11 +1,11 @@
 {
-    "name": "Hifive",
-    "short_name": "Hifive",
+    "name": "Kongdoc",
+    "short_name": "Kongdoc",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "HiFive Mobile App",
+    "description": "Kongdoc Mobile App",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hifive/app/view/app.dart';
-import 'package:hifive/enums/data_status.dart';
-import 'package:hifive/pages/exam/cubit/exam_cubit.dart';
-import 'package:hifive/pages/exam/request/create_exam_request.dart';
-import 'package:hifive/pages/exam/request/update_exam_request.dart';
-import 'package:hifive/util/dialogs.dart';
-import 'package:hifive/widget/app_text_field.dart';
+import 'package:kongdoc/app/view/app.dart';
+import 'package:kongdoc/enums/data_status.dart';
+import 'package:kongdoc/pages/exam/cubit/exam_cubit.dart';
+import 'package:kongdoc/pages/exam/request/create_exam_request.dart';
+import 'package:kongdoc/pages/exam/request/update_exam_request.dart';
+import 'package:kongdoc/util/dialogs.dart';
+import 'package:kongdoc/widget/app_text_field.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class ExamCubitItemPage extends StatefulWidget {

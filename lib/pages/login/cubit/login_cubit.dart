@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:form_inputs/form_inputs.dart';
-import 'package:hifive/repositories/app_repository.dart';
+import 'package:kongdoc/repositories/app_repository.dart';
 
 part 'login_state.dart';
 

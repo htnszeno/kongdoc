@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:hifive/models/app_response.dart';
-import 'package:hifive/models/note_model.dart';
-import 'package:hifive/models/request/create_login_token.dart';
-import 'package:hifive/models/request/create_note_request.dart';
-import 'package:hifive/models/request/update_note_request.dart';
-import 'package:hifive/repositories/core/endpoint.dart';
-import 'package:hifive/repositories/note/base_note_repository.dart';
-import 'package:hifive/util/dio_client/dio_client.dart';
+import 'package:kongdoc/models/app_response.dart';
+import 'package:kongdoc/models/note_model.dart';
+import 'package:kongdoc/models/request/create_login_token.dart';
+import 'package:kongdoc/models/request/create_note_request.dart';
+import 'package:kongdoc/models/request/update_note_request.dart';
+import 'package:kongdoc/repositories/core/endpoint.dart';
+import 'package:kongdoc/repositories/note/base_note_repository.dart';
+import 'package:kongdoc/util/dio_client/dio_client.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
@@ -46,8 +46,8 @@ class NoteRepository extends BaseNoteRepository {
     final Response<dynamic> response = await _dioClient.post(
       Endpoints.token,
       data: {
-        'USER_ID': 'benneykwag',
-        'PW': 'benneykwag',
+        'USER_ID': 'hjim',
+        'PW': '1669705314641',
         '_csrf': csrf,
         '_spring_security_remember_me': true
       },

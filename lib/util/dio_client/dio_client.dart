@@ -2,15 +2,18 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:hifive/app/bloc/app_bloc.dart';
-import 'package:hifive/config.dart';
-import 'package:hifive/constants.dart';
-import 'package:hifive/models/app_response.dart';
-import 'package:hifive/util/global.dart';
+import 'package:kongdoc/app/bloc/app_bloc.dart';
+import 'package:kongdoc/config.dart';
+import 'package:kongdoc/constants.dart';
+import 'package:kongdoc/models/app_response.dart';
+import 'package:kongdoc/util/global.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../models/app_response.dart';
+import '../global.dart';
 
 part 'app_interceptors.dart';
 

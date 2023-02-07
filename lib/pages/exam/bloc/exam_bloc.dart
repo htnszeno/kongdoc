@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hifive/enums/data_status.dart';
-import 'package:hifive/models/exam_model.dart';
-import 'package:hifive/pages/exam/request/create_exam_request.dart';
-import 'package:hifive/pages/exam/request/update_exam_request.dart';
-import 'package:hifive/repositories/exam_repository.dart';
+import 'package:kongdoc/enums/data_status.dart';
+import 'package:kongdoc/models/exam_model.dart';
+import 'package:kongdoc/pages/exam/request/create_exam_request.dart';
+import 'package:kongdoc/pages/exam/request/update_exam_request.dart';
+import 'package:kongdoc/repositories/exam_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 part 'exam_event.dart';
 part 'exam_state.dart';

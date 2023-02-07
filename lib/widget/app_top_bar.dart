@@ -18,7 +18,7 @@ class AppTopBar extends StatelessWidget with PreferredSizeWidget {
             width: 10,
           ),
           const Text(
-            'HiFive',
+            'Kongdoc',
             style: TextStyle(
                 fontFamily: 'Jalnan',
                 fontWeight: FontWeight.bold,

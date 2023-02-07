@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hifive/models/exam_model.dart';
-import 'package:hifive/util/colors.dart';
-import 'package:hifive/util/dialogs.dart';
-import 'package:hifive/util/formatting.dart';
+import 'package:kongdoc/models/exam_model.dart';
+import 'package:kongdoc/util/colors.dart';
+import 'package:kongdoc/util/dialogs.dart';
+import 'package:kongdoc/util/formatting.dart';
 import 'dart:math' as math;
 
 class ExamList extends StatelessWidget {

@@ -7,11 +7,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as GetX;
-import 'package:hifive/constants.dart';
-import 'package:hifive/models/user_model.dart';
-import 'package:hifive/repositories/core/endpoint.dart';
-import 'package:hifive/util/dio_client/dio_client.dart';
-import 'package:hifive/util/global.dart';
+import 'package:kongdoc/constants.dart';
+import 'package:kongdoc/models/user_model.dart';
+import 'package:kongdoc/repositories/core/endpoint.dart';
+import 'package:kongdoc/util/dio_client/dio_client.dart';
+import 'package:kongdoc/util/global.dart';
 import 'package:photo_manager/photo_manager.dart';
 
 // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
