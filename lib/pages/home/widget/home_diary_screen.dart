@@ -1,9 +1,7 @@
 
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kongdoc/pages/home/view/home_theme.dart';
 import 'package:flutter/material.dart';
 
-import '../bloc/home_bloc.dart';
 import 'body_measurement.dart';
 import 'glass_view.dart';
 import 'meals_list_view.dart';
@@ -15,16 +13,12 @@ class HomeDiaryScreen extends StatefulWidget {
   const HomeDiaryScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
-
-
   @override
   _HomeDiaryScreenState createState() => _HomeDiaryScreenState();
 }
 
 class _HomeDiaryScreenState extends State<HomeDiaryScreen>
     with TickerProviderStateMixin {
-
-  late HomeBloc _homeBloc;
   Animation<double>? topBarAnimation;
 
   List<Widget> listViews = <Widget>[];
@@ -33,37 +27,34 @@ class _HomeDiaryScreenState extends State<HomeDiaryScreen>
 
   @override
   void initState() {
-    _homeBloc = context.read<HomeBloc>();
+    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(
+            parent: widget.animationController!,
+            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+    addAllListData();
 
-
-    // topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-    //     CurvedAnimation(
-    //         parent: widget.animationController!,
-    //         curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
-    // addAllListData();
-    //
-    // scrollController.addListener(() {
-    //   if (scrollController.offset >= 24) {
-    //     if (topBarOpacity != 1.0) {
-    //       setState(() {
-    //         topBarOpacity = 1.0;
-    //       });
-    //     }
-    //   } else if (scrollController.offset <= 24 &&
-    //       scrollController.offset >= 0) {
-    //     if (topBarOpacity != scrollController.offset / 24) {
-    //       setState(() {
-    //         topBarOpacity = scrollController.offset / 24;
-    //       });
-    //     }
-    //   } else if (scrollController.offset <= 0) {
-    //     if (topBarOpacity != 0.0) {
-    //       setState(() {
-    //         topBarOpacity = 0.0;
-    //       });
-    //     }
-    //   }
-    // });
+    scrollController.addListener(() {
+      if (scrollController.offset >= 24) {
+        if (topBarOpacity != 1.0) {
+          setState(() {
+            topBarOpacity = 1.0;
+          });
+        }
+      } else if (scrollController.offset <= 24 &&
+          scrollController.offset >= 0) {
+        if (topBarOpacity != scrollController.offset / 24) {
+          setState(() {
+            topBarOpacity = scrollController.offset / 24;
+          });
+        }
+      } else if (scrollController.offset <= 0) {
+        if (topBarOpacity != 0.0) {
+          setState(() {
+            topBarOpacity = 0.0;
+          });
+        }
+      }
+    });
     super.initState();
   }
 
@@ -204,15 +195,11 @@ class _HomeDiaryScreenState extends State<HomeDiaryScreen>
         backgroundColor: Colors.transparent,
         body: Stack(
           children: <Widget>[
-            ElevatedButton(onPressed: (){
-              _homeBloc.add(const Started());
-
-            }, child: Text("SAVE")),
-            // getMainListViewUI(),
-            // getAppBarUI(),
-            // SizedBox(
-            //   height: MediaQuery.of(context).padding.bottom,
-            // )
+            getMainListViewUI(),
+            getAppBarUI(),
+            SizedBox(
+              height: MediaQuery.of(context).padding.bottom,
+            )
           ],
         ),
       ),

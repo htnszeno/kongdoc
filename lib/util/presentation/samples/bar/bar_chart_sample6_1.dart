@@ -3,8 +3,8 @@ import 'package:kongdoc/util/presentation/widgets/legend_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class BarChartSample6 extends StatelessWidget {
-  const BarChartSample6({super.key});
+class BarChartSample6_1 extends StatelessWidget {
+  const BarChartSample6_1({super.key});
 
   final pilateColor = AppColors.contentColorPurple;
   final cyclingColor = AppColors.contentColorCyan;

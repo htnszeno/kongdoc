@@ -1,5 +1,5 @@
-import 'package:fl_chart_app/presentation/resources/app_resources.dart';
-import 'package:fl_chart_app/util/extensions/color_extensions.dart';
+import 'package:kongdoc/util/presentation/resources/app_resources.dart';
+import 'package:kongdoc/util/chart/extensions/color_extensions.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 

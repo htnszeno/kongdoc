@@ -1,4 +1,4 @@
-import 'package:fl_chart_app/util/app_helper.dart';
+import 'package:kongdoc/util/chart/app_helper.dart';
 
 import 'bar/bar_chart_sample1.dart';
 import 'bar/bar_chart_sample2.dart';

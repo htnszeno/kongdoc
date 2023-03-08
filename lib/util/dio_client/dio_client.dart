@@ -25,6 +25,7 @@ class DioClient {
   DioClient._internal();
 
   factory DioClient() {
+
     return _singleton ??= DioClient._internal();
   }
   static Dio createDioClient() {

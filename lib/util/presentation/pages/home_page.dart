@@ -1,7 +1,7 @@
 import 'package:dartx/dartx.dart';
-import 'package:fl_chart_app/presentation/menu/app_menu.dart';
-import 'package:fl_chart_app/presentation/resources/app_resources.dart';
-import 'package:fl_chart_app/util/app_helper.dart';
+import 'package:kongdoc/util/presentation/menu/app_menu.dart';
+import 'package:kongdoc/util/presentation/resources/app_resources.dart';
+import 'package:kongdoc/util/chart/app_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

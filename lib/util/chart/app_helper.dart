@@ -1,4 +1,4 @@
-import 'package:fl_chart_app/presentation/resources/app_resources.dart';
+import 'package:kongdoc/util/presentation/resources/app_resources.dart';
 
 enum ChartType { line, bar, pie, scatter, radar }
 

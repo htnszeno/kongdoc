@@ -1,6 +1,6 @@
-import 'package:fl_chart_app/presentation/pages/home_page.dart';
-import 'package:fl_chart_app/presentation/resources/app_colors.dart';
-import 'package:fl_chart_app/util/app_helper.dart';
+import 'package:kongdoc/util/presentation/pages/home_page.dart';
+import 'package:kongdoc/util/presentation/resources/app_colors.dart';
+import 'package:kongdoc/util/chart/app_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

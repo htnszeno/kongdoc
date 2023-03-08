@@ -1,4 +1,4 @@
-import 'package:fl_chart_app/presentation/resources/app_resources.dart';
+import 'package:kongdoc/util/presentation/resources/app_resources.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -94,9 +94,10 @@ class _LineChartSample3State extends State<LineChartSample3> {
     return SideTitleWidget(
       axisSide: meta.axisSide,
       space: 6,
-      fitInside: fitInsideLeftTitle
-          ? SideTitleFitInsideData.fromTitleMeta(meta)
-          : SideTitleFitInsideData.disable(),
+      //
+      // fitInside: fitInsideLeftTitle
+      //     ? SideTitleFitInsideData.fromTitleMeta(meta)
+      //     : SideTitleFitInsideData.disable(),
       child: Text(text, style: style, textAlign: TextAlign.center),
     );
   }
@@ -114,9 +115,9 @@ class _LineChartSample3State extends State<LineChartSample3> {
     return SideTitleWidget(
       space: 4,
       axisSide: meta.axisSide,
-      fitInside: fitInsideBottomTitle
-          ? SideTitleFitInsideData.fromTitleMeta(meta, distanceFromEdge: 0)
-          : SideTitleFitInsideData.disable(),
+      // fitInside: fitInsideBottomTitle
+      //     ? SideTitleFitInsideData.fromTitleMeta(meta, distanceFromEdge: 0)
+      //     : SideTitleFitInsideData.disable(),
       child: Text(
         widget.weekDays[value.toInt()],
         style: style,

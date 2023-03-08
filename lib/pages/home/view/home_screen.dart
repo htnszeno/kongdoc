@@ -9,6 +9,7 @@ import '../../../models/tabIcon_data.dart';
 import '../../../repositories/home_repository.dart';
 import '../bloc/home_bloc.dart';
 import '../widget/bottom_bar_view.dart';
+import '../widget/training_chart_screen.dart';
 import '../widget/training_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class HomeScreen extends StatefulWidget {
         child: BlocProvider<HomeBloc>(
           create: (context) => HomeBloc(
             homeRepository: context.read<HomeRepository>(),
-          ),
+          )..add(const Started()),
           child: const HomeScreen(),
         ),
       ),
@@ -47,12 +48,20 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void initState() {
+    tabIconsList.forEach((TabIconData tab) {
+      tab.isSelected = false;
+    });
+    tabIconsList[0].isSelected = true;
 
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 600), vsync: this);
+    tabBody = HomeDiaryScreen(animationController: animationController);
     super.initState();
   }
 
   @override
   void dispose() {
+    animationController?.dispose();
     super.dispose();
   }
 
@@ -60,7 +69,48 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Container(
       color: HomeTheme.background,
-      child:HomeDiaryScreen()
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.transparent,
+        body: RefreshIndicator(
+          onRefresh: () async {
+            context.read<HomeBloc>().add(const Refresh());
+          },
+          child: BlocConsumer<HomeBloc, HomeState> (
+            listener: (_, __) {},
+            builder: (context, state) {
+              if (state.status.isLoading) {
+                return BlankContent(
+                  isLoading: true,
+                );
+              }else{
+                return Stack(
+                    children: <Widget>[
+                      tabBody,
+                      bottomBar(),
+                      ]
+                );
+              }
+
+            }
+          ),
+          // child: FutureBuilder<bool>(
+          //   future: getData(),
+          //   builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+          //     if (!snapshot.hasData) {
+          //       return const SizedBox();
+          //     } else {
+          //       return Stack(
+          //         children: <Widget>[
+          //           tabBody,
+          //           bottomBar(),
+          //         ],
+          //       );
+          //     }
+          //   },
+          // ),
+        ),
+      ),
     );
   }
 
@@ -89,7 +139,17 @@ class _HomeScreenState extends State<HomeScreen>
                       HomeDiaryScreen(animationController: animationController);
                 });
               });
-            } else if (index == 1 || index == 3) {
+            } else if (index == 1) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      TrainingChartScreen();
+                });
+              });
+            } else if (index == 3) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;

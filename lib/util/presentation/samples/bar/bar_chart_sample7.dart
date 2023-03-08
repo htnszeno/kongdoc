@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:fl_chart_app/presentation/resources/app_resources.dart';
+import 'package:kongdoc/util/presentation/resources/app_resources.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 

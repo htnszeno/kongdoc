@@ -1,5 +1,5 @@
-import 'package:fl_chart_app/urls.dart';
-import 'package:fl_chart_app/util/app_helper.dart';
+import 'package:kongdoc/util/urls.dart';
+import 'package:kongdoc/util/chart/app_helper.dart';
 import 'package:flutter/cupertino.dart';
 
 abstract class ChartSample {

@@ -1,5 +1,5 @@
-import 'package:fl_chart_app/presentation/resources/app_resources.dart';
-import 'package:fl_chart_app/presentation/samples/chart_sample.dart';
+import 'package:kongdoc/util/presentation/resources/app_resources.dart';
+import 'package:kongdoc/util/presentation/samples/chart_sample.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
